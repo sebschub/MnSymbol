@@ -83,14 +83,14 @@ def beginoperator(expr size) =
     centre := (w/2, (h-d)/2);
 enddef;
 
-def beginbigop(expr scale) =
-  beginsymbol(scale * 3/2order_width# + 2side_bearing#,
-              ((scale - 1)/2 + 1) * asc_height# + scale * 1/6equal_spread# + 2/3rule_thickness#,
-              (scale - 1)/2 * asc_height# + scale * 1/6equal_spread# + 2/3rule_thickness#);
+def beginbigop(expr xscale, yscale) =
+  beginsymbol(xscale * 3/2order_width# + 2side_bearing#,
+              ((yscale - 1)/2 + 1) * asc_height# + yscale * 1/6equal_spread# + 2/3rule_thickness#,
+              (yscale - 1)/2 * asc_height# + yscale * 1/6equal_spread# + 2/3rule_thickness#);
     pair centre;
     centre := (w/2, (h-d)/2);
-    op_width  := scale * 3/2order_width;
-    op_height := scale * (asc_height + 1/3equal_spread);
+    op_width  := xscale * 3/2order_width;
+    op_height := yscale * (asc_height + 1/3equal_spread);
 enddef;
 
 def beginarrow(expr angle, scale, spread) =
