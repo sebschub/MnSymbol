@@ -793,8 +793,7 @@ beginoperator(large_op_size#); "large pentagram";
 endchar;
 
 beginoperator(small_op_size#); "medium thin filled star";
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
+  pickup pencircle scaled 1/2;
 
   r := w/2 - side_bearing;
 
@@ -1193,8 +1192,7 @@ for negated = 0, 1:
 endfor;
 
 beginsymbol(3/2order_width# + 2side_bearing#, vcentre(med_op_size#)); "nabla";
-  pickup rule_pen;
-  pickup currentpen scaled 2/3;
+  pickup pencircle scaled 2/3;
 
   top y0 = top y1 = h;
   bot y2 = -d;
@@ -1341,8 +1339,7 @@ endchar;
 
 beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
 
-  pickup rule_pen;
-  pickup currentpen scaled 2/3;
+  pickup pencircle scaled 2/3;
 
   penpos 1(0, 65);
   penpos 2(rule_thickness, 65);
@@ -1402,8 +1399,7 @@ endchar;
 
 %beginsymbol(11u#, asc_height#, 0); "aleph";
 %
-%  pickup rule_pen;
-%  pickup currentpen scaled 1/2;
+%  pickup pencircle scaled 1/2;
 %
 %%cap_stem := 3/2rule_thickness;
 %%cap_hair := 1/2rule_thickness;
@@ -1480,8 +1476,7 @@ endchar;
 
 beginsymbol(11u#, asc_height#, 0); "beth";
 
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
+  pickup pencircle scaled 1/2;
 
   top y0 = h;
   lft x0 = u;
@@ -1518,8 +1513,7 @@ endchar;
 
 beginsymbol(7u#, asc_height#, 0); "gimel";
 
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
+  pickup pencircle scaled 1/2;
 
   top y0 = h;
   lft x0 = u;
@@ -1570,8 +1564,7 @@ endchar;
 
 beginsymbol(10u#, asc_height#, 0); "daleth";
 
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
+  pickup pencircle scaled 1/2;
 
   top y0 = h;
   lft x0 = u;
