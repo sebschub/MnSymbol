@@ -561,7 +561,7 @@ if negated < 2:
 fi;
 
 if negated < 2:
-  beginorder(1, order_width# + rule_thickness#, 3equal_spread# + 7/2dot_size# + rule_thickness#);
+  beginorder(1, order_width# + rule_thickness#, 5/2equal_spread# + 7/2dot_size# + rule_thickness#);
     "hat equal";
 
     pickup rule_pen;
@@ -573,7 +573,7 @@ if negated < 2:
     1/2[z2, z3] = right_pt;
 
     x4 = xpart centre;
-    y4 = y5 + sind 60 * (x6 - x5) = h - 1/2rule_thickness;
+    y4 = y5 + sind 30 * (x6 - x5) = h - 1/2rule_thickness;
 
     y5 = y6;
     1/2[x5, x6] = xpart centre;
