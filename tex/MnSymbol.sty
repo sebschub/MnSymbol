@@ -1326,6 +1326,8 @@
 \Decl@Mn@Char\drcircleleftint           {symbols}{\mathop}
 \Decl@Mn@Char\tlcircleleftint           {symbols}{\mathop}
 \Decl@Mn@Char\dlcircleleftint           {symbols}{\mathop}
+\Decl@Mn@Char\partialvartint            {symbols}{\mathop}
+\Decl@Mn@Char\partialvardint            {symbols}{\mathop}
 \Decl@Mn@Char\partialvartlandupint      {symbols}{\mathop}
 \Decl@Mn@Char\partialvardlandupint      {symbols}{\mathop}
 \Decl@Mn@Char\partialvartlanddownint    {symbols}{\mathop}
@@ -1351,14 +1353,14 @@
 \Decl@Mn@Int\iiint\diiint\tiiint
 \Decl@Mn@Int\iiiint\diiiint\tiiiint
 \Decl@Mn@Int\idotsint\didotsint\tidotsint
-\Decl@Mn@Int\landupint\tlandupint\dlandupint
-\Decl@Mn@Int\landdownint\tlanddownint\dlanddownint
-\Decl@Mn@Int\strokedint\tstrokedint\dstrokedint
+\Decl@Mn@Int\landupint\dlandupint\tlandupint
+\Decl@Mn@Int\landdownint\dlanddownint\tlanddownint
+\Decl@Mn@Int\strokedint\dstrokedint\tstrokedint
 \Decl@Mn@Int\oiint\doiint\toiint
-\Decl@Mn@Int\rcirclerightint\trcirclerightint\drcirclerightint
-\Decl@Mn@Int\lcirclerightint\tlcirclerightint\dlcirclerightint
-\Decl@Mn@Int\rcircleleftint\trcircleleftint\drcircleleftint
-\Decl@Mn@Int\lcircleleftint\tlcircleleftint\dlcircleleftint
+\Decl@Mn@Int\rcirclerightint\drcirclerightint\trcirclerightint
+\Decl@Mn@Int\lcirclerightint\dlcirclerightint\tlcirclerightint
+\Decl@Mn@Int\rcircleleftint\drcircleleftint\trcircleleftint
+\Decl@Mn@Int\lcircleleftint\dlcircleleftint\tlcircleleftint
 \def\intkern@{\mkern-10mu\mathchoice{\mkern-6mu}{}{}{}}
 \def\intdots@{\mkern-7mu%
   \mathchoice{\mkern-3mu\@cdots\mkern-3mu}%
@@ -1600,8 +1602,17 @@
 \DeclareMathAccent{\vec}{\mathord}{largesymbols}{"BD}
 
 
-\def\overstrike#1#2{{\setbox0\hbox{$#2$}\hbox to \wd0{\hss
-    $#1$\hss}\kern-\wd0\box0}}
+\def\overstrike#1#2{%
+  \mathchoice
+    {\@overstrike\displaystyle{#1}{#2}}%
+    {\@overstrike\textstyle{#1}{#2}}%
+    {\@overstrike\scriptstyle{#1}{#2}}%
+    {\@overstrike\scriptscriptstyle{#1}{#2}}%
+  #2}
+\def\@overstrike#1#2#3{%
+  {\setbox0\hbox{$\m@th#1#3$}%
+   \hbox to \wd0{\hss$\m@th#1#2$\hss}%
+   \kern-\wd0}}
 \def\not#1{\mathrel{\overstrike{/}{#1}}}
 
 %\renewcommand{\AmSfont}{%
