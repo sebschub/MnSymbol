@@ -696,6 +696,23 @@ for alpha = -90, 90:
   endfor;
 endfor;
 
+%for scale = 1, 1.8:
+%
+%  display_shift# := 0;%(1 + 5/2(scale-1)) * 1/4order_width#;
+%  text_shift#    := -2/8order_width#;
+%  script_delta#  := (1 + 3/2(scale-1)) * 1/2order_width#;
+%  define_whole_pixels(display_shift, text_shift, script_delta);
+%
+%  beginsymbol(scale * 1/2 * order_width# + 2side_bearing# - display_shift# - 2text_shift#,
+%              ((scale - 1)/2 + 1) * 1.4asc_height# + scale * 1/6equal_spread# + 2/3rule_thickness#,
+%              (scale - 1)/2 * 1.4asc_height# + scale * 1/6equal_spread# + 2/3rule_thickness#);
+%    "partial integral";
+%
+%    italcorr script_delta#; % kerning between upper limit and lower limit
+%  endchar;
+%endfor;
+%charlist current_char - 1: current_char;
+
 for scale = 1, 1.8:
 
   display_shift# := 0;%(1 + 5/2(scale-1)) * 1/4order_width#;
@@ -703,12 +720,24 @@ for scale = 1, 1.8:
   script_delta#  := (1 + 3/2(scale-1)) * 1/2order_width#;
   define_whole_pixels(display_shift, text_shift, script_delta);
 
-  beginsymbol(scale * 1/2 * order_width# + 2side_bearing# - display_shift# - 2text_shift#,
+  beginsymbol(scale * (1/2 + 1) * order_width# + 2side_bearing# - display_shift# - 2text_shift#,
               ((scale - 1)/2 + 1) * 1.4asc_height# + scale * 1/6equal_spread# + 2/3rule_thickness#,
               (scale - 1)/2 * 1.4asc_height# + scale * 1/6equal_spread# + 2/3rule_thickness#);
-    "partial integral";
+    "partial integral dots";
 
-    italcorr script_delta#; % kerning between upper limit and lower limit
+    italcorr (1 + 3/2(scale-1)) * 2/3order_width#; % kerning between upper limit and lower limit
+
+    pair centre;
+
+    centre := (1/2(w + script_delta), (h-d)/2);
+
+    z0 = centre + 1/2scale * order_width * left;
+    z1 = centre;
+    z2 = centre + 1/2scale * order_width * right;
+
+    fill circle(z0, dot_size);
+    fill circle(z1, dot_size);
+    fill circle(z2, dot_size);
   endchar;
 endfor;
 charlist current_char - 1: current_char;
