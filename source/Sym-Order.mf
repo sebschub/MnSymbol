@@ -528,7 +528,8 @@ if negated < 2:
 
     pickup pencircle scaled 3/4rule_thickness;
 
-    draw circle(centre + 3/2equal_spread * dir 90, 7/4dot_size);
+    draw circle(centre + 3/2equal_spread * dir 90,
+                min (7/4dot_size, equal_spread - 3/4rule_thickness));
 
     if negated = 1:
       stroke_through(centre, 3equal_spread + 7/2dot_size);
