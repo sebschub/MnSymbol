@@ -818,17 +818,24 @@
 % \showsymbol\amalg
 % \showsymbol\checkmark
 % \showsymbol\lightning
+% \showsymbol\diamondsuit
+% \showsymbol\heartsuit
+% \showsymbol\spadesuit
+% \showsymbol\clubsuit
 % \showsymbol\forall
 % \showsymbol\exists
 % \showsymbol\nexists
 % \showsymbol\nabla
+% \showsymbol\smallint
+% \showsymbol\flat
+% \showsymbol\natural
+% \showsymbol\sharp
 % \showsymbol\aleph
 % \showsymbol\beth
 % \showsymbol\gimel
 % \showsymbol\daleth
 % \showsymbol\wp
 % \showsymbol\powerset
-% \showsymbol\smallint
 % \end{multicols}
 %
 % \subsection*{Relations}
@@ -1185,6 +1192,7 @@
 % \showop\lcirclerightint
 % \showop\rcircleleftint
 % \showop\lcircleleftint
+% \showop\sumint
 % \end{multicols}
 %
 % \subsection*{Braces}
@@ -1312,13 +1320,6 @@
 % The following symbols from Computer Modern or the AMS fonts are missing in MnSymbol.
 % \begin{multicols}{3}
 % \parindent=0pt
-% |\flat|\par
-% |\natural|\par
-% |\sharp|\par
-% |\clubsuit|\par
-% |\diamondsuit|\par
-% |\heartsuit|\par
-% |\spadesuit|\par
 % |\maltese|\par
 % |\blacksquare|\par
 % |\blacklozenge|\par
@@ -2360,17 +2361,24 @@
 \Decl@Mn@Char\amalg                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\checkmark              {MnSyC}{\mathord}
 \Decl@Mn@Char\lightning              {MnSyC}{\mathord}
+\Decl@Mn@Char\diamondsuit            {MnSyC}{\mathord}
+\Decl@Mn@Char\heartsuit              {MnSyC}{\mathord}
+\Decl@Mn@Char\spadesuit              {MnSyC}{\mathord}
+\Decl@Mn@Char\clubsuit               {MnSyC}{\mathord}
 \Decl@Mn@Char\forall                 {MnSyC}{\mathord}
 \Decl@Mn@Char\exists                 {MnSyC}{\mathord}
 \Decl@Mn@Char\nexists                {MnSyC}{\mathord}
 \Decl@Mn@Char\nabla                  {MnSyC}{\mathord}
+\Decl@Mn@Char\smallint               {MnSyC}{\mathop}
+\Decl@Mn@Char\flat                   {MnSyC}{\mathop}
+\Decl@Mn@Char\natural                {MnSyC}{\mathop}
+\Decl@Mn@Char\sharp                  {MnSyC}{\mathop}
 \Decl@Mn@Char\aleph                  {MnSyC}{\mathord}
 \Decl@Mn@Char\beth                   {MnSyC}{\mathord}
 \Decl@Mn@Char\gimel                  {MnSyC}{\mathord}
 \Decl@Mn@Char\daleth                 {MnSyC}{\mathord}
 \Decl@Mn@Char\wp                     {MnSyC}{\mathord}
 \Decl@Mn@Char\powerset               {MnSyC}{\mathord}
-\Decl@Mn@Char\smallint               {MnSyC}{\mathop}
 %    \end{macrocode}
 %
 % MnSymbolD\?: Relations.
@@ -2781,6 +2789,8 @@
 \Decl@Mn@Char\drcircleleftint           {symbols}{\mathop}
 \Decl@Mn@Char\tlcircleleftint           {symbols}{\mathop}
 \Decl@Mn@Char\dlcircleleftint           {symbols}{\mathop}
+\Decl@Mn@Char\tsumint                   {symbols}{\mathop}
+\Decl@Mn@Char\dsumint                   {symbols}{\mathop}
 \Decl@Mn@Char\partialvartint            {symbols}{\mathop}
 \Decl@Mn@Char\partialvardint            {symbols}{\mathop}
 \Decl@Mn@Char\partialvartlandupint      {symbols}{\mathop}
@@ -2801,6 +2811,8 @@
 \Decl@Mn@Char\partialvardrcircleleftint {symbols}{\mathop}
 \Decl@Mn@Char\partialvartlcircleleftint {symbols}{\mathop}
 \Decl@Mn@Char\partialvardlcircleleftint {symbols}{\mathop}
+\Decl@Mn@Char\partialvartsumint         {symbols}{\mathop}
+\Decl@Mn@Char\partialvardsumint         {symbols}{\mathop}
 
 \let\intop\tint
 \let\ointop\toint
@@ -2816,6 +2828,8 @@
 \Decl@Mn@Int\lcirclerightint\dlcirclerightint\tlcirclerightint
 \Decl@Mn@Int\rcircleleftint\drcircleleftint\trcircleleftint
 \Decl@Mn@Int\lcircleleftint\dlcircleleftint\tlcircleleftint
+\Decl@Mn@Int\sumint\dsumint\tsumint
+
 \def\intkern@{\mkern-10mu\mathchoice{\mkern-6mu}{}{}{}}
 \def\intdots@{\mkern-7mu%
   \mathchoice{\mkern-3mu\@cdots\mkern-3mu}%
@@ -3115,14 +3129,6 @@
 % (a) Missing symbols.
 %
 %    \begin{macrocode}
-\let\flat\undefined
-\let\natural\undefined
-\let\sharp\undefined
-\let\clubsuit\undefined
-\let\diamondsuit\undefined
-\let\heartsuit\undefined
-\let\spadesuit\undefined
-
 \let\maltese\undefined
 \let\blacksquare\undefined
 \let\blacklozenge\undefined
