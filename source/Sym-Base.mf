@@ -498,6 +498,11 @@ def draw_integral(suffix $)(expr scale, center) =
   y6$ = 1/9[y4$, y3$];
   x6$ = 8/5[x3$l, x4$l];
 
+  x5$r := ceiling x5$r + 1;
+  y5$r := ceiling y5$r;
+  x6$l := floor   x6$l - 1;
+  y6$l := floor   y6$l;
+
   fill z5$l .. z2$l{left} .. {z3$-z1$}z1$l -- z3$l{z3$-z1$} .. tension 1.5 .. {left}z4$l .. z6$l -- z6$r
     .. z4$r{right} .. {z1$-z3$}z3$r -- z1$r{z1$-z3$} .. tension 1.5 .. {right}z2$r .. z5$r -- cycle;
   fill circle(z5$, 1/3thick);
