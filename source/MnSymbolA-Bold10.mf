@@ -1,2 +1,2 @@
 design_size := 10;
-input MnSymbolA;
+input MnSymbolA-Bold;
