@@ -1,0 +1,30 @@
+MnSymbols is a symbol font designed to be used in conjunction with Adobe
+Minion. The current release is a beta version. In particular, the font
+metrics may change in the future.
+
+All files in this archive are in the public domain.
+
+To install the fonts, copy all files with the suffix .mf into the
+directory
+
+   .../texmf/fonts/source/public/MnSymbol/
+
+copy the file MnSymbol.sty to
+
+   .../texmf/tex/latex/MnSymbol/MnSymbol.sty
+
+and the documentation (tables.tex, tables.ps, README) should go into
+the directory
+
+   .../texmf/doc/latex/MnSymbol/
+
+After you have copied the files you need to regenerate the file
+database.
+
+To use the font, include the line
+
+  \usepackage{MnSymbol}
+
+in the preamble of your document.
+
+Achim Blumensath
