@@ -439,7 +439,7 @@ charlist current_char - 1: current_char;
 
 for sign = 1, -1:
   for scale = 1.1, 1.54:
-    beginbigop(1.2scale, scale); "product";
+    beginbigop(1.1scale, scale); "product";
       draw_product(centre, op_width, op_height, sign, 5/3rule_thickness * sqrt scale);
     endchar;
   endfor;

@@ -244,7 +244,7 @@ extensible current_char: 0, 0, 0, current_char; % double vertical line
 
 for scale = 2, 2.5, 3.3, 4.2, 5.1:
   beginsymbol((scale + 8)/2 * u# + 2side_bearing#, vcentre(scale * delim_height#)); "double vertical bar";
-    thick := 3/8rule_thickness * sqrt scale;
+    thick := 4/8rule_thickness * sqrt scale;
 
     pickup pencircle scaled 1/12thick;
 
