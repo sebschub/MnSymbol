@@ -1,6 +1,6 @@
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big plus";
+  beginsquarebigop(scale, scale); "big plus";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -65,12 +65,12 @@ endfor;
 
 for sign = 1, -1:
   for scale = 1, 1.4:
-    beginbigop(scale, scale); "double big wedge";
+    beginbigop(6/5scale, scale); "double big wedge";
 
       pickup rule_pen;
       pickup currentpen scaled (4/3 * sqrt scale);
 
-      z3 - z0 = z2 - z1 = op_width * dir 0;
+      z3 - z0 = z2 - z1 = 5/6op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
 
       1/2[1/2[z0,z1], 1/2[z2,z3]] = centre;
@@ -120,7 +120,7 @@ endfor;
 
 for sign = 1, -1:
   for scale = 1, 1.4:
-    beginbigop(scale, scale); "double big curly wedge";
+    beginbigop(6/5scale, scale); "double big curly wedge";
 
       pickup rule_pen;
       pickup currentpen scaled (4/3 * sqrt scale);
@@ -130,10 +130,10 @@ for sign = 1, -1:
 
       draw prec(z0 + sign * op_height/2 * dir 90,
                 z0 - sign * op_height/2 * dir 90,
-                op_width);
+                5/6op_width);
       draw prec(z1 + sign * op_height/2 * dir 90,
                 z1 - sign * op_height/2 * dir 90,
-                op_width);
+                5/6op_width);
     endchar;
   endfor;
   charlist current_char - 1: current_char;
@@ -257,7 +257,7 @@ for sign = 1, -1:
 endfor;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle";
+  beginsquarebigop(scale, scale); "big circle";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -267,7 +267,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle minus";
+  beginsquarebigop(scale, scale); "big circle minus";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -280,7 +280,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle bar";
+  beginsquarebigop(scale, scale); "big circle bar";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -293,7 +293,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle slash";
+  beginsquarebigop(scale, scale); "big circle slash";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -306,7 +306,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle backslash";
+  beginsquarebigop(scale, scale); "big circle backslash";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -319,7 +319,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle plus";
+  beginsquarebigop(scale, scale); "big circle plus";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -333,7 +333,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle times";
+  beginsquarebigop(scale, scale); "big circle times";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -347,7 +347,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle dot";
+  beginsquarebigop(scale, scale); "big circle dot";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -358,7 +358,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle circle";
+  beginsquarebigop(scale, scale); "big circle circle";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -369,7 +369,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle triangle";
+  beginsquarebigop(scale, scale); "big circle triangle";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 
@@ -383,7 +383,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle asterisk";
+  beginsquarebigop(scale, scale); "big circle asterisk";
     thick := 4/3rule_thickness * sqrt scale;
 
     pickup pencircle scaled thick;
@@ -418,7 +418,7 @@ endfor;
 charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
-  beginbigop(scale, scale); "big circle star";
+  beginsquarebigop(scale, scale); "big circle star";
     pickup rule_pen;
     pickup currentpen scaled (4/3 * sqrt scale);
 

@@ -500,6 +500,9 @@ if negated < 2:
 
     draw z0 -- z2;
     draw z1 -- z3;
+
+    pickup pencircle scaled 3/4rule_thickness;
+
     draw circle(centre, 1/2equal_spread);
 
     if negated = 1:
@@ -522,6 +525,9 @@ if negated < 2:
 
     draw z0 -- z2;
     draw z1 -- z3;
+
+    pickup pencircle scaled 3/4rule_thickness;
+
     draw circle(centre + 3/2equal_spread * dir 90, 7/4dot_size);
 
     if negated = 1:
@@ -552,6 +558,9 @@ if negated < 2:
 
     draw z0 -- z2;
     draw z1 -- z3;
+
+    pickup pencircle scaled 3/4rule_thickness;
+
     draw z4 -- z5 -- z6 -- cycle;
 
     if negated = 1:

@@ -93,6 +93,16 @@ def beginbigop(expr xscale, yscale) =
     op_height := yscale * (asc_height + 1/3equal_spread);
 enddef;
 
+def beginsquarebigop(expr xscale, yscale) =
+  beginsymbol(xscale * (asc_height# + 1/3equal_spread#) + 2side_bearing#,
+              ((yscale - 1)/2 + 1) * asc_height# + yscale * 1/6equal_spread# + 2/3rule_thickness#,
+              (yscale - 1)/2 * asc_height# + yscale * 1/6equal_spread# + 2/3rule_thickness#);
+    pair centre;
+    centre := (w/2, (h-d)/2);
+    op_width  := xscale * (asc_height + 1/3equal_spread);
+    op_height := yscale * (asc_height + 1/3equal_spread);
+enddef;
+
 def beginarrow(expr angle, scale, spread) =
   arrow_len# := scale *
     if     angle mod 180 =  0: arrow_horiz_len#
