@@ -1,8 +1,8 @@
-\def\filedate{2005/01/26}
-\def\fileversion{v1.0}
+\def\filedate{2005/04/03}
+\def\fileversion{v1.1}
 %\iffalse
 %<*dtx>
-\ProvidesFile{MnSymbol.dtx}[2005/01/26 v1.0 math symbol font]
+\ProvidesFile{MnSymbol.dtx}[2005/04/03 v1.1 math symbol font]
 %</dtx>
 %<*driver>
 \documentclass{ltxdoc}
@@ -48,14 +48,14 @@
 % The \textsf{MnSymbol} package provides the following symbols.
 %
 % \def\cs#1{\texttt{\string#1}}
-% \def\showsymbol#1{\par\noindent\hangindent2em\hangafter1\hskip0pt{\hbox to 2em{$#1$\hfil}\cs{#1}}}
-% \def\showwidesymbol#1{\par\noindent\hangindent4em\hangafter1\hskip0pt{\hbox to 4em{$#1$\hfil}\cs{#1}}}
-% \def\showop#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 5em{$#1$\hfil$\displaystyle#1$\hfil}\cs{#1}}}
-% \def\showmbrace#1{\par\noindent\hangindent4em\hangafter1\hskip0pt{\hbox to 4em{$#1\bigm#1\Bigm#1\biggm#1\Biggm#1$\hfil}\cs{#1}}}
-% \def\showlbrace#1{\par\noindent\hangindent4em\hangafter1\hskip0pt{\hbox to 4em{$\Biggl#1\biggl#1\Bigl#1\bigl#1#1$\hfil}\cs{#1}}}
-% \def\showrbrace#1{\par\noindent\hangindent4em\hangafter1\hskip0pt{\hbox to 4em{$#1\bigr#1\Bigr#1\biggr#1\Biggr#1$\hfil}\cs{#1}}}
-% \def\showover#1{\par\noindent\hangindent2em\hangafter1\hskip0pt{\hbox to 2em{$#1{abc}$\hfil}\cs{#1}}}
-% \def\showaccent#1{\par\noindent\hangindent2em\hangafter1\hskip0pt{\hbox to 2em{$#1a$\hfil}\cs{#1}}}
+% \def\showsymbol#1{\par\noindent\hangindent3em\hangafter1\hskip0pt{\hbox to 2em{$#1$\hfil}\cs{#1}}}
+% \def\showwidesymbol#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 4em{$#1$\hfil}\cs{#1}}}
+% \def\showop#1{\par\noindent\hangindent6em\hangafter1\hskip0pt{\hbox to 5em{$#1$\hfil$\displaystyle#1$\hfil}\cs{#1}}}
+% \def\showmbrace#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 4em{$#1\bigm#1\Bigm#1\biggm#1\Biggm#1$\hfil}\cs{#1}}}
+% \def\showlbrace#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 4em{$\Biggl#1\biggl#1\Bigl#1\bigl#1#1$\hfil}\cs{#1}}}
+% \def\showrbrace#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 4em{$#1\bigr#1\Bigr#1\biggr#1\Biggr#1$\hfil}\cs{#1}}}
+% \def\showover#1{\par\noindent\hangindent3em\hangafter1\hskip0pt{\hbox to 2em{$#1{abc}$\hfil}\cs{#1}}}
+% \def\showaccent#1{\par\noindent\hangindent3em\hangafter1\hskip0pt{\hbox to 2em{$#1a$\hfil}\cs{#1}}}
 %
 % \subsection*{Arrows}
 %
@@ -632,7 +632,7 @@
 % \showsymbol\nlcirclearrowdown
 % \end{multicols}
 %
-% \subsection*{Binary operators}
+% \subsection*{Binary operators and letters}
 %
 % \begin{multicols}{2}
 % \raggedright
@@ -808,6 +808,19 @@
 % \showsymbol\thinstar,
 %   \cs{\star}
 % \showsymbol\ast
+% \showsymbol\hbipropto
+% \showsymbol\neswbipropto
+% \showsymbol\vbipropto
+% \showsymbol\nwsebipropto
+% \showsymbol\leftpropto, \cs{\propto},
+%   \cs{\varpropto}
+% \showsymbol\downpropto
+% \showsymbol\rightpropto
+% \showsymbol\uppropto
+% \showsymbol\hcrossing
+% \showsymbol\neswcrossing
+% \showsymbol\vcrossing
+% \showsymbol\nwsecrossing
 % \showsymbol\between
 % \showsymbol\separated
 % \showsymbol\bot
@@ -819,9 +832,6 @@
 % \showsymbol\sphericalangle
 % \showsymbol\prime
 % \showsymbol\backprime
-% \showsymbol\infty
-% \showsymbol\propto,
-%   \cs{\varpropto}
 % \showsymbol\smallprod
 % \showsymbol\amalg
 % \showsymbol\checkmark
@@ -834,6 +844,7 @@
 % \showsymbol\exists
 % \showsymbol\nexists
 % \showsymbol\nabla
+% \showsymbol\infty
 % \showsymbol\smallint
 % \showsymbol\flat
 % \showsymbol\natural
@@ -1217,6 +1228,10 @@
 %   \cs{\}}
 % \showlbrace{\langle}
 % \showrbrace{\rangle}
+% \showlbrace{\langlebar}
+% \showrbrace{\ranglebar}
+% \showlbrace{\llangle}
+% \showrbrace{\rrangle}
 % \showlbrace{\lfloor}
 % \showrbrace{\rfloor}
 % \showlbrace{\lceil}
@@ -1391,7 +1406,7 @@
 % \figureversion{tabular}
 %    \begin{macrocode}
 %<*style>
-\ProvidesPackage{MnSymbol}[2005/01/26 support for the MnSymbol font]
+\ProvidesPackage{MnSymbol}[2005/04/03 v1.1 support for the MnSymbol font]
 %    \end{macrocode}
 %
 % Options.
@@ -2359,6 +2374,20 @@
 \Decl@Mn@Char\thinstar               {MnSyC}{\mathbin}
   \let\star\thinstar
 \Decl@Mn@Char\ast                    {MnSyC}{\mathbin}
+\Decl@Mn@Char\hbipropto              {MnSyC}{\mathbin}
+\Decl@Mn@Char\neswbipropto           {MnSyC}{\mathbin}
+\Decl@Mn@Char\vbipropto              {MnSyC}{\mathbin}
+\Decl@Mn@Char\nwsebipropto           {MnSyC}{\mathbin}
+\Decl@Mn@Char\leftpropto             {MnSyC}{\mathrel}
+  \let\propto\leftpropto
+  \let\varpropto\propto
+\Decl@Mn@Char\downpropto             {MnSyC}{\mathrel}
+\Decl@Mn@Char\rightpropto            {MnSyC}{\mathrel}
+\Decl@Mn@Char\uppropto               {MnSyC}{\mathrel}
+\Decl@Mn@Char\hcrossing              {MnSyC}{\mathrel}
+\Decl@Mn@Char\neswcrossing           {MnSyC}{\mathrel}
+\Decl@Mn@Char\vcrossing              {MnSyC}{\mathrel}
+\Decl@Mn@Char\nwsecrossing           {MnSyC}{\mathrel}
 \Decl@Mn@Char\between                {MnSyC}{\mathrel}
 \Decl@Mn@Char\separated              {MnSyC}{\mathrel}
 \Decl@Mn@Char\bot                    {MnSyC}{\mathord}
@@ -2370,9 +2399,6 @@
 \Decl@Mn@Char\sphericalangle         {MnSyC}{\mathord}
 \Decl@Mn@Char\prime                  {MnSyC}{\mathord}
 \Decl@Mn@Char\backprime              {MnSyC}{\mathord}
-\Decl@Mn@Char\infty                  {MnSyC}{\mathord}
-\Decl@Mn@Char\propto                 {MnSyC}{\mathord}
-  \let\varpropto\propto
 \Decl@Mn@Char\smallprod              {MnSyC}{\mathbin}
 \Decl@Mn@Char\amalg                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\checkmark              {MnSyC}{\mathord}
@@ -2385,6 +2411,7 @@
 \Decl@Mn@Char\exists                 {MnSyC}{\mathord}
 \Decl@Mn@Char\nexists                {MnSyC}{\mathord}
 \Decl@Mn@Char\nabla                  {MnSyC}{\mathord}
+\Decl@Mn@Char\infty                  {MnSyC}{\mathord}
 \Decl@Mn@Char\smallint               {MnSyC}{\mathop}
 \Decl@Mn@Char\flat                   {MnSyC}{\mathop}
 \Decl@Mn@Char\natural                {MnSyC}{\mathop}
@@ -2947,44 +2974,46 @@
 \Decl@Mn@Close{>}                   {largesymbols}{"65}
 \Decl@Mn@Open {\langle}             {largesymbols}{"60}
 \Decl@Mn@Close{\rangle}             {largesymbols}{"65}
-\Decl@Mn@Delim{/}         {\mathord}{largesymbols}{"6A}
-\Decl@Mn@Delim{\backslash}{\mathord}{largesymbols}{"6F}
+\Decl@Mn@Open {\langlebar}          {largesymbols}{"6A}
+\Decl@Mn@Close{\ranglebar}          {largesymbols}{"6F}
+\Decl@Mn@Open {\llangle}            {largesymbols}{"74}
+\Decl@Mn@Close{\rrangle}            {largesymbols}{"79}
+\Decl@Mn@Delim{/}         {\mathord}{largesymbols}{"7E}
+\Decl@Mn@Delim{\backslash}{\mathord}{largesymbols}{"83}
 \expandafter\DeclareMathDelimiter\@backslashchar
-                          {\mathord}{largesymbols}{"6F}{largesymbols}{"6F}
-\Decl@Mn@Open {(}                   {largesymbols}{"74}
-\Decl@Mn@Close{)}                   {largesymbols}{"79}
-%\Decl@Mn@Open {\{}                  {largesymbols}{"84}
-%\Decl@Mn@Close{\}}                  {largesymbols}{"89}
-\Decl@Mn@Open {\lbrace}             {largesymbols}{"84}
-\Decl@Mn@Close{\rbrace}             {largesymbols}{"89}
-\Decl@Mn@Close{\lgroup}             {largesymbols}{"8E}
-\Decl@Mn@Open {\rgroup}             {largesymbols}{"8F}
-\Decl@Mn@Close{\rmoustache}         {largesymbols}{"90}
-\Decl@Mn@Open {\lmoustache}         {largesymbols}{"91}
-\Decl@Mn@Delim{\bracevert}{\mathord}{largesymbols}{"94}
+                          {\mathord}{largesymbols}{"83}{largesymbols}{"83}
+\Decl@Mn@Open {(}                   {largesymbols}{"88}
+\Decl@Mn@Close{)}                   {largesymbols}{"8D}
+\Decl@Mn@Open {\lbrace}             {largesymbols}{"98}
+\Decl@Mn@Close{\rbrace}             {largesymbols}{"9D}
+\Decl@Mn@Close{\lgroup}             {largesymbols}{"A2}
+\Decl@Mn@Open {\rgroup}             {largesymbols}{"A3}
+\Decl@Mn@Close{\rmoustache}         {largesymbols}{"A4}
+\Decl@Mn@Open {\lmoustache}         {largesymbols}{"A5}
+\Decl@Mn@Delim{\bracevert}{\mathord}{largesymbols}{"A8}
 %    \end{macrocode}
 %
 % Support for expandable braces.
 %
 %    \begin{macrocode}
 \DeclareMathSymbol{\divides}      {\mathbin}{largesymbols}{"53}
-\DeclareMathSymbol{\downbrace}    {\mathord}{largesymbols}{"95}
-\DeclareMathSymbol{\downbraceg}   {\mathord}{largesymbols}{"96}
-\DeclareMathSymbol{\downbracegg}  {\mathord}{largesymbols}{"97}
-\DeclareMathSymbol{\downbraceggg} {\mathord}{largesymbols}{"98}
-\DeclareMathSymbol{\downbracegggg}{\mathord}{largesymbols}{"99}
-\DeclareMathSymbol{\upbrace}      {\mathord}{largesymbols}{"9A}
-\DeclareMathSymbol{\upbraceg}     {\mathord}{largesymbols}{"9B}
-\DeclareMathSymbol{\upbracegg}    {\mathord}{largesymbols}{"9C}
-\DeclareMathSymbol{\upbraceggg}   {\mathord}{largesymbols}{"9D}
-\DeclareMathSymbol{\upbracegggg}  {\mathord}{largesymbols}{"9E}
-\DeclareMathSymbol{\braceld}      {\mathord}{largesymbols}{"9F}
-\DeclareMathSymbol{\bracelu}      {\mathord}{largesymbols}{"A0}
-\DeclareMathSymbol{\bracerd}      {\mathord}{largesymbols}{"A1}
-\DeclareMathSymbol{\braceru}      {\mathord}{largesymbols}{"A2}
-\DeclareMathSymbol{\bracemd}      {\mathord}{largesymbols}{"A3}
-\DeclareMathSymbol{\bracemu}      {\mathord}{largesymbols}{"A4}
-\DeclareMathSymbol{\bracemid}     {\mathord}{largesymbols}{"A5}
+\DeclareMathSymbol{\downbrace}    {\mathord}{largesymbols}{"A9}
+\DeclareMathSymbol{\downbraceg}   {\mathord}{largesymbols}{"AA}
+\DeclareMathSymbol{\downbracegg}  {\mathord}{largesymbols}{"AB}
+\DeclareMathSymbol{\downbraceggg} {\mathord}{largesymbols}{"AC}
+\DeclareMathSymbol{\downbracegggg}{\mathord}{largesymbols}{"AD}
+\DeclareMathSymbol{\upbrace}      {\mathord}{largesymbols}{"AE}
+\DeclareMathSymbol{\upbraceg}     {\mathord}{largesymbols}{"AF}
+\DeclareMathSymbol{\upbracegg}    {\mathord}{largesymbols}{"B0}
+\DeclareMathSymbol{\upbraceggg}   {\mathord}{largesymbols}{"B1}
+\DeclareMathSymbol{\upbracegggg}  {\mathord}{largesymbols}{"B2}
+\DeclareMathSymbol{\braceld}      {\mathord}{largesymbols}{"B3}
+\DeclareMathSymbol{\bracelu}      {\mathord}{largesymbols}{"B4}
+\DeclareMathSymbol{\bracerd}      {\mathord}{largesymbols}{"B5}
+\DeclareMathSymbol{\braceru}      {\mathord}{largesymbols}{"B6}
+\DeclareMathSymbol{\bracemd}      {\mathord}{largesymbols}{"B7}
+\DeclareMathSymbol{\bracemu}      {\mathord}{largesymbols}{"B8}
+\DeclareMathSymbol{\bracemid}     {\mathord}{largesymbols}{"B9}
 
 % \horiz@expandable{sym1}..{sym6}{style}{arg}
 
@@ -3082,20 +3111,20 @@
 \DeclareMathSymbol{-}{\mathbin}  {MnSyC}{"10}
 \DeclareMathSymbol{*}{\mathbin}  {MnSyC}{"87}
 \DeclareMathSymbol{|}{\mathord}  {largesymbols}{"53}
-\DeclareMathSymbol{(}{\mathopen} {largesymbols}{"74}
-\DeclareMathSymbol{)}{\mathclose}{largesymbols}{"79}
+\DeclareMathSymbol{(}{\mathopen} {largesymbols}{"88}
+\DeclareMathSymbol{)}{\mathclose}{largesymbols}{"8D}
 \DeclareMathSymbol{:}{\mathrel}  {MnSyC}{"02}
 \DeclareMathSymbol{[}{\mathopen} {largesymbols}{"00}
 \DeclareMathSymbol{]}{\mathclose}{largesymbols}{"05}
-\DeclareMathSymbol{/}{\mathord}  {largesymbols}{"6A}
+\DeclareMathSymbol{/}{\mathord}  {largesymbols}{"7E}
 
-\DeclareMathRadical{\sqrtsign}{largesymbols}{"A6}{largesymbols}{"A6}
-\def\surd{{\mathchar"13A6}}
+\DeclareMathRadical{\sqrtsign}{largesymbols}{"BA}{largesymbols}{"BA}
+\def\surd{{\mathchar"13BA}}
 
-\DeclareMathAccent{\widehat}{\mathord}{largesymbols}{"AE}
-\DeclareMathAccent{\widetilde}{\mathord}{largesymbols}{"B3}
-\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"B8}
-\DeclareMathAccent{\vec}{\mathord}{largesymbols}{"BD}
+\DeclareMathAccent{\widehat}{\mathord}{largesymbols}{"C2}
+\DeclareMathAccent{\widetilde}{\mathord}{largesymbols}{"C7}
+\DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{"CC}
+\DeclareMathAccent{\vec}{\mathord}{largesymbols}{"D1}
 %    \end{macrocode}
 %
 % There is no |\not| symbol in MnSymbol since all symbols come with a stroked companion.
@@ -3190,17 +3219,17 @@
 % (b) Missing letters.
 %
 %    \begin{macrocode}
-\let\mho\undefined
 \let\hbar\undefined
-
-\let\Finv\undefined
-\let\Game\undefined
 \let\eth\undefined
 \let\digamma\undefined
 \let\varkappa\undefined
+\let\backepsilon\undefined
+
+\let\mho\undefined
+\let\Finv\undefined
+\let\Game\undefined
 \let\Bbbk\undefined
 \let\hslash\undefined
-\let\backepsilon\undefined
 \let\complement\undefined
 \let\circledR\undefined
 \let\circledS\undefined

@@ -302,10 +302,54 @@ endchar;
 
 extensible current_char: 0, 0, 0, current_char;
 
+def draw_angle(suffix $)(expr shift, sign, thick) =
+  pickup pencircle scaled thick;
+
+  x0$ = x1$ = x2$ + sign * (w - 2side_bearing - 2abs shift - thick);
+
+  top y1$ =  h;
+  bot y0$ = -d;
+  1/2[y0$,y1$] = y2$;
+  1/2[x0$,x2$] = w/2;
+
+  draw (z0$ + shift * right) -- (z2$ + shift * right) -- (z1$ + shift * right);
+enddef;
+
 for sign = 1, -1:
   for scale = 2, 2.5, 3.3, 4.2, 5.1:
     beginsymbol((scale + 6)/2 * u# + 2side_bearing#, vcentre(scale * delim_height#)); "angle";
-      draw_angle(sign, 7/8rule_thickness * sqrt scale);
+      draw_angle(a, 0, sign, 7/8rule_thickness * sqrt scale);
+    endchar;
+  endfor;
+  charlist current_char - 4: current_char - 3: current_char - 2: current_char - 1: current_char;
+endfor;
+
+for sign = 1, -1:
+  for scale = 2, 2.5, 3.3, 4.2, 5.1:
+    beginsymbol((scale + 6)/2 * u# + 2side_bearing#, vcentre(scale * delim_height#)); "angle bar";
+      draw_angle(a, 0, sign, 7/8rule_thickness * sqrt scale);
+
+      z3 = whatever[z0a,z2a];
+      z4 = whatever[z1a,z2a];
+
+      x3 = x4 = (1/(2*scale))[x0a,x2a];
+
+      pickup pencircle scaled (11/25rule_thickness * sqrt scale);
+
+      draw z3 -- z4;
+    endchar;
+  endfor;
+  charlist current_char - 4: current_char - 3: current_char - 2: current_char - 1: current_char;
+endfor;
+
+for sign = 1, -1:
+  for scale = 2, 2.5, 3.3, 4.2, 5.1:
+    beginsymbol((scale + 6)/2 * u# + 5/2rule_thickness# * sqrt scale + 2side_bearing#,
+                vcentre(scale * delim_height#));
+      "double angle";
+      thick := 5/8rule_thickness * sqrt scale;
+      draw_angle(a, -2thick, sign, thick);
+      draw_angle(b,  2thick, sign, thick);
     endchar;
   endfor;
   charlist current_char - 4: current_char - 3: current_char - 2: current_char - 1: current_char;
