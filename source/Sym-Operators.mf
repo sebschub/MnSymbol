@@ -438,15 +438,15 @@ endfor;
 charlist current_char - 1: current_char;
 
 for sign = 1, -1:
-  for scale = 1, 1.4:
+  for scale = 1.1, 1.54:
     beginbigop(scale); "product";
-      draw_product(centre, op_width, op_height, sign, 5/3rule_thickness * sqrt scale);
+      draw_product(centre, 1.2op_width, op_height, sign, 5/3rule_thickness * sqrt scale);
     endchar;
   endfor;
   charlist current_char - 1: current_char;
 endfor;
 
-for scale = 1, 1.4:
+for scale = 1.1, 1.54:
   beginbigop(scale); "sum";
     thick := 4/3rule_thickness * sqrt scale;
     thin  := 2/3thick;
