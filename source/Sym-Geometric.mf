@@ -1344,10 +1344,10 @@ beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
   pickup rule_pen;
   pickup currentpen scaled 2/3;
 
-  penpos 1(rule_thickness, 65);
+  penpos 1(0, 65);
   penpos 2(rule_thickness, 65);
   penpos 3(rule_thickness, 65);
-  penpos 4(rule_thickness, 65);
+  penpos 4(0, 65);
   penpos 5(rule_thickness, 65);
   penpos 6(rule_thickness, 65);
   penpos 7(rule_thickness, 65);
@@ -1355,16 +1355,16 @@ beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
   penpos 9(rule_thickness, 65);
   penpos10(rule_thickness, 65);
   penpos11(rule_thickness, 65);
-  penpos12(3/2rule_thickness, 65);
-  penpos13(3/2rule_thickness, 45);
+  penpos12(rule_thickness, 65);
+  penpos13(rule_thickness, 65);
 
   x1l = side_bearing;
   x4r = w - side_bearing;
   y1r = h;
   y4l = 0;
 
-  x2 - x1 = x4 - x3 = ceiling (u/4);
-  y1 - y2 = y3 - y4 = rule_thickness;
+  x2 - x1 = x4 - x3 = ceiling (u/2);
+  y1 - y2 = y3 - y4 = 2rule_thickness;
   1/2[z2,z3] = (w/2,h/2);
 
   z5 = 0.24[z2,z3];
@@ -1372,14 +1372,16 @@ beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
 
   x7 = x8 = x2;
   x9 = x5;
-  y7 = y6;
-  y8l = y9l = 0;
+  y7 = min (y6, y5 - 3/2rule_thickness);
+  bot y8l = bot y9l = 0;
 
   x10 = x11 = x3;
-  y10 = y5;
-  y11r = h;
+  y10 = max (y5, y6 + 3/2rule_thickness);
+  top y11r = h;
 
-  z11r = z12r = z13r;
+  y13 = y12 = y11;
+  x12 = x11 + 2/3rule_thickness;
+  x13 = 1/4[x6,x10];
 
   alpha := angle (z5 - z7);
   penpos5'(3/2rule_thickness * sind (65 - alpha), alpha - 90);
@@ -1389,7 +1391,7 @@ beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
   penpos6'(3/2rule_thickness * sind (65 - alpha), alpha - 90);
   z6' = z6;
 
-  filldraw stroke z1e ... {z3e-z2e}z2e -- z3e{z3e-z2e} ... z4e;
+  filldraw stroke z1e{down} ... {z3e-z2e}z2e -- z3e{z3e-z2e} ... {down}z4e;
   filldraw stroke z5'e .. {down}z7e -- z8e;
   filldraw stroke z8e -- z9e;
   filldraw stroke z6'e .. {up}z10e -- z11e;

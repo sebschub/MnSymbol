@@ -28,7 +28,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big wedge";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       z3 - z0 = z2 - z1 = op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
@@ -45,7 +45,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big wedge dot";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       z3 - z0 = z2 - z1 = op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
@@ -63,7 +63,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(6/5scale, scale); "double big wedge";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       z3 - z0 = z2 - z1 = 5/6op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
@@ -86,7 +86,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big curly wedge";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       draw prec(centre + sign * op_height/2 * dir 90,
                 centre - sign * op_height/2 * dir 90,
@@ -100,7 +100,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big curly wedge dot";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       draw prec(centre + sign * op_height/2 * dir 90,
                 centre - sign * op_height/2 * dir 90,
@@ -115,7 +115,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(6/5scale, scale); "double big curly wedge";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       1/2[z0,z1] = centre;
       z1 - z0 = 1/3(plus_size + 11/5rule_thickness) * dir 0;
@@ -135,7 +135,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big union";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       draw subset(centre + sign * op_height/2 * dir 90,
                   centre - sign * op_height/2 * dir 90,
@@ -149,7 +149,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big union dot";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       draw subset(centre + sign * op_height/2 * dir 90,
                   centre - sign * op_height/2 * dir 90,
@@ -164,7 +164,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big union plus";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       draw subset(centre + sign * op_height/2 * dir 90,
                   centre - sign * op_height/2 * dir 90,
@@ -186,7 +186,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big square union";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       z3 - z0 = z2 - z1 = op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
@@ -203,7 +203,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big square union dot";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       z3 - z0 = z2 - z1 = op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
@@ -221,7 +221,7 @@ for sign = 1, -1:
   for scale = 1, 1.4:
     beginbigop(scale, scale); "big square union plus";
 
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
       z3 - z0 = z2 - z1 = op_width * dir 0;
       z1 - z0 = sign * op_height * dir 90;
