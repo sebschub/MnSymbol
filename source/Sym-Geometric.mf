@@ -1339,10 +1339,9 @@ beginsymbol(order_width#, asc_height#, 0)
   penlabels (0,1,2,3,4,5,6,7);
 endchar;
 
-beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
+beginsymbol(11u#, 0.85asc_height#, 0); "aleph";
 
-  pickup rule_pen;
-  pickup currentpen scaled 2/3;
+  pickup pencircle scaled 2/3rule_thickness;
 
   penpos 1(0, 65);
   penpos 2(rule_thickness, 65);
@@ -1368,38 +1367,153 @@ beginsymbol(11u#, 8.5/10asc_height#, 0); "aleph";
   1/2[z2,z3] = (w/2,h/2);
 
   z5 = 0.24[z2,z3];
-  z6 = 0.70[z2,z3];
+  z6 = 0.60[z2,z3];
 
   x7 = x8 = x2;
   x9 = x5;
   y7 = min (y6, y5 - 3/2rule_thickness);
   bot y8l = bot y9l = 0;
 
-  x10 = x11 = x3;
+  x10 = x11 = 0.85[x2,x3];
   y10 = max (y5, y6 + 3/2rule_thickness);
 
-  x12 = x11 + 2/3rule_thickness;
+  x12 = x3 + 2/3rule_thickness;
   x13 = 1/4[x6,x10];
 
   top y13r = h;
-  z12 = z13 + whatever * dir -10;
-  z11 = z13 + whatever * dir -10;
-
-  alpha := angle (z5 - z7);
-  penpos5'(3/2rule_thickness * sind (65 - alpha), alpha - 90);
-  z5' = z5;
-
-  alpha := angle (z10 - z6);
-  penpos6'(3/2rule_thickness * sind (65 - alpha), alpha - 90);
-  z6' = z6;
+  z12 = z13 + whatever * (z3-z2);
+  z11 = z13 + whatever * (z3-z2);
 
   filldraw stroke z1e{down} ... {z3e-z2e}z2e -- z3e{z3e-z2e} ... {down}z4e;
-  filldraw stroke z5'e .. {down}z7e -- z8e;
-  filldraw stroke z8e -- z9e;
-  filldraw stroke z6'e .. {up}z10e -- z11e;
   filldraw stroke z12e -- z13e;
 
-  penlabels(1,2,3,4,5,6,7,8,9,10,11,12,13);
+  alpha := angle (z5 - z7);
+  beta  := (alpha + 90)/2;
+  penpos5'(3/2rule_thickness * abs cosd (155 - alpha), alpha - 90);
+  penpos7'(3/2rule_thickness * abs cosd (155 - beta),  beta  - 90);
+  z5' = z5;
+  z7' = z7;
+
+  % We don't need a filldraw since the stroke is that thin.
+  % A filldraw might cause "Strange path" errors in low resolutions.
+
+  draw stroke z5'e{-dir alpha} .. {-dir beta}z7'e -- z8e;
+  filldraw stroke z8e -- z9e;
+
+  alpha := angle (z10 - z6);
+  beta := (alpha + 90)/2;
+  penpos 6'(3/2rule_thickness * abs cosd (155 - alpha), alpha - 90);
+  penpos10'(3/2rule_thickness * abs cosd (155 - beta),  beta  - 90);
+  z6' = z6;
+  z10' = z10;
+
+  draw stroke z6'e{dir alpha} .. {dir beta}z10'e -- z11e;
+
+  penlabels(1,2,3,4,5,6,7,8,9,10,11,12,13,5',7');
+endchar;
+
+beginsymbol(11u#, 0.85asc_height#, 0); "beth";
+
+  pickup pencircle scaled 2/3rule_thickness;
+
+  penpos1(0, 65);
+  penpos2(rule_thickness, 65);
+  penpos3(rule_thickness, 65);
+  penpos4(rule_thickness, 65);
+  penpos5(rule_thickness, 65);
+  penpos6(rule_thickness, 65);
+  penpos7(rule_thickness, 65);
+
+  x1l = side_bearing + rule_thickness;
+  y1r = h;
+  x2 - x1 = ceiling (u/2);
+  y1 - y2 = 3/2rule_thickness;
+  y3 = y2;
+
+  x3 = w - x2;
+  bot y5l = 0;
+
+  x4r = w - side_bearing;
+  y3l - y4 = y1 - y2r;
+
+  x5 = x4;
+
+  x6 = w - x7l = side_bearing;
+  y6 = y7 = y5;
+
+  filldraw stroke z1e{down} ... {z3e-z2e}z2e -- z3e{z3e-z2e} ... {down}z4e -- z5e;
+  filldraw stroke z6e -- z7e;
+
+  penlabels(1,2,3,4,5,6,7);
+endchar;
+
+beginsymbol(7u#, 0.85asc_height#, 0); "gimel";
+
+  pickup pencircle scaled 2/3rule_thickness;
+
+  penpos1(0, 65);
+  penpos2(rule_thickness, 65);
+  penpos3(rule_thickness, 65);
+  penpos4(rule_thickness, 65);
+  penpos5(rule_thickness, 65);
+  penpos6(rule_thickness, 65);
+  penpos7(rule_thickness, 65);
+  penpos8(rule_thickness, 65);
+
+  x1l = side_bearing + rule_thickness;
+  y1r = h;
+  x2 - x1 = ceiling (u/2);
+  y1 - y2 = 3/2rule_thickness;
+
+  z3 = z2 + whatever * dir -25;
+
+  x3 = w - x2;
+
+  x4r = w - side_bearing - 1/3rule_thickness;
+  y3l - y4 = y1 - y2r;
+
+  x5 = x4;
+  x6 = w - side_bearing;
+
+  y5l = y8r;
+  bot y6l = 0;
+
+  x7 = side_bearing;
+  rt x8r = lft x5l;
+  y7 = y8 = y6;
+
+  filldraw stroke z1e{down} ... {z3e-z2e}z2e -- z3e{z3e-z2e} ... {down}z4e -- z5e .. z6e;
+  filldraw stroke z7e -- z8e;
+
+  penlabels(1,2,3,4,5,6,7,8);
+endchar;
+
+beginsymbol(11u#, 0.85asc_height#, 0); "daleth";
+
+  pickup pencircle scaled 2/3rule_thickness;
+
+  penpos1(0, 65);
+  penpos2(rule_thickness, 65);
+  penpos3(rule_thickness, 65);
+  penpos4(1/2rule_thickness, 65);
+  penpos5(rule_thickness, 65);
+
+  x1l = side_bearing;
+  y1r = h;
+  x2 - x1 = ceiling (u/2);
+  y1 - y2 = 3/2rule_thickness;
+  y2 = y3 = y4;
+
+  x3 = w - side_bearing;
+  x4 = x3 - 3/2rule_thickness;
+  y5 = 0;
+  x5l = x4l;
+
+
+  filldraw stroke z1e{down} ... {z3e-z2e}z2e -- z3e{z3e-z2e};
+  filldraw stroke z4e{down} ... z5e;
+
+  penlabels(1,2,3,4,5);
 endchar;
 
 %beginsymbol(11u#, asc_height#, 0); "aleph";
@@ -1479,133 +1593,133 @@ endchar;
 %  filldraw z12r{down} ... z13r --- z13l -- z14r{right} ... {up}z12l -- cycle; % flourish
 %  labels(0l,0r,1l,1r,2l,2r,3l,3r,4l,4r,5l,5r,6l,6r,7l,7r,8l,8r,9l,9r,10l,10r,11l,11r,12l,12r,13l,13r,14l,14r);
 %endchar;
-
-beginsymbol(11u#, asc_height#, 0); "beth";
-
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
-
-  top y0 = h;
-  lft x0 = u;
-
-  penpos1(3/2rule_thickness, 90);
-  penpos2(3/2rule_thickness, 90);
-  penpos3(1/2rule_thickness, 0);
-
-  x1 = 2.5u;
-  y1r = 40/45h;
-  x2 = w - x1;
-  y2r = y1r;
-  rt x3 = w - u;
-  y2l - y3 = y0 - y1r;
-  x4 = x3;
-
-  penpos12(rule_thickness/cosd 45, 45);
-  penpos11(rule_thickness/cosd 45, 45);
-
-  y11r = y12r = y4;
-  bot y11l = 0;
-  x12 = u;
-  x11 = w - x12;
-
-  filldraw z0{down} .. tension .8 .. z1l{right} .. {right}z2l .. {down}z3l --
-          z3r{up} .. tension .8 .. z2r{left} .. {left}z1r .. z0 .. cycle;
-
-  pickup rule_pen;
-  draw z3 .. z4;
-
-  filldraw z11l{left} .. {left}z12l -- z12r{right} .. {right}z11r -- cycle;
-  labels(0,1l,1r,2l,2r,3l,3r,4,11l,11r,12l,12r);
-endchar;
-
-beginsymbol(7u#, asc_height#, 0); "gimel";
-
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
-
-  top y0 = h;
-  lft x0 = u;
-
-  penpos1(3/2rule_thickness, 90);
-  penpos2(3/2rule_thickness, 90);
-  penpos3(1/2rule_thickness, 0);
-
-  x1 = 2.5u;
-  y1r = 40/45h;
-  x2 = w - x1;
-  y2r = y1r;
-  x3 = w - 3/2u;
-  y2l - y3 = y0 - y1r;
-
-  filldraw z0{down} .. tension .8 .. z1l{right} .. {right}z2l .. {down}z3l --
-          z3r{up} .. tension .8 .. z2r{left} .. {left}z1r .. z0 .. cycle;
-
-  x4 = x3 + rule_thickness;
-  y4 = 0;
-  x5 = x4 + .3rule_thickness;
-  x3a = x3b = x3c = x3;
-  y3a = .8h;
-  y3b = .5h;
-  y3c = h/4;
-  y5 := 1/2y3c;
-
-  path p, q;
-
-  p = (z3r -- z3l --- z3c .. z4);
-  q = (z4{1, 1} .. z5 .. {-.005,1}z3r);
-
-  filldraw p & q & cycle;
-
-  penpos12(rule_thickness/cosd 60, 60);
-  penpos11(rule_thickness/cosd 60, 60);
-
-  x12r = u;
-  y12l = 0;
-  y11  = y12;
-  x11r = x3 - 1/2u;
-  x13  = x3;
-  y13  = 0.3h;
-
-  filldraw z11l -- z12l -- z12r{right} .. {up}z13{down} .. z11r -- cycle;
-  penlabels(1,2,3,4,5,10,11,12,13);
-endchar;
-
-beginsymbol(10u#, asc_height#, 0); "daleth";
-
-  pickup rule_pen;
-  pickup currentpen scaled 1/2;
-
-  top y0 = h;
-  lft x0 = u;
-
-  penpos1(3/2rule_thickness, 90);
-  penpos2(3/2rule_thickness, 90);
-
-  x1 = 2.5u;
-  x2 = w - x1 + .5u;
-  y2r = y1r = 10/11h;
-
-  filldraw z0{down} .. tension .8 .. z1l{right} .. {right}z2l .. tension .8 .. {left}z2r
-    .. {left}z1r .. z0 .. cycle;
-
-  z3 = z2l;
-  x4 = x3 + .2rule_thickness;
-  y4 = 0;
-  x5 = x4 + .3rule_thickness;
-  y5 = y3c;
-  x3a = x3b = x3c = x3;
-  y3a = .8h;
-  y3b = .5h;
-  y3c = rule_thickness;
-  y5 := .5y5; % reset y5
-
-  path p, q;
-  p = (z3 --- z3c .. z4);
-  q = (z4{1,1} .. z5 .. {-.005,1}z3); % vertical
-
-  filldraw p & q & cycle;
-  labels(0,1l,1r,2l,2r,3,4,5);
-endchar;
+%
+%beginsymbol(11u#, asc_height#, 0); "beth";
+%
+%  pickup rule_pen;
+%  pickup currentpen scaled 1/2;
+%
+%  top y0 = h;
+%  lft x0 = u;
+%
+%  penpos1(3/2rule_thickness, 90);
+%  penpos2(3/2rule_thickness, 90);
+%  penpos3(1/2rule_thickness, 0);
+%
+%  x1 = 2.5u;
+%  y1r = 40/45h;
+%  x2 = w - x1;
+%  y2r = y1r;
+%  rt x3 = w - u;
+%  y2l - y3 = y0 - y1r;
+%  x4 = x3;
+%
+%  penpos12(rule_thickness/cosd 45, 45);
+%  penpos11(rule_thickness/cosd 45, 45);
+%
+%  y11r = y12r = y4;
+%  bot y11l = 0;
+%  x12 = u;
+%  x11 = w - x12;
+%
+%  filldraw z0{down} .. tension .8 .. z1l{right} .. {right}z2l .. {down}z3l --
+%          z3r{up} .. tension .8 .. z2r{left} .. {left}z1r .. z0 .. cycle;
+%
+%  pickup rule_pen;
+%  draw z3 .. z4;
+%
+%  filldraw z11l{left} .. {left}z12l -- z12r{right} .. {right}z11r -- cycle;
+%  labels(0,1l,1r,2l,2r,3l,3r,4,11l,11r,12l,12r);
+%endchar;
+%
+%beginsymbol(7u#, asc_height#, 0); "gimel";
+%
+%  pickup rule_pen;
+%  pickup currentpen scaled 1/2;
+%
+%  top y0 = h;
+%  lft x0 = u;
+%
+%  penpos1(3/2rule_thickness, 90);
+%  penpos2(3/2rule_thickness, 90);
+%  penpos3(1/2rule_thickness, 0);
+%
+%  x1 = 2.5u;
+%  y1r = 40/45h;
+%  x2 = w - x1;
+%  y2r = y1r;
+%  x3 = w - 3/2u;
+%  y2l - y3 = y0 - y1r;
+%
+%  filldraw z0{down} .. tension .8 .. z1l{right} .. {right}z2l .. {down}z3l --
+%          z3r{up} .. tension .8 .. z2r{left} .. {left}z1r .. z0 .. cycle;
+%
+%  x4 = x3 + rule_thickness;
+%  y4 = 0;
+%  x5 = x4 + .3rule_thickness;
+%  x3a = x3b = x3c = x3;
+%  y3a = .8h;
+%  y3b = .5h;
+%  y3c = h/4;
+%  y5 := 1/2y3c;
+%
+%  path p, q;
+%
+%  p = (z3r -- z3l --- z3c .. z4);
+%  q = (z4{1, 1} .. z5 .. {-.005,1}z3r);
+%
+%  filldraw p & q & cycle;
+%
+%  penpos12(rule_thickness/cosd 60, 60);
+%  penpos11(rule_thickness/cosd 60, 60);
+%
+%  x12r = u;
+%  y12l = 0;
+%  y11  = y12;
+%  x11r = x3 - 1/2u;
+%  x13  = x3;
+%  y13  = 0.3h;
+%
+%  filldraw z11l -- z12l -- z12r{right} .. {up}z13{down} .. z11r -- cycle;
+%  penlabels(1,2,3,4,5,10,11,12,13);
+%endchar;
+%
+%beginsymbol(10u#, asc_height#, 0); "daleth";
+%
+%  pickup rule_pen;
+%  pickup currentpen scaled 1/2;
+%
+%  top y0 = h;
+%  lft x0 = u;
+%
+%  penpos1(3/2rule_thickness, 90);
+%  penpos2(3/2rule_thickness, 90);
+%
+%  x1 = 2.5u;
+%  x2 = w - x1 + .5u;
+%  y2r = y1r = 10/11h;
+%
+%  filldraw z0{down} .. tension .8 .. z1l{right} .. {right}z2l .. tension .8 .. {left}z2r
+%    .. {left}z1r .. z0 .. cycle;
+%
+%  z3 = z2l;
+%  x4 = x3 + .2rule_thickness;
+%  y4 = 0;
+%  x5 = x4 + .3rule_thickness;
+%  y5 = y3c;
+%  x3a = x3b = x3c = x3;
+%  y3a = .8h;
+%  y3b = .5h;
+%  y3c = rule_thickness;
+%  y5 := .5y5; % reset y5
+%
+%  path p, q;
+%  p = (z3 --- z3c .. z4);
+%  q = (z4{1,1} .. z5 .. {-.005,1}z3); % vertical
+%
+%  filldraw p & q & cycle;
+%  labels(0,1l,1r,2l,2r,3,4,5);
+%endchar;
 
 
 begingroup;
