@@ -1,183 +1,51 @@
 /MnSymbolC [
-/cdot
-/hdotdot
-/vdotdot
-/udotdot
-/ddotdot
-/hdots
-/vdots
-/udots
-/ddots
-/righttherefore
-/uptherefore
-/lefttherefore
-/downtherefore
-/diamonddots
-/squaredots
-/fivedots
-/minus
-/medvert
-/medslash
-/medbackslash
-/plus
-/times
-/pm
-/mp
-/dotminus
-/dotmedvert
-/minusdot
-/medvertdot
-/div
-/slashdiv
-/vertdiv
-/backslashdiv
-/neg
-/backneg
-/dtimes
-/rtimes
-/utimes
-/ltimes
-/bowtie
-/vertbowtie
-/rightY
-/upY
-/leftY
-/downY
-/wedge
-/vee
-/wedgedot
-/veedot
-/doublewedge
-/doublevee
-/curlywedge
-/curlyvee
-/curlywedgedot
-/curlyveedot
-/doublecurlywedge
-/doublecurlyvee
-/cup
-/cap
-/doublecup
-/doublecap
-/cupdot
-/capdot
-/cupplus
-/capplus
-/sqcup
-/sqcap
-/doublesqcup
-/doublesqcap
-/sqcupdot
-/sqcapdot
-/sqcupplus
-/sqcapplus
-/smalltriangleright
-/smalltriangleup
-/smalltriangleleft
-/smalltriangledown
-/filledtriangleright
-/filledtriangleup
-/filledtriangleleft
-/filledtriangledown
-/medtriangleright
-/medtriangleup
-/medtriangleleft
-/medtriangledown
-/largetriangleright
-/largetriangleup
-/largetriangleleft
-/largetriangledown
-/circ
-/bullet
-/medcircle
-/largecircle
-/ominus
-/overt
-/oslash
-/obackslash
-/oplus
-/otimes
-/odot
-/ocirc
-/otriangle
-/oast
-/ostar
-/diameter
-/smallsquare
-/filledsquare
-/medsquare
-/largesquare
-/smalldiamond
-/filleddiamond
-/meddiamond
-/largediamond
-/boxminus
-/boxvert
-/boxslash
-/boxbackslash
-/boxplus
-/boxtimes
-/boxdot
-/boxbox
-/diamondminus
-/diamondvert
-/diamondslash
-/diamondbackslash
-/diamondplus
-/diamondtimes
-/diamonddot
-/diamonddiamond
-/smallstar
-/filledstar
-/medstar
-/largestar
-/pentagram
-/largepentagram
-/thinstar
-/ast
-/between
-/separated
-/bot
-/top
-/wreath
-/angle
-/measuredangle
-/sphericalangle
-/prime
-/backprime
-/infty
-/propto
-/smallprod
-/amalg
-/checkmark
-/lightning
-/diamondsuit
-/heartsuit
-/spadesuit
-/clubsuit
-/forall
-/exists
-/nexists
-/nabla
-/smallint
-/flat
-/natural
-/sharp
-/aleph
-/beth
-/gimel
-/daleth
-/wp
-/powerset
-/.notdef /.notdef /.notdef 
+%00
+/cdot /hdotdot /vdotdot /udotdot /ddotdot /hdots /vdots /udots
+/ddots /righttherefore /uptherefore /lefttherefore /downtherefore /diamonddots /squaredots /fivedots 
+%10
+/minus /medvert /medslash /medbackslash /plus /times /pm /mp 
+/dotminus /dotmedvert /minusdot /medvertdot /slash /slashdiv /vertdiv /backslashdiv 
+%20
+/neg /backneg /dtimes /rtimes /utimes /ltimes /bowtie /vertbowtie 
+/rightY /upY /leftY /downY /wedge /vee /wedgedot /veedot 
+%30
+/doublewedge /doublevee /curlywedge /curlyvee /curlywedgedot /curlyveedot /doublecurlywedge /doublecurlyvee 
+/cup  /cap /doublecup /doublecap /cupdot /capdot /cupplus /capplus 
+%40
+/sqcup /sqcap  /doublesqcup /doublesqcap /sqcupdot /sqcapdot /sqcupplus /sqcapplus 
+/smalltriangleright  /smalltriangleup /smalltriangleleft /smalltriangledown 
+/filledtriangleright /filledtriangleup /filledtriangleleft /filledtriangledown 
+%50
+/medtriangleright /medtriangleup /medtriangleleft /medtriangledown /largetriangleright /largetriangleup /largetriangleleft /largetriangledown 
+/circ /bullet /medcircle /largecircle /ominus /overt /oslash /obackslash 
+%60
+/oplus /otimes /odot /ocirc /otriangle /oast /ostar /diameter 
+/smallsquare /filledsquare /medsquare /largesquare /smalldiamond /filleddiamond /meddiamond /largediamond 
+%70
+/boxminus /boxvert /boxslash /boxbackslash /boxplus /boxtimes /boxdot /boxbox
+/diamondminus /diamondvert /diamondslash /diamondbackslash /diamondplus /diamondtimes /diamonddot /diamonddiamond
+%80
+/smallstar /filledstar /medstar /largestar /pentagram /largepentagram /thinstar /ast
+/between /separated /bot /top /wreath /angle /measuredangle /sphericalangle
+%90
+/prime /backprime /infty /propto /smallprod /amalg /checkmark /lightning
+/diamondsuit /heartsuit /spadesuit /clubsuit /forall /exists /nexists /nabla
+%A0
+/smallint /flat /natural /sharp /aleph /beth /gimel /daleth
+/wp /powerset /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%B0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%C0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%D0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%E0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%F0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 ] def
