@@ -821,7 +821,7 @@ for number = 0, 1:
 
       centre := (1/2(w + script_delta), (h-d)/2);
 
-      pickup pencircle scaled 5/12thick;
+      pickup pencircle scaled (5/12thick * sqrt scale);
 
       if number = 0:
         draw circle(centre, 2thick * sqrt scale);
@@ -855,7 +855,7 @@ for alpha = -90, 90:
         pair centre;
         centre := (1/2(w + script_delta), (h-d)/2);
 
-        pickup pencircle scaled 5/12thick;
+        pickup pencircle scaled (5/12thick * sqrt scale);
 
         r := 2thick * sqrt scale;
 
@@ -899,7 +899,7 @@ for scale = 1, 1.8:
 
     penpos0(4/5thick, 0);
 
-    draw_sum(a, 1/3[z0l,z0r], scale * order_width, 3/4scale * asc_height, 1/2thick);
+    draw_sum(a, 1/3[z0l,z0r], scale * order_width, 3/4scale * asc_height, 1/2thick * sqrt scale);
 
   endchar;
 endfor;
