@@ -503,8 +503,11 @@ def draw_integral(suffix $)(expr scale, center) =
   x6$l := floor   x6$l - 1;
   y6$l := floor   y6$l;
 
-  fill z5$l .. z2$l{left} .. {z3$-z1$}z1$l -- z3$l{z3$-z1$} .. tension 1.5 .. {left}z4$l .. z6$l -- z6$r
-    .. z4$r{right} .. {z1$-z3$}z3$r -- z1$r{z1$-z3$} .. tension 1.5 .. {right}z2$r .. z5$r -- cycle;
+  x2$r := min (floor   x2$r, x5$r - 3);
+  x4$l := max (ceiling x4$l, x6$l + 3);
+
+  fill z5$l .. z2$l{left} .. {z3$-z1$}z1$l -- z3$l{z3$-z1$} .. tension 1.5 .. z4$l .. z6$l -- z6$r
+    .. z4$r{right} .. {z1$-z3$}z3$r -- z1$r{z1$-z3$} .. tension 1.5 .. z2$r .. z5$r -- cycle;
   fill circle(z5$, 1/3thick);
   fill circle(z6$, 1/3thick);
 
