@@ -312,7 +312,7 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
     draw foot -- head;
     draw smile(1, z0 - 1/3med_op_size * dir (arrow_dir + 90),
                   z0 + 1/3med_op_size * dir (arrow_dir + 90),
-                  2/3equal_spread);
+                  2/3equal_spread, true);
 
     if negated:
       stroke_through_arrow(1/2[foot, head - 2/3equal_spread * dir arrow_dir], alpha, arrow_spread)

@@ -326,165 +326,172 @@ if negated < 2:
   endfor;
 fi;
 
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(2/3, 8/3) * equal_spread# + rule_thickness#); "smile";
-      pickup rule_pen;
+for round_smile = true, false:
 
-      draw smile(sign, left_pt, right_pt, 2/3equal_spread);
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(2/3, 8/3) * equal_spread# + rule_thickness#);
+        "smile";
 
-      if negated = 1:
-        stroke_through(centre, 8/3equal_spread);
-      fi;
-    endchar;
-  endfor;
+        pickup rule_pen;
+
+        draw smile(sign, left_pt, right_pt, 2/3equal_spread, round_smile);
+
+        if negated = 1:
+          stroke_through(centre, 8/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(5/3, 11/3) * equal_spread# + rule_thickness#); "double smile";
+        pickup rule_pen;
+
+        s := 1/2equal_spread;
+
+        draw smile(sign, left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread, round_smile);
+        draw smile(sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread, round_smile);
+
+        if negated = 1:
+          stroke_through(centre, 11/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(8/3, 14/3) * equal_spread# + rule_thickness#); "triple smile";
+        pickup rule_pen;
+
+        s := equal_spread;
+
+        draw smile(sign, left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread, round_smile);
+        draw smile(sign, left_pt,              right_pt,              2/3equal_spread, round_smile);
+        draw smile(sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread, round_smile);
+
+        if negated = 1:
+          stroke_through(centre, 14/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(7/3, 13/3) * equal_spread# + rule_thickness#); "smile frown";
+        pickup rule_pen;
+
+        s := 5/6equal_spread;
+
+        draw smile(sign,  left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread, round_smile);
+        draw smile(-sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread, round_smile);
+
+        if negated = 1:
+          stroke_through(centre, 13/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(5/3, 11/3) * equal_spread# + rule_thickness#); "smile equal";
+        pickup rule_pen;
+
+        s := 1/6equal_spread;
+
+        draw smile(sign, left_pt + 3s * dir 90, right_pt + 3s * dir 90, 2/3equal_spread, round_smile);
+        draw (left_pt - 5s * dir 90) -- (right_pt - 5s * dir 90);
+
+        if negated = 1:
+          stroke_through(centre, 11/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(5/3, 11/3) * equal_spread# + rule_thickness#); "equal smile";
+        pickup rule_pen;
+
+        s := 1/6equal_spread;
+
+        draw (left_pt + 5s * dir 90) -- (right_pt + 5s * dir 90);
+        draw smile(sign, left_pt - 3s * dir 90, right_pt - 3s * dir 90, 2/3equal_spread, round_smile);
+
+        if negated = 1:
+          stroke_through(centre, 11/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(8/3, 14/3) * equal_spread# + rule_thickness#);
+        "double smile equal";
+
+        pickup rule_pen;
+
+        s := 1/6equal_spread;
+
+        draw smile(sign, left_pt + 6s * dir 90, right_pt + 6s * dir 90, 2/3equal_spread, round_smile);
+        draw smile(sign, left_pt,               right_pt,               2/3equal_spread, round_smile);
+        draw (left_pt - 8s * dir 90) -- (right_pt - 8s * dir 90);
+
+        if negated = 1:
+          stroke_through(centre, 14/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(10/3, 16/3) * equal_spread# + rule_thickness#);
+        "smile equal frown";
+
+        pickup rule_pen;
+
+        s := 4/3equal_spread;
+
+        draw smile(sign,  left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread, round_smile);
+        draw left_pt -- right_pt;
+        draw smile(-sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread, round_smile);
+
+        if negated = 1:
+          stroke_through(centre, 16/3equal_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  % Only the round version since we have no free glyphs left.
+  if round_smile and (negated < 2):
+    for sign = 1, -1:
+      beginorder(1, order_width# + rule_thickness#, ifneg(10/3, 16/3) * equal_spread# + rule_thickness#);
+        "smile frown equal";
+
+        pickup rule_pen;
+
+        s := 1/6equal_spread;
+
+        draw smile(sign,  left_pt + 8s * dir 90, right_pt + 8s * dir 90, 2/3equal_spread, round_smile);
+        draw smile(-sign, left_pt - 1s * dir 90, right_pt - 1s * dir 90, 2/3equal_spread, round_smile);
+        draw (left_pt - 10s * dir 90) -- (right_pt - 10s * dir 90);
+
+        if negated = 1:
+          stroke_through(centre, 16/3equal_spread);
+        fi;
+      endchar;
+    endfor;
 fi;
 
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(5/3, 11/3) * equal_spread# + rule_thickness#); "double smile";
-      pickup rule_pen;
-
-      s := 1/2equal_spread;
-
-      draw smile(sign, left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread);
-      draw smile(sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread);
-
-      if negated = 1:
-        stroke_through(centre, 11/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(8/3, 14/3) * equal_spread# + rule_thickness#); "triple smile";
-      pickup rule_pen;
-
-      s := equal_spread;
-
-      draw smile(sign, left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread);
-      draw smile(sign, left_pt,              right_pt,              2/3equal_spread);
-      draw smile(sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread);
-
-      if negated = 1:
-        stroke_through(centre, 14/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(7/3, 13/3) * equal_spread# + rule_thickness#); "smile frown";
-      pickup rule_pen;
-
-      s := 5/6equal_spread;
-
-      draw smile(sign,  left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread);
-      draw smile(-sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread);
-
-      if negated = 1:
-        stroke_through(centre, 13/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(5/3, 11/3) * equal_spread# + rule_thickness#); "smile equal";
-      pickup rule_pen;
-
-      s := 1/6equal_spread;
-
-      draw smile(sign, left_pt + 3s * dir 90, right_pt + 3s * dir 90, 2/3equal_spread);
-      draw (left_pt - 5s * dir 90) -- (right_pt - 5s * dir 90);
-
-      if negated = 1:
-        stroke_through(centre, 11/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(5/3, 11/3) * equal_spread# + rule_thickness#); "equal smile";
-      pickup rule_pen;
-
-      s := 1/6equal_spread;
-
-      draw (left_pt + 5s * dir 90) -- (right_pt + 5s * dir 90);
-      draw smile(sign, left_pt - 3s * dir 90, right_pt - 3s * dir 90, 2/3equal_spread);
-
-      if negated = 1:
-        stroke_through(centre, 11/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(8/3, 14/3) * equal_spread# + rule_thickness#);
-      "double smile equal";
-
-      pickup rule_pen;
-
-      s := 1/6equal_spread;
-
-      draw smile(sign, left_pt + 6s * dir 90, right_pt + 6s * dir 90, 2/3equal_spread);
-      draw smile(sign, left_pt,               right_pt,               2/3equal_spread);
-      draw (left_pt - 8s * dir 90) -- (right_pt - 8s * dir 90);
-
-      if negated = 1:
-        stroke_through(centre, 14/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(10/3, 16/3) * equal_spread# + rule_thickness#);
-      "smile frown equal";
-
-      pickup rule_pen;
-
-      s := 1/6equal_spread;
-
-      draw smile(sign,  left_pt + 8s * dir 90, right_pt + 8s * dir 90, 2/3equal_spread);
-      draw smile(-sign, left_pt - 1s * dir 90, right_pt - 1s * dir 90, 2/3equal_spread);
-      draw (left_pt - 10s * dir 90) -- (right_pt - 10s * dir 90);
-
-      if negated = 1:
-        stroke_through(centre, 16/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
-
-if negated < 2:
-  for sign = 1, -1:
-    beginorder(1, order_width# + rule_thickness#, ifneg(10/3, 16/3) * equal_spread# + rule_thickness#);
-      "smile equal frown";
-
-      pickup rule_pen;
-
-      s := 4/3equal_spread;
-
-      draw smile(sign,  left_pt + s * dir 90, right_pt + s * dir 90, 2/3equal_spread);
-      draw left_pt -- right_pt;
-      draw smile(-sign, left_pt - s * dir 90, right_pt - s * dir 90, 2/3equal_spread);
-
-      if negated = 1:
-        stroke_through(centre, 16/3equal_spread);
-      fi;
-    endchar;
-  endfor;
-fi;
+endfor;
 
 if negated < 2:
   beginorder(1, order_width# + rule_thickness#, ifneg(1,3) * equal_spread# + rule_thickness#);

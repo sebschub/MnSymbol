@@ -374,10 +374,16 @@ def subset(expr l, r, spread) =
   .. (r + 1/2spread * dir (angle (r-l) + 90))
 enddef;
 
-def smile(expr sign, l, r, spread) =
-     (l + sign * 1/2spread * dir (angle (r-l) + 90))
-  .. {r - l}(1/2[l,r] - sign * 1/2spread * dir (angle (r-l) + 90)){r - l}
-  .. (r + sign * 1/2spread * dir (angle (r-l) + 90))
+def smile(expr sign, l, r, spread, round_smile) =
+  if round_smile:
+       (l + sign * 1/2spread * dir (angle (r-l) + 90))
+    .. {r - l}(1/2[l,r] - sign * 1/2spread * dir (angle (r-l) + 90)){r - l}
+    .. (r + sign * 1/2spread * dir (angle (r-l) + 90))
+  else:
+       (l + sign * 1/2spread * dir (angle (r-l) + 90))
+    -- (1/2[l,r] - sign * 1/2spread * dir (angle (r-l) + 90))
+    -- (r + sign * 1/2spread * dir (angle (r-l) + 90))
+  fi
 enddef;
 
 def stroke_through(expr pos, spread) =
