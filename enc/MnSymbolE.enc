@@ -1,0 +1,48 @@
+/MnSymbol [
+/lbracket1 /lbracket2 /lbracket3 /lbracket4 /lbracket5 /rbracket1 /rbracket2 /rbracket3 /rbracket4 /rbracket5 
+/lfloor1 /lfloor2 /lfloor3 /lfloor4 /lfloor5 /rfloor1 /rfloor2 /rfloor3 /rfloor4 /rfloor5 
+/lceil1 /lceil2 /lceil3 /lceil4 /lceil5 /rceil1 /rceil2 /rceil3 /rceil4 /rceil5 
+/ulcorner1 /ulcorner2 /ulcorner3 /ulcorner4 /ulcorner5 /urcorner1 /urcorner2 /urcorner3 /urcorner4 /urcorner5 
+/llcorner1 /llcorner2 /llcorner3 /llcorner4 /llcorner5 /lrcorner1 /lrcorner2 /lrcorner3 /lrcorner4 /lrcorner5 
+/ullcorner1 /ullcorner2 /ullcorner3 /ullcorner4 /ullcorner5 /ulrcorner1 /ulrcorner2 /ulrcorner3 /ulrcorner4 /ulrcorner5 
+/lbrackettop /rbrackettop 
+/lbracketbot /rbracketbot 
+/lbracketmod /rbracketmod 
+/lsem1 /lsem2 /lsem3 /lsem4 /lsem5 /rsem1 /rsem2 /rsem3 /rsem4 /rsem5 
+/lsemtop /rsemtop
+/lsembot /rsembot
+/lsemmod /rsemmod
+/arrowvert
+/vert1 /vert2 /vert3 /vert4 /vert5
+/Arrowvert
+/Vert1 /Vert2 /Vert3 /Vert4 /Vert5
+/wavy
+/Wavy
+/langle1 /langle2 /langle3 /langle4 /langle5 /rangle1 /rangle2 /rangle3 /rangle4 /rangle5 
+/lslash1 /lslash2 /lslash3 /lslash4 /lslash5 /rslash1 /rslash2 /rslash3 /rslash4 /rslash5 
+/lparen1 /lparen2 /lparen3 /lparen4 /lparen5 /rparen1 /rparen2 /rparen3 /rparen4 /rparen5 
+/lparentop /rparentop
+/lparenbot /rparenbot
+/lparenmod /rparenmod
+/lcurly1 /lcurly2 /lcurly3 /lcurly4 /lcurly5 /rcurly1 /rcurly2 /rcurly3 /rcurly4 /rcurly5 
+/lcurlytop /rcurlytop
+/lcurlybot /rcurlybot
+/lcurlymid /rcurlymid
+/curlymod
+/ucurly1 /ucurly2 /ucurly3 /ucurly4 /ucurly5 /dcurly1 /dcurly2 /dcurly3 /dcurly4 /dcurly5 
+/ucurlyleft /dcurlyleft
+/ucurlyright /dcurlyright
+/ucurlymid /dcurlymid
+/udcurlymod
+/root1 /root2 /root3 /root4 /root5 
+/roottop /rootbot /rootmod 
+/widehat1  /widehat2 /widehat3 /widehat4 /widehat5 
+/widetilde1  /widetilde2 /widetilde3 /widetilde4 /widetilde5 
+/wideparen1  /wideparen2 /wideparen3 /wideparen4 /wideparen5 
+/vec
+/.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+] def
