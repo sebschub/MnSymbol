@@ -19,7 +19,10 @@
 /Arrowvert /Vert1 /Vert2 /Vert3 /Vert4 /Vert5 /wavy /Wavy
 %60
 /langle1 /langle2 /langle3 /langle4 /langle5 /rangle1 /rangle2 /rangle3 
-/rangle4 /rangle5 /lslash1 /lslash2 /lslash3 /lslash4 /lslash5 /rslash1 
+/rangle4 /rangle5 /langlebar1 /langlebar2 /langlebar3 /langlebar4 /langlebar5 /ranglebar1
+/ranglebar2 /ranglebar3 /ranglebar4 /ranglebar5 /llangle1 /llangle2 /llangle3 /llangle4 
+/llangle5 /rrangle1 /rrangle2 /rrangle3 /rrangle4 /rrangle5 /lslash1 /lslash2 
+/lslash3 /lslash4 /lslash5 /rslash1 
 %70
 /rslash2 /rslash3 /rslash4 /rslash5 /lparen1 /lparen2 /lparen3 /lparen4 
 /lparen5 /rparen1 /rparen2 /rparen3 /rparen4 /rparen5 /lparentop /rparentop
@@ -36,10 +39,11 @@
 /widehat3 /widehat4 /widehat5 /widetilde1 /widetilde2 /widetilde3 /widetilde4 /widetilde5 
 /wideparen1  /wideparen2 /wideparen3 /wideparen4 /wideparen5 /vec /.notdef /.notdef 
 %C0
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+%/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %D0
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef 
+%/.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %E0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 

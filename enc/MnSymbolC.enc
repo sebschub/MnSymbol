@@ -26,15 +26,15 @@
 /diamondminus /diamondvert /diamondslash /diamondbackslash /diamondplus /diamondtimes /diamonddot /diamonddiamond
 %80
 /smallstar /filledstar /medstar /largestar /pentagram /largepentagram /thinstar /ast
-/between /separated /bot /top /wreath /angle /measuredangle /sphericalangle
+/hbipropto /neswbipropto /vbipropto /nwsebipropto /leftpropto /downpropto /rightpropto /uppropto 
 %90
-/prime /backprime /infty /propto /smallprod /amalg /checkmark /lightning
-/diamondsuit /heartsuit /spadesuit /clubsuit /forall /exists /nexists /nabla
+/hcrossing /neswcrossing /vcrossing /nwsecrossing /between /separated /bot /top 
+/wreath /angle /measuredangle /sphericalangle /prime /backprime /smallprod /amalg 
 %A0
-/smallint /flat /natural /sharp /aleph /beth /gimel /daleth
-/wp /powerset /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/checkmark /lightning /diamondsuit /heartsuit /spadesuit /clubsuit /forall /exists 
+/nexists /nabla /infty /smallint /flat /natural /sharp /aleph 
 %B0
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/beth /gimel /daleth /wp /powerset /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %C0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
