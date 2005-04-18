@@ -357,12 +357,12 @@ endfor;
 
 for sign = 1, -1:
   for scale = 2, 2.5, 3.3, 4.2, 5.1:
-    beginsymbol(3scale * u#, vcentre(scale * delim_height#)); "slash";
+    beginsymbol(3scale * u# + side_bearing#, vcentre(scale * delim_height#)); "slash";
       thick := 5/4rule_thickness * sqrt (scale/2);
 
       pickup pencircle scaled thick;
 
-      x1 - x0 = sign * (w - thick);
+      x1 - x0 = sign * (w - side_bearing - thick);
 
       top y1 =  h;
       bot y0 = -d;
@@ -379,7 +379,7 @@ def draw_paren(expr sign, thick) =
   penpos1(1/2thick, -90 + sign * 40);
   penpos2(4/3thick,  90 - sign * 90);
 
-  x0 = x1 = x2 + sign * (w - 3side_bearing - thick);
+  x0 = x1 = x2 + sign * (w - 2side_bearing - thick);
 
   top y1l =  h;
   bot y0l = -d;
@@ -395,7 +395,7 @@ lparen_char = current_char + 1;
 rparen_char = current_char + 6;
 for sign = 1, -1:
   for scale = 2, 2.5, 3.3, 4.2, 5.1:
-    beginsymbol(2/3*(scale + 5.5) * u# + 3side_bearing#, vcentre(scale * delim_height#)); "parenthesis";
+    beginsymbol(2/3*(scale + 5.5) * u# + 2side_bearing#, vcentre(scale * delim_height#)); "parenthesis";
       draw_paren(sign, 9/20rule_thickness * sqrt (4*scale));
     endchar;
   endfor;
@@ -404,13 +404,13 @@ endfor;
 % extensible parenthesis
 
 for sign = 1, -1:
-  beginsymbol(2/3*(6 + 5.5) * u# + 3side_bearing#, vcentre(6/2 * delim_height#)); "parenthesis -- top";
+  beginsymbol(2/3*(6 + 5.5) * u# + 2side_bearing#, vcentre(6/2 * delim_height#)); "parenthesis -- top";
     thick := 9/20rule_thickness * sqrt 24;
 
     penpos1(1/2thick, -90 + sign * 40);
     penpos2(4/3thick, 90 - sign * 90);
 
-    x1 = x2 + sign * (w - 3side_bearing - thick);
+    x1 = x2 + sign * (w - 2side_bearing - thick);
 
     top y1l = h + eps;
     y2 = -d - 1/2rule_thickness;
@@ -421,13 +421,13 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginsymbol(2/3*(6 + 5.5) * u# + 3side_bearing#, vcentre(6/2 * delim_height#)); "parenthesis -- bot";
+  beginsymbol(2/3*(6 + 5.5) * u# + 2side_bearing#, vcentre(6/2 * delim_height#)); "parenthesis -- bot";
     thick := 9/20rule_thickness * sqrt 24;
 
     penpos0(1/2thick, 90 - sign * 40);
     penpos2(4/3thick, 90 - sign * 90);
 
-    x0 = x2 + sign * (w - 3side_bearing - thick);
+    x0 = x2 + sign * (w - 2side_bearing - thick);
 
     y2 =  h + 1/2rule_thickness;
     bot y0l = -d - eps;
@@ -438,14 +438,14 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginsymbol(2/3*(6 + 5.5) * u# + 3side_bearing#, vcentre(delim_height#)); "parenthesis -- module";
+  beginsymbol(2/3*(6 + 5.5) * u# + 2side_bearing#, vcentre(delim_height#)); "parenthesis -- module";
     thick := 9/20rule_thickness * sqrt 24;
 
     penpos1(1/2thick, 90 - sign * 40);
     penpos2(4/3thick, 90 - sign * 90);
     penpos3(4/3thick, 90 - sign * 90);
 
-    x2 = x3 = x1 - sign * (w - 3side_bearing - thick);
+    x2 = x3 = x1 - sign * (w - 2side_bearing - thick);
 
     y2 =  h + 1/2rule_thickness;
     y3 = -d - 1/2rule_thickness;

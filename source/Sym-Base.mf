@@ -8,7 +8,7 @@ define_whole_pixels(dot_size, small_op_size, med_op_size, large_op_size, plus_si
 
 math_axis      := good.y(math_axis# * hppp);
 rule_thickness := ceiling(rule_thickness# * hppp);
-side_bearing   := 1u;
+side_bearing   := ceiling(side_bearing# * hppp);
 stroke_through_thickness := 2/3rule_thickness;
 
 pickup pencircle scaled rule_thickness;
