@@ -303,16 +303,18 @@ endchar;
 extensible current_char: 0, 0, 0, current_char;
 
 def draw_angle(suffix $)(expr shift, sign, thick) =
-  pickup pencircle scaled thick;
+  pickup pencircle scaled (7/8thick);
 
   x0$ = x1$ = x2$ + sign * (w - 2side_bearing - 2abs shift - thick);
 
+  x3$ = x2$ + sign * 3/8thick;
+
   top y1$ =  h;
   bot y0$ = -d;
-  1/2[y0$,y1$] = y2$;
+  1/2[y0$,y1$] = y2$ = y3$;
   1/2[x0$,x2$] = w/2;
 
-  draw (z0$ + shift * right) -- (z2$ + shift * right) -- (z1$ + shift * right);
+  draw (z0$ + shift * right) -- (z2$ + shift * right) -- (z1$ + shift * right) -- (z3$ + shift * right) -- cycle;
 enddef;
 
 for sign = 1, -1:
