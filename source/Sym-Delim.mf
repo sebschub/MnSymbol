@@ -177,7 +177,7 @@ extensible current_char - 5: current_char - 5, 0, 0,                current_char
 charlist rsem_char: rsem_char + 1: rsem_char + 2: rsem_char + 3: rsem_char + 4: current_char;
 charlist lsem_char: lsem_char + 1: lsem_char + 2: lsem_char + 3: lsem_char + 4: current_char - 1;
 
-beginsymbol((6 + 10)/2 * u# + 2side_bearing#, vcentre(1/2delim_height#)); "vertical bar -- module";
+beginsymbol(6/2 * u# + 2side_bearing#, vcentre(1/2delim_height#)); "vertical bar -- module";
   thick := 5/4rule_thickness * sqrt sqrt (6/2);
 
   pickup pencircle scaled 1/12thick;
@@ -196,7 +196,7 @@ endchar;
 extensible current_char: 0, 0, 0, current_char; % vertical bar
 
 for scale = 2, 2.5, 3.3, 4.2, 5.1:
-  beginsymbol((scale + 8)/2 * u# + 2side_bearing#, vcentre(scale * delim_height#)); "vertical bar";
+  beginsymbol(scale/2 * u# + 2side_bearing#, vcentre(scale * delim_height#)); "vertical bar";
     thick := 5/8rule_thickness * sqrt scale;
 
     pickup pencircle scaled 1/12thick;

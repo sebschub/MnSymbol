@@ -1,12 +1,12 @@
 
-beginsymbol(2dot_size# + 2side_bearing#, vcentre(2dot_size#)); "centre dot";
+beginsymbol(dot_size# + 2side_bearing#, vcentre(2dot_size#)); "centre dot";
   pickup rule_pen;
 
   fill circle((w/2, (h-d)/2), dot_size);
 endchar;
 
 for alpha = 0, 90, 45, 135:
-  beginarrow(alpha, (4dot_size# + equal_spread#)/arrow_horiz_len#, 2dot_size#);
+  beginarrow(alpha, (3dot_size# + equal_spread#)/arrow_horiz_len#, dot_size#);
     "colon (" & decimal alpha & ")";
     pickup rule_pen;
 
@@ -19,7 +19,7 @@ for alpha = 0, 90, 45, 135:
 endfor;
 
 for alpha = 0, 90, 45, 135:
-  beginarrow(alpha, (6dot_size# + 2equal_spread#)/arrow_horiz_len#, 2dot_size#);
+  beginarrow(alpha, (5dot_size# + 2equal_spread#)/arrow_horiz_len#, dot_size#);
     "triple colon (" & decimal alpha & ")";
     pickup rule_pen;
 
