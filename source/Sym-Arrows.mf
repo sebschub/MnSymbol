@@ -602,7 +602,7 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
          (foot + 7/8arrow_spread * dir (arrow_dir + 90));
 
     if negated:
-      stroke_through_arrow(1/2[foot, head], alpha, 12/8arrow_spread)
+      stroke_through_arrow(1/2[foot, head], alpha, 14/8arrow_spread)
                           (70, 70, 110, 110, 70, 70, 110, 110);
     fi
   endchar;
