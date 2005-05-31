@@ -3133,18 +3133,20 @@
 % For compatibility we define a |\not| command that places a virgule over the following symbol.
 %
 %    \begin{macrocode}
-\def\overstrike#1#2{%
-  \mathchoice
-    {\@overstrike\displaystyle{#1}{#2}}%
-    {\@overstrike\textstyle{#1}{#2}}%
-    {\@overstrike\scriptstyle{#1}{#2}}%
-    {\@overstrike\scriptscriptstyle{#1}{#2}}%
-  #2}
-\def\@overstrike#1#2#3{%
-  {\setbox0\hbox{$\m@th#1#3$}%
-   \hbox to \wd0{\hss$\m@th#1#2$\hss}%
-   \kern-\wd0}}
-\def\not#1{\mathrel{\overstrike{/}{#1}}}
+%\def\overstrike#1#2{%
+%  \mathchoice
+%    {\@overstrike\displaystyle{#1}{#2}}%
+%    {\@overstrike\textstyle{#1}{#2}}%
+%    {\@overstrike\scriptstyle{#1}{#2}}%
+%    {\@overstrike\scriptscriptstyle{#1}{#2}}%
+%  #2}
+%\def\@overstrike#1#2#3{%
+%  {\setbox0\hbox{$\m@th#1#3$}%
+%   \hbox to \wd0{\hss$\m@th#1#2$\hss}%
+%   \kern-\wd0}}
+%\def\not#1{\mathrel{\overstrike{/}{#1}}}
+\def\c@ncel#1#2{\m@th\ooalign{$\hfil#1/\hfil$\crcr$#1#2$}}
+\def\not#1{\mathrel{\m@th\mathpalette\c@ncel{#1}}}
 %
 %\renewcommand{\AmSfont}{%
 %  \usefont{OMS}{MnSymbolS}{\if\@xp\@car\f@series\@nil bb\else m\fi}{n}}
