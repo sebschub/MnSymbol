@@ -1915,17 +1915,19 @@
 \Decl@Mn@Char\lcirclearrowleft       {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcirclearrowdown       {MnSyA}{\mathrel}
 
-\def\longrightarrow{\DOTSB\leftrightline\joinrel\rightarrow}
-\def\longleftarrow{\DOTSB\leftarrow\joinrel\leftrightline}
-\def\longleftrightarrow{\DOTSB\leftarrow\joinrel\rightarrow}
-\def\Longrightarrow{\DOTSB\Leftrightline\joinrel\Rightarrow}
-\def\Longleftarrow{\DOTSB\Leftarrow\joinrel\Leftrightline}
-\def\Longleftrightarrow{\DOTSB\Leftarrow\joinrel\Rightarrow}
-\def\longmapsto{\DOTSB\leftfootline\joinrel\rightarrow}
-\def\emptyfilledspoon{\DOTSB\leftspoon\mkern-14mu\rightfilledspoon}
-\def\filledemptyspoon{\DOTSB\leftfilledspoon\mkern-14mu\rightspoon}
-\def\largeemptyfilledspoon{\DOTSB\mathrel{\circ\mkern-8mu\relbar\mkern-8mu\bullet}}
-\def\largefilledemptyspoon{\DOTSB\mathrel{\bullet\mkern-8mu\relbar\mkern-8mu\circ}}
+\let\joinrel\undefined
+\DeclareRobustCommand\joinrel{\mathrel{\mkern-3.1mu}}
+\DeclareRobustCommand\longrightarrow{\DOTSB\leftrightline\joinrel\rightarrow}
+\DeclareRobustCommand\longleftarrow{\DOTSB\leftarrow\joinrel\leftrightline}
+\DeclareRobustCommand\longleftrightarrow{\DOTSB\leftarrow\joinrel\rightarrow}
+\DeclareRobustCommand\Longrightarrow{\DOTSB\Leftrightline\joinrel\Rightarrow}
+\DeclareRobustCommand\Longleftarrow{\DOTSB\Leftarrow\joinrel\Leftrightline}
+\DeclareRobustCommand\Longleftrightarrow{\DOTSB\Leftarrow\joinrel\Rightarrow}
+\DeclareRobustCommand\longmapsto{\DOTSB\leftfootline\joinrel\rightarrow}
+\DeclareRobustCommand\emptyfilledspoon{\DOTSB\leftspoon\mkern-14mu\rightfilledspoon}
+\DeclareRobustCommand\filledemptyspoon{\DOTSB\leftfilledspoon\mkern-14mu\rightspoon}
+\DeclareRobustCommand\largeemptyfilledspoon{\DOTSB\mathrel{\circ\mkern-8mu\relbar\mkern-8mu\bullet}}
+\DeclareRobustCommand\largefilledemptyspoon{\DOTSB\mathrel{\bullet\mkern-8mu\relbar\mkern-8mu\circ}}
 %    \end{macrocode}
 %
 % MnSymbolB\?: stroked arrows.

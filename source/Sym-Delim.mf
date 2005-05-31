@@ -11,8 +11,19 @@ def draw_bracket(expr sign, thick, draw_top, draw_mid, draw_bot, draw_double) =
   penpos7(1/2thick, 0);
 
   x3 - x2 = x5 - x4 = sign * (w - 2side_bearing - 2u + thick);
-  y1 =  h + 1;
-  y0 = -d - 1;
+
+  if draw_top:
+    y1 = h;
+  else:
+    y1 = h + 1/3rule_thickness;
+  fi;
+
+  if draw_bot:
+    y0 = -d;
+  else:
+    y0 = -d - 1/3rule_thickness;
+  fi;
+
   x1 = x0;
 
   z6 = 1/3[z2l,z3l] + sign * thick * dir 0;
@@ -187,8 +198,8 @@ beginsymbol(6/2 * u# + 2side_bearing#, vcentre(1/2delim_height#)); "vertical bar
 
   x2 = x3 = w/2;
 
-  top y2 =  h + eps;
-  bot y3 = -d - eps;
+  top y2 =  h + 1/3rule_thickness;
+  bot y3 = -d - 1/3rule_thickness;
 
   filldraw stroke z2e -- z3e;
 endchar;
@@ -233,8 +244,8 @@ beginsymbol((5.1 + 8)/2 * u# + 2side_bearing#, vcentre(1/2delim_height#));
   1/2[x0,x2] = w/2;
   x2 - x0 = 4thick;
 
-  top y0 = top y2 =  h + eps;
-  bot y1 = bot y3 = -d - eps;
+  top y0 = top y2 =  h + 1/3rule_thickness;
+  bot y1 = bot y3 = -d - 1/3rule_thickness;
 
   filldraw stroke z0e -- z1e;
   filldraw stroke z2e -- z3e;
