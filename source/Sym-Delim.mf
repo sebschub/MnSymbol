@@ -285,12 +285,16 @@ beginsymbol(5u# + 2side_bearing#, vcentre(delim_height#)); "wavy line";
 
   pickup pencircle scaled thick;
 
-  x0 = x1 = x2 = w/2;
-  y0 = h;
-  y2 = -d;
-  y1 = 1/2[y0,y2];
+  x0 = x1 = x2 = x3 = w/2;
+  1/2[y0,y1] = h;
+  1/2[y2,y3] = -d;
+  y2 - y1 = y1 - y0 = y3 - y2;
 
-  draw z0{dir (270-30)} .. {dir (270+30)}z1{dir (270+30)} .. {dir (270-30)}z2;
+  draw (subpath (0.5,2.5) of
+         (z0{dir (270-30)}
+          .. {dir (270+30)}z1{dir (270+30)}
+          .. {dir (270-30)}z2{dir (270-30)}
+          .. {dir (270+30)}z3));
 endchar;
 
 extensible current_char: 0, 0, 0, current_char;
@@ -300,15 +304,24 @@ beginsymbol(8u# + 2side_bearing#, vcentre(delim_height#)); "double wavy line";
 
   pickup pencircle scaled thick;
 
-  x0a = x1a = x2a = 1/3w;
-  x0b = x1b = x2b = 2/3w;
+  x0a = x1a = x2a = x3a = 1/3w;
+  x0b = x1b = x2b = x3b = 2/3w;
+  1/2[y0a,y1a] = 1/2[y0b,y1b] = h;
+  1/2[y2a,y3a] = 1/2[y2b,y3b] = -d;
 
-  y0a = y0b = h;
-  y2a = y2b = -d;
-  y1a = y1b = 1/2[y0a,y2a];
+  y2a - y1a = y1a - y0a = y3a - y2a;
+  y2b - y1b = y1b - y0b = y3b - y2b;
 
-  draw z0a{dir (270-30)} .. {dir (270+30)}z1a{dir (270+30)} .. {dir (270-30)}z2a;
-  draw z0b{dir (270-30)} .. {dir (270+30)}z1b{dir (270+30)} .. {dir (270-30)}z2b;
+  draw (subpath (0.5,2.5) of
+         (z0a{dir (270-30)}
+          .. {dir (270+30)}z1a{dir (270+30)}
+          .. {dir (270-30)}z2a{dir (270-30)}
+          .. {dir (270+30)}z3a));
+  draw (subpath (0.5,2.5) of
+         (z0b{dir (270-30)}
+          .. {dir (270+30)}z1b{dir (270+30)}
+          .. {dir (270-30)}z2b{dir (270-30)}
+          .. {dir (270+30)}z3b));
 endchar;
 
 extensible current_char: 0, 0, 0, current_char;
