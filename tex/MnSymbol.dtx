@@ -2216,7 +2216,8 @@
   \DeclareRobustCommand{\@cdots}{\mathinner{\hdots}}
   \let\cdots\@cdots
 \Decl@Mn@Char\@vdots                 {MnSyC}{\mathord}
-  \DeclareRobustCommand{\vdots}{\ensuremath{\@vdots}}
+  \DeclareRobustCommand{\vdots}{%
+    \ifmmode \@vdots \else \hbox{$\@vdots$}\fi}
 \Decl@Mn@Char\udots                  {MnSyC}{\mathord}
 \Decl@Mn@Char\ddots                  {MnSyC}{\mathord}
 \Decl@Mn@Char\righttherefore         {MnSyC}{\mathbin}
