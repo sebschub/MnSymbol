@@ -52,6 +52,7 @@ MnSymbolC12 MnSymbol12 "MnSymbolC ReEncodeFont" <[MnSymbolC.enc <MnSymbol12.pfb
 MnSymbolD12 MnSymbol12 "MnSymbolD ReEncodeFont" <[MnSymbolD.enc <MnSymbol12.pfb
 MnSymbolE12 MnSymbol12 "MnSymbolE ReEncodeFont" <[MnSymbolE.enc <MnSymbol12.pfb
 MnSymbolF12 MnSymbol12 "MnSymbolF ReEncodeFont" <[MnSymbolF.enc <MnSymbol12.pfb
+MnSymbolS12 MnSymbol12 "MnSymbolS ReEncodeFont" <[MnSymbolS.enc <MnSymbol12.pfb
 
 MnSymbolA-Bold5 MnSymbol-Bold5 "MnSymbolA ReEncodeFont" <[MnSymbolA.enc <MnSymbol-Bold5.pfb
 MnSymbolB-Bold5 MnSymbol-Bold5 "MnSymbolB ReEncodeFont" <[MnSymbolB.enc <MnSymbol-Bold5.pfb
@@ -107,3 +108,4 @@ MnSymbolC-Bold12 MnSymbol-Bold12 "MnSymbolC ReEncodeFont" <[MnSymbolC.enc <MnSym
 MnSymbolD-Bold12 MnSymbol-Bold12 "MnSymbolD ReEncodeFont" <[MnSymbolD.enc <MnSymbol-Bold12.pfb
 MnSymbolE-Bold12 MnSymbol-Bold12 "MnSymbolE ReEncodeFont" <[MnSymbolE.enc <MnSymbol-Bold12.pfb
 MnSymbolF-Bold12 MnSymbol-Bold12 "MnSymbolF ReEncodeFont" <[MnSymbolF.enc <MnSymbol-Bold12.pfb
+MnSymbolS-Bold12 MnSymbol-Bold12 "MnSymbolS ReEncodeFont" <[MnSymbolS.enc <MnSymbol-Bold12.pfb
