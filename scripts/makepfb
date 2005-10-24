@@ -9,8 +9,16 @@ while (i<=12)
   MergeFonts("MnSymbolE"+i+".pfb");
   MergeFonts("MnSymbolF"+i+".pfb");
   MergeFonts("MnSymbolS"+i+".pfb");
+
   SetFontNames("MnSymbol"+i,"MnSymbol","MnSymbol"+i,"Regular","Design by Achim Blumensath","1.000");
+
+  SelectAll();
+  AddExtrema();
+  Simplify();
+  AutoHint();
+
   Generate("MnSymbol"+i+".pfb", "", 0);
+
   i++;
   if (i==11)
     i++;
@@ -26,8 +34,16 @@ while (i<=12)
   MergeFonts("MnSymbolE-Bold"+i+".pfb");
   MergeFonts("MnSymbolF-Bold"+i+".pfb");
   MergeFonts("MnSymbolS-Bold"+i+".pfb");
+
   SetFontNames("MnSymbol-Bold"+i,"MnSymbol","MnSymbol-Bold"+i,"Bold","Design by Achim Blumensath","1.000");
+
+  SelectAll();
+  AddExtrema();
+  Simplify();
+  AutoHint();
+
   Generate("MnSymbol-Bold"+i+".pfb", "", 0);
+
   i++;
   if (i==11)
     i++;
