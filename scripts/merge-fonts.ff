@@ -1,0 +1,51 @@
+#!/usr/local/bin/fontforge
+
+i = 5;
+while (i<=12)
+        Open("MnSymbolA"+i+".pfb");
+  MergeFonts("MnSymbolB"+i+".pfb");
+  MergeFonts("MnSymbolC"+i+".pfb");
+  MergeFonts("MnSymbolD"+i+".pfb");
+  MergeFonts("MnSymbolE"+i+".pfb");
+  MergeFonts("MnSymbolF"+i+".pfb");
+  MergeFonts("MnSymbolS"+i+".pfb");
+
+  SetFontNames("MnSymbol"+i,"MnSymbol","MnSymbol"+i,"Regular","Design by Achim Blumensath","1.000");
+
+  SelectAll();
+  AddExtrema();
+  Simplify();
+  AutoHint();
+
+  Generate("MnSymbol"+i+".pfb", "", 0);
+
+  i++;
+  if (i==11)
+    i++;
+  endif
+endloop
+
+i = 5;
+while (i<=12)
+        Open("MnSymbolA-Bold"+i+".pfb");
+  MergeFonts("MnSymbolB-Bold"+i+".pfb");
+  MergeFonts("MnSymbolC-Bold"+i+".pfb");
+  MergeFonts("MnSymbolD-Bold"+i+".pfb");
+  MergeFonts("MnSymbolE-Bold"+i+".pfb");
+  MergeFonts("MnSymbolF-Bold"+i+".pfb");
+  MergeFonts("MnSymbolS-Bold"+i+".pfb");
+
+  SetFontNames("MnSymbol-Bold"+i,"MnSymbol","MnSymbol-Bold"+i,"Bold","Design by Achim Blumensath","1.000");
+
+  SelectAll();
+  AddExtrema();
+  Simplify();
+  AutoHint();
+
+  Generate("MnSymbol-Bold"+i+".pfb", "", 0);
+
+  i++;
+  if (i==11)
+    i++;
+  endif
+endloop
