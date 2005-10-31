@@ -1,6 +1,5 @@
 MnSymbol is a symbol font designed to be used in conjunction with Adobe
-MinionPro. The current release is a beta version. In particular, the font
-metrics may change in the future.
+MinionPro.
 
 All files in this archive are in the public domain.
 
@@ -18,7 +17,7 @@ To install the fonts:
 
    .../texmf/tex/latex/MnSymbol/MnSymbol.sty
 
-(4) Copy the documentation (MnSymbol.pdf, README) into the directory
+(4) Copy the documentation (MnSymbol.ps, MnSymbol.pdf, README) into the directory
 
    .../texmf/doc/latex/MnSymbol/
 
