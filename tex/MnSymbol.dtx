@@ -42,6 +42,9 @@
 % \item[\textsf{abx}]  selects the experimental calligraphic font from the mathabx fonts.
 %   You need to have this font installed in order to use this option. mathabx
 %   contains also calligraphic lowercase letters but the lettershapes are not very good.
+% \item[\textsf{retainmissing}] Normally \textsf{MnSymbol} takes some of the missing symbols
+%   from the text font and it sets the remaining ones to \cs{\undefined}. If you want to
+%   retain the old definitions of these symbols then you can use the option \textsf{retainmissing}.
 % \end{description}
 %
 % \paragraph{Symbols.}
@@ -1409,7 +1412,7 @@
 \ProvidesPackage{MnSymbol}[2005/08/28 v1.3 support for the MnSymbol font]
 %    \end{macrocode}
 %
-% Options.
+% Options to select the calligraphic font.
 %
 %    \begin{macrocode}
 \DeclareOption{mnsy}{%
@@ -1425,6 +1428,105 @@
     \DeclareFontFamily{OT1}{mathu}{}
     \DeclareFontShape{OT1}{mathu}{m}{n}{ <-> mathu10 }{}
     \DeclareMathAlphabet\mathcal{OT1}{mathu}{m}{n}}}
+%    \end{macrocode}
+%
+% Some symbols missing from MnSymbol can be obtained from other fonts or
+% by combining several other symbols.
+%
+%    \begin{macrocode}
+\newcommand*\Mn@Fake@Missing{
+  \@ifpackageloaded{textcomp}{}{\RequirePackage{textcomp}}
+  \@ifundefined{mathfrak}{\RequirePackage{eufrak}}{}
+
+  \DeclareRobustCommand{\dagger}{\Mn@Text@With@MathVersion{\textdagger}}
+  \DeclareRobustCommand{\ddagger}{\Mn@Text@With@MathVersion{\textdaggerdbl}}
+  \DeclareRobustCommand{\mathparagraph}{\Mn@Text@With@MathVersion{\textparagraph}}
+  \DeclareRobustCommand{\mathsection}{\Mn@Text@With@MathVersion{\textsection}}
+  \DeclareRobustCommand{\mathdollar}{\Mn@Text@With@MathVersion{\textdollar}}
+  \DeclareRobustCommand{\mathsterling}{\Mn@Text@With@MathVersion{\textsterling}}
+  \DeclareRobustCommand{\yen}{\Mn@Text@With@MathVersion{\textyen}}
+  \DeclareRobustCommand{\Re}{\mathfrak{R}}
+  \DeclareRobustCommand{\Im}{\mathfrak{I}}
+  \DeclareRobustCommand{\dotplus}{\dot{+}}
+  \DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
+  \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
+%    \end{macrocode}
+%
+% MnSymbol lacks some symbols that are present in the Computer Modern or the AMS fonts.
+% In order to warn the user we undefine the corresponding commands.
+%
+% (a) Missing symbols.
+%
+%    \begin{macrocode}
+  \let\maltese\undefined
+  \let\blacksquare\undefined
+  \let\blacklozenge\undefined
+  \let\intercal\undefined
+  \let\Lsh\undefined
+  \let\Rsh\undefined
+  \let\Vvdash\undefined
+  \let\looparrowleft\undefined
+  \let\looparrowright\undefined
+  \let\Rrightarrow\undefined
+  \let\Lleftarrow\undefined
+  \let\gtrsim\undefined
+  \let\gtrapprox\undefined
+  \let\lesssim\undefined
+  \let\lessapprox\undefined
+  \let\eqslantless\undefined
+  \let\eqslantgtr\undefined
+  \let\curlyeqprec\undefined
+  \let\curlyeqsucc\undefined
+  \let\lneq\undefined
+  \let\gneq\undefined
+  \let\lnsim\undefined
+  \let\gnsim\undefined
+  \let\lnapprox\undefined
+  \let\gnapprox\undefined
+  \let\precneqq\undefined
+  \let\succneqq\undefined
+  \let\nshortmid\undefined
+  \let\nshortparallel\undefined
+  \let\shortparallel\undefined
+  \let\veebar\undefined
+  \let\barwedge\undefined
+  \let\doublebarwedge\undefined
+  \let\leftthreetimes\undefined
+  \let\rightthreetimes\undefined
+  \let\centerdot\undefined
+  \let\bigstar\undefined
+  \let\blacktriangledown\undefined
+  \let\blacktriangle\undefined
+  \let\divideontimes\undefined
+%    \end{macrocode}
+%
+% (b) Missing letters.
+%
+%    \begin{macrocode}
+  \let\hbar\undefined
+  \let\eth\undefined
+  \let\digamma\undefined
+  \let\varkappa\undefined
+  \let\backepsilon\undefined
+
+  \let\mho\undefined
+  \let\Finv\undefined
+  \let\Game\undefined
+  \let\Bbbk\undefined
+  \let\hslash\undefined
+  \let\complement\undefined
+  \let\circledR\undefined
+  \let\circledS\undefined
+%    \end{macrocode}
+%
+% (c) Unneeded parts of symbols.
+%
+%    \begin{macrocode}
+  \let\mapstochar\undefined
+  \let\lhook\undefined
+  \let\rhook\undefined
+}
+\DeclareOption{retainmissing}{\let\Mn@Fake@Missing\relax}
 
 \ExecuteOptions{mnsy}
 \ProcessOptions\relax
@@ -1436,8 +1538,7 @@
 %
 %    \begin{macrocode}
 \@ifpackageloaded{amsmath}{}{\RequirePackage{amsmath}}
-\@ifpackageloaded{textcomp}{}{\RequirePackage{textcomp}}
-\@ifundefined{mathfrak}{\RequirePackage{eufrak}}{}
+\Mn@Fake@Missing
 %    \end{macrocode}
 %
 % Short hands to simplify the definitions below.
@@ -2722,6 +2823,8 @@
 \Decl@Mn@Char\succnsim               {MnSyD}{\mathrel}
 \Decl@Mn@Char\precnapprox            {MnSyD}{\mathrel}
 \Decl@Mn@Char\succnapprox            {MnSyD}{\mathrel}
+
+\DeclareRobustCommand{\coloneq}{\mathrel{{\vdotdot}{\equal}}}
 %    \end{macrocode}
 %
 % MnSymbolF\?: Big operators.
@@ -3154,101 +3257,6 @@
 %
 %\renewcommand{\AmSfont}{%
 %  \usefont{OMS}{MnSymbolS}{\if\@xp\@car\f@series\@nil bb\else m\fi}{n}}
-%
-%    \end{macrocode}
-%
-% Some symbols missing from MnSymbol can be obtained from other fonts or
-% by combining several other symbols.
-%
-%    \begin{macrocode}
-\DeclareRobustCommand{\coloneq}{\mathrel{{\vdotdot}{\equal}}}
-\DeclareRobustCommand{\dagger}{\Mn@Text@With@MathVersion{\textdagger}}
-\DeclareRobustCommand{\ddagger}{\Mn@Text@With@MathVersion{\textdaggerdbl}}
-\DeclareRobustCommand{\mathparagraph}{\Mn@Text@With@MathVersion{\textparagraph}}
-\DeclareRobustCommand{\mathsection}{\Mn@Text@With@MathVersion{\textsection}}
-\DeclareRobustCommand{\mathdollar}{\Mn@Text@With@MathVersion{\textdollar}}
-\DeclareRobustCommand{\mathsterling}{\Mn@Text@With@MathVersion{\textsterling}}
-\DeclareRobustCommand{\yen}{\Mn@Text@With@MathVersion{\textyen}}
-\DeclareRobustCommand{\Re}{\mathfrak{R}}
-\DeclareRobustCommand{\Im}{\mathfrak{I}}
-\DeclareRobustCommand{\dotplus}{\dot{+}}
-\DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
-\DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
-%    \end{macrocode}
-%
-% MnSymbol lacks some symbols that are present in the Computer Modern or the AMS fonts.
-% In order to warn the user we undefine the corresponding commands.
-%
-% (a) Missing symbols.
-%
-%    \begin{macrocode}
-\let\maltese\undefined
-\let\blacksquare\undefined
-\let\blacklozenge\undefined
-\let\intercal\undefined
-\let\Lsh\undefined
-\let\Rsh\undefined
-\let\Vvdash\undefined
-\let\looparrowleft\undefined
-\let\looparrowright\undefined
-\let\Rrightarrow\undefined
-\let\Lleftarrow\undefined
-\let\gtrsim\undefined
-\let\gtrapprox\undefined
-\let\lesssim\undefined
-\let\lessapprox\undefined
-\let\eqslantless\undefined
-\let\eqslantgtr\undefined
-\let\curlyeqprec\undefined
-\let\curlyeqsucc\undefined
-\let\lneq\undefined
-\let\gneq\undefined
-\let\lnsim\undefined
-\let\gnsim\undefined
-\let\lnapprox\undefined
-\let\gnapprox\undefined
-\let\precneqq\undefined
-\let\succneqq\undefined
-\let\nshortmid\undefined
-\let\nshortparallel\undefined
-\let\shortparallel\undefined
-\let\veebar\undefined
-\let\barwedge\undefined
-\let\doublebarwedge\undefined
-\let\leftthreetimes\undefined
-\let\rightthreetimes\undefined
-\let\centerdot\undefined
-\let\bigstar\undefined
-\let\blacktriangledown\undefined
-\let\blacktriangle\undefined
-\let\divideontimes\undefined
-%    \end{macrocode}
-%
-% (b) Missing letters.
-%
-%    \begin{macrocode}
-\let\hbar\undefined
-\let\eth\undefined
-\let\digamma\undefined
-\let\varkappa\undefined
-\let\backepsilon\undefined
-
-\let\mho\undefined
-\let\Finv\undefined
-\let\Game\undefined
-\let\Bbbk\undefined
-\let\hslash\undefined
-\let\complement\undefined
-\let\circledR\undefined
-\let\circledS\undefined
-%    \end{macrocode}
-%
-% (c) Unneeded parts of symbols.
-%
-%    \begin{macrocode}
-\let\mapstochar\undefined
-\let\lhook\undefined
-\let\rhook\undefined
 %</style>
 %    \end{macrocode}
 \endinput
