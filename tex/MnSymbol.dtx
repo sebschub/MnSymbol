@@ -43,7 +43,7 @@
 %   You need to have this font installed in order to use this option. mathabx
 %   contains also calligraphic lowercase letters but the lettershapes are not very good.
 % \item[\textsf{retainmissing}] Normally \textsf{MnSymbol} takes some of the missing symbols
-%   from the text font and it sets the remaining ones to \cs{\undefined}. If you want to
+%   from the text font and it sets the remaining ones to |\undefined|. If you want to
 %   retain the old definitions of these symbols then you can use the option \textsf{retainmissing}.
 % \end{description}
 %
@@ -858,6 +858,8 @@
 % \showsymbol\daleth
 % \showsymbol\wp
 % \showsymbol\powerset
+% \showsymbol\invneg
+% \showsymbol\invbackneg
 % \end{multicols}
 %
 % \subsection*{Relations}
@@ -2529,6 +2531,8 @@
 \Decl@Mn@Char\daleth                 {MnSyC}{\mathord}
 \Decl@Mn@Char\wp                     {MnSyC}{\mathord}
 \Decl@Mn@Char\powerset               {MnSyC}{\mathord}
+\Decl@Mn@Char\invneg                 {MnSyC}{\mathord}
+\Decl@Mn@Char\invbackneg             {MnSyC}{\mathord}
 %    \end{macrocode}
 %
 % MnSymbolD\?: Relations.
