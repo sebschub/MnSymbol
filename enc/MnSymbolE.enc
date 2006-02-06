@@ -1,43 +1,43 @@
 /MnSymbolE [
 %00
-/bracketleft /lbracket2 /lbracket3 /lbracket4 /lbracket5 /bracketright /rbracket2 /rbracket3 
-/rbracket4 /rbracket5 /lfloor1 /lfloor2 /lfloor3 /lfloor4 /lfloor5 /rfloor1 
+/bracketleft /bracketleft.alt1 /bracketleft.alt2 /bracketleft.alt3 /bracketleft.alt4 /bracketright /bracketright.alt /bracketright.alt2 
+/bracketright.alt3 /bracketright.alt4 /uni230A /uni230A.alt1 /uni230A.alt2 /uni230A.alt3 /uni230A.alt4 /uni230B 
 %10
-/rfloor2 /rfloor3 /rfloor4 /rfloor5 /lceil1 /lceil2 /lceil3 /lceil4 
-/lceil5 /rceil1 /rceil2 /rceil3 /rceil4 /rceil5 /ulcorner1 /ulcorner2 
+/uni230B.alt1 /uni230B.alt2 /uni230B.alt3 /uni230B.alt4 /uni2308 /uni2308.alt1 /uni2308.alt2 /uni2308.alt3 
+/uni2308.alt4 /uni2309 /uni2309.alt1 /uni2309.alt2 /uni2309.alt3 /uni2309.alt4 /uni231C /uni231C.alt1 
 %20
-/ulcorner3 /ulcorner4 /ulcorner5 /urcorner1 /urcorner2 /urcorner3 /urcorner4 /urcorner5 
-/llcorner1 /llcorner2 /llcorner3 /llcorner4 /llcorner5 /lrcorner1 /lrcorner2 /lrcorner3 
+/uni231C.alt2 /uni231C.alt3 /uni231C.alt4 /uni231D /uni231D.alt1 /uni231D.alt2 /uni231D.alt3 /uni231D.alt4 
+/uni231E /uni231E.alt1 /uni231E.alt2 /uni231E.alt3 /uni231E.alt4 /uni231F /uni231F.alt1 /uni231F.alt2 
 %30
-/lrcorner4 /lrcorner5 /ullcorner1 /ullcorner2 /ullcorner3 /ullcorner4 /ullcorner5 /ulrcorner1 
-/ulrcorner2 /ulrcorner3 /ulrcorner4 /ulrcorner5 /lbrackettop /rbrackettop /lbracketbot /rbracketbot 
+/uni231F.alt3 /uni231F.alt4 /ullcorner1 /ullcorner2 /ullcorner3 /ullcorner4 /ullcorner5 /ulrcorner1 
+/ulrcorner2 /ulrcorner3 /ulrcorner4 /ulrcorner5 /uni23A1 /uni23A4 /uni23A3 /uni23A6 
 %40
-/lbracketmod /rbracketmod /lsem1 /lsem2 /lsem3 /lsem4 /lsem5 /rsem1 
-/rsem2 /rsem3 /rsem4 /rsem5 /lsemtop /rsemtop /lsembot /rsembot
+/uni23A2 /uni23A5 /uni27E6 /uni27E6.alt1 /uni27E6.alt2 /uni27E6.alt3 /uni27E6.alt4 /uni27E7 
+/uni27E7.alt1 /uni27E7.alt2 /uni27E7.alt3 /uni27E7.alt4 /lsemtop /rsemtop /lsembot /rsembot
 %50
-/lsemmod /rsemmod /arrowvert /vert1 /vert2 /vert3 /vert4 /vert5
-/Arrowvert /Vert1 /Vert2 /Vert3 /Vert4 /Vert5 /wavy /Wavy
+/lsemmod /rsemmod /arrowvert /divides.alt0 /divides.alt1 /divides.alt2 /divides.alt3 /divides.alt4
+/Arrowvert /parallel /parallel.alt1 /parallel.alt2 /parallel.alt3 /parallel.alt4 /wavy /Wavy
 %60
-/langle1 /langle2 /langle3 /langle4 /langle5 /rangle1 /rangle2 /rangle3 
-/rangle4 /rangle5 /langlebar1 /langlebar2 /langlebar3 /langlebar4 /langlebar5 /ranglebar1
-/ranglebar2 /ranglebar3 /ranglebar4 /ranglebar5 /llangle1 /llangle2 /llangle3 /llangle4 
-/llangle5 /rrangle1 /rrangle2 /rrangle3 /rrangle4 /rrangle5 /lslash1 /lslash2 
+/uni27E8 /uni27E8.alt /uni27E8.alt2 /uni27E8.alt3 /uni27E8.alt4 /uni27E9 /uni27E9.alt1 /uni27E9.alt2 
+/uni27E9.alt3 /uni27E9.alt4 /langlebar1 /langlebar2 /langlebar3 /langlebar4 /langlebar5 /ranglebar1
+/ranglebar2 /ranglebar3 /ranglebar4 /ranglebar5 /uni27EA /uni27EA.alt1 /uni27EA.alt2 /uni27EA.alt3 
+/uni27EA.alt4 /uni27EB /uni27EB.alt1 /uni27EB.alt2 /uni27EB.alt3 /uni27EB.alt4 /lslash1 /lslash2 
 /lslash3 /lslash4 /lslash5 /rslash1 
 %70
-/rslash2 /rslash3 /rslash4 /rslash5 /parenleft /lparen2 /lparen3 /lparen4 
-/lparen5 /parenright /rparen2 /rparen3 /rparen4 /rparen5 /lparentop /rparentop
+/rslash2 /rslash3 /rslash4 /rslash5 /parenleft /parenleft.alt1 /parenleft.alt2 /parenleft.alt3 
+/parenleft.alt4 /parenright /parenright.alt1 /parenright.alt2 /parenright.alt3 /parenright.alt4 /uni239B /uni239E
 %80
-/lparenbot /rparenbot /lparenmod /rparenmod /lcurly1 /lcurly2 /lcurly3 /lcurly4 
-/lcurly5 /rcurly1 /rcurly2 /rcurly3 /rcurly4 /rcurly5 /lcurlytop /rcurlytop
+/uni239D /uni23A0 /uni239C /uni239F /braceleft /braceleft.alt1 /braceleft.alt2 /braceleft.alt3 
+/braceleft.alt4 /braceright /braceright.alt1 /braceright.alt2 /braceright.alt3 /braceright.alt4 /uni23A7 /uni23AB
 %90
-/lcurlybot /rcurlybot /lcurlymid /rcurlymid /curlymod /ucurly1 /ucurly2 /ucurly3 
+/uni23A9 /uni23AD /uni23A8 /uni23AC /uni23AA /ucurly1 /ucurly2 /ucurly3 
 /ucurly4 /ucurly5 /dcurly1 /dcurly2 /dcurly3 /dcurly4 /dcurly5 /ucurlyleft 
 %A0
-/dcurlyleft /ucurlyright /dcurlyright /ucurlymid /dcurlymid /udcurlymod /root1 /root2 
-/root3 /root4 /root5 /roottop /rootbot /rootmod /widehat1 /widehat2 
+/dcurlyleft /ucurlyright /dcurlyright /ucurlymid /dcurlymid /udcurlymod /radical /radical.alt1 
+/radical.alt2 /radical.alt3 /radical.alt4 /roottop /rootbot /rootmod /circumflexcmb /circumflexcmb.alt1 
 %B0
-/widehat3 /widehat4 /widehat5 /widetilde1 /widetilde2 /widetilde3 /widetilde4 /widetilde5 
-/wideparen1  /wideparen2 /wideparen3 /wideparen4 /wideparen5 /vec /.notdef /.notdef 
+/circumflexcmb.alt2 /circumflexcmb.alt3 /circumflexcmb.alt4 /tildecomb /tildecomb.alt1 /tildecomb.alt2 /tildecomb.alt3 /tildecomb.alt4 
+/wideparen1  /wideparen2 /wideparen3 /wideparen4 /wideparen5 /uni20D7 /.notdef /.notdef 
 %C0
 %/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 

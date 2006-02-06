@@ -1,258 +1,50 @@
 /MnSymbolD [
-/equal
-/equiv
-/sim
-/backsim
-/approx
-/backapprox
-/triplesim
-/backtriplesim
-/simeq
-/backsimeq
-/eqsim
-/backeqsim
-/cong
-/backcong
-/approxeq
-/backapproxeq
-/bumpeq
-/eqbump
-/Bumpeq
-/doteq
-/eqdot
-/Doteq
-/fallingdotseq
-/risingdotseq
-/smile
-/frown
-/doublesmile
-/doublefrown
-/triplesmile
-/triplefrown
-/smilefrown
-/frownsmile
-/smileeq
-/frowneq
-/eqsmile
-/eqfrown
-/doublesmileeq
-/doublefrowneq
-/smileeqfrown
-/frowneqsmile
-/smilefrowneq
-/frownsmileeq
-/sqsmile
-/sqfrown
-/sqdoublesmile
-/sqdoublefrown
-/sqtriplesmile
-/sqtriplefrown
-/sqsmilefrown
-/sqfrownsmile
-/sqsmileeq
-/sqfrowneq
-/sqeqsmile
-/sqeqfrown
-/sqdoublesmileeq
-/sqdoublefrowneq
-/sqsmileeqfrown
-/sqfrowneqsmile
-/eqcirc
-/circeq
-/triangleeq
-/hateq
-/in
-/owns
-/less
-/gtr
-/leq
-/geq
-/leqslant
-/geqslant
-/leqq
-/geqq
-/lessgtr
-/gtrless
-/lesseqgtr
-/gtreqless
-/lesseqqgtr
-/gtreqqless
-/lesseqgtrslant
-/gtreqlessslant
-/ll
-/gg
-/lll
-/ggg
-/lessclosed
-/gtrclosed
-/leqclosed
-/geqclosed
-/sqsubset
-/sqsupset
-/sqsubseteq
-/sqsupseteq
-/sqsubseteqq
-/sqsupseteqq
-/Sqsubset
-/Sqsupset
-/subset
-/supset
-/subseteq
-/supseteq
-/subseteqq
-/supseteqq
-/Subset
-/Supset
-/prec
-/succ
-/preceq
-/succeq
-/preccurlyeq
-/succcurlyeq
-/precsim
-/succsim
-/precapprox
-/succapprox
-/lessdot
-/gtrdot
-/leqdot
-/geqdot
-/leqslantdot
-/geqslantdot
-/nequal
-/nequiv
-/nsim
-/nbacksim
-/napprox
-/nbackapprox
-/ntriplesim
-/nbacktriplesim
-/nsimeq
-/nbacksimeq
-/neqsim
-/nbackeqsim
-/ncong
-/nbackcong
-/napproxeq
-/nbackapproxeq
-/nbumpeq
-/neqbump
-/nBumpeq
-/ndoteq
-/neqdot
-/nDoteq
-/nfallingdotseq
-/nrisingdotseq
-/nsmile
-/nfrown
-/ndoublesmile
-/ndoublefrown
-/ntriplesmile
-/ntriplefrown
-/nsmilefrown
-/nfrownsmile
-/nsmileeq
-/nfrowneq
-/neqsmile
-/neqfrown
-/ndoublesmileeq
-/ndoublefrowneq
-/nsmileeqfrown
-/nfrowneqsmile
-/nsmilefrowneq
-/nfrownsmileeq
-/nsqsmile
-/nsqfrown
-/nsqdoublesmile
-/nsqdoublefrown
-/nsqtriplesmile
-/nsqtriplefrown
-/nsqsmilefrown
-/nsqfrownsmile
-/nsqsmileeq
-/nsqfrowneq
-/nsqeqsmile
-/nsqeqfrown
-/nsqdoublesmileeq
-/nsqdoublefrowneq
-/nsqsmileeqfrown
-/nsqfrowneqsmile
-/neqcirc
-/ncirceq
-/ntriangleeq
-/nhateq
-/nin
-/nowns
-/nless
-/ngtr
-/nleq
-/ngeq
-/nleqslant
-/ngeqslant
-/nleqq
-/ngeqq
-/nlessgtr
-/ngtrless
-/nlesseqgtr
-/ngtreqless
-/nlesseqqgtr
-/ngtreqqless
-/nlesseqgtrslant
-/ngtreqlessslant
-/nll
-/ngg
-/nlll
-/nggg
-/nlessclosed
-/ngtrclosed
-/nleqclosed
-/ngeqclosed
-/nsqsubset
-/nsqsupset
-/nsqsubseteq
-/nsqsupseteq
-/nsqsubseteqq
-/nsqsupseteqq
-/nSqsubset
-/nSqsupset
-/nsubset
-/nsupset
-/nsubseteq
-/nsupseteq
-/nsubseteqq
-/nsupseteqq
-/nSubset
-/nSupset
-/nprec
-/nsucc
-/npreceq
-/nsucceq
-/npreccurlyeq
-/nsucccurlyeq
-/nprecsim
-/nsuccsim
-/nprecapprox
-/nsuccapprox
-/nlessdot
-/ngtrdot
-/nleqdot
-/ngeqdot
-/nleqslantdot
-/ngeqslantdot
-/lneqq
-/gneqq
-/lessneqqgtr
-/gtrneqqless
-/sqsubsetneq
-/sqsupsetneq
-/sqsubsetneqq
-/sqsupsetneqq
-/subsetneq
-/supsetneq
-/subsetneqq
-/supsetneqq
-/precnsim
-/succnsim
-/precnapprox
-/succnapprox
+%00
+/equal /equivalence /similar /uni223D /approxequal /backapprox /uni224B /backtriplesim
+/uni2243 /backsimeq /uni2242 /backeqsim /congruent /uni224C /uni224A /backapproxeq
+%10
+/uni224F /eqbump /uni224E /uni2250 /uni2A66 /uni2251 /uni2252 /uni2253
+/uni2323 /uni2322 /doublesmile /doublefrown /triplesmile /triplefrown /uni224D /frownsmile
+%20
+/smileeq /frowneq /eqsmile /eqfrown /doublesmileeq /doublefrowneq /smileeqfrown /frowneqsmile
+/smilefrowneq /frownsmileeq /sqsmile /sqfrown /sqdoublesmile /sqdoublefrown /sqtriplesmile /sqtriplefrown
+%30
+/sqsmilefrown /sqfrownsmile /sqsmileeq /sqfrowneq /sqeqsmile /sqeqfrown /sqdoublesmileeq /sqdoublefrowneq
+/sqsmileeqfrown /sqfrowneqsmile /uni2256 /uni2257 /uni225C /uni2259 /element /suchthat
+%40
+/less /greater /lessequal /greaterequal /uni2A7D /uni2A7E /uni2266 /uni2267
+/uni2276 /uni2277 /uni22DA /uni22DB /uni2A8B /uni2A8C /lesseqgtrslant /gtreqlessslant
+%50
+/uni226A /uni226B /uni22D8 /uni22D9 /uni22B2 /uni22B3 /uni22B4 /uni22B5
+/uni228F /uni2290 /uni2291 /uni2292 /sqsubseteqq /sqsupseteqq /Sqsubset /Sqsupset
+%60
+/propersubset /propersuperset /reflexsubset /reflexsuperset /uni2AC5 /uni2AC6 /uni22D0 /uni22D1 
+/uni227A /uni227B /uni2AAF /uni2AB0 /uni227C /uni227D /uni227E /uni227F
+%70
+/uni2AB7 /uni2AB8 /uni22D6 /uni22D7 /leqdot /geqdot /uni2A7F /uni2A80
+/notequal /uni2262 /uni2241 /uni223D.neg /uni2249 /backapprox.neg /uni224B.neg /backtriplesim.neg /uni2244
+%80
+/backsimeq.neg /uni2242.neq /backeqsim.neg /uni2247 /uni224C.neg /uni224A.neg /backapproxeq.neg /uni224F.neg
+/eqbump.neg /uni224E.neg /uni2250.neg /uni2A66.neg /uni2251.neg /uni2252.neg /uni2253.neg /uni2323.neg
+%90
+/uni2322.neg /doublesmile.neg /doublefrown.neg /triplesmile.neg /triplefrown.neg /uni226D /frownsmile.neg /smileeq.neg 
+/frowneq.neg /eqsmile.neg /eqfrown.neg /doublesmileeq.neg /doublefrowneq.neg /smileeqfrown.neg /frowneqsmile.neg /smilefrowneq.neg 
+%A0
+/frownsmileeq.neg /sqsmile.neg /sqfrown.neg /sqdoublesmile.neg /sqdoublefrown.neg /sqtriplesmile.neg /sqtriplefrown.neg /sqsmilefrown.neg 
+/sqfrownsmile.neg /sqsmileeq.neg /sqfrowneq.neg /sqeqsmile.neg /sqeqfrown.neg /sqdoublesmileeq.neg /sqdoublefrowneq.neg /sqsmileeqfrown.neg 
+%B0
+/sqfrowneqsmile.neg /uni2256.neg /uni2257.neg /uni225C.neg /uni2259.neg /notelement /uni220C /uni226E 
+/uni226F /uni2270 /uni2271 /uni2270.alt1 /uni2271.alt1 /uni2266.neg /uni2267.neg /uni2278 
+%C0
+/uni2279 /uni22DA.neg /uni22DB.neg /uni2A8B.neg /uni2A8C.neg /lesseqgtrslant.neg /gtreqlessslant.neg /uni226A.neg
+/uni226B.neg /uni22D8.neg /uni22D9.neg /uni22EA /uni22EB /uni22EC /uni22ED /uni228F.neg
+%D0
+/uni2290.neg /uni2291.neg /uni2292.neg /sqsubseteqq.neg /sqsupseteqq.neg /Sqsubset.neg /Sqsupset.neg /notsubset 
+/uni2285 /uni2288 /uni2289 /uni2AC5.neg /uni2AC6.neg /uni22D0.neg /uni22D1.neg /uni2280 
+%E0
+/uni2281 /uni2AAF.neg /uni2AB0.neg /uni227C.neg /uni227D.neg /uni227E.neg /uni227F.neg /uni2AB7.neg
+/uni2AB8.neg /uni22D6.neg /uni22D7.neg /leqdot.neg /geqdot.neg /uni2A7F.neg /uni2A80.neg /uni2268 
+%F0
+/uni2269 /lessneqqgtr /gtrneqqless /sqsubsetneq /sqsupsetneq /sqsubsetneqq /sqsupsetneqq /uni228A 
+/uni228B /uni2ACB /uni2ACC /precnsim /succnsim /uni2AB9 /uni2ABA
 ] def
