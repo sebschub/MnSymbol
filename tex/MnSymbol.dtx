@@ -680,8 +680,9 @@
 % \showsymbol\vertdiv
 % \showsymbol\backslashdiv
 % \showsymbol\neg,
-%   \cs{\lnot}
-% \showsymbol\backneg
+%   \cs{\lnot}, \cs{\minushookdown}
+% \showsymbol\backneg,
+%   \cs{\hookdownminus}
 % \showsymbol\dtimes
 % \showsymbol\rtimes
 % \showsymbol\utimes
@@ -858,8 +859,10 @@
 % \showsymbol\daleth
 % \showsymbol\wp
 % \showsymbol\powerset
-% \showsymbol\invneg
-% \showsymbol\invbackneg
+% \showsymbol\invneg,
+%   \cs{\minushookup}
+% \showsymbol\invbackneg,
+%   \cs{\hookupminus}
 % \end{multicols}
 %
 % \subsection*{Relations}
@@ -1546,14 +1549,8 @@
 % Short hands to simplify the definitions below.
 %
 %    \begin{macrocode}
-%\def\use@mn@font#1#2#3{#3{\text{\usefont{U}{MnSymbol#2}{m}{n}\char#1}}}
-%\def\mn@operator#1#2{\mathchoice{#1}{#2}{#2}{#2}}
-
-\def\Next@Mn@Char{\advance\@tempcnta 1\relax}
-%\def\Decl@Mn@Char#1#2#3{%
-%  \expandafter\def\expandafter#1\expandafter{\expandafter\use@mn@font\expandafter{\the\@tempcnta}{#2}{#3}}%
-%  \Next@Mn@Char}
-%\def\Decl@Mn@Op#1#2#3{\def#1{\mathop{\mn@operator{#2}{#3}}}}
+\def\Next@Mn@Sym{\advance\@tempcnta 1\relax}
+\def\Prev@Mn@Sym{\advance\@tempcnta-1\relax}
 
 \def\@Decl@Mn@Sym#1#2#3#4{\DeclareMathSymbol{#2}{#3}{#4}{#1}}
 \def\Decl@Mn@Sym#1#2#3{%
@@ -1561,7 +1558,8 @@
     \let#1\undefined
   \fi
   \expandafter\@Decl@Mn@Sym\expandafter{\the\@tempcnta}{#1}{#3}{#2}%
-  \Next@Mn@Char}
+  \Next@Mn@Sym}
+\def\Decl@Mn@Alias#1#2#3{\Prev@Mn@Sym\Decl@Mn@Sym{#1}{#2}{#3}}
 \let\Decl@Mn@Char\Decl@Mn@Sym
 \def\Decl@Mn@Op#1#2#3{\def#1{\DOTSB#3\slimits@}}
 \def\Decl@Mn@Int#1#2#3{\def#1{\DOTSI#3\ilimits@}}
@@ -1731,10 +1729,10 @@
 %    \begin{macrocode}
 \@tempcnta=0
 \Decl@Mn@Char\rightarrow             {MnSyA}{\mathrel}
-  \let\to\rightarrow
+  \Decl@Mn@Alias\to                  {MnSyA}{\mathrel}
 \Decl@Mn@Char\uparrow                {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftarrow              {MnSyA}{\mathrel}
-  \let\gets\leftarrow
+  \Decl@Mn@Alias\gets                {MnSyA}{\mathrel}
 \Decl@Mn@Char\downarrow              {MnSyA}{\mathrel}
 \Decl@Mn@Char\nearrow                {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwarrow                {MnSyA}{\mathrel}
@@ -1773,7 +1771,7 @@
 \Decl@Mn@Char\swarrowtail            {MnSyA}{\mathrel}
 \Decl@Mn@Char\searrowtail            {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightmapsto            {MnSyA}{\mathrel}
-  \let\mapsto\rightmapsto
+  \Decl@Mn@Alias\mapsto              {MnSyA}{\mathrel}
 \Decl@Mn@Char\upmapsto               {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftmapsto             {MnSyA}{\mathrel}
 \Decl@Mn@Char\downmapsto             {MnSyA}{\mathrel}
@@ -1782,7 +1780,7 @@
 \Decl@Mn@Char\swmapsto               {MnSyA}{\mathrel}
 \Decl@Mn@Char\semapsto               {MnSyA}{\mathrel}
 \Decl@Mn@Char\lhookrightarrow        {MnSyA}{\mathrel}
-  \let\hookrightarrow\lhookrightarrow
+  \Decl@Mn@Alias\hookrightarrow      {MnSyA}{\mathrel}
 \Decl@Mn@Char\lhookuparrow           {MnSyA}{\mathrel}
 \Decl@Mn@Char\lhookleftarrow         {MnSyA}{\mathrel}
 \Decl@Mn@Char\lhookdownarrow         {MnSyA}{\mathrel}
@@ -1793,7 +1791,7 @@
 \Decl@Mn@Char\rhookrightarrow        {MnSyA}{\mathrel}
 \Decl@Mn@Char\rhookuparrow           {MnSyA}{\mathrel}
 \Decl@Mn@Char\rhookleftarrow         {MnSyA}{\mathrel}
-  \let\hookleftarrow\rhookleftarrow
+  \Decl@Mn@Alias\hookleftarrow       {MnSyA}{\mathrel}
 \Decl@Mn@Char\rhookdownarrow         {MnSyA}{\mathrel}
 \Decl@Mn@Char\rhooknearrow           {MnSyA}{\mathrel}
 \Decl@Mn@Char\rhooknwarrow           {MnSyA}{\mathrel}
@@ -1801,21 +1799,21 @@
 \Decl@Mn@Char\rhooksearrow           {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightharpoonup         {MnSyA}{\mathrel}
 \Decl@Mn@Char\upharpoonup            {MnSyA}{\mathrel}
-  \let\upharpoonleft\upharpoonup
+  \Decl@Mn@Alias\upharpoonleft       {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftharpoonup          {MnSyA}{\mathrel}
 \Decl@Mn@Char\downharpoonup          {MnSyA}{\mathrel}
-  \let\downharpoonright\downharpoonup
+  \Decl@Mn@Alias\downharpoonright    {MnSyA}{\mathrel}
 \Decl@Mn@Char\neharpoonup            {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwharpoonup            {MnSyA}{\mathrel}
 \Decl@Mn@Char\swharpoonup            {MnSyA}{\mathrel}
 \Decl@Mn@Char\seharpoonup            {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightharpoondown       {MnSyA}{\mathrel}
 \Decl@Mn@Char\upharpoondown          {MnSyA}{\mathrel}
-  \let\upharpoonright\upharpoondown
-  \let\restriction\upharpoondown
+  \Decl@Mn@Alias\upharpoonright      {MnSyA}{\mathrel}
+  \Decl@Mn@Alias\restriction         {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftharpoondown        {MnSyA}{\mathrel}
 \Decl@Mn@Char\downharpoondown        {MnSyA}{\mathrel}
-  \let\downharpoonleft\downharpoondown
+  \Decl@Mn@Alias\downharpoonleft     {MnSyA}{\mathrel}
 \Decl@Mn@Char\neharpoondown          {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwharpoondown          {MnSyA}{\mathrel}
 \Decl@Mn@Char\swharpoondown          {MnSyA}{\mathrel}
@@ -1837,18 +1835,18 @@
 \Decl@Mn@Char\swneharpoons           {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwseharpoons           {MnSyA}{\mathrel}
 \Decl@Mn@Char\dashedrightarrow       {MnSyA}{\mathrel}
-  \let\dashrightarrow\dashedrightarrow
-  \let\dasharrow\dashedrightarrow
+  \Decl@Mn@Alias\dashrightarrow      {MnSyA}{\mathrel}
+  \Decl@Mn@Alias\dasharrow           {MnSyA}{\mathrel}
 \Decl@Mn@Char\dasheduparrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\dashedleftarrow        {MnSyA}{\mathrel}
-  \let\dashleftarrow\dashedleftarrow
+  \Decl@Mn@Alias\dashleftarrow       {MnSyA}{\mathrel}
 \Decl@Mn@Char\dasheddownarrow        {MnSyA}{\mathrel}
 \Decl@Mn@Char\dashednearrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\dashednwarrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\dashedswarrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\dashedsearrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightspoon             {MnSyA}{\mathrel}
-  \let\multimap\rightspoon
+  \Decl@Mn@Alias\multimap            {MnSyA}{\mathrel}
 \Decl@Mn@Char\upspoon                {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftspoon              {MnSyA}{\mathrel}
 \Decl@Mn@Char\downspoon              {MnSyA}{\mathrel}
@@ -1882,7 +1880,7 @@
 \Decl@Mn@Char\sefree                 {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightpitchfork         {MnSyA}{\mathrel}
 \Decl@Mn@Char\uppitchfork            {MnSyA}{\mathrel}
-  \let\pitchfork\uppitchfork
+  \Decl@Mn@Alias\pitchfork           {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftpitchfork          {MnSyA}{\mathrel}
 \Decl@Mn@Char\downpitchfork          {MnSyA}{\mathrel}
 \Decl@Mn@Char\nepitchfork            {MnSyA}{\mathrel}
@@ -1906,8 +1904,8 @@
 \Decl@Mn@Char\swnearrows             {MnSyA}{\mathrel}
 \Decl@Mn@Char\senwarrows             {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightlsquigarrow       {MnSyA}{\mathrel}
-  \let\leadsto\rightlsquigarrow
-  \let\rightsquigarrow\rightlsquigarrow
+  \Decl@Mn@Alias\leadsto             {MnSyA}{\mathrel}
+  \Decl@Mn@Alias\rightsquigarrow     {MnSyA}{\mathrel}
 \Decl@Mn@Char\uplsquigarrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftlsquigarrow        {MnSyA}{\mathrel}
 \Decl@Mn@Char\downlsquigarrow        {MnSyA}{\mathrel}
@@ -1924,7 +1922,7 @@
 \Decl@Mn@Char\swrsquigarrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\sersquigarrow          {MnSyA}{\mathrel}
 \Decl@Mn@Char\squigarrowleftright    {MnSyA}{\mathrel}
-  \let\leftrightsquigarrow\squigarrowleftright
+  \Decl@Mn@Alias\leftrightsquigarrow {MnSyA}{\mathrel}
 \Decl@Mn@Char\squigarrowupdown       {MnSyA}{\mathrel}
 \Decl@Mn@Char\squigarrowrightleft    {MnSyA}{\mathrel}
 \Decl@Mn@Char\squigarrowdownup       {MnSyA}{\mathrel}
@@ -1933,7 +1931,7 @@
 \Decl@Mn@Char\squigarrowswne         {MnSyA}{\mathrel}
 \Decl@Mn@Char\squigarrowsenw         {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcurvearrowright       {MnSyA}{\mathrel}
-  \let\curvearrowright\lcurvearrowright
+  \Decl@Mn@Alias\curvearrowright     {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcurvearrowup          {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcurvearrowleft        {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcurvearrowdown        {MnSyA}{\mathrel}
@@ -1944,7 +1942,7 @@
 \Decl@Mn@Char\rcurvearrowright       {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcurvearrowup          {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcurvearrowleft        {MnSyA}{\mathrel}
-  \let\curvearrowleft\rcurvearrowleft
+  \Decl@Mn@Alias\curvearrowleft      {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcurvearrowdown        {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcurvearrowne          {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcurvearrownw          {MnSyA}{\mathrel}
@@ -1959,31 +1957,31 @@
 \Decl@Mn@Char\curvearrowswne         {MnSyA}{\mathrel}
 \Decl@Mn@Char\curvearrowsenw         {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftrightline          {MnSyA}{\mathrel}
-  \let\relbar\leftrightline
+  \Decl@Mn@Alias\relbar              {MnSyA}{\mathrel}
 \Decl@Mn@Char\updownline             {MnSyA}{\mathrel}
 \Decl@Mn@Char\neswline               {MnSyA}{\mathrel}
-  \let\diagup\neswline
+  \Decl@Mn@Alias\diagup              {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwseline               {MnSyA}{\mathrel}
-  \let\diagdown\nwseline
+  \Decl@Mn@Alias\diagdown            {MnSyA}{\mathrel}
 \Decl@Mn@Char\Leftrightline          {MnSyA}{\mathrel}
-  \let\Relbar\Leftrightline
+  \Decl@Mn@Alias\Relbar              {MnSyA}{\mathrel}
 \Decl@Mn@Char\Updownline             {MnSyA}{\mathrel}
 \Decl@Mn@Char\Neswline               {MnSyA}{\mathrel}
 \Decl@Mn@Char\Nwseline               {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightvdash             {MnSyA}{\mathrel}
-  \let\vdash\rightvdash
+  \Decl@Mn@Alias\vdash               {MnSyA}{\mathrel}
 \Decl@Mn@Char\upvdash                {MnSyA}{\mathrel}
-  \let\perp\upvdash
+  \Decl@Mn@Alias\perp                {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftvdash              {MnSyA}{\mathrel}
-  \let\dashv\leftvdash
+  \Decl@Mn@Alias\dashv               {MnSyA}{\mathrel}
 \Decl@Mn@Char\downvdash              {MnSyA}{\mathrel}
 \Decl@Mn@Char\nevdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwvdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\swvdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\sevdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightmodels            {MnSyA}{\mathrel}
-  \let\models\rightmodels
-  \let\vDash\models
+  \Decl@Mn@Alias\models              {MnSyA}{\mathrel}
+  \Decl@Mn@Alias\vDash               {MnSyA}{\mathrel}
 \Decl@Mn@Char\upmodels               {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftmodels             {MnSyA}{\mathrel}
 \Decl@Mn@Char\downmodels             {MnSyA}{\mathrel}
@@ -1992,7 +1990,7 @@
 \Decl@Mn@Char\swmodels               {MnSyA}{\mathrel}
 \Decl@Mn@Char\semodels               {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightVdash             {MnSyA}{\mathrel}
-  \let\Vdash\rightVdash
+  \Decl@Mn@Alias\Vdash               {MnSyA}{\mathrel}
 \Decl@Mn@Char\upVdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftVdash              {MnSyA}{\mathrel}
 \Decl@Mn@Char\downVdash              {MnSyA}{\mathrel}
@@ -2001,7 +1999,7 @@
 \Decl@Mn@Char\swVdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\seVdash                {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightModels            {MnSyA}{\mathrel}
-  \let\VDash\rightModels
+  \Decl@Mn@Alias\VDash               {MnSyA}{\mathrel}
 \Decl@Mn@Char\upModels               {MnSyA}{\mathrel}
 \Decl@Mn@Char\leftModels             {MnSyA}{\mathrel}
 \Decl@Mn@Char\downModels             {MnSyA}{\mathrel}
@@ -2011,12 +2009,12 @@
 \Decl@Mn@Char\seModels               {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcirclearrowright      {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcirclearrowup         {MnSyA}{\mathrel}
-  \let\circlearrowleft\rcirclearrowup
+  \Decl@Mn@Alias\circlearrowleft     {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcirclearrowleft       {MnSyA}{\mathrel}
 \Decl@Mn@Char\rcirclearrowdown       {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcirclearrowright      {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcirclearrowup         {MnSyA}{\mathrel}
-  \let\circlearrowright\rcirclearrowup
+  \Decl@Mn@Alias\circlearrowright    {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcirclearrowleft       {MnSyA}{\mathrel}
 \Decl@Mn@Char\lcirclearrowdown       {MnSyA}{\mathrel}
 
@@ -2249,16 +2247,16 @@
 \Decl@Mn@Char\ncurvearrowsenw        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftrightline         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupdownline            {MnSyB}{\mathrel}
-  \let\nmid\nupdownline
+  \Decl@Mn@Alias\nmid                {MnSyB}{\mathrel}
 \Decl@Mn@Char\nneswline              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwseline              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nLeftrightline         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nUpdownline            {MnSyB}{\mathrel}
-  \let\nparallel\nUpdownline
+  \Decl@Mn@Alias\nparallel           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nNeswline              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nNwseline              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightvdash            {MnSyB}{\mathrel}
-  \let\nvdash\nrightvdash
+  \Decl@Mn@Alias\nvdash              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupvdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftvdash             {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownvdash             {MnSyB}{\mathrel}
@@ -2267,8 +2265,8 @@
 \Decl@Mn@Char\nswvdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsevdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightmodels           {MnSyB}{\mathrel}
-  \let\nmodels\nrightmodels
-  \let\nvDash\nmodels
+  \Decl@Mn@Alias\nmodels             {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nvDash              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupmodels              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftmodels            {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownmodels            {MnSyB}{\mathrel}
@@ -2277,7 +2275,7 @@
 \Decl@Mn@Char\nswmodels              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsemodels              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightVdash            {MnSyB}{\mathrel}
-  \let\nVdash\nrightVdash
+  \Decl@Mn@Alias\nVdash              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupVdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftVdash             {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownVdash             {MnSyB}{\mathrel}
@@ -2286,7 +2284,7 @@
 \Decl@Mn@Char\nswVdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nseVdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightModels           {MnSyB}{\mathrel}
-  \let\nVDash\nrightModels
+  \Decl@Mn@Alias\nVDash              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupModels              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftModels            {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownModels            {MnSyB}{\mathrel}
@@ -2309,14 +2307,15 @@
 %    \begin{macrocode}
 \@tempcnta=0
 \Decl@Mn@Char\cdot                   {MnSyC}{\mathbin}
-  \DeclareRobustCommand{\cdotp}{\mathpunct{\cdot}}
+  \Decl@Mn@Alias\cdotp               {MnSyC}{\mathpunct}
 \Decl@Mn@Char\hdotdot                {MnSyC}{\mathbin}
 \Decl@Mn@Char\vdotdot                {MnSyC}{\mathbin}
-  \DeclareRobustCommand{\colon}{\mathpunct{\vdotdot}}
+  \Decl@Mn@Alias\colon               {MnSyC}{\mathpunct}
 \Decl@Mn@Char\udotdot                {MnSyC}{\mathbin}
 \Decl@Mn@Char\ddotdot                {MnSyC}{\mathbin}
 \Decl@Mn@Char\hdots                  {MnSyC}{\mathord}
-  \DeclareRobustCommand{\@cdots}{\mathinner{\hdots}}
+  \Decl@Mn@Alias\@cdots              {MnSyC}{\mathinner}
+%  \DeclareRobustCommand{\@cdots}{\mathinner{\hdots}}
   \let\cdots\@cdots
 \Decl@Mn@Char\@vdots                 {MnSyC}{\mathord}
   \DeclareRobustCommand{\vdots}{%
@@ -2325,20 +2324,20 @@
 \Decl@Mn@Char\ddots                  {MnSyC}{\mathord}
 \Decl@Mn@Char\righttherefore         {MnSyC}{\mathbin}
 \Decl@Mn@Char\uptherefore            {MnSyC}{\mathbin}
-  \let\therefore\uptherefore
+  \Decl@Mn@Alias\therefore           {MnSyC}{\mathbin}
 \Decl@Mn@Char\lefttherefore          {MnSyC}{\mathbin}
 \Decl@Mn@Char\downtherefore          {MnSyC}{\mathbin}
-  \let\because\downtherefore
+  \Decl@Mn@Alias\because             {MnSyC}{\mathbin}
 \Decl@Mn@Char\diamonddots            {MnSyC}{\mathbin}
 \Decl@Mn@Char\squaredots             {MnSyC}{\mathbin}
 \Decl@Mn@Char\fivedots               {MnSyC}{\mathbin}
 \Decl@Mn@Char\minus                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\medvert                {MnSyC}{\mathbin}
-  \DeclareRobustCommand{\shortmid}{\mathrel{\medvert}}
+  \Decl@Mn@Alias\shortmid            {MnSyC}{\mathrel}
 \Decl@Mn@Char\medslash               {MnSyC}{\mathbin}
 \Decl@Mn@Char\medbackslash           {MnSyC}{\mathbin}
-  \let\setminus\medbackslash
-  \let\smallsetminus\medbackslash
+  \Decl@Mn@Alias\setminus            {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\smallsetminus       {MnSyC}{\mathbin}
 \Decl@Mn@Char\plus                   {MnSyC}{\mathbin}
 \Decl@Mn@Char\times                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\pm                     {MnSyC}{\mathbin}
@@ -2352,23 +2351,25 @@
 \Decl@Mn@Char\vertdiv                {MnSyC}{\mathbin}
 \Decl@Mn@Char\backslashdiv           {MnSyC}{\mathbin}
 \Decl@Mn@Char\neg                    {MnSyC}{\mathord}
-  \let\lnot\neg
+  \Decl@Mn@Alias\lnot                {MnSyC}{\mathord}
+  \Decl@Mn@Alias\minushookdown       {MnSyC}{\mathbin}
 \Decl@Mn@Char\backneg                {MnSyC}{\mathord}
+  \Decl@Mn@Alias\hookdownminus       {MnSyC}{\mathbin}
 \Decl@Mn@Char\dtimes                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\rtimes                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\utimes                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\ltimes                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\bowtie                 {MnSyC}{\mathbin}
-  \let\Join\bowtie
+  \Decl@Mn@Alias\Join                {MnSyC}{\mathbin}
 \Decl@Mn@Char\vertbowtie             {MnSyC}{\mathbin}
 \Decl@Mn@Char\rightY                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\upY                    {MnSyC}{\mathbin}
 \Decl@Mn@Char\leftY                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\downY                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\wedge                  {MnSyC}{\mathbin}
-  \let\land\wedge
+  \Decl@Mn@Alias\land                {MnSyC}{\mathbin}
 \Decl@Mn@Char\vee                    {MnSyC}{\mathbin}
-  \let\lor\vee
+  \Decl@Mn@Alias\lor                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\wedgedot               {MnSyC}{\mathbin}
 \Decl@Mn@Char\veedot                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\doublewedge            {MnSyC}{\mathbin}
@@ -2382,13 +2383,13 @@
 \Decl@Mn@Char\cup                    {MnSyC}{\mathbin}
 \Decl@Mn@Char\cap                    {MnSyC}{\mathbin}
 \Decl@Mn@Char\doublecup              {MnSyC}{\mathbin}
- \let\Cup\doublecup
+  \Decl@Mn@Alias\Cup                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\doublecap              {MnSyC}{\mathbin}
- \let\Cap\doublecap
+  \Decl@Mn@Alias\Cap                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\cupdot                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\capdot                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\cupplus                {MnSyC}{\mathbin}
-  \let\uplus\cupplus
+  \Decl@Mn@Alias\cupplus             {MnSyC}{\mathbin}
 \Decl@Mn@Char\capplus                {MnSyC}{\mathbin}
 \Decl@Mn@Char\sqcup                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\sqcap                  {MnSyC}{\mathbin}
@@ -2403,22 +2404,22 @@
 \Decl@Mn@Char\smalltriangleleft      {MnSyC}{\mathbin}
 \Decl@Mn@Char\smalltriangledown      {MnSyC}{\mathbin}
 \Decl@Mn@Char\filledtriangleright    {MnSyC}{\mathbin}
-  \let\blacktriangleright\filledtriangleright
+  \Decl@Mn@Alias\blacktriangleright  {MnSyC}{\mathbin}
 \Decl@Mn@Char\filledtriangleup       {MnSyC}{\mathbin}
 \Decl@Mn@Char\filledtriangleleft     {MnSyC}{\mathbin}
-  \let\blacktriangleleft\filledtriangleleft
+  \Decl@Mn@Alias\blacktriangleleft   {MnSyC}{\mathbin}
 \Decl@Mn@Char\filledtriangledown     {MnSyC}{\mathbin}
 \Decl@Mn@Char\medtriangleright       {MnSyC}{\mathbin}
-  \let\triangleright\medtriangleright
+  \Decl@Mn@Alias\triangleright       {MnSyC}{\mathbin}
 \Decl@Mn@Char\medtriangleup          {MnSyC}{\mathbin}
-  \let\triangle\medtriangleup
-  \let\vartriangle\medtriangleup
-  \let\bigtriangleup\medtriangleup
+  \Decl@Mn@Alias\triangle            {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\vartriangle         {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\bigtriangleup       {MnSyC}{\mathbin}
 \Decl@Mn@Char\medtriangleleft        {MnSyC}{\mathbin}
-  \let\triangleleft\medtriangleleft
+  \Decl@Mn@Alias\triangleleft        {MnSyC}{\mathbin}
 \Decl@Mn@Char\medtriangledown        {MnSyC}{\mathbin}
-  \let\bigtriangledown\medtriangledown
-  \let\triangledown\medtriangledown
+  \Decl@Mn@Alias\bigtriangledown     {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\triangledown        {MnSyC}{\mathbin}
 \Decl@Mn@Char\largetriangleright     {MnSyC}{\mathord}
 \Decl@Mn@Char\largetriangleup        {MnSyC}{\mathord}
 \Decl@Mn@Char\largetriangleleft      {MnSyC}{\mathord}
@@ -2427,9 +2428,9 @@
 \Decl@Mn@Char\bullet                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\medcircle              {MnSyC}{\mathbin}
 \Decl@Mn@Char\largecircle            {MnSyC}{\mathord}
-  \let\bigcirc\largecircle
+  \Decl@Mn@Alias\bigcirc             {MnSyC}{\mathord}
 \Decl@Mn@Char\ominus                 {MnSyC}{\mathbin}
-  \let\circleddash\ominus
+  \Decl@Mn@Alias\circleddash         {MnSyC}{\mathbin}
 \Decl@Mn@Char\overt                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\oslash                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\obackslash             {MnSyC}{\mathbin}
@@ -2437,26 +2438,26 @@
 \Decl@Mn@Char\otimes                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\odot                   {MnSyC}{\mathbin}
 \Decl@Mn@Char\ocirc                  {MnSyC}{\mathbin}
-  \let\circledcirc\ocirc
+  \Decl@Mn@Alias\circledcirc         {MnSyC}{\mathbin}
 \Decl@Mn@Char\otriangle              {MnSyC}{\mathbin}
 \Decl@Mn@Char\oast                   {MnSyC}{\mathbin}
-  \let\circledast\oast
+  \Decl@Mn@Alias\circledast          {MnSyC}{\mathbin}
 \Decl@Mn@Char\ostar                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\diameter               {MnSyC}{\mathord}
-  \let\emptyset\diameter
-  \let\varnothing\diameter
+  \Decl@Mn@Alias\emptyset            {MnSyC}{\mathord}
+  \Decl@Mn@Alias\varnothing          {MnSyC}{\mathord}
 \Decl@Mn@Char\smallsquare            {MnSyC}{\mathbin}
 \Decl@Mn@Char\filledsquare           {MnSyC}{\mathbin}
 \Decl@Mn@Char\medsquare              {MnSyC}{\mathbin}
-  \let\square\medsquare
-  \let\Box\medsquare
+  \Decl@Mn@Alias\square              {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\Box                 {MnSyC}{\mathbin}
 \Decl@Mn@Char\largesquare            {MnSyC}{\mathord}
 \Decl@Mn@Char\smalldiamond           {MnSyC}{\mathbin}
-  \let\diamond\smalldiamond
+  \Decl@Mn@Alias\diamond             {MnSyC}{\mathbin}
 \Decl@Mn@Char\filleddiamond          {MnSyC}{\mathbin}
 \Decl@Mn@Char\meddiamond             {MnSyC}{\mathbin}
-  \let\Diamond\meddiamond
-  \let\lozenge\meddiamond
+  \Decl@Mn@Alias\Diamond             {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\lozenge             {MnSyC}{\mathbin}
 \Decl@Mn@Char\largediamond           {MnSyC}{\mathord}
 \Decl@Mn@Char\boxminus               {MnSyC}{\mathbin}
 \Decl@Mn@Char\boxvert                {MnSyC}{\mathbin}
@@ -2481,15 +2482,15 @@
 \Decl@Mn@Char\pentagram              {MnSyC}{\mathbin}
 \Decl@Mn@Char\largepentagram         {MnSyC}{\mathord}
 \Decl@Mn@Char\thinstar               {MnSyC}{\mathbin}
-  \let\star\thinstar
+  \Decl@Mn@Alias\star                {MnSyC}{\mathbin}
 \Decl@Mn@Char\ast                    {MnSyC}{\mathbin}
 \Decl@Mn@Char\hbipropto              {MnSyC}{\mathbin}
 \Decl@Mn@Char\neswbipropto           {MnSyC}{\mathbin}
 \Decl@Mn@Char\vbipropto              {MnSyC}{\mathbin}
 \Decl@Mn@Char\nwsebipropto           {MnSyC}{\mathbin}
 \Decl@Mn@Char\leftpropto             {MnSyC}{\mathrel}
-  \let\propto\leftpropto
-  \let\varpropto\propto
+  \Decl@Mn@Alias\propto              {MnSyC}{\mathrel}
+  \Decl@Mn@Alias\varpropto           {MnSyC}{\mathrel}
 \Decl@Mn@Char\downpropto             {MnSyC}{\mathrel}
 \Decl@Mn@Char\rightpropto            {MnSyC}{\mathrel}
 \Decl@Mn@Char\uppropto               {MnSyC}{\mathrel}
@@ -2502,7 +2503,7 @@
 \Decl@Mn@Char\bot                    {MnSyC}{\mathord}
 \Decl@Mn@Char\top                    {MnSyC}{\mathord}
 \Decl@Mn@Char\wreath                 {MnSyC}{\mathbin}
-  \let\wr\wreath
+  \Decl@Mn@Alias\wr                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\angle                  {MnSyC}{\mathord}
 \Decl@Mn@Char\measuredangle          {MnSyC}{\mathord}
 \Decl@Mn@Char\sphericalangle         {MnSyC}{\mathord}
@@ -2532,7 +2533,9 @@
 \Decl@Mn@Char\wp                     {MnSyC}{\mathord}
 \Decl@Mn@Char\powerset               {MnSyC}{\mathord}
 \Decl@Mn@Char\invneg                 {MnSyC}{\mathord}
+  \Decl@Mn@Alias\minushookup         {MnSyC}{\mathbin}
 \Decl@Mn@Char\invbackneg             {MnSyC}{\mathord}
+  \Decl@Mn@Alias\hookupminus         {MnSyC}{\mathbin}
 %    \end{macrocode}
 %
 % MnSymbolD\?: Relations.
@@ -2561,19 +2564,19 @@
 \Decl@Mn@Char\doteq                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\eqdot                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\Doteq                  {MnSyD}{\mathrel}
- \let\doteqdot\Doteq
+  \Decl@Mn@Alias\doteqdot            {MnSyD}{\mathbin}
 \Decl@Mn@Char\fallingdotseq          {MnSyD}{\mathrel}
 \Decl@Mn@Char\risingdotseq           {MnSyD}{\mathrel}
 \Decl@Mn@Char\smile                  {MnSyD}{\mathrel}
-  \let\smallsmile\smile
+  \Decl@Mn@Alias\smallsmile          {MnSyD}{\mathrel}
 \Decl@Mn@Char\frown                  {MnSyD}{\mathrel}
-  \let\smallfrown\frown
+  \Decl@Mn@Alias\smallfrown          {MnSyD}{\mathrel}
 \Decl@Mn@Char\doublesmile            {MnSyD}{\mathrel}
 \Decl@Mn@Char\doublefrown            {MnSyD}{\mathrel}
 \Decl@Mn@Char\triplesmile            {MnSyD}{\mathrel}
 \Decl@Mn@Char\triplefrown            {MnSyD}{\mathrel}
 \Decl@Mn@Char\smilefrown             {MnSyD}{\mathrel}
-  \let\asymp\smilefrown
+  \Decl@Mn@Alias\asymp               {MnSyD}{\mathrel}
 \Decl@Mn@Char\frownsmile             {MnSyD}{\mathrel}
 \Decl@Mn@Char\smileeq                {MnSyD}{\mathrel}
 \Decl@Mn@Char\frowneq                {MnSyD}{\mathrel}
@@ -2604,17 +2607,17 @@
 \Decl@Mn@Char\eqcirc                 {MnSyD}{\mathrel}
 \Decl@Mn@Char\circeq                 {MnSyD}{\mathrel}
 \Decl@Mn@Char\triangleeq             {MnSyD}{\mathrel}
-  \let\triangleq\triangleeq
+  \Decl@Mn@Alias\triangleq           {MnSyD}{\mathrel}
 \Decl@Mn@Char\hateq                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\in                     {MnSyD}{\mathrel}
 \Decl@Mn@Char\owns                   {MnSyD}{\mathrel}
-  \let\ni\owns
+  \Decl@Mn@Alias\ni                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\less                   {MnSyD}{\mathrel}
 \Decl@Mn@Char\gtr                    {MnSyD}{\mathrel}
 \Decl@Mn@Char\leq                    {MnSyD}{\mathrel}
-  \let\le\leq
+  \Decl@Mn@Alias\le                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\geq                    {MnSyD}{\mathrel}
-  \let\ge\geq
+  \Decl@Mn@Alias\ge                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\leqslant               {MnSyD}{\mathrel}
 \Decl@Mn@Char\geqslant               {MnSyD}{\mathrel}
 \Decl@Mn@Char\leqq                   {MnSyD}{\mathrel}
@@ -2630,21 +2633,21 @@
 \Decl@Mn@Char\ll                     {MnSyD}{\mathrel}
 \Decl@Mn@Char\gg                     {MnSyD}{\mathrel}
 \Decl@Mn@Char\lll                    {MnSyD}{\mathrel}
-  \let\llless\lll
+  \Decl@Mn@Alias\llless              {MnSyD}{\mathrel}
 \Decl@Mn@Char\ggg                    {MnSyD}{\mathrel}
-  \let\gggtr\ggg
+  \Decl@Mn@Alias\gggtr               {MnSyD}{\mathrel}
 \Decl@Mn@Char\lessclosed             {MnSyD}{\mathrel}
-  \let\lhd\lessclosed
-  \let\vartriangleleft\lessclosed
+  \Decl@Mn@Alias\lhd                 {MnSyD}{\mathrel}
+  \Decl@Mn@Alias\vartriangleleft     {MnSyD}{\mathrel}
 \Decl@Mn@Char\gtrclosed              {MnSyD}{\mathrel}
-  \let\rhd\gtrclosed
-  \let\vartriangleright\gtrclosed
+  \Decl@Mn@Alias\rhd                 {MnSyD}{\mathrel}
+  \Decl@Mn@Alias\vartriangleright    {MnSyD}{\mathrel}
 \Decl@Mn@Char\leqclosed              {MnSyD}{\mathrel}
-  \let\unlhd\leqclosed
-  \let\trianglelefteq\leqclosed
+  \Decl@Mn@Alias\unlhd               {MnSyD}{\mathrel}
+  \Decl@Mn@Alias\trianglelefteq      {MnSyD}{\mathrel}
 \Decl@Mn@Char\geqclosed              {MnSyD}{\mathrel}
-  \let\unrhd\geqclosed
-  \let\trianglerighteq\geqclosed
+  \Decl@Mn@Alias\unrhd               {MnSyD}{\mathrel}
+  \Decl@Mn@Alias\trianglerighteq     {MnSyD}{\mathrel}
 \Decl@Mn@Char\sqsubset               {MnSyD}{\mathrel}
 \Decl@Mn@Char\sqsupset               {MnSyD}{\mathrel}
 \Decl@Mn@Char\sqsubseteq             {MnSyD}{\mathrel}
@@ -2678,8 +2681,8 @@
 \Decl@Mn@Char\leqslantdot            {MnSyD}{\mathrel}
 \Decl@Mn@Char\geqslantdot            {MnSyD}{\mathrel}
 \Decl@Mn@Char\nequal                 {MnSyD}{\mathrel}
-  \let\neq\nequal
-  \let\ne\nequal
+  \Decl@Mn@Alias\neq                 {MnSyD}{\mathrel}
+  \Decl@Mn@Alias\ne                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\nequiv                 {MnSyD}{\mathrel}
 \Decl@Mn@Char\nsim                   {MnSyD}{\mathrel}
 \Decl@Mn@Char\nbacksim               {MnSyD}{\mathrel}
@@ -2710,7 +2713,7 @@
 \Decl@Mn@Char\ntriplesmile           {MnSyD}{\mathrel}
 \Decl@Mn@Char\ntriplefrown           {MnSyD}{\mathrel}
 \Decl@Mn@Char\nsmilefrown            {MnSyD}{\mathrel}
-  \let\nasymp\nsmilefrown
+  \Decl@Mn@Alias\nasymp              {MnSyD}{\mathrel}
 \Decl@Mn@Char\nfrownsmile            {MnSyD}{\mathrel}
 \Decl@Mn@Char\nsmileeq               {MnSyD}{\mathrel}
 \Decl@Mn@Char\nfrowneq               {MnSyD}{\mathrel}
@@ -2743,7 +2746,7 @@
 \Decl@Mn@Char\ntriangleeq            {MnSyD}{\mathrel}
 \Decl@Mn@Char\nhateq                 {MnSyD}{\mathrel}
 \Decl@Mn@Char\nin                    {MnSyD}{\mathrel}
-  \let\notin\nin
+  \Decl@Mn@Alias\notin               {MnSyD}{\mathrel}
 \Decl@Mn@Char\nowns                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\nless                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\ngtr                   {MnSyD}{\mathrel}
@@ -2766,13 +2769,13 @@
 \Decl@Mn@Char\nlll                   {MnSyD}{\mathrel}
 \Decl@Mn@Char\nggg                   {MnSyD}{\mathrel}
 \Decl@Mn@Char\nlessclosed            {MnSyD}{\mathrel}
-  \let\ntriangleleft\nlessclosed
+  \Decl@Mn@Alias\ntriangleleft       {MnSyD}{\mathrel}
 \Decl@Mn@Char\ngtrclosed             {MnSyD}{\mathrel}
-  \let\ntriangleright\ngtrclosed
+  \Decl@Mn@Alias\ntriangleright      {MnSyD}{\mathrel}
 \Decl@Mn@Char\nleqclosed             {MnSyD}{\mathrel}
-  \let\ntrianglelefteq\nleqclosed
+  \Decl@Mn@Alias\ntrianglelefteq     {MnSyD}{\mathrel}
 \Decl@Mn@Char\ngeqclosed             {MnSyD}{\mathrel}
-  \let\ntrianglerighteq\ngeqclosed
+  \Decl@Mn@Alias\ntrianglerighteq    {MnSyD}{\mathrel}
 \Decl@Mn@Char\nsqsubset              {MnSyD}{\mathrel}
 \Decl@Mn@Char\nsqsupset              {MnSyD}{\mathrel}
 \Decl@Mn@Char\nsqsubseteq            {MnSyD}{\mathrel}
@@ -2806,9 +2809,9 @@
 \Decl@Mn@Char\nleqslantdot           {MnSyD}{\mathrel}
 \Decl@Mn@Char\ngeqslantdot           {MnSyD}{\mathrel}
 \Decl@Mn@Char\lneqq                  {MnSyD}{\mathrel}
-  \let\lvertneqq\lneqq
+  \Decl@Mn@Alias\lvertneqq           {MnSyD}{\mathrel}
 \Decl@Mn@Char\gneqq                  {MnSyD}{\mathrel}
-  \let\gvertneqq\gneqq
+  \Decl@Mn@Alias\gvertneqq           {MnSyD}{\mathrel}
 \Decl@Mn@Char\lessneqqgtr            {MnSyD}{\mathrel}
 \Decl@Mn@Char\gtrneqqless            {MnSyD}{\mathrel}
 \Decl@Mn@Char\sqsubsetneq            {MnSyD}{\mathrel}
@@ -2816,13 +2819,13 @@
 \Decl@Mn@Char\sqsubsetneqq           {MnSyD}{\mathrel}
 \Decl@Mn@Char\sqsupsetneqq           {MnSyD}{\mathrel}
 \Decl@Mn@Char\subsetneq              {MnSyD}{\mathrel}
-  \let\varsubsetneq\subsetneq
+  \Decl@Mn@Alias\varsubsetneq        {MnSyD}{\mathrel}
 \Decl@Mn@Char\supsetneq              {MnSyD}{\mathrel}
-  \let\varsupsetneq\supsetneq
+  \Decl@Mn@Alias\varsupsetneq        {MnSyD}{\mathrel}
 \Decl@Mn@Char\subsetneqq             {MnSyD}{\mathrel}
-  \let\varsubsetneqq\subsetneqq
+  \Decl@Mn@Alias\varsubsetneqq       {MnSyD}{\mathrel}
 \Decl@Mn@Char\supsetneqq             {MnSyD}{\mathrel}
-  \let\varsupsetneqq\supsetneqq
+  \Decl@Mn@Alias\varsupsetneqq       {MnSyD}{\mathrel}
 \Decl@Mn@Char\precnsim               {MnSyD}{\mathrel}
 \Decl@Mn@Char\succnsim               {MnSyD}{\mathrel}
 \Decl@Mn@Char\precnapprox            {MnSyD}{\mathrel}
