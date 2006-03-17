@@ -15,6 +15,7 @@ while (i<=12)
   SelectAll();
   AddExtrema();
   Simplify();
+  RoundToInt();
   AutoHint();
 
   Generate("MnSymbol"+i+".pfb", "", 0);
@@ -36,10 +37,12 @@ while (i<=12)
   MergeFonts("MnSymbolS-Bold"+i+".pfb");
 
   SetFontNames("MnSymbol-Bold"+i,"MnSymbol","MnSymbol-Bold"+i,"Bold","Design by Achim Blumensath","1.000");
+  ChangePrivateEntry("ForceBold","true");
 
   SelectAll();
   AddExtrema();
   Simplify();
+  RoundToInt();
   AutoHint();
 
   Generate("MnSymbol-Bold"+i+".pfb", "", 0);
