@@ -232,7 +232,8 @@ endfor;
 % operators
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "wedge"; pickup rule_pen;
+  beginoperator(plus_size#); "wedge";
+    pickup rule_pen;
 
     z2 - z0 = plus_size * dir 0;
 
@@ -1976,4 +1977,60 @@ beginoperator(plus_size#); "upside down reversed logical not";
   draw (centre + r * dir 180 + equal_spread * dir 90)
     -- (centre + r * dir 180) -- (centre + r * dir 0)
 endchar;
+
+for sign = 1, -1:
+  beginoperator(plus_size#); "half square union";
+    pickup rule_pen;
+
+    z3 - z0 = z2 - z1 = plus_size * dir 0;
+    z0 - z1 = sign * plus_size * dir 90;
+
+    1/2[1/2[z0,z1], 1/2[z2,z3]] = centre;
+
+    draw z0 -- z1 -- z2;
+  endchar;
+
+  beginoperator(plus_size#); "half square union";
+    pickup rule_pen;
+
+    z3 - z0 = z2 - z1 = plus_size * dir 0;
+    z0 - z1 = sign * plus_size * dir 90;
+
+    1/2[1/2[z0,z1], 1/2[z2,z3]] = centre;
+
+    draw z1 -- z2 -- z3;
+  endchar;
+endfor;
+
+for alpha = 0, 90, 180, 270:
+  beginoperator(plus_size#); "closed curly wedge";
+    pickup rule_pen;
+
+    z0 = centre + 1/2plus_size * dir alpha;
+    z1 = centre - 1/2plus_size * dir alpha;
+    z2 = z1 + 1/2plus_size * dir (alpha + 90);
+    z3 = z1 - 1/2plus_size * dir (alpha + 90);
+
+    draw z2{dir (alpha - 40)}
+      .. {dir alpha}z0{dir (alpha + 180)}
+      .. {dir (alpha - 140)}z3;
+    draw z2{dir (alpha - 40)} .. z3{dir (alpha - 140)};
+
+  endchar;
+endfor;
+
+for alpha = 0, 90, 180, 270:
+  beginoperator(6/5plus_size#); "slice";
+    pickup rule_pen;
+
+    z1 - 1/2[z0,z2] = plus_size * dir alpha;
+
+    z2 - z0 = plus_size * dir (alpha + 90);
+
+    7/12[z1,1/2[z0,z2]] = centre;
+
+    draw z0 -- z1 -- z2;
+    draw z0{dir (alpha + 120)} .. {dir (alpha + 60)}z2;
+  endchar;
+endfor;
 
