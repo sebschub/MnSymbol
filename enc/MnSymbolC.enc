@@ -34,10 +34,10 @@
 /checkmark /uni2607 /diamondsuitwhite /heartsuitwhite /spade /club /universal /existential 
 /uni2204 /gradient /infinity /integral.small /musicflatsign /uni266E /musicsharpsign /aleph 
 %B0
-/uni2136 /uni2137 /uni2138 /weierstrass /weierstrass.alt /uni2A3C /uni2A3D /.notdef 
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/uni2136 /uni2137 /uni2138 /weierstrass /weierstrass.alt /uni2A3C /uni2A3D /uni231E 
+/uni231F /uni231C /uni231D /closedsucc /closedcurlywedge /closedprec /closedcurlyvee /uni2AA7 
 %C0
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/upslice /uni2AA6 /downslice /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %D0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
