@@ -41,7 +41,7 @@
 % \item[\textsf{cmsy}] selects the Computer Modern calligraphic font.
 % \item[\textsf{abx}]  selects the experimental calligraphic font from the mathabx fonts.
 %   You need to have this font installed in order to use this option. mathabx
-%   contains also calligraphic lowercase letters but the lettershapes are not very good.
+%   contains also calligraphic lowercase letters, but the font is not quite finished yet.
 % \item[\textsf{retainmissing}] Normally \textsf{MnSymbol} takes some of the missing symbols
 %   from the text font and it sets the remaining ones to |\undefined|. If you want to
 %   retain the old definitions of these symbols then you can use the option \textsf{retainmissing}.
@@ -1442,9 +1442,11 @@
     \SetMathAlphabet\mathcal{bold}{OMS}{cmsy}{b}{n}}}
 \DeclareOption{abx}{%
   \def\Mn@Load@Cal@Font{%
-    \DeclareFontFamily{OT1}{mathu}{}
-    \DeclareFontShape{OT1}{mathu}{m}{n}{ <-> mathu10 }{}
-    \DeclareMathAlphabet\mathcal{OT1}{mathu}{m}{n}}}
+    \DeclareFontFamily{OT1}{mathc}{}%
+    \DeclareFontShape{OT1}{mathc}{m}{n}{ <-> mathcm10 }{}%
+    \DeclareFontShape{OT1}{mathc}{b}{n}{ <-> mathcb10 }{}%
+    \DeclareMathAlphabet\mathcal{OT1}{mathc}{m}{n}%
+    \SetMathAlphabet\mathcal{bold}{OT1}{mathc}{b}{n}}
 %    \end{macrocode}
 %
 % Some symbols missing from MnSymbol can be obtained from other fonts or
