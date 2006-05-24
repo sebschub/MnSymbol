@@ -22,11 +22,12 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
 
     z1 - z0 = z3 - z2 = equal_spread * dir (arrow_dir + 90);
 
-    0.5[z0,z1] = foot;
-    0.5[z2,z3] = head - 11/10equal_spread * dir arrow_dir;
+    1/2[z0,z1] = foot;
+    1/2[z2,z3] = head;
 
-    draw z0 -- z2;
-    draw z1 -- z3;
+    draw z0 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2);
+    draw z1 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
+
     draw arrowhead(head, arrow_dir, 13/10arrow_spread);
 
     if negated:
@@ -56,11 +57,13 @@ for alpha = 0, 90, 45, 135:
 
     z1 - z0 = z3 - z2 = equal_spread * dir (arrow_dir + 90);
 
-    0.5[z0,z1] = foot + 1.1equal_spread * dir arrow_dir;
-    0.5[z2,z3] = head - 1.1equal_spread * dir arrow_dir;
+    1/2[z0,z1] = foot;
+    1/2[z2,z3] = head;
 
-    draw z0 -- z2;
-    draw z1 -- z3;
+    draw arrowhead_intersection(foot, arrow_dir+180, 13/10arrow_spread, z0 -- z2)
+      -- arrowhead_intersection(head, arrow_dir,     13/10arrow_spread, z0 -- z2);
+    draw arrowhead_intersection(foot, arrow_dir+180, 13/10arrow_spread, z1 -- z3)
+      -- arrowhead_intersection(head, arrow_dir,     13/10arrow_spread, z1 -- z3);
     draw arrowhead(head, arrow_dir,     13/10arrow_spread);
     draw arrowhead(foot, arrow_dir+180, 13/10arrow_spread);
 
@@ -279,7 +282,7 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 6/5, arrow_spread#); "filled multi map (" & decimal alpha & ")";
     pickup rule_pen;
 
-    draw foot -- head - 4/5arrow_spread * dir arrow_dir;
+    draw foot -- head - 2/5arrow_spread * dir arrow_dir;
     fill circle(head - 2/5arrow_spread * dir arrow_dir, 2/5arrow_spread);
 
     if negated:

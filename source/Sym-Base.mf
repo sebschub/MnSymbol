@@ -198,6 +198,14 @@ def arrowhead(expr pos, angle, spread) =
   arrowhead_left(pos, angle, spread) & arrowhead_right(pos, angle, spread)
 enddef;
 
+% intersect the arrowhead curve with a path
+def arrowhead_intersection(expr pos, angle, spread, p) =
+  (p intersectionpoint
+                      ((pos - 3/4spread * dir angle + spread/2 * dir (angle + 90)){dir (angle - 50)} ..
+    {dir (angle -  50)}(pos - 1/4spread * dir angle){dir (angle - 130)} ..
+    {dir (angle - 130)}(pos - 3/4spread * dir angle + spread/2 * dir (angle - 90))))
+enddef;
+
 def stroke_through_arrow(expr pos, alpha, spread)(text angles) =
   begingroup;
     stroke_dir := arrow_dir + select(alpha/45)(angles);
