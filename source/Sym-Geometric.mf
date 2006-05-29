@@ -1212,7 +1212,8 @@ beginsymbol(11u#, 1/2[x_height#,asc_height#], 0)
   labels (0,1,2,3,4);
 endchar;
 
-beginsymbol(5/4order_width# + 2side_bearing#, asc_height#, 0); "forall";
+beginsymbol(5/4order_width# + 2side_bearing#, asc_height#, 0);
+  "forall";
   pickup rule_pen;
 
   lft x0 = side_bearing;
@@ -1228,6 +1229,9 @@ beginsymbol(5/4order_width# + 2side_bearing#, asc_height#, 0); "forall";
   y4 = y5 = x_height;
 
   draw z0 -- z2 -- z1;
+
+  pickup pencircle scaled 8/9rule_thickness;
+
   draw z4 -- z5;
 endchar;
 
@@ -1484,6 +1488,8 @@ beginsymbol(11u#, 0.85asc_height#, 0); "aleph";
   top y13r = h;
   z12 = z13 + whatever * (z3-z2);
   z11 = z13 + whatever * (z3-z2);
+
+  y11r := y11;  % prevent the stroke from sticking out at the other side
 
   filldraw stroke z1e{down} ... {z3e-z2e}z2e -- z3e{z3e-z2e} ... {down}z4e;
   filldraw stroke z12e -- z13e;

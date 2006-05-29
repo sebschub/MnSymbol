@@ -123,10 +123,11 @@ endfor;
 for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 1, arrow_spread#); "left embedding (" & decimal alpha & ")";
     pickup rule_pen;
-    draw (foot + 1/4arrow_spread * dir arrow_dir) -- head;
+
     draw arrowhead(head, arrow_dir, arrow_spread);
     draw half_circle(foot + 1/4arrow_spread * (dir (arrow_dir + 90) + dir arrow_dir),
-                     1/4arrow_spread, arrow_dir + 90);
+                     1/4arrow_spread, arrow_dir + 90)
+         -- head;
 
     if negated:
       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
@@ -138,10 +139,10 @@ endfor;
 for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 1, arrow_spread#); "right embedding (" & decimal alpha & ")";
     pickup rule_pen;
-    draw (foot + 1/4arrow_spread * dir arrow_dir) -- head;
+
     draw arrowhead(head, arrow_dir, arrow_spread);
-    draw half_circle(foot + 1/4arrow_spread * (dir (arrow_dir - 90) + dir arrow_dir),
-                     1/4arrow_spread, arrow_dir + 90);
+    draw head -- half_circle(foot + 1/4arrow_spread * (dir (arrow_dir - 90) + dir arrow_dir),
+                             1/4arrow_spread, arrow_dir + 90);
 
     if negated:
       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
