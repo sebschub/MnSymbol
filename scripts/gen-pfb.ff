@@ -1,7 +1,7 @@
 #!/usr/local/bin/fontforge
 names=["A", "B", "C", "D", "E", "F", "S", "A-Bold", "B-Bold", "C-Bold", "D-Bold", "E-Bold", "F-Bold", "S-Bold"];
 
-postprocess=1
+postprocess=0
 
 size=5;
 while (size<=12)
@@ -41,10 +41,9 @@ endloop
   SelectAll();
   if (postprocess==1)
     RemoveOverlap();
+    RoundToInt();
     AddExtrema();
     Simplify();
-    Simplify(-1);
-    RoundToInt();
     AutoHint();
   else
     DontAutoHint();
@@ -59,15 +58,14 @@ endloop
   MergeFonts("MnSymbolE-Bold"+size+"_new.pfb");
   MergeFonts("MnSymbolF-Bold"+size+"_new.pfb");
   MergeFonts("MnSymbolS-Bold"+size+"_new.pfb");
-  SetFontNames("MnSymbol-Bold"+size,"MnSymbol","MnSymbol-Bold"+size,"Bold","Design by Achim Blumensath, Conversion to pfb by Michael Zedler","1.000");
+  SetFontNames("MnSymbol-Bold"+size,"MnSymbol","MnSymbol-Bold"+size,"Bold","Design by Achim Blumensath, Conversion to pfb by Michael Zedler","1.001");
   ChangePrivateEntry("ForceBold","true");
   SelectAll();
   if (postprocess==1)
     RemoveOverlap();
+    RoundToInt();
     AddExtrema();
     Simplify();
-    Simplify(-1);
-    RoundToInt();
     AutoHint();
   else
     DontAutoHint();
