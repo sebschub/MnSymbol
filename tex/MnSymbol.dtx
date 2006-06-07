@@ -1469,6 +1469,25 @@
   \DeclareRobustCommand{\dotplus}{\dot{+}}
   \DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
   \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
+
+  \DeclareRobustCommand\gtrsim{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.1ex}$\sim$}}}
+  \DeclareRobustCommand\gtrapprox{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.1ex}$\approx$}}}
+  \DeclareRobustCommand\lesssim{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.1ex}$\sim$}}}
+  \DeclareRobustCommand\lessapprox{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.1ex}$\approx$}}}
+  \let\lneq\nleq
+  \let\gneq\ngeq
+  \DeclareRobustCommand\gnsim{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.5ex}$\nsim$}}}
+  \DeclareRobustCommand\lnsim{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.5ex}$\nsim$}}}
+  \DeclareRobustCommand\gnapprox{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.5ex}$\napprox$}}}
+  \DeclareRobustCommand\lnapprox{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.5ex}$\napprox$}}}
+  \let\precneqq\npreceq
+  \let\succneqq\nsucceq
+  \DeclareRobustCommand\shortparallel{\mathrel{\shortmid\mkern-8mu\shortmid}}
+  \DeclareRobustCommand\veebar{\mathbin{\oalign{\hss$\vee$\hss\crcr\noalign{\vskip-.6ex}\hss$\minus$\hss}}}
+  \DeclareRobustCommand\barwedge{\mathbin{\oalign{\hss$\minus$\hss\crcr\noalign{\vskip-.6ex}\hss$\wedge$\hss}}}
+  \DeclareRobustCommand\doublebarwedge{\mathbin{\oalign{\hss$\equal$\hss\crcr\noalign{\vskip-.5ex}\hss$\wedge$\hss}}}
+  \DeclareRobustCommand\centerdot{\mathbin{\Mn@Text@With@MathVersion{.}}}
+  \DeclareRobustCommand\divideontimes{\mathbin{\ooalign{$\div$\crcr$\times$}}}
 %    \end{macrocode}
 %
 % MnSymbol lacks some symbols that are present in the Computer Modern or the AMS fonts.
@@ -1488,35 +1507,18 @@
   \let\looparrowright\undefined
   \let\Rrightarrow\undefined
   \let\Lleftarrow\undefined
-  \let\gtrsim\undefined
-  \let\gtrapprox\undefined
-  \let\lesssim\undefined
-  \let\lessapprox\undefined
   \let\eqslantless\undefined
   \let\eqslantgtr\undefined
   \let\curlyeqprec\undefined
   \let\curlyeqsucc\undefined
-  \let\lneq\undefined
-  \let\gneq\undefined
-  \let\lnsim\undefined
-  \let\gnsim\undefined
-  \let\lnapprox\undefined
-  \let\gnapprox\undefined
-  \let\precneqq\undefined
-  \let\succneqq\undefined
   \let\nshortmid\undefined
   \let\nshortparallel\undefined
-  \let\shortparallel\undefined
-  \let\veebar\undefined
-  \let\barwedge\undefined
-  \let\doublebarwedge\undefined
   \let\leftthreetimes\undefined
   \let\rightthreetimes\undefined
   \let\centerdot\undefined
   \let\bigstar\undefined
   \let\blacktriangledown\undefined
   \let\blacktriangle\undefined
-  \let\divideontimes\undefined
 %    \end{macrocode}
 %
 % (b) Missing letters.
