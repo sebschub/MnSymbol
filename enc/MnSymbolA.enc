@@ -1,7 +1,7 @@
 /MnSymbolA [
 /arrowright /arrowup /arrowleft /arrowdown
 /arrowupright /arrowupleft /arrowdownleft /arrowdownright
-/arrowdblright /arrowdblup /arrowleftdbl /arrowdbldown
+/arrowdblright /arrowdblup /arrowdblleft /arrowdbldown
 /uni21D7 /uni21D6 /uni21D9 /uni21D8
 /arrowboth /arrowupdn /uni2921 /uni2922
 /arrowdblboth
@@ -193,7 +193,7 @@
 /curvearrowswne
 /curvearrowsenw
 /leftrightline
-/divides.alt5
+/bar
 /neswline
 /nwseline
 /Leftrightline
@@ -201,7 +201,7 @@
 /Neswline
 /Nwseline
 /uni22A2
-/uni27C2
+/perpendicular
 /uni22A3
 /uni22A4
 /nevdash

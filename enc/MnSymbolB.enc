@@ -1,7 +1,7 @@
 /MnSymbolB [
 /uni219B /uni2191.neg /uni219A /uni2193.neg
 /uni2197.neg /uni2196.neg /uni2199.neg /uni2198.neg
-/arrowrightdblstroke /uni21D1.neg /arrowleftdblstroke /uni21D3.neg
+/arrowrightdblstroke /uni21D1.neg /arrowdblleft.neg /uni21D3.neg
 /uni21D7.neg /uni21D6.neg /uni21D9.neg /uni21D8.neg
 /uni21AE /uni2195.neg /uni2921.neg /uni2922.neg
 /uni21CE
@@ -193,7 +193,7 @@
 /curvearrowswne.neg
 /curvearrowsenw.neg
 /leftrightline.neg
-/uni2224
+/bar.neg
 /neswline.neg
 /nwseline.neg
 /Leftrightline.neg
@@ -201,7 +201,7 @@
 /Neswline.neg
 /Nwseline.neg
 /uni22AC
-/uni27C2.neg
+/perpendicular.neg
 /uni22A3.neg
 /uni22A4.neg
 /nevdash.neg
