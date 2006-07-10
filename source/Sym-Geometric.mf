@@ -1121,7 +1121,7 @@ beginsymbol(11u#, 1/2[x_height#,asc_height#], 0)
   draw z0{dir (90+30)} .. {dir (180-30)}z1{dir (0+30)}
                        .. {dir (90-30)}z2{dir (270+30)}
                        .. {dir (0-30)}z3{dir (180+30)}
-                       .. {dir (270-30)}z0;
+                       .. {dir (270-30)}z0 & cycle;
 endchar;
 
 beginsymbol(11u#, 1/2[x_height#,asc_height#], 0)
@@ -1144,7 +1144,7 @@ beginsymbol(11u#, 1/2[x_height#,asc_height#], 0)
 
   pickup pencircle scaled rule_thickness;
 
-  draw z0{dir (90+20)} .. z2 .. z4 .. {dir (270+20)}z1{dir (90-20)} .. z5 .. z3 .. {dir (270-20)}z0;
+  draw z0{dir (90+20)} .. z2 .. z4 .. {dir (270+20)}z1{dir (90-20)} .. z5 .. z3 .. {dir (270-20)}z0 & cycle;
 endchar;
 
 beginsymbol(11u#, 1/2[x_height#,asc_height#], 0)
@@ -1161,7 +1161,7 @@ beginsymbol(11u#, 1/2[x_height#,asc_height#], 0)
   x4 = 1/2[x1,x2];
   x5 = 1/2[x1,x3];
 
-  y4 = y5 = 1/7h;
+  y4 = y5 = 1/6h;
 
   y2 - y4 = x4 - x2;
 
@@ -1811,8 +1811,8 @@ for alpha = 0, 90, 180, 270:
 
     draw z2{dir (alpha - 40)}
       .. {dir alpha}z0{dir (alpha + 180)}
-      .. {dir (alpha - 140)}z3;
-    draw z2{dir (alpha - 40)} .. z3{dir (alpha - 140)};
+      .. {dir (alpha - 140)}z3{dir (alpha + 40)}
+      .. {dir (alpha + 140)}z2 & cycle;
 
   endchar;
 endfor;
@@ -1827,8 +1827,129 @@ for alpha = 0, 90, 180, 270:
 
     7/12[z1,1/2[z0,z2]] = centre;
 
+    draw z1 -- z0{dir (alpha + 120)} .. {dir (alpha + 60)}z2 -- cycle;
+  endchar;
+endfor;
+
+current_char := 241;
+
+% Keep these consistent with the glyphs in Sym-Order.mf!
+
+for negated = 0, 1:
+
+  vardef ifneg(text values) =
+    select(negated)(values)
+  enddef;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(sign, order_width# + rule_thickness#,
+                       greater_spread# + ifneg(4/3, 8/3) * equal_spread# + rule_thickness#);
+        "less sim";
+
+        pickup rule_pen;
+
+        z1 - z0 = greater_spread * dir 90;
+        y2 = 1/2[y0, y1];
+        x2 = x3 = xpart left_point;
+        y3 = y4;
+        z0 - z4 = equal_spread * dir 90;
+
+        1/2[z1, z4 + 1/3equal_spread * down] = right_point;
+
+        draw z0 -- z2 -- z1;
+        draw sim(z3, z4);
+
+        if negated = 1:
+          stroke_through(centre, 8/3equal_spread + greater_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+  if negated < 2:
+    for sign = 1, -1:
+      beginorder(sign, order_width# + rule_thickness#,
+                       greater_spread# + ifneg(7/3, 9/3) * equal_spread# + rule_thickness#);
+        "less approx";
+
+        pickup rule_pen;
+
+        z1 - z0 = greater_spread * dir 90;
+        y2 = 1/2[y0, y1];
+        x2 = x3 = x5 = xpart left_point;
+        y3 = y4;
+        y5 = y6;
+        z0 - z4 = equal_spread * dir 90;
+        z4 - z6 = equal_spread * dir 90;
+
+        1/2[z1, z6 + 1/3equal_spread * down] = right_point;
+
+        draw z0 -- z2 -- z1;
+        draw sim(z3, z4);
+        draw sim(z5, z6);
+
+        if negated = 1:
+          stroke_through(centre, 9/3equal_spread + greater_spread);
+        fi;
+      endchar;
+    endfor;
+  fi;
+
+endfor;
+
+for sign = -1, 1:
+  beginsymbol(4/3arrow_spread# + 2side_bearing#, vcentre(2arrow_spread# + rule_thickness#));
+    "left shift";
+
+    pickup rule_pen;
+
+    top y0 = top y1 = h - 1/2arrow_spread;
+    bot y2 = -d;
+
+    1/2[x0,x1] = w/2;
+    x1 - x0 = sign * 4/3arrow_spread;
+
+    x2 = x1;
+
     draw z0 -- z1 -- z2;
-    draw z0{dir (alpha + 120)} .. {dir (alpha + 60)}z2;
+
+    draw arrowhead(z0, 90 + sign * 90, arrow_spread);
+  endchar;
+endfor;
+
+for sign = -1, 1:
+  beginoperator(arrow_len#);
+    "loop arrow";
+
+    pickup rule_pen;
+
+    z0 = centre + sign * arrow_len/2 * left;
+    z1 = centre + arrow_len/2 * down;
+    z2 = centre + arrow_len/4 * up;
+    z3 = centre + sign * arrow_len/4 * right;
+    z4 = centre + arrow_len * (1/4sign, 1/2);
+    z5 = centre + arrow_len * (1/2sign, 1/4);
+
+    draw z0 -- z3{sign * right} .. {up}z5 .. {sign * left}z4 .. {down}z2 -- z1;
+
+    draw arrowhead(z0, 90 + sign * 90, arrow_spread);
+  endchar;
+endfor;
+
+for sign = -1, 1:
+  beginoperator(plus_size#); "three times";
+    pickup rule_pen;
+
+    r := plus_size/2;
+    r := r * 1/3[1, sqrt 2];
+
+    z0 = centre + r * dir (sign * 45);
+    z1 = centre + r * dir (sign * 225);
+    z2 = centre + r * dir (270 + sign * 45);
+
+    draw z0 -- z1;
+    draw centre -- z2;
   endchar;
 endfor;
 

@@ -79,11 +79,14 @@ enddef;
 def beginorder(expr sign, width, spread) =
   beginsymbol(width + 2u#, vcentre(spread));
 
-    pair centre, left_pt, right_pt;
+    pair centre, left_border, right_border, left_point, right_point;
 
     centre   := (w/2, (h-d)/2);
-    left_pt  := centre - sign * (w/2-u) * dir 0;
-    right_pt := centre + sign * (w/2-u) * dir 0;
+
+    left_border  := centre - sign * (w/2 - u) * right;
+    right_border := centre + sign * (w/2 - u) * right;
+    left_point   := centre - sign * (w/2 - u - 1/2rule_thickness) * right;
+    right_point  := centre + sign * (w/2 - u - 1/2rule_thickness) * right;
 enddef;
 
 vardef stroke text t =

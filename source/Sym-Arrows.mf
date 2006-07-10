@@ -269,7 +269,7 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 6/5, arrow_spread#); "multi map (" & decimal alpha & ")";
     pickup rule_pen;
 
-    draw foot -- head - 4/5arrow_spread * dir arrow_dir;
+    draw foot -- head - (4/5arrow_spread + 1/4rule_thickness) * dir arrow_dir;
     draw circle(head - 2/5arrow_spread * dir arrow_dir, 2/5arrow_spread);
 
     if negated:
@@ -296,9 +296,9 @@ endfor;
 for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 1, arrow_spread#); "line with foot (" & decimal alpha & ")";
     pickup rule_pen;
-    draw foot -- head;
-    draw (head - 0.5arrow_spread * dir (arrow_dir + 90)) --
-         (head + 0.5arrow_spread * dir (arrow_dir + 90));
+    draw foot -- head - 1/4rule_thickness * dir arrow_dir;
+    draw (head - 1/2arrow_spread * dir (arrow_dir + 90)) --
+         (head + 1/2arrow_spread * dir (arrow_dir + 90));
 
     if negated:
       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
@@ -313,7 +313,7 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
 
     z0 = head - 1/3equal_spread * dir arrow_dir;
 
-    draw foot -- head;
+    draw foot -- head - 1/4rule_thickness * dir arrow_dir;
     draw smile(1, z0 - 1/3med_op_size * dir (arrow_dir + 90),
                   z0 + 1/3med_op_size * dir (arrow_dir + 90),
                   2/3equal_spread, true);
@@ -580,7 +580,7 @@ endfor;
 for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 2/3, 3/2arrow_spread#); "derives (" & decimal alpha & ")";
     pickup rule_pen;
-    draw foot -- head;
+    draw foot + 1/4rule_thickness * dir arrow_dir -- head;
     draw (foot - 3/4arrow_spread * dir (arrow_dir + 90)) --
          (foot + 3/4arrow_spread * dir (arrow_dir + 90));
 
@@ -600,8 +600,8 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
     0.5[z0,z1] = foot;
     0.5[z2,z3] = head;
 
-    draw z0 -- z2;
-    draw z1 -- z3;
+    draw z0 + 1/4rule_thickness * dir arrow_dir -- z2;
+    draw z1 + 1/4rule_thickness * dir arrow_dir -- z3;
     draw (foot - 7/8arrow_spread * dir (arrow_dir + 90)) --
          (foot + 7/8arrow_spread * dir (arrow_dir + 90));
 
@@ -618,7 +618,7 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
 
     z0 = foot + equal_spread * dir arrow_dir;
 
-    draw z0 -- head;
+    draw z0 + 1/4rule_thickness * dir arrow_dir -- head;
     draw (foot - 7/8arrow_spread * dir (arrow_dir + 90)) --
          (foot + 7/8arrow_spread * dir (arrow_dir + 90));
     draw (z0   - 7/8arrow_spread * dir (arrow_dir + 90)) --
@@ -642,8 +642,8 @@ for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
     0.5[z0,z1] = z4;
     0.5[z2,z3] = head;
 
-    draw z0 -- z2;
-    draw z1 -- z3;
+    draw z0 + 1/4rule_thickness * dir arrow_dir -- z2;
+    draw z1 + 1/4rule_thickness * dir arrow_dir -- z3;
     draw (foot - arrow_spread * dir (arrow_dir + 90)) --
          (foot + arrow_spread * dir (arrow_dir + 90));
     draw (z4   - arrow_spread * dir (arrow_dir + 90)) --
