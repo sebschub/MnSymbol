@@ -19,7 +19,7 @@
 /whiterightpointingtriangle /whiteuppointingtriangle /whiteleftpointingtriangle /whitedownpointingtriangle /whiterightpointingtriangle.alt1 /whiteuppointingtriangle.alt1 /whiteleftpointingtriangle.alt1 /whitedownpointingtriangle.alt1 
 /circle /blackcircle /largecircle /largecircle.alt1 /minuscircle /uni29B6 /uni2298 /uni29B8 
 %60
-/circleplus /circlemultiply /circleot /uni229A /otriangle /uni229B /uni235F /uni2300 
+/circleplus /circlemultiply /circleot /uni229A /otriangle /uni229B /uni235F /uni2205
 /uni25FD /uni25FE /uni25FB /uni25FB.alt1 /whitediamond /blackdiamond /whitediamond.alt1 /whitediamond.alt2 
 %70
 /uni229F /boxvert /uni29C4 /uni29C5 /uni229E /uni22A0 /uni22A1 /uni29C8
@@ -46,6 +46,6 @@
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %F0
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /uni2272 /uni2273 /uni2A85 /uni2A86 /uni2274 /uni2275 
+/uni2A89 /uni2A8A /uni21B1 /uni21B0 /uni21AC /uni21AB /uni22CB /uni22CC 
 ] def
