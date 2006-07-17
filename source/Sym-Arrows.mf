@@ -108,9 +108,10 @@ endfor;
 for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 1, arrow_spread#); "arrow with foot (" & decimal alpha & ")";
     pickup rule_pen;
-    draw foot -- head;
-    draw (foot - 0.5arrow_spread * dir (arrow_dir + 90)) --
-         (foot + 0.5arrow_spread * dir (arrow_dir + 90));
+
+    draw foot + 1/4rule_thickness * dir arrow_dir -- head;
+    draw (foot - 1/2arrow_spread * dir (arrow_dir + 90)) --
+         (foot + 1/2arrow_spread * dir (arrow_dir + 90));
     draw arrowhead(head, arrow_dir, arrow_spread);
 
     if negated:
@@ -296,6 +297,7 @@ endfor;
 for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
   beginarrow(alpha, 1, arrow_spread#); "line with foot (" & decimal alpha & ")";
     pickup rule_pen;
+
     draw foot -- head - 1/4rule_thickness * dir arrow_dir;
     draw (head - 1/2arrow_spread * dir (arrow_dir + 90)) --
          (head + 1/2arrow_spread * dir (arrow_dir + 90));

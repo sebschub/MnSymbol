@@ -1947,9 +1947,10 @@ for sign = -1, 1:
     z0 = centre + r * dir (sign * 45);
     z1 = centre + r * dir (sign * 225);
     z2 = centre + r * dir (270 + sign * 45);
+    z3 = centre + 1/4rule_thickness * dir (270 + sign * 45);
 
     draw z0 -- z1;
-    draw centre -- z2;
+    draw z3 -- z2;
   endchar;
 endfor;
 

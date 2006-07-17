@@ -875,6 +875,20 @@
 % \showsymbol\upslice
 % \showsymbol\lefttslice
 % \showsymbol\downslice
+% \showsymbol\lesssim
+% \showsymbol\gtrsim
+% \showsymbol\lessapprox
+% \showsymbol\gtrapprox
+% \showsymbol\lnsim
+% \showsymbol\gnsim
+% \showsymbol\lnapprox
+% \showsymbol\gnapprox
+% \showsymbol\Rsh
+% \showsymbol\Lsh
+% \showsymbol\looparrowright
+% \showsymbol\looparrowleft
+% \showsymbol\leftthreetimes
+% \showsymbol\rightthreetimes
 % \end{multicols}
 %
 % \subsection*{Relations}
@@ -1089,8 +1103,10 @@
 % \showsymbol\nowns
 % \showsymbol\nless
 % \showsymbol\ngtr
-% \showsymbol\nleq
-% \showsymbol\ngeq
+% \showsymbol\nleq,
+%    \cs{\lneq}
+% \showsymbol\ngeq,
+%    \cs{\gneq}
 % \showsymbol\nleqslant
 % \showsymbol\ngeqslant
 % \showsymbol\nleqq
@@ -1133,8 +1149,10 @@
 % \showsymbol\nSupset
 % \showsymbol\nprec
 % \showsymbol\nsucc
-% \showsymbol\npreceq
-% \showsymbol\nsucceq
+% \showsymbol\npreceq,
+%   \cs{\precneqq}
+% \showsymbol\nsucceq,
+%   \cs{\succneqq}
 % \showsymbol\npreccurlyeq
 % \showsymbol\nsucccurlyeq
 % \showsymbol\nprecsim
@@ -1357,6 +1375,13 @@
 % \showsymbol\dotplus
 % \showsymbol\thicksim
 % \showsymbol\thickapprox
+% \showsymbol\intercal
+% \showsymbol\shortparallel
+% \showsymbol\veebar
+% \showsymbol\barwedge
+% \showsymbol\doublebarwedge
+% \showsymbol\centerdot
+% \showsymbol\divideontimes
 % \end{multicols}
 %
 % \paragraph{Missing symbols.}
@@ -1366,43 +1391,18 @@
 % |\maltese|\par
 % |\blacksquare|\par
 % |\blacklozenge|\par
-% |\intercal|\par
-% |\Lsh|\par
-% |\Rsh|\par
 % |\Vvdash|\par
-% |\looparrowleft|\par
-% |\looparrowright|\par
 % |\Rrightarrow|\par
 % |\Lleftarrow|\par
-% |\gtrsim|\par
-% |\gtrapprox|\par
-% |\lesssim|\par
-% |\lessapprox|\par
 % |\eqslantless|\par
 % |\eqslantgtr|\par
 % |\curlyeqprec|\par
 % |\curlyeqsucc|\par
-% |\lneq|\par
-% |\gneq|\par
-% |\lnsim|\par
-% |\gnsim|\par
-% |\lnapprox|\par
-% |\gnapprox|\par
-% |\precneqq|\par
-% |\succneqq|\par
 % |\nshortmid|\par
 % |\nshortparallel|\par
-% |\shortparallel|\par
-% |\veebar|\par
-% |\barwedge|\par
-% |\doublebarwedge|\par
-% |\leftthreetimes|\par
-% |\rightthreetimes|\par
-% |\centerdot|\par
 % |\bigstar|\par
 % |\blacktriangledown|\par
 % |\blacktriangle|\par
-% |\divideontimes|\par
 % |\mho|\par
 % |\hbar|\par
 % |\Finv|\par
@@ -1469,23 +1469,19 @@
   \DeclareRobustCommand{\dotplus}{\dot{+}}
   \DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
   \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
+  \DeclareRobustCommand{\intercal}{\mathbin{\text{\boldmath$\m@th\top$}}}
 
-  \DeclareRobustCommand\gtrsim{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.1ex}$\sim$}}}
-  \DeclareRobustCommand\gtrapprox{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.1ex}$\approx$}}}
-  \DeclareRobustCommand\lesssim{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.1ex}$\sim$}}}
-  \DeclareRobustCommand\lessapprox{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.1ex}$\approx$}}}
   \let\lneq\nleq
   \let\gneq\ngeq
-  \DeclareRobustCommand\gnsim{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.5ex}$\nsim$}}}
-  \DeclareRobustCommand\lnsim{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.5ex}$\nsim$}}}
-  \DeclareRobustCommand\gnapprox{\mathrel{\oalign{$\gtr$\crcr\noalign{\vskip-.5ex}$\napprox$}}}
-  \DeclareRobustCommand\lnapprox{\mathrel{\oalign{$\less$\crcr\noalign{\vskip-.5ex}$\napprox$}}}
   \let\precneqq\npreceq
   \let\succneqq\nsucceq
   \DeclareRobustCommand\shortparallel{\mathrel{\shortmid\mkern-8mu\shortmid}}
-  \DeclareRobustCommand\veebar{\mathbin{\oalign{\hss$\vee$\hss\crcr\noalign{\vskip-.6ex}\hss$\minus$\hss}}}
-  \DeclareRobustCommand\barwedge{\mathbin{\oalign{\hss$\minus$\hss\crcr\noalign{\vskip-.6ex}\hss$\wedge$\hss}}}
-  \DeclareRobustCommand\doublebarwedge{\mathbin{\oalign{\hss$\equal$\hss\crcr\noalign{\vskip-.5ex}\hss$\wedge$\hss}}}
+%  \DeclareRobustCommand\veebar{\mathbin{\oalign{\hss$\vee$\hss\crcr\noalign{\vskip-.6ex}\hss$\minus$\hss}}}
+%  \DeclareRobustCommand\barwedge{\mathbin{\oalign{\hss$\minus$\hss\crcr\noalign{\vskip-.6ex}\hss$\wedge$\hss}}}
+%  \DeclareRobustCommand\doublebarwedge{\mathbin{\oalign{\hss$\equal$\hss\crcr\noalign{\vskip-.5ex}\hss$\wedge$\hss}}}
+  \DeclareRobustCommand\veebar{\mathbin{\underline{\vee}}}
+  \DeclareRobustCommand\barwedge{\mathbin{\overline{\wedge}}}
+  \DeclareRobustCommand\doublebarwedge{\mathbin{\overline{\overline{\wedge}}}}
   \DeclareRobustCommand\centerdot{\mathbin{\Mn@Text@With@MathVersion{.}}}
   \DeclareRobustCommand\divideontimes{\mathbin{\ooalign{$\div$\crcr$\times$}}}
 %    \end{macrocode}
@@ -1499,12 +1495,7 @@
   \let\maltese\undefined
   \let\blacksquare\undefined
   \let\blacklozenge\undefined
-  \let\intercal\undefined
-  \let\Lsh\undefined
-  \let\Rsh\undefined
   \let\Vvdash\undefined
-  \let\looparrowleft\undefined
-  \let\looparrowright\undefined
   \let\Rrightarrow\undefined
   \let\Lleftarrow\undefined
   \let\eqslantless\undefined
@@ -1513,8 +1504,6 @@
   \let\curlyeqsucc\undefined
   \let\nshortmid\undefined
   \let\nshortparallel\undefined
-  \let\leftthreetimes\undefined
-  \let\rightthreetimes\undefined
   \let\bigstar\undefined
   \let\blacktriangledown\undefined
   \let\blacktriangle\undefined
@@ -1564,6 +1553,7 @@
 % Short hands to simplify the definitions below.
 %
 %    \begin{macrocode}
+\def\Set@Mn@Sym#1{\@tempcnta #1\relax}
 \def\Next@Mn@Sym{\advance\@tempcnta 1\relax}
 \def\Prev@Mn@Sym{\advance\@tempcnta-1\relax}
 
@@ -1742,7 +1732,7 @@
 % MnSymbolA\?: arrows.
 %
 %    \begin{macrocode}
-\@tempcnta=0
+\Set@Mn@Sym{0}
 \Decl@Mn@Char\rightarrow             {MnSyA}{\mathrel}
   \Decl@Mn@Alias\to                  {MnSyA}{\mathrel}
 \Decl@Mn@Char\uparrow                {MnSyA}{\mathrel}
@@ -2051,7 +2041,7 @@
 % MnSymbolB\?: stroked arrows.
 %
 %    \begin{macrocode}
-\@tempcnta=0
+\Set@Mn@Sym{0}
 \Decl@Mn@Char\nrightarrow            {MnSyB}{\mathrel}
 \Decl@Mn@Char\nuparrow               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftarrow             {MnSyB}{\mathrel}
@@ -2320,7 +2310,7 @@
 % MnSymbolC\?: operators.
 %
 %    \begin{macrocode}
-\@tempcnta=0
+\Set@Mn@Sym{0}
 \Decl@Mn@Char\cdot                   {MnSyC}{\mathbin}
   \Decl@Mn@Alias\cdotp               {MnSyC}{\mathpunct}
 \Decl@Mn@Char\hdotdot                {MnSyC}{\mathbin}
@@ -2563,12 +2553,27 @@
 \Decl@Mn@Char\upslice                {MnSyC}{\mathbin}
 \Decl@Mn@Char\lefttslice             {MnSyC}{\mathrel}
 \Decl@Mn@Char\downslice              {MnSyC}{\mathbin}
+\Set@Mn@Sym{242}
+\Decl@Mn@Char\lesssim                {MnSyC}{\mathrel}
+\Decl@Mn@Char\gtrsim                 {MnSyC}{\mathrel}
+\Decl@Mn@Char\lessapprox             {MnSyC}{\mathrel}
+\Decl@Mn@Char\gtrapprox              {MnSyC}{\mathrel}
+\Decl@Mn@Char\lnsim                  {MnSyC}{\mathrel}
+\Decl@Mn@Char\gnsim                  {MnSyC}{\mathrel}
+\Decl@Mn@Char\lnapprox               {MnSyC}{\mathrel}
+\Decl@Mn@Char\gnapprox               {MnSyC}{\mathrel}
+\Decl@Mn@Char\Rsh                    {MnSyC}{\mathrel}
+\Decl@Mn@Char\Lsh                    {MnSyC}{\mathrel}
+\Decl@Mn@Char\looparrowright         {MnSyC}{\mathrel}
+\Decl@Mn@Char\looparrowleft          {MnSyC}{\mathrel}
+\Decl@Mn@Char\leftthreetimes         {MnSyC}{\mathbin}
+\Decl@Mn@Char\rightthreetimes        {MnSyC}{\mathbin}
 %    \end{macrocode}
 %
 % MnSymbolD\?: Relations.
 %
 %    \begin{macrocode}
-\@tempcnta=0
+\Set@Mn@Sym{0}
 \Decl@Mn@Char\equal                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\equiv                  {MnSyD}{\mathrel}
 \Decl@Mn@Char\sim                    {MnSyD}{\mathrel}
@@ -2864,7 +2869,7 @@
 % MnSymbolF\?: Big operators.
 %
 %    \begin{macrocode}
-\@tempcnta=0
+\Set@Mn@Sym{0}
 \Decl@Mn@Char\tbigplus                  {symbols}{\mathop}
 \Decl@Mn@Char\dbigplus                  {symbols}{\mathop}
 \Decl@Mn@Char\tbigtimes                 {symbols}{\mathop}
