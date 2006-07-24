@@ -904,3 +904,24 @@ for scale = 1, 1.8:
   endchar;
 endfor;
 charlist current_char - 1: current_char;
+
+for scale = 1, 1.4:
+  beginbigop(3/4scale, scale); "complement";
+
+    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+
+    z0 = centre + op_height/2 * up;
+    z1 = centre - op_height/2 * up;
+    z2 = centre - op_width/2 * right;
+    z3 = centre + op_width/2 * right;
+
+    draw (1/4[z0,z1] + op_width/2 * right){up}
+      .. z0
+      .. {down}(1/3[z0,z1] - op_width/2 * right)
+      -- (2/3[z0,z1] - op_width/2 * right){down}
+      .. z1
+      .. (3/4[z0,z1] + op_width/2 * right){up};
+  endchar;
+endfor;
+charlist current_char - 1: current_char;
+

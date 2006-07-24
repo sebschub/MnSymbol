@@ -1831,7 +1831,7 @@ for alpha = 0, 90, 180, 270:
   endchar;
 endfor;
 
-current_char := 241;
+current_char := 235;
 
 % Keep these consistent with the glyphs in Sym-Order.mf!
 
@@ -1841,60 +1841,86 @@ for negated = 0, 1:
     select(negated)(values)
   enddef;
 
-  if negated < 2:
-    for sign = 1, -1:
-      beginorder(sign, order_width# + rule_thickness#,
-                       greater_spread# + ifneg(4/3, 8/3) * equal_spread# + rule_thickness#);
-        "less sim";
+  for sign = 1, -1:
+    beginorder(sign, order_width# + rule_thickness#,
+                     greater_spread# + ifneg(4/3, 8/3) * equal_spread# + rule_thickness#);
+      "less sim";
 
-        pickup rule_pen;
+      pickup rule_pen;
 
-        z1 - z0 = greater_spread * dir 90;
-        y2 = 1/2[y0, y1];
-        x2 = x3 = xpart left_point;
-        y3 = y4;
-        z0 - z4 = equal_spread * dir 90;
+      z1 - z0 = greater_spread * dir 90;
+      y2 = 1/2[y0, y1];
+      x0 = xpart right_point;
+      x2 = xpart left_point;
+      y3 = y4 = y0 - equal_spread;
+      x4 - x3 = sign * (x0 - x2);
+      1/2[x3,x4] = xpart centre;
 
-        1/2[z1, z4 + 1/3equal_spread * down] = right_point;
+      1/2[y1, y4 - 1/3equal_spread] = ypart centre;
 
-        draw z0 -- z2 -- z1;
-        draw sim(z3, z4);
+      draw z0 -- z2 -- z1;
+      draw sim(z3, z4);
 
-        if negated = 1:
-          stroke_through(centre, 8/3equal_spread + greater_spread);
-        fi;
-      endchar;
-    endfor;
-  fi;
+      if negated = 1:
+        stroke_through(centre, 8/3equal_spread + greater_spread);
+      fi;
+    endchar;
+  endfor;
 
-  if negated < 2:
-    for sign = 1, -1:
-      beginorder(sign, order_width# + rule_thickness#,
-                       greater_spread# + ifneg(7/3, 9/3) * equal_spread# + rule_thickness#);
-        "less approx";
+  for sign = 1, -1:
+    beginorder(sign, order_width# + rule_thickness#,
+                     greater_spread# + ifneg(7/3, 9/3) * equal_spread# + rule_thickness#);
+      "less approx";
 
-        pickup rule_pen;
+      pickup rule_pen;
 
-        z1 - z0 = greater_spread * dir 90;
-        y2 = 1/2[y0, y1];
-        x2 = x3 = x5 = xpart left_point;
-        y3 = y4;
-        y5 = y6;
-        z0 - z4 = equal_spread * dir 90;
-        z4 - z6 = equal_spread * dir 90;
+      z1 - z0 = greater_spread * dir 90;
+      y2 = 1/2[y0, y1];
+      x0 = xpart right_point;
+      x2 = xpart left_point;
+      y3 = y4 = y0 - equal_spread;
+      y5 = y6 = y4 - equal_spread;
+      x4 - x3 = sign * (x0 - x2);
+      1/2[x3,x4] = xpart centre;
+      x6 = x4;
+      x5 = x3;
 
-        1/2[z1, z6 + 1/3equal_spread * down] = right_point;
+      1/2[y1, y6 - 1/3equal_spread] = ypart centre;
 
-        draw z0 -- z2 -- z1;
-        draw sim(z3, z4);
-        draw sim(z5, z6);
+      draw z0 -- z2 -- z1;
+      draw sim(z3, z4);
+      draw sim(z5, z6);
 
-        if negated = 1:
-          stroke_through(centre, 9/3equal_spread + greater_spread);
-        fi;
-      endchar;
-    endfor;
-  fi;
+      if negated = 1:
+        stroke_through(centre, 9/3equal_spread + greater_spread);
+      fi;
+    endchar;
+  endfor;
+
+  for alpha = 0, 180:
+    beginarrow(alpha, 6/5, ifneg(16/10, 14/10) * arrow_spread#); "triple arrow (" & decimal alpha & ")";
+
+      z1 - z0 = z2 - z1 = z4 - z3 = z5 - z4 = 2/3equal_spread * dir (arrow_dir + 90);
+
+      z1 = foot;
+      z4 = head;
+
+      pickup pencircle scaled 4/5rule_thickness;
+
+      draw z0 -- arrowhead_intersection(head, arrow_dir, 14/10arrow_spread, z0 -- z3);
+      draw z1 -- arrowhead_intersection(head, arrow_dir, 14/10arrow_spread, z1 -- z4);
+      draw z2 -- arrowhead_intersection(head, arrow_dir, 14/10arrow_spread, z2 -- z5);
+
+      pickup rule_pen;
+
+      draw arrowhead(head, arrow_dir, 14/10arrow_spread);
+
+      if negated = 1:
+        stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 16/10arrow_spread)
+                            (70, 70, 110, 110, 70, 70, 110, 110);
+      fi
+    endchar;
+  endfor;
 
 endfor;
 
@@ -1953,4 +1979,22 @@ for sign = -1, 1:
     draw z3 -- z2;
   endchar;
 endfor;
+
+beginarrow(0, 5/6, 7/4arrow_spread#);
+  "Vvdash";
+
+  pickup rule_pen;
+
+  z0 = foot + 4/5equal_spread * dir arrow_dir;
+  z1 = foot + 8/5equal_spread * dir arrow_dir;
+
+  draw z1 + 1/4rule_thickness * dir arrow_dir -- head;
+  draw (foot - 7/8arrow_spread * dir (arrow_dir + 90)) --
+       (foot + 7/8arrow_spread * dir (arrow_dir + 90));
+  draw (z0   - 7/8arrow_spread * dir (arrow_dir + 90)) --
+       (z0   + 7/8arrow_spread * dir (arrow_dir + 90));
+  draw (z1   - 7/8arrow_spread * dir (arrow_dir + 90)) --
+       (z1   + 7/8arrow_spread * dir (arrow_dir + 90));
+
+endchar;
 

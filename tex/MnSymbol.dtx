@@ -364,6 +364,12 @@
 % \showsymbol\filledemptyspoon
 % \showsymbol\largeemptyfilledspoon
 % \showsymbol\largefilledemptyspoon
+% \showsymbol\Rrightarrow
+% \showsymbol\Lleftarrow
+% \showsymbol\Rsh
+% \showsymbol\Lsh
+% \showsymbol\looparrowright
+% \showsymbol\looparrowleft
 % \end{multicols}
 %
 % \subsection*{Negated arrows}
@@ -633,6 +639,8 @@
 % \showsymbol\nlcirclearrowup
 % \showsymbol\nlcirclearrowleft
 % \showsymbol\nlcirclearrowdown
+% \showsymbol\nRrightarrow
+% \showsymbol\nLleftarrow
 % \end{multicols}
 %
 % \subsection*{Binary operators and letters}
@@ -828,7 +836,8 @@
 % \showsymbol\between
 % \showsymbol\separated
 % \showsymbol\bot
-% \showsymbol\top
+% \showsymbol\top,
+%   \cs{\intercal}
 % \showsymbol\wreath,
 %   \cs{\wr}
 % \showsymbol\angle
@@ -873,20 +882,8 @@
 % \showsymbol\closedcurlyvee
 % \showsymbol\rightslice
 % \showsymbol\upslice
-% \showsymbol\lefttslice
+% \showsymbol\leftslice
 % \showsymbol\downslice
-% \showsymbol\lesssim
-% \showsymbol\gtrsim
-% \showsymbol\lessapprox
-% \showsymbol\gtrapprox
-% \showsymbol\lnsim
-% \showsymbol\gnsim
-% \showsymbol\lnapprox
-% \showsymbol\gnapprox
-% \showsymbol\Rsh
-% \showsymbol\Lsh
-% \showsymbol\looparrowright
-% \showsymbol\looparrowleft
 % \showsymbol\leftthreetimes
 % \showsymbol\rightthreetimes
 % \end{multicols}
@@ -1033,6 +1030,10 @@
 % \showsymbol\geqdot
 % \showsymbol\leqslantdot
 % \showsymbol\geqslantdot
+% \showsymbol\lesssim
+% \showsymbol\gtrsim
+% \showsymbol\lessapprox
+% \showsymbol\gtrapprox
 % \showsymbol\nequal,
 %   \cs{\neq},
 %   \cs{\ne}
@@ -1187,6 +1188,10 @@
 % \showsymbol\succnsim
 % \showsymbol\precnapprox
 % \showsymbol\succnapprox
+% \showsymbol\lnsim
+% \showsymbol\gnsim
+% \showsymbol\lnapprox
+% \showsymbol\gnapprox
 % \end{multicols}
 %
 % \subsection*{Operators}
@@ -1250,6 +1255,7 @@
 % \showop\rcircleleftint
 % \showop\lcircleleftint
 % \showop\sumint
+% \showop\complement
 % \end{multicols}
 %
 % \subsection*{Braces}
@@ -1372,16 +1378,21 @@
 % \showsymbol\yen
 % \showsymbol\Re
 % \showsymbol\Im
+% \end{multicols}
+%
+% \paragraph{AMS symbols.}
+% These symbols are only defined for compatibility with the AMS fonts.
+% \begin{multicols}{2}
 % \showsymbol\dotplus
 % \showsymbol\thicksim
 % \showsymbol\thickapprox
-% \showsymbol\intercal
 % \showsymbol\shortparallel
 % \showsymbol\veebar
 % \showsymbol\barwedge
 % \showsymbol\doublebarwedge
 % \showsymbol\centerdot
 % \showsymbol\divideontimes
+% \showsymbol\Vvdash
 % \end{multicols}
 %
 % \paragraph{Missing symbols.}
@@ -1391,9 +1402,6 @@
 % |\maltese|\par
 % |\blacksquare|\par
 % |\blacklozenge|\par
-% |\Vvdash|\par
-% |\Rrightarrow|\par
-% |\Lleftarrow|\par
 % |\eqslantless|\par
 % |\eqslantgtr|\par
 % |\curlyeqprec|\par
@@ -1413,7 +1421,6 @@
 % |\Bbbk|\par
 % |\hslash|\par
 % |\backepsilon|\par
-% |\complement|\par
 % |\circledR|\par
 % |\circledS|\par
 % |\mapstochar|\par
@@ -1469,16 +1476,13 @@
   \DeclareRobustCommand{\dotplus}{\dot{+}}
   \DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
   \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
-  \DeclareRobustCommand{\intercal}{\mathbin{\text{\boldmath$\m@th\top$}}}
+%  \DeclareRobustCommand{\intercal}{\mathbin{\text{\boldmath$\m@th\top$}}}
 
   \let\lneq\nleq
   \let\gneq\ngeq
   \let\precneqq\npreceq
   \let\succneqq\nsucceq
   \DeclareRobustCommand\shortparallel{\mathrel{\shortmid\mkern-8mu\shortmid}}
-%  \DeclareRobustCommand\veebar{\mathbin{\oalign{\hss$\vee$\hss\crcr\noalign{\vskip-.6ex}\hss$\minus$\hss}}}
-%  \DeclareRobustCommand\barwedge{\mathbin{\oalign{\hss$\minus$\hss\crcr\noalign{\vskip-.6ex}\hss$\wedge$\hss}}}
-%  \DeclareRobustCommand\doublebarwedge{\mathbin{\oalign{\hss$\equal$\hss\crcr\noalign{\vskip-.5ex}\hss$\wedge$\hss}}}
   \DeclareRobustCommand\veebar{\mathbin{\underline{\vee}}}
   \DeclareRobustCommand\barwedge{\mathbin{\overline{\wedge}}}
   \DeclareRobustCommand\doublebarwedge{\mathbin{\overline{\overline{\wedge}}}}
@@ -1495,7 +1499,6 @@
   \let\maltese\undefined
   \let\blacksquare\undefined
   \let\blacklozenge\undefined
-  \let\Vvdash\undefined
   \let\Rrightarrow\undefined
   \let\Lleftarrow\undefined
   \let\eqslantless\undefined
@@ -1523,7 +1526,6 @@
   \let\Game\undefined
   \let\Bbbk\undefined
   \let\hslash\undefined
-  \let\complement\undefined
   \let\circledR\undefined
   \let\circledS\undefined
 %    \end{macrocode}
@@ -2507,6 +2509,7 @@
 \Decl@Mn@Char\separated              {MnSyC}{\mathrel}
 \Decl@Mn@Char\bot                    {MnSyC}{\mathord}
 \Decl@Mn@Char\top                    {MnSyC}{\mathord}
+  \Decl@Mn@Alias\intercal            {MnSyC}{\mathbin}
 \Decl@Mn@Char\wreath                 {MnSyC}{\mathbin}
   \Decl@Mn@Alias\wr                  {MnSyC}{\mathbin}
 \Decl@Mn@Char\angle                  {MnSyC}{\mathord}
@@ -2551,23 +2554,28 @@
 \Decl@Mn@Char\closedcurlyvee         {MnSyC}{\mathbin}
 \Decl@Mn@Char\rightslice             {MnSyC}{\mathrel}
 \Decl@Mn@Char\upslice                {MnSyC}{\mathbin}
-\Decl@Mn@Char\lefttslice             {MnSyC}{\mathrel}
+\Decl@Mn@Char\leftslice              {MnSyC}{\mathrel}
 \Decl@Mn@Char\downslice              {MnSyC}{\mathbin}
-\Set@Mn@Sym{242}
+\Set@Mn@Sym{236}
 \Decl@Mn@Char\lesssim                {MnSyC}{\mathrel}
 \Decl@Mn@Char\gtrsim                 {MnSyC}{\mathrel}
 \Decl@Mn@Char\lessapprox             {MnSyC}{\mathrel}
 \Decl@Mn@Char\gtrapprox              {MnSyC}{\mathrel}
+\Decl@Mn@Char\Rrightarrow            {MnSyC}{\mathrel}
+\Decl@Mn@Char\Lleftarrow             {MnSyC}{\mathrel}
 \Decl@Mn@Char\lnsim                  {MnSyC}{\mathrel}
 \Decl@Mn@Char\gnsim                  {MnSyC}{\mathrel}
 \Decl@Mn@Char\lnapprox               {MnSyC}{\mathrel}
 \Decl@Mn@Char\gnapprox               {MnSyC}{\mathrel}
+\Decl@Mn@Char\nRrightarrow           {MnSyC}{\mathrel}
+\Decl@Mn@Char\nLleftarrow            {MnSyC}{\mathrel}
 \Decl@Mn@Char\Rsh                    {MnSyC}{\mathrel}
 \Decl@Mn@Char\Lsh                    {MnSyC}{\mathrel}
 \Decl@Mn@Char\looparrowright         {MnSyC}{\mathrel}
 \Decl@Mn@Char\looparrowleft          {MnSyC}{\mathrel}
 \Decl@Mn@Char\leftthreetimes         {MnSyC}{\mathbin}
 \Decl@Mn@Char\rightthreetimes        {MnSyC}{\mathbin}
+\Decl@Mn@Char\Vvdash                 {MnSyC}{\mathrel}
 %    \end{macrocode}
 %
 % MnSymbolD\?: Relations.
@@ -3004,6 +3012,8 @@
 \Decl@Mn@Char\partialvardlcircleleftint {symbols}{\mathop}
 \Decl@Mn@Char\partialvartsumint         {symbols}{\mathop}
 \Decl@Mn@Char\partialvardsumint         {symbols}{\mathop}
+\Decl@Mn@Char\tcomplement               {symbols}{\mathop}
+\Decl@Mn@Char\dcomplement               {symbols}{\mathop}
 
 \let\intop\tint
 \let\ointop\toint
@@ -3071,6 +3081,7 @@
 \Decl@Mn@Op\sum\dsum\tsum
 \Decl@Mn@Op\prod\dprod\tprod
 \Decl@Mn@Op\coprod\dcoprod\tcoprod
+\Decl@Mn@Op\complement\dcomplement\tcomplement
 %    \end{macrocode}
 %
 % Delimiters.
