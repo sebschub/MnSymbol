@@ -37,15 +37,15 @@
 /uni2136 /uni2137 /uni2138 /weierstrass /weierstrass.alt /uni2A3C /uni2A3D /uni231E 
 /uni231F /uni231C /uni231D /closedsucc /closedcurlywedge /closedprec /closedcurlyvee /uni2AA7 
 %C0
-/upslice /uni2AA6 /downslice /.notdef /.notdef /.notdef /.notdef /.notdef 
+/upslice /uni2AA6 /downslice /plus.part /equal.part /bumpup.part /bumpdown.part /.notdef  
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %D0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %E0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
-%F0
-/.notdef /.notdef /uni2272 /uni2273 /uni2A85 /uni2A86 /uni2274 /uni2275 
-/uni2A89 /uni2A8A /uni21B1 /uni21B0 /uni21AC /uni21AB /uni22CB /uni22CC 
+/.notdef /.notdef /.notdef /.notdef /uni2272 /uni2273 /uni2A85 /uni2A86 
+%F0 
+/uni21DB /uni21DA /uni2274 /uni2275 /uni2A89 /uni2A8A /uni21DB.neg /uni21DA.neg 
+/uni21B1 /uni21B0 /uni21AC /uni21AB /uni22CB /uni22CC /uni22AA /.notdef
 ] def

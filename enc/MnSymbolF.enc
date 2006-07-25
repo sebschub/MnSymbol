@@ -133,8 +133,10 @@
 /uni2232.part.disp
 /uni2A0B.part
 /uni2A0B.part.disp
-/.notdef /.notdef 
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/uni2201
+/uni2201.disp
+/plus.big.part /plus.part.big.disp
+/dot.part.big /dot.part.big.disp /.notdef /.notdef /.notdef /.notdef 
 %
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
