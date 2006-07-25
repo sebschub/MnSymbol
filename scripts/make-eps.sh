@@ -12,15 +12,16 @@ do
   done
 done
 
-for i in S S-Bold
-do
-  for j in 5 6 7 8 9 10 12
-  do
-    rm -f MnSymbol$i$j.[0-9]*
-    ./mf2pt1.pl MnSymbol$i$j --encoding=standardencoding
-    for k in MnSymbol$i$j.[0-9]*; do mv $k $k.eps;done
-  done
-done
+#for i in S S-Bold
+#do
+#  for j in 5 6 7 8 9 10 12
+#  do
+#    rm -f MnSymbol$i$j.[0-9]*
+#    ./mf2pt1.pl MnSymbol$i$j --encoding=standardencoding
+#    for k in MnSymbol$i$j.[0-9]*; do mv $k $k.eps;done
+#    mftrace -f pfb MnSymbol$i$j
+#  done
+#done
 
 
 #./gen-pfb.ff 2>&1|grep -v "showpage">errorlog
@@ -30,5 +31,5 @@ done
 #  rm -f MnSymbol$i*.eps
 #done
 
-rm *.tfm *.log
+#rm *.tfm *.log *pk
 

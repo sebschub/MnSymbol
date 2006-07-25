@@ -1,0 +1,594 @@
+diff -ruN ../diffold/MnSymbol/source/Sym-Accent.mf MnSymbol/source/Sym-Accent.mf
+--- ../diffold/MnSymbol/source/Sym-Accent.mf	2004-09-07 12:51:03.000000000 +0200
++++ MnSymbol/source/Sym-Accent.mf	2006-07-25 19:56:46.000000000 +0200
+@@ -93,6 +93,13 @@
+   top y0 = top y1 = h - 5/4rule_thickness;
+ 
+   draw z0 -- z1;
+-  draw arrowhead(z1, 0, 5/2rule_thickness);
++  draw_arrowhead(z1, 0, 5/2rule_thickness);
+ endchar;
+ 
++for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
++  beginarrow(alpha, 1, arrow_spread#); "single arrow (" & decimal alpha & ")";
++    pickup rule_pen;
++    draw_arrowhead(head, arrow_dir, arrow_spread);
++
++  endchar;
++endfor;
+diff -ruN ../diffold/MnSymbol/source/Sym-Arrows.mf MnSymbol/source/Sym-Arrows.mf
+--- ../diffold/MnSymbol/source/Sym-Arrows.mf	2006-07-17 10:53:16.000000000 +0200
++++ MnSymbol/source/Sym-Arrows.mf	2006-07-25 20:14:48.000000000 +0200
+@@ -7,7 +7,7 @@
+   beginarrow(alpha, 1, arrow_spread#); "single arrow (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
+@@ -25,10 +25,14 @@
+     1/2[z0,z1] = foot;
+     1/2[z2,z3] = head;
+ 
+-    draw z0 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2);
+-    draw z1 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
++    draw z0 -- 1/2[z0,z2];
++    draw z1 -- 1/2[z1,z3];
++    linecap:=butt;
++    draw 1/3[z0,z2] -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2); 
++    draw 1/3[z1,z3] -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
++    linecap:=rounded;
+ 
+-    draw arrowhead(head, arrow_dir, 13/10arrow_spread);
++    draw_arrowhead(head, arrow_dir, 13/10arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 14/10arrow_spread)
+@@ -41,8 +45,8 @@
+   beginarrow(alpha, 6/5, arrow_spread#); "bidirectinal arrow (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead(head, arrow_dir,     arrow_spread);
+-    draw arrowhead(foot, arrow_dir+180, arrow_spread);
++    draw_arrowhead(head, arrow_dir,     arrow_spread);
++    draw_arrowhead(foot, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
+@@ -60,12 +64,14 @@
+     1/2[z0,z1] = foot;
+     1/2[z2,z3] = head;
+ 
++    linecap:=butt;
+     draw arrowhead_intersection(foot, arrow_dir+180, 13/10arrow_spread, z0 -- z2)
+       -- arrowhead_intersection(head, arrow_dir,     13/10arrow_spread, z0 -- z2);
+     draw arrowhead_intersection(foot, arrow_dir+180, 13/10arrow_spread, z1 -- z3)
+       -- arrowhead_intersection(head, arrow_dir,     13/10arrow_spread, z1 -- z3);
+-    draw arrowhead(head, arrow_dir,     13/10arrow_spread);
+-    draw arrowhead(foot, arrow_dir+180, 13/10arrow_spread);
++    draw_arrowhead(head, arrow_dir,     13/10arrow_spread);
++    draw_arrowhead(foot, arrow_dir+180, 13/10arrow_spread);
++    linecap:=rounded;
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, 14/10arrow_spread)
+@@ -78,8 +84,8 @@
+   beginarrow(alpha, 5/4, arrow_spread#); "double-head arrow (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead(head, arrow_dir, arrow_spread);
+-    draw arrowhead(head - 1/4arrow_len * dir arrow_dir, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head - 1/4arrow_len * dir arrow_dir, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - (1/2arrow_spread + 1/4arrow_len) * dir arrow_dir], alpha, arrow_spread)
+@@ -95,8 +101,8 @@
+     z0 = foot + 3/4arrow_spread * dir arrow_dir;
+ 
+     draw z0 -- head;
+-    draw arrowhead(head, arrow_dir, arrow_spread);
+-    draw arrowhead(z0,   arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(z0,   arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
+@@ -112,7 +118,7 @@
+     draw foot + 1/4rule_thickness * dir arrow_dir -- head;
+     draw (foot - 1/2arrow_spread * dir (arrow_dir + 90)) --
+          (foot + 1/2arrow_spread * dir (arrow_dir + 90));
+-    draw arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
+@@ -125,7 +131,7 @@
+   beginarrow(alpha, 1, arrow_spread#); "left embedding (" & decimal alpha & ")";
+     pickup rule_pen;
+ 
+-    draw arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
+     draw half_circle(foot + 1/4arrow_spread * (dir (arrow_dir + 90) + dir arrow_dir),
+                      1/4arrow_spread, arrow_dir + 90)
+          -- head;
+@@ -141,7 +147,7 @@
+   beginarrow(alpha, 1, arrow_spread#); "right embedding (" & decimal alpha & ")";
+     pickup rule_pen;
+ 
+-    draw arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
+     draw head -- half_circle(foot + 1/4arrow_spread * (dir (arrow_dir - 90) + dir arrow_dir),
+                              1/4arrow_spread, arrow_dir + 90);
+ 
+@@ -156,7 +162,7 @@
+   beginarrow(alpha, 1, arrow_spread#); "left harpoon (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead_left(head, arrow_dir, arrow_spread);
++    draw_arrowhead_left(head, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
+@@ -169,7 +175,7 @@
+   beginarrow(alpha, 1, arrow_spread#); "right harpoon (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead_right(head, arrow_dir, arrow_spread);
++    draw_arrowhead_right(head, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
+@@ -182,8 +188,8 @@
+   beginarrow(alpha, 1, arrow_spread#); "left left harpoon (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead_left(head, arrow_dir,     arrow_spread);
+-    draw arrowhead_left(foot, arrow_dir+180, arrow_spread);
++    draw_arrowhead_left(head, arrow_dir,     arrow_spread);
++    draw_arrowhead_left(foot, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
+@@ -196,8 +202,8 @@
+   beginarrow(alpha, 1, arrow_spread#); "right right harpoon (" & decimal alpha & ")";
+     pickup rule_pen;
+     draw foot -- head;
+-    draw arrowhead_right(head, arrow_dir,     arrow_spread);
+-    draw arrowhead_right(foot, arrow_dir+180, arrow_spread);
++    draw_arrowhead_right(head, arrow_dir,     arrow_spread);
++    draw_arrowhead_right(foot, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
+@@ -217,8 +223,8 @@
+ 
+     draw z0 -- z2;
+     draw z1 -- z3;
+-    draw arrowhead_left(z3, arrow_dir,     arrow_spread);
+-    draw arrowhead_left(z0, arrow_dir+180, arrow_spread);
++    draw_arrowhead_left(z3, arrow_dir,     arrow_spread);
++    draw_arrowhead_left(z0, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread + equal_spread)
+@@ -238,8 +244,8 @@
+ 
+     draw z0 -- z2;
+     draw z1 -- z3;
+-    draw arrowhead_right(z2, arrow_dir,     arrow_spread);
+-    draw arrowhead_right(z1, arrow_dir+180, arrow_spread);
++    draw_arrowhead_right(z2, arrow_dir,     arrow_spread);
++    draw_arrowhead_right(z1, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread + equal_spread)
+@@ -257,7 +263,7 @@
+ 
+     draw foot -- z0;
+     draw z1 -- head;
+-    draw arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[z0, z1], alpha, arrow_spread)
+@@ -353,8 +359,8 @@
+ 
+     draw z0 -- z2;
+     draw z1 -- z3;
+-    draw arrowhead(z2, arrow_dir, arrow_spread);
+-    draw arrowhead(z3, arrow_dir, arrow_spread);
++    draw_arrowhead(z2, arrow_dir, arrow_spread);
++    draw_arrowhead(z3, arrow_dir, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, 2arrow_spread)
+@@ -374,8 +380,8 @@
+ 
+     draw z0 -- z2;
+     draw z1 -- z3;
+-    draw arrowhead(z3, arrow_dir,     arrow_spread);
+-    draw arrowhead(z0, arrow_dir+180, arrow_spread);
++    draw_arrowhead(z3, arrow_dir,     arrow_spread);
++    draw_arrowhead(z0, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, 2arrow_spread)
+@@ -395,8 +401,8 @@
+ 
+     draw z0 -- z2;
+     draw z1 -- z3;
+-    draw arrowhead(z2, arrow_dir,     arrow_spread);
+-    draw arrowhead(z1, arrow_dir+180, arrow_spread);
++    draw_arrowhead(z2, arrow_dir,     arrow_spread);
++    draw_arrowhead(z1, arrow_dir+180, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, 2arrow_spread)
+@@ -417,7 +423,7 @@
+     z5 = head            + 1/10arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0{dir (arrow_dir + 45)} .. z1 .. z2{dir (arrow_dir - 45)} .. z3 .. z4 ... {dir (arrow_dir+15)}z5;
+-    draw arrowhead(z5, arrow_dir+15, arrow_spread);
++    draw_arrowhead(z5, arrow_dir+15, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
+@@ -438,7 +444,7 @@
+     z5 = head            - 1/10arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0{dir (arrow_dir - 45)} .. z1 .. z2{dir (arrow_dir + 45)} .. z3 .. z4 ... {dir (arrow_dir-15)}z5;
+-    draw arrowhead(z5, arrow_dir-15, arrow_spread);
++    draw_arrowhead(z5, arrow_dir-15, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head - 1/2arrow_spread * dir arrow_dir], alpha, arrow_spread)
+@@ -460,8 +466,8 @@
+     z6 = head            + 1/10arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0{dir (arrow_dir + 15)} .. z1 .. z2 .. z3{dir (arrow_dir - 45)} .. z4 .. z5 ... {dir (arrow_dir+15)}z6;
+-    draw arrowhead(z0, arrow_dir + 195, arrow_spread);
+-    draw arrowhead(z6, arrow_dir +  15, arrow_spread);
++    draw_arrowhead(z0, arrow_dir + 195, arrow_spread);
++    draw_arrowhead(z6, arrow_dir +  15, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
+@@ -483,8 +489,8 @@
+     z6 = head            - 1/10arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0{dir (arrow_dir - 15)} .. z1 .. z2 .. z3{dir (arrow_dir + 45)} .. z4 .. z5 ... {dir (arrow_dir-15)}z6;
+-    draw arrowhead(z0, arrow_dir - 195, arrow_spread);
+-    draw arrowhead(z6, arrow_dir -  15, arrow_spread);
++    draw_arrowhead(z0, arrow_dir - 195, arrow_spread);
++    draw_arrowhead(z6, arrow_dir -  15, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/2[foot, head], alpha, arrow_spread)
+@@ -502,7 +508,7 @@
+     z2 = head           - 5/9arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0 .. z1 .. z2;
+-    draw arrowhead(z2, arrow_dir - 55, arrow_spread);
++    draw_arrowhead(z2, arrow_dir - 55, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/10[z1,z2], alpha, arrow_spread)
+@@ -520,7 +526,7 @@
+     z2 = head           + 5/9arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0 .. z1 .. z2;
+-    draw arrowhead(z2, arrow_dir + 55, arrow_spread);
++    draw_arrowhead(z2, arrow_dir + 55, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(1/10[z1,z2], alpha, arrow_spread)
+@@ -538,8 +544,8 @@
+     z2 = head           - 5/9arrow_spread * dir (arrow_dir + 90);
+ 
+     draw z0 .. z1 .. z2;
+-    draw arrowhead(z0, arrow_dir + 240, arrow_spread);
+-    draw arrowhead(z2, arrow_dir -  60, arrow_spread);
++    draw_arrowhead(z0, arrow_dir + 240, arrow_spread);
++    draw_arrowhead(z2, arrow_dir -  60, arrow_spread);
+ 
+     if negated:
+       stroke_through_arrow(z1, alpha, arrow_spread)
+@@ -676,9 +682,9 @@
+           {dir (alpha + 80)}z1;
+ 
+       if sign > 0:
+-        draw arrowhead(z1, (alpha + 65), arrow_spread);
++        draw_arrowhead(z1, (alpha + 65), arrow_spread);
+       else:
+-        draw arrowhead(z0, (alpha - 65), arrow_spread);
++        draw_arrowhead(z0, (alpha - 65), arrow_spread);
+       fi;
+ 
+       if negated:
+@@ -706,7 +712,7 @@
+ %
+ %    draw z0{dir (alpha + 100)} .. z.a1 .. z.a2 .. z.a3 .. z.a4 .. z.a5 .. z.a6 .. z.a7 ..
+ %        {dir (alpha + 80)}z1;
+-%    draw arrowhead(z0, (alpha - 65), arrow_spread);
++%    draw_arrowhead(z0, (alpha - 65), arrow_spread);
+ %
+ %    if negated:
+ %       1/2[z2,z3] = centre;
+diff -ruN ../diffold/MnSymbol/source/Sym-Base.mf MnSymbol/source/Sym-Base.mf
+--- ../diffold/MnSymbol/source/Sym-Base.mf	2006-07-24 09:30:15.000000000 +0200
++++ MnSymbol/source/Sym-Base.mf	2006-07-25 19:56:46.000000000 +0200
+@@ -469,3 +469,105 @@
+   penlabels(0$,1$,2$,3$,4$,5$,6$);
+ enddef;
+ 
++def draw_arrowhead(expr pos, angle, spread) =
++  begingroup
++    save z; pair z[];
++    save width;
++    width = xpart(lrcorner currentpen - llcorner currentpen);
++    z00 = pos;
++    z10 = pos - 3/4spread * dir angle + spread/2 * dir (angle + 90);
++    z20 = pos - 1/4spread * dir angle;
++    z30 = pos - 3/4spread * dir angle + spread/2 * dir (angle - 90);
++    %%%%% z00
++    z02 = z00 + width/2 * dir (angle -  80);
++    z05 = z00 + width/2 * dir  angle;
++    z08 = z00 + width/2 * dir (angle +  80);
++    %%%%% z10
++    z12 = z10 + width/2 * dir (angle +  40);
++    z15 = z10 + width/2 * dir (angle + 130);
++    z18 = z10 + width/2 * dir (angle + 220);
++    %%%%% z20
++    z25 = z20 - width/(2sind(50)) * dir  angle; % approximation!
++    %%%%% z30
++    z32 = z30 + width/2 * dir (angle - 220);
++    z35 = z30 + width/2 * dir (angle - 130);
++    z38 = z30 + width/2 * dir (angle -  40);
++    %%% final path
++    fill z05 {dir (angle + 90)}
++    .. z08 {dir (angle + 170)}
++    .. z12 {dir (angle + 130)}
++    .. z15 {dir (angle + 220)}
++    .. z18 {dir (angle + 310)}
++    .. {dir (angle + 310)} z25 {dir (angle - 130)} % approximation!
++    .. z32{dir (angle - 130)}
++    .. z35{dir (angle -  40)}
++    .. z38{dir (angle - 310)}
++    .. z02{dir (angle +  10)}
++    .. cycle;
++  endgroup
++enddef;
++
++def draw_arrowhead_right(expr pos, angle, spread) =
++ begingroup
++   save z; pair z[];
++   save width;
++   width = xpart(lrcorner currentpen - llcorner currentpen);
++   z00 = pos;
++   z20 = pos - 1/4spread * dir angle;
++   z30 = pos - 3/4spread * dir angle + spread/2 * dir (angle - 90);
++   %%%%% z00
++   z02 = z00 + width/2 * dir (angle -  80);
++   z05 = z00 + width/2 * dir  angle;
++   z08 = z00 + width/2.01 * dir (angle +  90);
++   %%%%% z20
++   z22 = z20 + width/2.01 * dir (angle +  90);
++   z25 = z20 + width/2 * dir (angle + 130); 
++   %%%%% z30
++   z32 = z30 + width/2 * dir (angle - 220);
++   z35 = z30 + width/2 * dir (angle - 130);
++   z38 = z30 + width/2 * dir (angle -  40);
++   %%% final path
++   fill z05 {dir (angle + 90)}
++   .. z08 {dir (angle + 180)}
++   .. z22 {dir (angle + 180)}
++   .. z25 {dir (angle - 130)} 
++   .. z32{dir (angle - 130)}
++   .. z35{dir (angle -  40)}
++   .. z38{dir (angle - 310)}
++   .. z02{dir (angle +  10)}
++   .. z05 {dir (angle + 90)}
++   -- cycle;
++ endgroup
++enddef;
++
++def draw_arrowhead_left(expr pos, angle, spread) =
++ begingroup
++   save z; pair z[];
++   save width;
++   width = xpart(lrcorner currentpen - llcorner currentpen);
++   z00 = pos;
++   z10 = pos - 3/4spread * dir angle + spread/2 * dir (angle + 90);
++   z20 = pos - 1/4spread * dir angle;
++   %%%%% z00
++   z02 = z00 + width/2.01 * dir (angle -  90);
++   z05 = z00 + width/2 * dir  angle;
++   z08 = z00 + width/2 * dir (angle +  80);
++   %%%%% z10
++   z12 = z10 + width/2 * dir (angle +  40);
++   z15 = z10 + width/2 * dir (angle + 130);
++   z18 = z10 + width/2 * dir (angle + 220);
++   %%%%% z20
++   z25 = z20 + width/2 * dir (angle - 130); 
++   z28 = z20 + width/2.01 * dir (angle -  90);
++   %%% final path
++    fill z05 {dir (angle + 90)}
++    .. z08 {dir (angle + 170)}
++    .. z12 {dir (angle + 130)}
++    .. z15 {dir (angle + 220)}
++    .. z18 {dir (angle + 310)}
++    .. {dir (angle + 310)} z25 
++    .. z28{dir angle}
++    .. z02{dir angle}
++    .. cycle;
++ endgroup
++enddef;
+diff -ruN ../diffold/MnSymbol/source/Sym-Geometric.mf MnSymbol/source/Sym-Geometric.mf
+--- ../diffold/MnSymbol/source/Sym-Geometric.mf	2006-07-24 09:30:15.000000000 +0200
++++ MnSymbol/source/Sym-Geometric.mf	2006-07-25 20:19:55.000000000 +0200
+@@ -1100,7 +1100,7 @@
+ 
+   pickup rule_pen;
+ 
+-  draw arrowhead(z4, angle (z4l - z3l), 4/5arrow_spread);
++  draw_arrowhead(z4, angle (z4l - z3l), 4/5arrow_spread);
+ 
+   penlabels(1,2,2',3',3,4);
+ endchar;
+@@ -1831,6 +1831,60 @@
+   endchar;
+ endfor;
+ 
++for sign = 1:
++  beginoperator(plus_size#); "part plus";
++    pickup rule_pen;
++
++    t := 22/10rule_thickness;
++    r := 1/2plus_size - t;
++
++    draw (centre + sign * 1/6plus_size * dir 90 + r * dir  0)
++      -- (centre + sign * 1/6plus_size * dir 90 + r * dir 180);
++    draw (centre + (r + sign * 1/6plus_size) * dir 90)
++      -- (centre + (r - sign * 1/6plus_size) * dir 270);
++  endchar;
++endfor;
++
++beginorder(1, order_width# + rule_thickness#, 2 * equal_spread# + rule_thickness#); "part equal";
++  pickup rule_pen;
++  z1 - z0 = equal_spread * dir 90;
++  z3 - z2 = equal_spread * dir 90;
++  
++  1/2[z0,z1]=left_point;
++  1/2[z2,z3] = right_point;
++  draw z0 -- z2;
++endchar;
++
++  beginorder(1, order_width# + rule_thickness#, 1 * equal_spread# + 2/5order_width# + rule_thickness#);
++    "part bump up";
++
++    pickup rule_pen;
++
++    z1 - z0 = equal_spread * dir 90;
++    z3 - z2 = equal_spread * dir 90;
++
++    1/2[z0, z1] = left_point;
++    1/2[z2, z3] = right_point;
++
++    draw z3 -- half_circle(1/2[z1,z3], order_width/5, 0) -- z1;
++
++  endchar;
++
++  beginorder(1, order_width# + rule_thickness#, 1 * equal_spread# + 2/5order_width# + rule_thickness#);
++    "part bump down";
++
++    pickup rule_pen;
++
++    z0 - z1 = equal_spread * dir 90;
++    z2 - z3 = equal_spread * dir 90;
++
++    1/2[z0, z1] = left_point;
++    1/2[z2, z3] = right_point;
++
++    draw z1 -- half_circle(1/2[z1,z3], order_width/5, 180) -- z3;
++
++  endchar;
++  
+ current_char := 235;
+ 
+ % Keep these consistent with the glyphs in Sym-Order.mf!
+@@ -1913,7 +1967,7 @@
+ 
+       pickup rule_pen;
+ 
+-      draw arrowhead(head, arrow_dir, 14/10arrow_spread);
++      draw_arrowhead(head, arrow_dir, 14/10arrow_spread);
+ 
+       if negated = 1:
+         stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 16/10arrow_spread)
+@@ -1940,7 +1994,7 @@
+ 
+     draw z0 -- z1 -- z2;
+ 
+-    draw arrowhead(z0, 90 + sign * 90, arrow_spread);
++    draw_arrowhead(z0, 90 + sign * 90, arrow_spread);
+   endchar;
+ endfor;
+ 
+@@ -1959,7 +2013,7 @@
+ 
+     draw z0 -- z3{sign * right} .. {up}z5 .. {sign * left}z4 .. {down}z2 -- z1;
+ 
+-    draw arrowhead(z0, 90 + sign * 90, arrow_spread);
++    draw_arrowhead(z0, 90 + sign * 90, arrow_spread);
+   endchar;
+ endfor;
+ 
+diff -ruN ../diffold/MnSymbol/source/Sym-Operators.mf MnSymbol/source/Sym-Operators.mf
+--- ../diffold/MnSymbol/source/Sym-Operators.mf	2006-07-24 09:30:15.000000000 +0200
++++ MnSymbol/source/Sym-Operators.mf	2006-07-25 19:56:46.000000000 +0200
+@@ -664,9 +664,9 @@
+             {dir (beta + 80)}z1;
+ 
+         if sign > 0:
+-          draw arrowhead(z1, (beta + 65), 1/2scale * arrow_spread);
++          draw_arrowhead(z1, (beta + 65), 1/2scale * arrow_spread);
+         else:
+-          draw arrowhead(z0, (beta - 65), 1/2scale * arrow_spread);
++          draw_arrowhead(z0, (beta - 65), 1/2scale * arrow_spread);
+         fi;
+       endchar;
+     endfor;
+@@ -870,9 +870,9 @@
+             {dir (beta + 80)}z1;
+ 
+         if sign > 0:
+-          draw arrowhead(z1, (beta + 65), 1/2scale * arrow_spread);
++          draw_arrowhead(z1, (beta + 65), 1/2scale * arrow_spread);
+         else:
+-          draw arrowhead(z0, (beta - 65), 1/2scale * arrow_spread);
++          draw_arrowhead(z0, (beta - 65), 1/2scale * arrow_spread);
+         fi;
+       endchar;
+     endfor;
+@@ -925,3 +925,38 @@
+ endfor;
+ charlist current_char - 1: current_char;
+ 
++for sign = 1:
++  for scale = 1, 1.4:
++    beginbigop(scale, scale); "operator plus";
++
++      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
++
++      t := 2rule_thickness;
++      r := 3/8op_width - t;
++
++      draw (centre - sign * 1/8op_width * dir 90 + r * dir  0)
++        -- (centre - sign * 1/8op_width * dir 90 + r * dir 180);
++      draw (centre + (r - sign * 1/8op_width) * dir 90)
++        -- (centre + (r + sign * 1/8op_width) * dir 270);
++    endchar;
++  endfor;
++  charlist current_char - 1: current_char;
++endfor;
++
++for sign = 1:
++  for scale = 1, 1.4:
++    beginbigop(scale, scale); "operator dot";
++
++      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
++
++      z3 - z0 = z2 - z1 = op_width * dir 0;
++      z1 - z0 = sign * op_height * dir 90;
++
++      1/2[1/2[z0,z1], 1/2[z2,z3]] = centre;
++
++      fill circle(centre - sign * 1/4op_height * dir 90, 4/3dot_size * sqrt scale);
++    endchar;
++  endfor;
++  charlist current_char - 1: current_char;
++endfor;
++
