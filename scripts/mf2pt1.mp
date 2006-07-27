@@ -236,42 +236,43 @@ vardef makeline primary p =
 enddef;
 
 vardef is_clockwise primary p =
-  save line, cut, cut_new, res, line_dir, tangent_dir;
-  path line;
-  pair cut, cut_new, line_dir, tangent_dir;
-
-  res := 1;
-
-  line := makeline p;
-  line_dir := direction 0 of line;
-
-  % Find the outermost intersection.
-  cut := (0, 0);
-  forever:
-    cut_new := line intersectiontimes p;
-    exitif cut_new = (-1, -1);
-
-    % Compute a new line if we have a strange intersection.
-    tangent_dir := direction (ypart cut_new) of p;
-    if abs tangent_dir < eps:
-      % The vector is zero or too small.
-      line := makeline p;
-      line_dir := direction 0 of line;
-    elseif crossproduct (tangent_dir, line_dir) < 0.02:
-      % Grazing intersection
-      line := makeline p;
-      line_dir := direction 0 of line;
-    else:
-      % Try again.
-      cut := cut_new;
-      line := subpath (xpart cut + eps, infinity) of line;
-    fi;
-  endfor;
-
-  tangent_dir := direction (ypart cut) of p;
-  res := (angle tangent_dir - angle line_dir + 180) mod 360 - 180;
-
-  res < 0
+%  save line, cut, cut_new, res, line_dir, tangent_dir;
+%  path line;
+%  pair cut, cut_new, line_dir, tangent_dir;
+%
+%  res := 1;
+%
+%  line := makeline p;
+%  line_dir := direction 0 of line;
+%
+%  % Find the outermost intersection.
+%  cut := (0, 0);
+%  forever:
+%    cut_new := line intersectiontimes p;
+%    exitif cut_new = (-1, -1);
+%
+%    % Compute a new line if we have a strange intersection.
+%    tangent_dir := direction (ypart cut_new) of p;
+%    if abs tangent_dir < eps:
+%      % The vector is zero or too small.
+%      line := makeline p;
+%      line_dir := direction 0 of line;
+%    elseif crossproduct (tangent_dir, line_dir) < 0.02:
+%      % Grazing intersection
+%      line := makeline p;
+%      line_dir := direction 0 of line;
+%    else:
+%      % Try again.
+%      cut := cut_new;
+%      line := subpath (xpart cut + eps, infinity) of line;
+%    fi;
+%  endfor;
+%
+%  tangent_dir := direction (ypart cut) of p;
+%  res := (angle tangent_dir - angle line_dir + 180) mod 360 - 180;
+%
+%  res < 0
+  turningnumber(p)<0
 enddef;
 
 
