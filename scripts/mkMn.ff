@@ -16,8 +16,8 @@ SetFontNames("MnSymbol"+size,"MnSymbol","MnSymbol"+size,"Regular","Design by Ach
 MergeFonts("../source/MnSymbolB"+size+".sfd");
 MergeFonts("../source/MnSymbolE"+size+".sfd");
 
-SelectSingletons("uni21CA","uni21CA.neg");RoundToInt();RemoveOverlap();AddExtrema();Simplify();
-if (size==5) Select("nwnwarrows.neg");RemoveOverlap();AddExtrema();Simplify();endif
+SelectSingletons("uni21CA","uni21CA0338");RoundToInt();RemoveOverlap();AddExtrema();Simplify();
+if (size==5) Select("nwnwarrows0338");RemoveOverlap();AddExtrema();Simplify();endif
 SelectAll();
 CopyFgToBg();
 ii=255;
@@ -52,7 +52,6 @@ AddExtrema();
 Simplify();
 Select(144,151);
 AddExtrema();
-Simplify();
 
 MergeFonts("../source/MnSymbolC"+size+".sfd");
 MergeFonts("../source/MnSymbolD"+size+".sfd");
@@ -81,7 +80,7 @@ RemoveOverlap();
 AddExtrema();
 Simplify();
 ReplaceWithReference(2.0);
-if (size==8) Select("uni227F.neg");RemoveOverlap();endif
+if (size==8) Select("uni227F0338");RemoveOverlap();endif
 
 Print("F");
 Reencode("MnSymbolF");
@@ -229,39 +228,46 @@ foreach
    AddATT("Substitution", "latn{dflt}", "ss05", -1, figure+".alt1");
 endloop
 
-Select("uni2266.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2268");
-Select("uni2267.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2269");
-Select("uni2A8B.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "lessneqqgtr");
-Select("uni2A8C.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "gtrneqqless");
-Select("uni2291.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubsetneq");
-Select("uni2292.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupsetneq");
-Select("sqsubseteqq.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubsetneqq");
-Select("sqsupseteqq.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupsetneqq");
+Select("uni22660338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2268");
+Select("uni22670338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2269");
+Select("uni2A8B0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "lessneqqgtr");
+Select("uni2A8C0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "gtrneqqless");
+Select("uni22910338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubsetneq");
+Select("uni22920338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupsetneq");
+Select("sqsubseteqq0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubsetneqq");
+Select("sqsupseteqq0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupsetneqq");
 Select("uni2288");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni228A");
 Select("uni2289");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni228B");
-Select("uni2AC5.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ACB");
-Select("uni2AC6.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ACC");
-Select("uni227E.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "precnsim");
-Select("uni227F.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "succnsim");
-Select("uni2AB7.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB9");
-Select("uni2AB8.neg");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ABA");
+Select("uni2AC50338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ACB");
+Select("uni2AC60338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ACC");
+Select("uni227E0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "precnsim");
+Select("uni227F0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "succnsim");
+Select("uni2AB70338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB9");
+Select("uni2AB80338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ABA");
 
-Select("uni2268");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2266.neg");
-Select("uni2269");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2267.neg");
-Select("lessneqqgtr");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8B.neg");
-Select("gtrneqqless");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8C.neg");
-Select("sqsubsetneq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2291.neg");
-Select("sqsupsetneq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2292.neg");
-Select("sqsubsetneqq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubseteqq.neg");
-Select("sqsupsetneqq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupseteqq.neg");
+Select("uni2268");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22660338");
+Select("uni2269");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22670338");
+Select("lessneqqgtr");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8B0338");
+Select("gtrneqqless");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8C0338");
+Select("sqsubsetneq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22910338");
+Select("sqsupsetneq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22920338");
+Select("sqsubsetneqq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubseteqq0338");
+Select("sqsupsetneqq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupseteqq0338");
 Select("uni228A");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2288");
 Select("uni228B");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2289");
-Select("uni2ACB");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AC5.neg");
-Select("uni2ACC");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AC6.neg");
-Select("precnsim");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni227E.neg");
-Select("succnsim");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni227F.neg");
-Select("uni2AB9");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB7.neg");
-Select("uni2ABA");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB8.neg");
+Select("uni2ACB");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AC50338");
+Select("uni2ACC");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AC60338");
+Select("precnsim");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni227E0338");
+Select("succnsim");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni227F0338");
+Select("uni2AB9");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB70338");
+Select("uni2ABA");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB80338");
+
+Select("uni2272");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2274");
+Select("uni2273");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2275");
+Select("uni2A85");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A89");
+Select("uni2A86");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8A");
+Select("uni21DB");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni21DB0338");
+Select("uni21DA");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni21DA0338");
 
 SelectAll();
 DefaultATT("c2sc");
