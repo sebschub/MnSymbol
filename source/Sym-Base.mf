@@ -1,6 +1,12 @@
 
 mode_setup;
 
+% mf2pt1 support
+
+if known mfplain_pencircle:  pencircle      := mfplain_pencircle;  fi;
+if known mfplain_filldraw:   let filldraw   := mfplain_filldraw;   fi;
+if known mfplain_unfilldraw: let unfilldraw := mfplain_unfilldraw; fi;
+
 define_pixels(u, asc_height, desc_depth, delim_height, x_height);
 define_whole_pixels(dot_size, small_op_size, med_op_size, large_op_size, plus_size,
   order_width, equal_spread, greater_spread,
@@ -27,8 +33,8 @@ def beginsymbol(expr width, height, depth) =
   beginchar(current_char, width, height, depth);
 enddef;
 
-def beginoperator(expr size) =
-  beginsymbol(size + 2side_bearing#, vcentre(size + rule_thickness#));
+def beginoperator(expr size, ratio) =
+  beginsymbol(size + 2side_bearing#, vcentre(ratio * size + rule_thickness#));
     pair centre;
     centre := (w/2, (h-d)/2);
 enddef;

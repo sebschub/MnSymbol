@@ -714,12 +714,13 @@ def draw_root_top(expr scale, thick, vertical) =
   bot y0 = 0;
   x0 = w;
 
-  x1 = 4/9w;
   bot y1 = -d;
 
   if vertical:
+    x1 = 6/9w;
     draw (x1, y0) -- z1;
   else:
+    x1 = 4/9w;
     draw z0 -- z1;
   fi;
 enddef;
@@ -746,6 +747,7 @@ enddef;
 def draw_root(expr scale, thick, vertical) =
   draw_root_top(scale, thick, vertical);
   draw_root_bot(scale, thick, vertical);
+  labels(0,1,2,3,4,5,6);
 enddef;
 
 root_char = current_char + 1;
@@ -775,7 +777,7 @@ beginsymbol((12 + 10) * u# + side_bearing#, 0, 3 * delim_height#);
 
   pickup pencircle scaled (sqrt (6/2) * rule_thickness);
 
-  x0 = x1 = 4/9w;
+  x0 = x1 = 6/9w;
   bot y0 = d;
   bot y1 = -d;
 
@@ -789,7 +791,7 @@ beginsymbol((12 + 10) * u# + side_bearing#, vcentre(delim_height#));
 
   pickup pencircle scaled (sqrt (6/2) * rule_thickness);
 
-  x0 = x1 = 4/9w;
+  x0 = x1 = 6/9w;
   y0 = h;
   y1 = -d;
 
@@ -799,4 +801,81 @@ endchar;
 extensible current_char - 2: current_char - 2, 0, current_char - 1, current_char;
 
 charlist root_char: root_char + 1: root_char + 2: root_char + 3: root_char + 4: current_char - 2;
+
+% reserve space for accents
+current_char := 209;
+
+for arrow_dir = 90, 270:
+  beginsymbol(8u# + 2side_bearing#, vcentre(delim_height#)); "arrow up/down";
+    pickup rule_pen;
+
+    pair foot, head;
+
+    if arrow_dir = 90:
+      head = (w/2, h);
+      foot = (w/2, -d);
+    else:
+      head = (w/2, -d);
+      foot = (w/2, h);
+    fi;
+
+    draw foot -- head;
+    draw arrowhead(head, arrow_dir, arrow_spread);
+  endchar;
+endfor;
+
+beginsymbol(8u# + 2side_bearing#, vcentre(delim_height#)); "arrow module";
+  pickup rule_pen;
+
+  z0 = (w/2,  h + 1/2rule_thickness);
+  z1 = (w/2, -d - 1/2rule_thickness);
+
+  draw z0 -- z1;
+endchar;
+
+extensible current_char-2: current_char-2, 0, current_char,   current_char;
+extensible current_char-1: current_char,   0, current_char-1, current_char;
+extensible current_char:   current_char-2, 0, current_char-1, current_char;
+
+for arrow_dir = 90, 270:
+  beginsymbol(8u# + 2side_bearing#, vcentre(delim_height#)); "double arrow up/down";
+    pickup rule_pen;
+
+    pair foot, head;
+
+    if arrow_dir = 90:
+      head = (w/2, h);
+      foot = (w/2, -d);
+    else:
+      head = (w/2, -d);
+      foot = (w/2, h);
+    fi;
+
+    z1 - z0 = z3 - z2 = equal_spread * dir (arrow_dir + 90);
+
+    1/2[z0,z1] = foot - 1/2rule_thickness * dir arrow_dir;
+    1/2[z2,z3] = head;
+
+    draw z0 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2);
+    draw z1 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
+
+    draw arrowhead(head, arrow_dir, 13/10arrow_spread);
+  endchar;
+endfor;
+
+beginsymbol(8u# + 2side_bearing#, vcentre(delim_height#)); "double arrow module";
+  pickup rule_pen;
+
+  z1 - z0 = z3 - z2 = equal_spread * right;
+
+  1/2[z0,z1] = (w/2,  h + 1/2rule_thickness);
+  1/2[z2,z3] = (w/2, -d - 1/2rule_thickness);
+
+  draw z0 -- z2;
+  draw z1 -- z3;
+endchar;
+
+extensible current_char-2: current_char-2, 0, current_char,   current_char;
+extensible current_char-1: current_char,   0, current_char-1, current_char;
+extensible current_char:   current_char-2, 0, current_char-1, current_char;
 

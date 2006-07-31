@@ -8,6 +8,8 @@ bold_weight := false;
 input MnSymbol-Parameter.mf;
 input Sym-Base.mf;
 input Sym-Delim.mf;
+
+current_char := 193;
 input Sym-Accent.mf;
 
 font_x_height x_height#;

@@ -34,7 +34,7 @@ for alpha = 0, 90, 45, 135:
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(plus_size#); "therefore (" & decimal alpha & ")";
+  beginoperator(plus_size#, 1); "therefore (" & decimal alpha & ")";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -47,7 +47,7 @@ for alpha = 0, 90, 180, 270:
 endfor;
 
 for alpha = 0, 45:
-  beginoperator(plus_size#); "quad dot (" & decimal alpha & ")";
+  beginoperator(plus_size#, 1); "quad dot (" & decimal alpha & ")";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -60,7 +60,7 @@ for alpha = 0, 45:
   endchar;
 endfor;
 
-beginoperator(plus_size#); "five dots";
+beginoperator(plus_size#, 1); "five dots";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -73,7 +73,7 @@ beginoperator(plus_size#); "five dots";
   fill circle(centre + r * dir 270, dot_size);
 endchar;
 
-beginoperator(plus_size#); "minus";
+beginoperator(plus_size#, 1); "minus";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -81,7 +81,7 @@ beginoperator(plus_size#); "minus";
   draw (centre + r * dir 0) -- (centre + r * dir 180);
 endchar;
 
-beginoperator(plus_size#); "bar";
+beginoperator(plus_size#, 1); "bar";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -89,7 +89,7 @@ beginoperator(plus_size#); "bar";
   draw (centre + r * dir 90) -- (centre + r * dir 270);
 endchar;
 
-beginoperator(plus_size#); "medium slash";
+beginoperator(plus_size#, 1); "medium slash";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -98,7 +98,7 @@ beginoperator(plus_size#); "medium slash";
   draw (centre + r * dir  45) -- (centre + r * dir 225);
 endchar;
 
-beginoperator(plus_size#); "medium backslash";
+beginoperator(plus_size#, 1); "medium backslash";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -107,7 +107,7 @@ beginoperator(plus_size#); "medium backslash";
   draw (centre + r * dir 135) -- (centre + r * dir 315);
 endchar;
 
-beginoperator(plus_size#); "plus";
+beginoperator(plus_size#, 1); "plus";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -116,7 +116,7 @@ beginoperator(plus_size#); "plus";
   draw (centre + r * dir 90) -- (centre + r * dir 270);
 endchar;
 
-beginoperator(plus_size#); "times";
+beginoperator(plus_size#, 1); "times";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -126,7 +126,7 @@ beginoperator(plus_size#); "times";
   draw (centre + r * dir 135) -- (centre + r * dir 315);
 endchar;
 
-beginoperator(plus_size#); "plus minus";
+beginoperator(plus_size#, 1); "plus minus";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -137,7 +137,7 @@ beginoperator(plus_size#); "plus minus";
   draw (centre + r * (dir 0 - dir 90)) -- (centre + r * (dir 180 - dir 90));
 endchar;
 
-beginoperator(plus_size#); "minus plus";
+beginoperator(plus_size#, 1); "minus plus";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -149,7 +149,7 @@ beginoperator(plus_size#); "minus plus";
 endchar;
 
 for angle = 0, 90, 180, 270:
-  beginoperator(plus_size#); "dot minus (" & decimal angle & ")";
+  beginoperator(plus_size#, 1); "dot minus (" & decimal angle & ")";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -160,7 +160,7 @@ for angle = 0, 90, 180, 270:
 endfor;
 
 for angle = 0, 45, 90, 135:
-  beginoperator(plus_size#); "divides";
+  beginoperator(plus_size#, 1); "divides";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -174,7 +174,7 @@ endfor;
 % Warning: The other two orientations are below.
 % They should stay consistent.
 
-beginoperator(plus_size#); "logical not";
+beginoperator(plus_size#, 1); "logical not";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -183,7 +183,7 @@ beginoperator(plus_size#); "logical not";
                               -- (centre + r * dir 0 - equal_spread * dir 90);
 endchar;
 
-beginoperator(plus_size#); "reversed logical not";
+beginoperator(plus_size#, 1); "reversed logical not";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -193,7 +193,7 @@ beginoperator(plus_size#); "reversed logical not";
 endchar;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(plus_size#); "times (" & decimal alpha & ")";
+  beginoperator(plus_size#, 1); "times (" & decimal alpha & ")";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -205,7 +205,7 @@ for alpha = 0, 90, 180, 270:
 endfor;
 
 for alpha = 0, 90:
-  beginoperator(plus_size#); "bowtie (" & decimal alpha & ")";
+  beginoperator(plus_size#, 1); "bowtie (" & decimal alpha & ")";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -217,7 +217,7 @@ for alpha = 0, 90:
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(plus_size#); "Y (" & decimal alpha & ")";
+  beginoperator(plus_size#, 1); "Y (" & decimal alpha & ")";
     pickup rule_pen;
 
     r := plus_size/2; % - 11/10rule_thickness;
@@ -232,7 +232,7 @@ endfor;
 % operators
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "wedge";
+  beginoperator(plus_size#, 1); "wedge";
     pickup rule_pen;
 
     z2 - z0 = plus_size * dir 0;
@@ -247,7 +247,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "wedge dot";
+  beginoperator(plus_size#, 1); "wedge dot";
     pickup rule_pen;
 
     z2 - z0 = plus_size * dir 0;
@@ -286,7 +286,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "curly wedge";
+  beginoperator(plus_size#, 1); "curly wedge";
     pickup rule_pen;
 
     draw prec(centre + sign * 1/2plus_size * dir 90,
@@ -296,7 +296,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "curly wedge dot";
+  beginoperator(plus_size#, 1); "curly wedge dot";
     pickup rule_pen;
 
     draw prec(centre + sign * 1/2plus_size * dir 90,
@@ -325,7 +325,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "union";
+  beginoperator(plus_size#, 1); "union";
     pickup rule_pen;
 
     draw subset(centre - sign * 1/2plus_size * dir 90,
@@ -335,7 +335,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(4/3plus_size#); "double union";
+  beginoperator(4/3plus_size#, 1); "double union";
     pickup rule_pen;
 
     draw subset(centre - sign * 5/18plus_size * dir 90,
@@ -348,7 +348,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "union dot";
+  beginoperator(plus_size#, 1); "union dot";
     pickup rule_pen;
 
     draw subset(centre - sign * 1/2plus_size * dir 90,
@@ -359,7 +359,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "union plus";
+  beginoperator(plus_size#, 1); "union plus";
     pickup rule_pen;
 
     draw subset(centre - sign * 1/2plus_size * dir 90,
@@ -377,7 +377,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "square union";
+  beginoperator(plus_size#, 1); "square union";
     pickup rule_pen;
 
     z3 - z0 = z2 - z1 = plus_size * dir 0;
@@ -390,7 +390,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(4/3plus_size#); "double square union";
+  beginoperator(4/3plus_size#, 1); "double square union";
     pickup rule_pen;
 
     z3a - z0a = z2a - z1a = 4/3plus_size * dir 0;
@@ -410,7 +410,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "square union dot";
+  beginoperator(plus_size#, 1); "square union dot";
     pickup rule_pen;
 
     z3 - z0 = z2 - z1 = plus_size * dir 0;
@@ -425,7 +425,7 @@ for sign = 1, -1:
 endfor;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "square union plus";
+  beginoperator(plus_size#, 1); "square union plus";
     pickup rule_pen;
 
     z3 - z0 = z2 - z1 = plus_size * dir 0;
@@ -449,14 +449,14 @@ endfor;
 % triangles
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(small_op_size#); "small triangle (" & decimal alpha & ")";
+  beginoperator(small_op_size#, 1); "small triangle (" & decimal alpha & ")";
     pickup rule_pen;
     draw triangle(centre, w/2-side_bearing, alpha);
   endchar;
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(small_op_size#); "small filled triangle (" & decimal alpha & ")";
+  beginoperator(small_op_size#, 1); "small filled triangle (" & decimal alpha & ")";
     pickup rule_pen;
     draw triangle(centre, w/2-side_bearing, alpha);
     fill triangle(centre, w/2-side_bearing, alpha);
@@ -464,14 +464,14 @@ for alpha = 0, 90, 180, 270:
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(med_op_size#); "medium triangle (" & decimal alpha & ")";
+  beginoperator(med_op_size#, 1); "medium triangle (" & decimal alpha & ")";
     pickup rule_pen;
     draw triangle(centre, w/2-side_bearing, alpha);
   endchar;
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(large_op_size#); "large triangle (" & decimal alpha & ")";
+  beginoperator(large_op_size#, 1); "large triangle (" & decimal alpha & ")";
     pickup rule_pen;
     draw triangle(centre, w/2-side_bearing, alpha);
   endchar;
@@ -479,56 +479,56 @@ endfor;
 
 % circles
 
-beginoperator(4/5small_op_size#); "small circle";
+beginoperator(4/5small_op_size#, 1); "small circle";
   pickup rule_pen;
   draw circle(centre, 4/10small_op_size);
 endchar;
 
-beginoperator(4/5small_op_size#); "small filled circle";
+beginoperator(4/5small_op_size#, 1); "small filled circle";
   pickup rule_pen;
   draw circle(centre, 4/10small_op_size);
   fill circle(centre, 4/10small_op_size);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle";
   pickup rule_pen;
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
 endchar;
 
-beginoperator(4/5large_op_size#); "large circle";
+beginoperator(4/5large_op_size#, 1); "large circle";
   pickup rule_pen;
   draw circle(centre, 4/10large_op_size);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle minus";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle minus";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   draw (centre + plus_size/2 * left) -- (centre + plus_size/2 * right);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle bar";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle bar";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   draw (centre + plus_size/2 * up) -- (centre + plus_size/2 * down);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle slash";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle slash";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   draw (centre + plus_size/2 * dir  45) -- (centre + plus_size/2 * dir 225);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle backslash";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle backslash";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   draw (centre + plus_size/2 * dir 135) -- (centre + plus_size/2 * dir 315);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle plus";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle plus";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
@@ -536,7 +536,7 @@ beginoperator(plus_size# + 11/5rule_thickness#); "medium circle plus";
   draw (centre + plus_size/2 * up)   -- (centre + plus_size/2 * down);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle times";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle times";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
@@ -544,28 +544,28 @@ beginoperator(plus_size# + 11/5rule_thickness#); "medium circle times";
   draw (centre + plus_size/2 * dir 135) -- (centre + plus_size/2 * dir 315);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle dot";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle dot";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   fill circle(centre, 1.3dot_size);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle circle";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle circle";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   draw circle(centre, (plus_size + 11/5rule_thickness)/5);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle triangle";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle triangle";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
   draw triangle(centre, small_op_size/2, 90);
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle asterisk";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle asterisk";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
@@ -593,7 +593,7 @@ beginoperator(plus_size# + 11/5rule_thickness#); "medium circle asterisk";
   fill stroke z.a4e -- z.b4e;
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "medium circle star";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "medium circle star";
   pickup rule_pen;
 
   draw circle(centre, plus_size/2 + 11/10rule_thickness);
@@ -605,7 +605,7 @@ beginoperator(plus_size# + 11/5rule_thickness#); "medium circle star";
   fill z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
 endchar;
 
-beginoperator(plus_size# + 11/5rule_thickness#); "negated medium circle";
+beginoperator(plus_size# + 11/5rule_thickness#, 1); "negated medium circle";
   pickup rule_pen;
 
   r := 3/4(plus_size + 11/5rule_thickness);
@@ -616,152 +616,152 @@ endchar;
 
 % squares
 
-beginoperator(small_op_size#/sqrt(2)); "small square";
+beginoperator(small_op_size#/sqrt(2), 1); "small square";
   pickup rule_pen;
   draw square(centre, w/2 - side_bearing, 0);
 endchar;
-beginoperator(small_op_size#/sqrt(2)); "small filled square";
+beginoperator(small_op_size#/sqrt(2), 1); "small filled square";
   pickup rule_pen;
   draw square(centre, w/2 - side_bearing, 0);
   fill square(centre, w/2 - side_bearing, 0);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square";
   pickup rule_pen;
   draw square(centre, w/2 - side_bearing, 0);
 endchar;
-beginoperator(large_op_size#/sqrt(2)); "large square";
+beginoperator(large_op_size#/sqrt(2), 1); "large square";
   pickup rule_pen;
   draw square(centre, w/2 - side_bearing, 0);
 endchar;
 
-beginoperator(small_op_size#); "small diamond";
+beginoperator(small_op_size#, 1); "small diamond";
   pickup rule_pen;
   draw square(centre, (w/2 - side_bearing) / sqrt(2), 45);
 endchar;
-beginoperator(small_op_size#); "small filled diamond";
+beginoperator(small_op_size#, 1); "small filled diamond";
   pickup rule_pen;
   draw square(centre, (w/2 - side_bearing) / sqrt(2), 45);
   fill square(centre, (w/2 - side_bearing) / sqrt(2), 45);
 endchar;
-beginoperator(med_op_size#); "medium diamond";
+beginoperator(med_op_size#, 1); "medium diamond";
   pickup rule_pen;
   draw square(centre, (w/2 - side_bearing) / sqrt(2), 45);
 endchar;
-beginoperator(large_op_size#); "large diamond";
+beginoperator(large_op_size#, 1); "large diamond";
   pickup rule_pen;
   draw square(centre, (w/2 - side_bearing) / sqrt(2), 45);
 endchar;
 
-beginoperator(med_op_size#/sqrt(2)); "medium square minus";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square minus";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw (centre + sqrt .5 * r * dir  0) -- (centre + sqrt .5 * r * dir 180);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square vert";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square vert";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw (centre + sqrt .5 * r * dir 90) -- (centre + sqrt .5 * r * dir 270);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square slash";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square slash";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw (centre + r * dir 45) -- (centre + r * dir 225);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square backslash";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square backslash";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw (centre + r * dir 135) -- (centre + r * dir 315);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square plus";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square plus";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw (centre + sqrt .5 * r * dir  0) -- (centre + sqrt .5 * r * dir 180);
   draw (centre + sqrt .5 * r * dir 90) -- (centre + sqrt .5 * r * dir 270);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square times";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square times";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw (centre + r * dir  45) -- (centre + r * dir 225);
   draw (centre + r * dir 135) -- (centre + r * dir 315);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square dot";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square dot";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   fill circle(centre, 1.3dot_size);
 endchar;
-beginoperator(med_op_size#/sqrt(2)); "medium square square";
+beginoperator(med_op_size#/sqrt(2), 1); "medium square square";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r, 0);
   draw square(centre, .4r, 0);
 endchar;
 
-beginoperator(med_op_size#); "medium diamond minus";
+beginoperator(med_op_size#, 1); "medium diamond minus";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw (centre + r * dir  0) -- (centre + r * dir 180);
 endchar;
-beginoperator(med_op_size#); "medium diamond vert";
+beginoperator(med_op_size#, 1); "medium diamond vert";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw (centre + r * dir 90) -- (centre + r * dir 270);
 endchar;
-beginoperator(med_op_size#); "medium diamond slash";
+beginoperator(med_op_size#, 1); "medium diamond slash";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw (centre + sqrt .5 * r * dir 45) -- (centre + sqrt .5 * r * dir 225);
 endchar;
-beginoperator(med_op_size#); "medium diamond backslash";
+beginoperator(med_op_size#, 1); "medium diamond backslash";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw (centre + sqrt .5 * r * dir 135) -- (centre + sqrt .5 * r * dir 315);
 endchar;
-beginoperator(med_op_size#); "medium diamond plus";
+beginoperator(med_op_size#, 1); "medium diamond plus";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw (centre + r * dir  0) -- (centre + r * dir 180);
   draw (centre + r * dir 90) -- (centre + r * dir 270);
 endchar;
-beginoperator(med_op_size#); "medium diamond times";
+beginoperator(med_op_size#, 1); "medium diamond times";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw (centre + sqrt .5 * r * dir  45) -- (centre + sqrt .5 * r * dir 225);
   draw (centre + sqrt .5 * r * dir 135) -- (centre + sqrt .5 * r * dir 315);
 endchar;
-beginoperator(med_op_size#); "medium diamond dot";
+beginoperator(med_op_size#, 1); "medium diamond dot";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   fill circle(centre, 1.3dot_size);
 endchar;
-beginoperator(med_op_size#); "medium diamond diamond";
+beginoperator(med_op_size#, 1); "medium diamond diamond";
   pickup rule_pen;
   r := w/2 - side_bearing;
   draw square(centre, r / sqrt(2), 45);
   draw square(centre, .4r, 45);
 endchar;
 
-beginoperator(small_op_size#); "small star";
+beginoperator(small_op_size#, 1); "small star";
   pickup rule_pen;
   r := w/2 - side_bearing;
   reg_poly_points(a)(5, centre, r, 90);
   reg_poly_points(b)(5, centre, .4r, 126);
   draw z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
 endchar;
-beginoperator(small_op_size#); "small filled star";
+beginoperator(small_op_size#, 1); "small filled star";
   pickup rule_pen;
   r := w/2 - side_bearing;
   reg_poly_points(a)(5, centre, r, 90);
@@ -769,34 +769,34 @@ beginoperator(small_op_size#); "small filled star";
   draw z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
   fill z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
 endchar;
-beginoperator(med_op_size#); "medium star";
+beginoperator(med_op_size#, 1); "medium star";
   pickup rule_pen;
   r := w/2 - side_bearing;
   reg_poly_points(a)(5, centre, r, 90);
   reg_poly_points(b)(5, centre, .4r, 126);
   draw z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
 endchar;
-beginoperator(large_op_size#); "large star";
+beginoperator(large_op_size#, 1); "large star";
   pickup rule_pen;
   r := w/2 - side_bearing;
   reg_poly_points(a)(5, centre, r, 90);
   reg_poly_points(b)(5, centre, .4r, 126);
   draw z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
 endchar;
-beginoperator(med_op_size#); "medium pentagram";
+beginoperator(med_op_size#, 1); "medium pentagram";
   pickup rule_pen;
   r := w/2 - side_bearing;
   reg_poly_points(a)(5, centre, r, 90);
   draw z.a0 -- z.a2 -- z.a4 -- z.a1 -- z.a3 -- cycle;
 endchar;
-beginoperator(large_op_size#); "large pentagram";
+beginoperator(large_op_size#, 1); "large pentagram";
   pickup rule_pen;
   r := w/2 - side_bearing;
   reg_poly_points(a)(5, centre, r, 90);
   draw z.a0 -- z.a2 -- z.a4 -- z.a1 -- z.a3 -- cycle;
 endchar;
 
-beginoperator(small_op_size#); "medium thin filled star";
+beginoperator(small_op_size#, 1); "medium thin filled star";
   pickup pencircle scaled 1/2rule_thickness;
 
   r := w/2 - side_bearing;
@@ -808,7 +808,7 @@ beginoperator(small_op_size#); "medium thin filled star";
   fill z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
 endchar;
 
-beginoperator(small_op_size#); "asterisk";
+beginoperator(small_op_size#, 1); "asterisk";
   r := w/2 - side_bearing;
 
   penpos a0(4/3rule_thickness,   0 - 7);
@@ -930,7 +930,7 @@ for alpha = 0, 45, 90, 135:
   endchar;
 endfor;
 
-beginoperator(med_op_size#); "between";
+beginoperator(med_op_size#, 1); "between";
   pickup rule_pen;
 
   r := w/2 - side_bearing;
@@ -939,7 +939,7 @@ beginoperator(med_op_size#); "between";
   draw smile(-1, centre - r * dir 90, centre + r * dir 90, equal_spread, true);
 endchar;
 
-beginoperator(med_op_size#); "reversed between";
+beginoperator(med_op_size#, 1); "reversed between";
   pickup rule_pen;
 
   r := w/2 - side_bearing;
@@ -974,7 +974,7 @@ beginsymbol(2/3equal_spread# + 2side_bearing#, vcentre(plus_size#+rule_thickness
   draw sim(z0 + 1/2plus_size * dir 90, z0 - 1/2plus_size * dir 90);
 endchar;
 
-beginoperator(med_op_size#); "angle";
+beginoperator(med_op_size#, 1); "angle";
   pickup rule_pen;
 
   z0 = centre - 1/3plus_size * dir 90;
@@ -987,7 +987,7 @@ beginoperator(med_op_size#); "angle";
   draw z1 -- z2 -- 5/6[z2,z3];
 endchar;
 
-beginoperator(med_op_size#); "measured angle";
+beginoperator(med_op_size#, 1); "measured angle";
   pickup rule_pen;
 
   z0 = centre - 1/3plus_size * dir 90;
@@ -1004,7 +1004,7 @@ beginoperator(med_op_size#); "measured angle";
   draw z4{dir 90} .. {dir (angle (z3 - z2) + 90)}z5;
 endchar;
 
-beginoperator(med_op_size#); "spherical angle";
+beginoperator(med_op_size#, 1); "spherical angle";
   pickup rule_pen;
 
   z0 = centre - 1/2plus_size * dir 0;
@@ -1045,7 +1045,7 @@ beginsymbol(5.5u#, 4/5asc_height#, 0); "backprime";
 endchar;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "product";
+  beginoperator(plus_size#, 1); "product";
     draw_product(centre, plus_size, plus_size, sign, rule_thickness);
   endchar;
 endfor;
@@ -1758,7 +1758,7 @@ endgroup;
 % Warning: The other two orientations are above.
 % They should stay consistent.
 
-beginoperator(plus_size#); "upside down logical not";
+beginoperator(plus_size#, 1); "upside down logical not";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -1767,7 +1767,7 @@ beginoperator(plus_size#); "upside down logical not";
                               -- (centre + r * dir 0 + equal_spread * dir 90);
 endchar;
 
-beginoperator(plus_size#); "upside down reversed logical not";
+beginoperator(plus_size#, 1); "upside down reversed logical not";
   pickup rule_pen;
 
   r := plus_size/2; % - 11/10rule_thickness;
@@ -1777,7 +1777,7 @@ beginoperator(plus_size#); "upside down reversed logical not";
 endchar;
 
 for sign = 1, -1:
-  beginoperator(plus_size#); "half square union";
+  beginoperator(plus_size#, 1); "half square union";
     pickup rule_pen;
 
     z3 - z0 = z2 - z1 = plus_size * dir 0;
@@ -1788,7 +1788,7 @@ for sign = 1, -1:
     draw z0 -- z1 -- z2;
   endchar;
 
-  beginoperator(plus_size#); "half square union";
+  beginoperator(plus_size#, 1); "half square union";
     pickup rule_pen;
 
     z3 - z0 = z2 - z1 = plus_size * dir 0;
@@ -1801,7 +1801,7 @@ for sign = 1, -1:
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(plus_size#); "closed curly wedge";
+  beginoperator(plus_size#, 1); "closed curly wedge";
     pickup rule_pen;
 
     z0 = centre + 1/2plus_size * dir alpha;
@@ -1818,7 +1818,7 @@ for alpha = 0, 90, 180, 270:
 endfor;
 
 for alpha = 0, 90, 180, 270:
-  beginoperator(6/5plus_size#); "slice";
+  beginoperator(6/5plus_size#, 1); "slice";
     pickup rule_pen;
 
     z1 - 1/2[z0,z2] = plus_size * dir alpha;
@@ -1830,6 +1830,120 @@ for alpha = 0, 90, 180, 270:
     draw z1 -- z0{dir (alpha + 120)} .. {dir (alpha + 60)}z2 -- cycle;
   endchar;
 endfor;
+
+beginoperator(5/6small_op_size#, 8/5); "small lozenge";
+  pickup rule_pen;
+
+  lft x0 = w - rt x2 = side_bearing;
+  y0 = y2 = ypart centre;
+
+  x1 = x3 = xpart centre;
+  top y1 = h;
+  bot y3 = -d;
+
+  draw z0 -- z1 -- z2 -- z3 -- cycle;
+endchar;
+
+beginoperator(5/6small_op_size#, 8/5); "small filled lozenge";
+  pickup rule_pen;
+
+  lft x0 = w - rt x2 = side_bearing;
+  y0 = y2 = ypart centre;
+
+  x1 = x3 = xpart centre;
+  top y1 = h;
+  bot y3 = -d;
+
+  draw z0 -- z1 -- z2 -- z3 -- cycle;
+  fill z0 -- z1 -- z2 -- z3 -- cycle;
+endchar;
+
+beginoperator(1/sqrt(2)*med_op_size#, 8/5); "medium lozenge";
+  pickup rule_pen;
+
+  lft x0 = w - rt x2 = side_bearing;
+  y0 = y2 = ypart centre;
+
+  x1 = x3 = xpart centre;
+  top y1 = h;
+  bot y3 = -d;
+
+  draw z0 -- z1 -- z2 -- z3 -- cycle;
+endchar;
+
+beginoperator(1/sqrt(2)*med_op_size#, 8/5); "medium filled lozenge";
+  pickup rule_pen;
+
+  lft x0 = w - rt x2 = side_bearing;
+  y0 = y2 = ypart centre;
+
+  x1 = x3 = xpart centre;
+  top y1 = h;
+  bot y3 = -d;
+
+  draw z0 -- z1 -- z2 -- z3 -- cycle;
+  fill z0 -- z1 -- z2 -- z3 -- cycle;
+endchar;
+
+beginoperator(1/sqrt(2)*large_op_size#, 8/5); "large lozenge";
+  pickup rule_pen;
+
+  lft x0 = w - rt x2 = side_bearing;
+  y0 = y2 = ypart centre;
+
+  x1 = x3 = xpart centre;
+  top y1 = h;
+  bot y3 = -d;
+
+  draw z0 -- z1 -- z2 -- z3 -- cycle;
+endchar;
+
+for alpha = 0, 90, 180, 270:
+  beginoperator(med_op_size#, 1); "medium filled triangle (" & decimal alpha & ")";
+    pickup rule_pen;
+    draw triangle(centre, w/2-side_bearing, alpha);
+    fill triangle(centre, w/2-side_bearing, alpha);
+  endchar;
+endfor;
+
+beginoperator(med_op_size#/sqrt(2), 1); "medium filled square";
+  pickup rule_pen;
+  draw square(centre, w/2 - side_bearing, 0);
+  fill square(centre, w/2 - side_bearing, 0);
+endchar;
+
+
+beginoperator(large_op_size#, 1); "large filled star";
+  pickup rule_pen;
+  r := w/2 - side_bearing;
+  reg_poly_points(a)(5, centre, r, 90);
+  reg_poly_points(b)(5, centre, .4r, 126);
+  draw z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
+  fill z.a0 -- z.b0 -- z.a1 -- z.b1 -- z.a2 -- z.b2 -- z.a3 -- z.b3 -- z.a4 -- z.b4 -- cycle;
+endchar;
+
+beginoperator(med_op_size#, 1); "maltese";
+  pickup rule_pen;
+
+  1/2[z0,z1] = centre + 1/2med_op_size * dir 180;
+  1/2[z2,z3] = centre + 1/2med_op_size * dir 270;
+  1/2[z4,z5] = centre + 1/2med_op_size * dir 0;
+  1/2[z6,z7] = centre + 1/2med_op_size * dir 90;
+
+  z0 - z1 = z5 - z4 = 1/2med_op_size * up;
+  z3 - z2 = z6 - z7 = 1/2med_op_size * right;
+
+  filldraw z1{dir 45}
+    .. {right}centre{down}
+    .. {dir 225}z2 -- z3{dir 135}
+    .. {up}centre{right}
+    .. {dir -45}z4 -- z5{dir 225}
+    .. {left}centre{up}
+    .. {dir 45}z6 -- z7{dir -45}
+    .. {down}centre{left}
+    .. z0{dir 135} -- cycle;
+endchar;
+
 
 current_char := 235;
 
@@ -1945,7 +2059,7 @@ for sign = -1, 1:
 endfor;
 
 for sign = -1, 1:
-  beginoperator(arrow_len#);
+  beginoperator(arrow_len#, 1);
     "loop arrow";
 
     pickup rule_pen;
@@ -1964,7 +2078,7 @@ for sign = -1, 1:
 endfor;
 
 for sign = -1, 1:
-  beginoperator(plus_size#); "three times";
+  beginoperator(plus_size#, 1); "three times";
     pickup rule_pen;
 
     r := plus_size/2;

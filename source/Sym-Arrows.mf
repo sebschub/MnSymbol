@@ -660,7 +660,7 @@ endfor;
 
 for sign = 1, -1:
   for alpha = 0, 90, 180, 270:
-    beginoperator(large_op_size#);
+    beginoperator(large_op_size#, 1);
       if sign > 0: "right" else: "left" fi & " circle arrow (" & decimal alpha & ")";
 
       pickup rule_pen;
@@ -694,7 +694,7 @@ for sign = 1, -1:
 endfor;
 
 %for alpha = 0, 90, 180, 270:
-%  beginoperator(large_op_size#); "left circle arrow (" & decimal alpha & ")";
+%  beginoperator(large_op_size#, 1); "left circle arrow (" & decimal alpha & ")";
 %    pickup rule_pen;
 %
 %    r := 0.8(w/2-u) - 1.1rule_thickness;

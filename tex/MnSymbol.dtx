@@ -650,7 +650,8 @@
 % \showsymbol\cdot,
 %   \cs{\cdotp}
 % \showsymbol\hdotdot
-% \showsymbol\vdotdot,
+% \showsymbol{:},
+%   \cs{\vdotdot},
 %   \cs{\colon}
 % \showsymbol\udotdot
 % \showsymbol\ddotdot
@@ -668,14 +669,16 @@
 % \showsymbol\diamonddots
 % \showsymbol\squaredots
 % \showsymbol\fivedots
-% \showsymbol\minus
+% \showsymbol{-},
+%   \cs{\minus}
 % \showsymbol\medvert,
 %   \cs{\shortmid}
 % \showsymbol\medslash
 % \showsymbol\medbackslash,
 %   \cs{\setminus},
 %   \cs{\smallsetminus}
-% \showsymbol\plus
+% \showsymbol{+},
+%   \cs{\plus}
 % \showsymbol\times
 % \showsymbol\pm
 % \showsymbol\mp
@@ -792,8 +795,7 @@
 %   \cs{\diamond}
 % \showsymbol\filleddiamond
 % \showsymbol\meddiamond,
-%   \cs{\Diamond},
-%   \cs{\lozenge}
+%   \cs{\Diamond}
 % \showsymbol\largediamond
 % \showsymbol\boxminus
 % \showsymbol\boxvert
@@ -819,7 +821,8 @@
 % \showsymbol\largepentagram
 % \showsymbol\thinstar,
 %   \cs{\star}
-% \showsymbol\ast
+% \showsymbol{*},
+%   \cs{\ast}
 % \showsymbol\hbipropto
 % \showsymbol\neswbipropto
 % \showsymbol\vbipropto
@@ -882,8 +885,26 @@
 % \showsymbol\closedcurlyvee
 % \showsymbol\rightslice
 % \showsymbol\upslice
-% \showsymbol\leftslice
+% \showsymbol\lefttslice
 % \showsymbol\downslice
+% \showsymbol\smalllozenge
+% \showsymbol\filledlozenge
+% \showsymbol\medlozenge,
+%   \cs{\lozenge}
+% \showsymbol\filledmedlozenge,
+%   \cs{\blacklozenge}
+% \showsymbol\largelozenge
+% \showsymbol\filledmedtriangleright
+% \showsymbol\filledmedtriangleup,
+%   \cs{\blacktriangle}
+% \showsymbol\filledmedtriangleleft
+% \showsymbol\filledmedtriangledown,
+%   \cs{\blacktriangledown}
+% \showsymbol\filledmedsquare,
+%   \cs{\blacksquare}
+% \showsymbol\filledlargestar,
+%   \cs{\bigstar}
+% \showsymbol\maltese
 % \showsymbol\leftthreetimes
 % \showsymbol\rightthreetimes
 % \end{multicols}
@@ -892,7 +913,8 @@
 %
 % \begin{multicols}{2}
 % \raggedright
-% \showsymbol\equal
+% \showsymbol{=},
+%   \cs{\equal}
 % \showsymbol\equiv
 % \showsymbol\sim
 % \showsymbol\backsim
@@ -962,8 +984,10 @@
 % \showsymbol\in
 % \showsymbol\owns,
 %   \cs{\ni}
-% \showsymbol\less
-% \showsymbol\gtr
+% \showsymbol{<},
+%   \cs{\less}
+% \showsymbol{>}
+%   \cs{\gtr}
 % \showsymbol\leq,
 %   \cs{\le}
 % \showsymbol\geq,
@@ -1314,6 +1338,12 @@
 % \showlbrace{\lmoustache}
 % \showrbrace{\rmoustache}
 % \showmbrace{\bracevert}
+% \showmbrace{\uparrow}
+% \showmbrace{\downarrow}
+% \showmbrace{\updownarrow}
+% \showmbrace{\Uparrow}
+% \showmbrace{\Downarrow}
+% \showmbrace{\Updownarrow}
 % \end{multicols}
 % \begin{multicols}{2}
 % \showwidesymbol\downbrace
@@ -1348,20 +1378,6 @@
 %
 % \begin{multicols}{2}
 % \raggedright
-% \showsymbol{=}
-% \showsymbol{<}
-% \showsymbol{>}
-% \showsymbol{+}
-% \showsymbol{-}
-% \showsymbol{*}
-% {\catcode`\|=11
-% \showsymbol{|}}
-% \showsymbol{(}
-% \showsymbol{)}
-% \showsymbol{:}
-% \showsymbol{[}
-% \showsymbol{]}
-% \showsymbol{/}
 % \showaccent\sqrt
 % \showsymbol\surd
 % \showover\widehat
@@ -1369,6 +1385,7 @@
 % \showover\wideparen
 % \showaccent\vec
 % \showsymbol\coloneq
+% \showsymbol\shortparallel
 % \showsymbol\dagger
 % \showsymbol\ddagger
 % \showsymbol\mathparagraph
@@ -1386,7 +1403,6 @@
 % \showsymbol\dotplus
 % \showsymbol\thicksim
 % \showsymbol\thickapprox
-% \showsymbol\shortparallel
 % \showsymbol\veebar
 % \showsymbol\barwedge
 % \showsymbol\doublebarwedge
@@ -1399,18 +1415,12 @@
 % The following symbols from Computer Modern or the AMS fonts are missing in MnSymbol.
 % \begin{multicols}{3}
 % \parindent=0pt
-% |\maltese|\par
-% |\blacksquare|\par
-% |\blacklozenge|\par
 % |\eqslantless|\par
 % |\eqslantgtr|\par
 % |\curlyeqprec|\par
 % |\curlyeqsucc|\par
 % |\nshortmid|\par
 % |\nshortparallel|\par
-% |\bigstar|\par
-% |\blacktriangledown|\par
-% |\blacktriangle|\par
 % |\mho|\par
 % |\hbar|\par
 % |\Finv|\par
@@ -1476,7 +1486,6 @@
   \DeclareRobustCommand{\dotplus}{\dot{+}}
   \DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
   \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
-%  \DeclareRobustCommand{\intercal}{\mathbin{\text{\boldmath$\m@th\top$}}}
 
   \let\lneq\nleq
   \let\gneq\ngeq
@@ -1496,20 +1505,12 @@
 % (a) Missing symbols.
 %
 %    \begin{macrocode}
-  \let\maltese\undefined
-  \let\blacksquare\undefined
-  \let\blacklozenge\undefined
-  \let\Rrightarrow\undefined
-  \let\Lleftarrow\undefined
   \let\eqslantless\undefined
   \let\eqslantgtr\undefined
   \let\curlyeqprec\undefined
   \let\curlyeqsucc\undefined
   \let\nshortmid\undefined
   \let\nshortparallel\undefined
-  \let\bigstar\undefined
-  \let\blacktriangledown\undefined
-  \let\blacktriangle\undefined
 %    \end{macrocode}
 %
 % (b) Missing letters.
@@ -1530,7 +1531,7 @@
   \let\circledS\undefined
 %    \end{macrocode}
 %
-% (c) Unneeded parts of symbols.
+% (c) Unneeded partial symbols.
 %
 %    \begin{macrocode}
   \let\mapstochar\undefined
@@ -2464,7 +2465,6 @@
 \Decl@Mn@Char\filleddiamond          {MnSyC}{\mathbin}
 \Decl@Mn@Char\meddiamond             {MnSyC}{\mathbin}
   \Decl@Mn@Alias\Diamond             {MnSyC}{\mathbin}
-  \Decl@Mn@Alias\lozenge             {MnSyC}{\mathbin}
 \Decl@Mn@Char\largediamond           {MnSyC}{\mathord}
 \Decl@Mn@Char\boxminus               {MnSyC}{\mathbin}
 \Decl@Mn@Char\boxvert                {MnSyC}{\mathbin}
@@ -2554,8 +2554,26 @@
 \Decl@Mn@Char\closedcurlyvee         {MnSyC}{\mathbin}
 \Decl@Mn@Char\rightslice             {MnSyC}{\mathrel}
 \Decl@Mn@Char\upslice                {MnSyC}{\mathbin}
-\Decl@Mn@Char\leftslice              {MnSyC}{\mathrel}
+\Decl@Mn@Char\lefttslice             {MnSyC}{\mathrel}
 \Decl@Mn@Char\downslice              {MnSyC}{\mathbin}
+\Decl@Mn@Char\smalllozenge           {MnSyC}{\mathord}
+\Decl@Mn@Char\filledlozenge          {MnSyC}{\mathord}
+\Decl@Mn@Char\medlozenge             {MnSyC}{\mathord}
+  \Decl@Mn@Alias\lozenge             {MnSyC}{\mathord}
+\Decl@Mn@Char\filledmedlozenge       {MnSyC}{\mathord}
+  \Decl@Mn@Alias\blacklozenge        {MnSyC}{\mathord}
+\Decl@Mn@Char\largelozenge           {MnSyC}{\mathord}
+\Decl@Mn@Char\filledmedtriangleright {MnSyC}{\mathbin}
+\Decl@Mn@Char\filledmedtriangleup    {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\blacktriangle       {MnSyC}{\mathbin}
+\Decl@Mn@Char\filledmedtriangleleft  {MnSyC}{\mathbin}
+\Decl@Mn@Char\filledmedtriangledown  {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\blacktriangledown   {MnSyC}{\mathbin}
+\Decl@Mn@Char\filledmedsquare        {MnSyC}{\mathbin}
+  \Decl@Mn@Alias\blacksquare         {MnSyC}{\mathbin}
+\Decl@Mn@Char\filledlargestar        {MnSyC}{\mathord}
+  \Decl@Mn@Alias\bigstar             {MnSyC}{\mathord}
+\Decl@Mn@Char\maltese                {MnSyC}{\mathord}
 \Set@Mn@Sym{236}
 \Decl@Mn@Char\lesssim                {MnSyC}{\mathrel}
 \Decl@Mn@Char\gtrsim                 {MnSyC}{\mathrel}
@@ -3091,8 +3109,6 @@
 \let\rfloor\undefined
 \let\lceil\undefined
 \let\rceil\undefined
-%\let\{\undefined
-%\let\}\undefined
 \let\langle\undefined
 \let\rangle\undefined
 
@@ -3173,6 +3189,20 @@
 \DeclareMathSymbol{\bracemd}      {\mathord}{largesymbols}{'267}
 \DeclareMathSymbol{\bracemu}      {\mathord}{largesymbols}{'270}
 \DeclareMathSymbol{\bracemid}     {\mathord}{largesymbols}{'271}
+
+\let\uparrow\undefined
+\let\downarrow\undefined
+\let\updownarrow\undefined
+\let\Uparrow\undefined
+\let\Downarrow\undefined
+\let\Updownarrow\undefined
+\DeclareMathDelimiter{\uparrow}    {\mathrel}{MnSyA}{'001}{largesymbols}{'322}
+\DeclareMathDelimiter{\downarrow}  {\mathrel}{MnSyA}{'003}{largesymbols}{'323}
+\DeclareMathDelimiter{\updownarrow}{\mathrel}{MnSyA}{'021}{largesymbols}{'324}
+\DeclareMathDelimiter{\Uparrow}    {\mathrel}{MnSyA}{'011}{largesymbols}{'325}
+\DeclareMathDelimiter{\Downarrow}  {\mathrel}{MnSyA}{'013}{largesymbols}{'326}
+\DeclareMathDelimiter{\Updownarrow}{\mathrel}{MnSyA}{'025}{largesymbols}{'327}
+
 
 % \horiz@expandable{sym1}..{sym6}{style}{arg}
 
