@@ -718,7 +718,7 @@ def draw_root_top(expr scale, thick, vertical) =
 
   if vertical:
     x1 = 6/9w;
-    draw (x1, y0) -- z1;
+    draw z0 -- (x1, y0) -- z1;
   else:
     x1 = 4/9w;
     draw z0 -- z1;
@@ -744,12 +744,6 @@ def draw_root_bot(expr scale, thick, vertical) =
   fill z5r -- z6 -- z3l -- z3 -- z4 -- z2r -- z5l -- cycle;
 enddef;
 
-def draw_root(expr scale, thick, vertical) =
-  draw_root_top(scale, thick, vertical);
-  draw_root_bot(scale, thick, vertical);
-  labels(0,1,2,3,4,5,6);
-enddef;
-
 root_char = current_char + 1;
 
 for scale = 2, 2.5, 3.3, 4.2, 5.1:
@@ -758,7 +752,10 @@ for scale = 2, 2.5, 3.3, 4.2, 5.1:
               scale * delim_height# - sqrt (scale/2) * rule_thickness#);
     "root";
 
-    draw_root(scale, sqrt (scale/2) * rule_thickness, false);
+    draw_root_top(scale, sqrt (scale/2) * rule_thickness, false);
+    draw_root_bot(scale, sqrt (scale/2) * rule_thickness, false);
+    labels(0,1,2,3,4,5,6);
+
   endchar;
 endfor;
 
@@ -768,8 +765,6 @@ beginsymbol((12 + 10) * u# + side_bearing#,
   "root -- top";
 
   draw_root_top(6, sqrt (6/2) * rule_thickness, true);
-
-  draw z0 -- (x1, y0);
 endchar;
 
 beginsymbol((12 + 10) * u# + side_bearing#, 0, 3 * delim_height#);
