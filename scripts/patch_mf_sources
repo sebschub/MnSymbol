@@ -1,7 +1,26 @@
-diff -ruN ../diffold/MnSymbol/source/Sym-Accent.mf MnSymbol/source/Sym-Accent.mf
---- ../diffold/MnSymbol/source/Sym-Accent.mf	2004-09-07 12:51:03.000000000 +0200
-+++ MnSymbol/source/Sym-Accent.mf	2006-07-25 19:56:46.000000000 +0200
-@@ -93,6 +93,13 @@
+diff -urN MnSymbol_old/CVS/Entries MnSymbol/CVS/Entries
+--- MnSymbol_old/CVS/Entries	2006-08-03 20:54:58.000000000 +0200
++++ MnSymbol/CVS/Entries	2006-08-03 21:03:35.000000000 +0200
+@@ -1 +1,5 @@
+-D
++D/doc////
++D/enc////
++D/scripts////
++D/source////
++D/tex////
+diff -urN MnSymbol_old/CVS/Entries.Log MnSymbol/CVS/Entries.Log
+--- MnSymbol_old/CVS/Entries.Log	2006-08-03 20:55:10.000000000 +0200
++++ MnSymbol/CVS/Entries.Log	1970-01-01 01:00:00.000000000 +0100
+@@ -1,5 +0,0 @@
+-A D/doc////
+-A D/enc////
+-A D/scripts////
+-A D/source////
+-A D/tex////
+diff -urN MnSymbol_old/source/Sym-Accent.mf MnSymbol/source/Sym-Accent.mf
+--- MnSymbol_old/source/Sym-Accent.mf	2004-09-07 12:51:03.000000000 +0200
++++ MnSymbol/source/Sym-Accent.mf	2006-08-03 20:57:06.000000000 +0200
+@@ -93,6 +93,6 @@
    top y0 = top y1 = h - 5/4rule_thickness;
  
    draw z0 -- z1;
@@ -9,16 +28,9 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Accent.mf MnSymbol/source/Sym-Accent.mf
 +  draw_arrowhead(z1, 0, 5/2rule_thickness);
  endchar;
  
-+for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
-+  beginarrow(alpha, 1, arrow_spread#); "single arrow (" & decimal alpha & ")";
-+    pickup rule_pen;
-+    draw_arrowhead(head, arrow_dir, arrow_spread);
-+
-+  endchar;
-+endfor;
-diff -ruN ../diffold/MnSymbol/source/Sym-Arrows.mf MnSymbol/source/Sym-Arrows.mf
---- ../diffold/MnSymbol/source/Sym-Arrows.mf	2006-07-17 10:53:16.000000000 +0200
-+++ MnSymbol/source/Sym-Arrows.mf	2006-07-25 20:14:48.000000000 +0200
+diff -urN MnSymbol_old/source/Sym-Arrows.mf MnSymbol/source/Sym-Arrows.mf
+--- MnSymbol_old/source/Sym-Arrows.mf	2006-07-31 10:54:34.000000000 +0200
++++ MnSymbol/source/Sym-Arrows.mf	2006-08-03 20:57:06.000000000 +0200
 @@ -7,7 +7,7 @@
    beginarrow(alpha, 1, arrow_spread#); "single arrow (" & decimal alpha & ")";
      pickup rule_pen;
@@ -317,10 +329,10 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Arrows.mf MnSymbol/source/Sym-Arrows.mf
  %
  %    if negated:
  %       1/2[z2,z3] = centre;
-diff -ruN ../diffold/MnSymbol/source/Sym-Base.mf MnSymbol/source/Sym-Base.mf
---- ../diffold/MnSymbol/source/Sym-Base.mf	2006-07-24 09:30:15.000000000 +0200
-+++ MnSymbol/source/Sym-Base.mf	2006-07-25 19:56:46.000000000 +0200
-@@ -469,3 +469,105 @@
+diff -urN MnSymbol_old/source/Sym-Base.mf MnSymbol/source/Sym-Base.mf
+--- MnSymbol_old/source/Sym-Base.mf	2006-07-31 10:54:34.000000000 +0200
++++ MnSymbol/source/Sym-Base.mf	2006-08-03 20:57:06.000000000 +0200
+@@ -475,3 +475,105 @@
    penlabels(0$,1$,2$,3$,4$,5$,6$);
  enddef;
  
@@ -426,9 +438,42 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Base.mf MnSymbol/source/Sym-Base.mf
 +    .. cycle;
 + endgroup
 +enddef;
-diff -ruN ../diffold/MnSymbol/source/Sym-Geometric.mf MnSymbol/source/Sym-Geometric.mf
---- ../diffold/MnSymbol/source/Sym-Geometric.mf	2006-07-24 09:30:15.000000000 +0200
-+++ MnSymbol/source/Sym-Geometric.mf	2006-07-25 20:19:55.000000000 +0200
+diff -urN MnSymbol_old/source/Sym-Delim.mf MnSymbol/source/Sym-Delim.mf
+--- MnSymbol_old/source/Sym-Delim.mf	2006-08-01 14:38:24.000000000 +0200
++++ MnSymbol/source/Sym-Delim.mf	2006-08-03 20:57:06.000000000 +0200
+@@ -815,7 +815,7 @@
+     fi;
+ 
+     draw foot -- head;
+-    draw arrowhead(head, arrow_dir, arrow_spread);
++    draw_arrowhead(head, arrow_dir, arrow_spread);
+   endchar;
+ endfor;
+ 
+@@ -854,7 +854,7 @@
+     draw z0 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2);
+     draw z1 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
+ 
+-    draw arrowhead(head, arrow_dir, 13/10arrow_spread);
++    draw_arrowhead(head, arrow_dir, 13/10arrow_spread);
+   endchar;
+ endfor;
+ 
+@@ -874,3 +874,11 @@
+ extensible current_char-1: current_char,   0, current_char-1, current_char;
+ extensible current_char:   current_char-2, 0, current_char-1, current_char;
+ 
++for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
++  beginarrow(alpha, 1, arrow_spread#); "single arrow (" & decimal alpha & ")";
++    pickup rule_pen;
++    draw_arrowhead(head, arrow_dir, arrow_spread);
++
++  endchar;
++endfor;
++
+diff -urN MnSymbol_old/source/Sym-Geometric.mf MnSymbol/source/Sym-Geometric.mf
+--- MnSymbol_old/source/Sym-Geometric.mf	2006-07-31 10:54:34.000000000 +0200
++++ MnSymbol/source/Sym-Geometric.mf	2006-08-03 21:01:05.000000000 +0200
 @@ -1100,7 +1100,7 @@
  
    pickup rule_pen;
@@ -438,68 +483,7 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Geometric.mf MnSymbol/source/Sym-Geomet
  
    penlabels(1,2,2',3',3,4);
  endchar;
-@@ -1831,6 +1831,60 @@
-   endchar;
- endfor;
- 
-+for sign = 1:
-+  beginoperator(plus_size#); "part plus";
-+    pickup rule_pen;
-+
-+    t := 22/10rule_thickness;
-+    r := 1/2plus_size - t;
-+
-+    draw (centre + sign * 1/6plus_size * dir 90 + r * dir  0)
-+      -- (centre + sign * 1/6plus_size * dir 90 + r * dir 180);
-+    draw (centre + (r + sign * 1/6plus_size) * dir 90)
-+      -- (centre + (r - sign * 1/6plus_size) * dir 270);
-+  endchar;
-+endfor;
-+
-+beginorder(1, order_width# + rule_thickness#, 2 * equal_spread# + rule_thickness#); "part equal";
-+  pickup rule_pen;
-+  z1 - z0 = equal_spread * dir 90;
-+  z3 - z2 = equal_spread * dir 90;
-+  
-+  1/2[z0,z1]=left_point;
-+  1/2[z2,z3] = right_point;
-+  draw z0 -- z2;
-+endchar;
-+
-+  beginorder(1, order_width# + rule_thickness#, 1 * equal_spread# + 2/5order_width# + rule_thickness#);
-+    "part bump up";
-+
-+    pickup rule_pen;
-+
-+    z1 - z0 = equal_spread * dir 90;
-+    z3 - z2 = equal_spread * dir 90;
-+
-+    1/2[z0, z1] = left_point;
-+    1/2[z2, z3] = right_point;
-+
-+    draw z3 -- half_circle(1/2[z1,z3], order_width/5, 0) -- z1;
-+
-+  endchar;
-+
-+  beginorder(1, order_width# + rule_thickness#, 1 * equal_spread# + 2/5order_width# + rule_thickness#);
-+    "part bump down";
-+
-+    pickup rule_pen;
-+
-+    z0 - z1 = equal_spread * dir 90;
-+    z2 - z3 = equal_spread * dir 90;
-+
-+    1/2[z0, z1] = left_point;
-+    1/2[z2, z3] = right_point;
-+
-+    draw z1 -- half_circle(1/2[z1,z3], order_width/5, 180) -- z3;
-+
-+  endchar;
-+  
- current_char := 235;
- 
- % Keep these consistent with the glyphs in Sym-Order.mf!
-@@ -1913,7 +1967,7 @@
+@@ -2027,7 +2027,7 @@
  
        pickup rule_pen;
  
@@ -508,7 +492,7 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Geometric.mf MnSymbol/source/Sym-Geomet
  
        if negated = 1:
          stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 16/10arrow_spread)
-@@ -1940,7 +1994,7 @@
+@@ -2054,7 +2054,7 @@
  
      draw z0 -- z1 -- z2;
  
@@ -517,7 +501,7 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Geometric.mf MnSymbol/source/Sym-Geomet
    endchar;
  endfor;
  
-@@ -1959,7 +2013,7 @@
+@@ -2073,7 +2073,7 @@
  
      draw z0 -- z3{sign * right} .. {up}z5 .. {sign * left}z4 .. {down}z2 -- z1;
  
@@ -526,9 +510,9 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Geometric.mf MnSymbol/source/Sym-Geomet
    endchar;
  endfor;
  
-diff -ruN ../diffold/MnSymbol/source/Sym-Operators.mf MnSymbol/source/Sym-Operators.mf
---- ../diffold/MnSymbol/source/Sym-Operators.mf	2006-07-24 09:30:15.000000000 +0200
-+++ MnSymbol/source/Sym-Operators.mf	2006-07-25 19:56:46.000000000 +0200
+diff -urN MnSymbol_old/source/Sym-Operators.mf MnSymbol/source/Sym-Operators.mf
+--- MnSymbol_old/source/Sym-Operators.mf	2006-07-24 09:30:15.000000000 +0200
++++ MnSymbol/source/Sym-Operators.mf	2006-08-03 20:57:06.000000000 +0200
 @@ -664,9 +664,9 @@
              {dir (beta + 80)}z1;
  
@@ -553,42 +537,17 @@ diff -ruN ../diffold/MnSymbol/source/Sym-Operators.mf MnSymbol/source/Sym-Operat
          fi;
        endchar;
      endfor;
-@@ -925,3 +925,38 @@
+@@ -925,3 +925,13 @@
  endfor;
  charlist current_char - 1: current_char;
  
-+for sign = 1:
-+  for scale = 1, 1.4:
-+    beginbigop(scale, scale); "operator plus";
-+
-+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
-+
-+      t := 2rule_thickness;
-+      r := 3/8op_width - t;
-+
-+      draw (centre - sign * 1/8op_width * dir 90 + r * dir  0)
-+        -- (centre - sign * 1/8op_width * dir 90 + r * dir 180);
-+      draw (centre + (r - sign * 1/8op_width) * dir 90)
-+        -- (centre + (r + sign * 1/8op_width) * dir 270);
-+    endchar;
-+  endfor;
-+  charlist current_char - 1: current_char;
-+endfor;
-+
-+for sign = 1:
-+  for scale = 1, 1.4:
-+    beginbigop(scale, scale); "operator dot";
-+
-+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
-+
-+      z3 - z0 = z2 - z1 = op_width * dir 0;
-+      z1 - z0 = sign * op_height * dir 90;
-+
-+      1/2[1/2[z0,z1], 1/2[z2,z3]] = centre;
-+
-+      fill circle(centre - sign * 1/4op_height * dir 90, 4/3dot_size * sqrt scale);
-+    endchar;
-+  endfor;
-+  charlist current_char - 1: current_char;
-+endfor;
++beginorder(1, order_width# + rule_thickness#, 2 * equal_spread# + rule_thickness#); "part equal";
++  pickup rule_pen;
++  z1 - z0 = equal_spread * dir 90;
++  z3 - z2 = equal_spread * dir 90;
++  
++  1/2[z0,z1]=left_point;
++  1/2[z2,z3] = right_point;
++  draw z0 -- z2;
++endchar;
 +
