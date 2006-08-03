@@ -1,282 +1,198 @@
 #!/usr/local/bin/fontforge
-size=5;
-Print(size);
-while (size<=12)
-LoadEncodingFile("../enc/MnSymbolA.enc");
-LoadEncodingFile("../enc/MnSymbolB.enc");
-LoadEncodingFile("../enc/MnSymbolC.enc");
-LoadEncodingFile("../enc/MnSymbolD.enc");
-LoadEncodingFile("../enc/MnSymbolE.enc");
-LoadEncodingFile("../enc/MnSymbolF.enc");
-LoadEncodingFile("../enc/MnSymbolS.enc");
 
-Open("../source/MnSymbolA"+size+".sfd");
+size=Strtol($argv[1]);
+suffix=$argv[2];
+names=["A", "B", "C", "D", "E", "F"];
+
+Open("../source/MnSymbol"+names[0]+suffix+size+".pfb");
+
 SetFontNames("MnSymbol"+size,"MnSymbol","MnSymbol"+size,"Regular","Design by Achim Blumensath, Conversion to pfb by Michael Zedler","1.001");
+if (suffix=="-Bold") 
+  SetFontNames("MnSymbol-Bold"+size,"MnSymbol","MnSymbol-Bold"+size,"Bold","Design by Achim Blumensath, Conversion to pfb by Michael Zedler","1.001");
+  ChangePrivateEntry("ForceBold","true");
+endif
 
-MergeFonts("../source/MnSymbolB"+size+".sfd");
-MergeFonts("../source/MnSymbolE"+size+".sfd");
-
-SelectSingletons("uni21CA","uni21CA0338");RoundToInt();RemoveOverlap();AddExtrema();Simplify();
-if (size==5) Select("nwnwarrows0338");RemoveOverlap();AddExtrema();Simplify();endif
-SelectAll();
-CopyFgToBg();
-ii=255;
-while (ii>=0)
-  if (ii==215) ii=ii-8;endif
-  if (ii==127) ii=ii-8;endif
-  Select(ii);
-  ReplaceWithReference(5.0);
-  ii--;
+# Load encoding files and glpyh names from pfb
+fname=0;
+while (fname<=5)
+  LoadEncodingFile("../enc/MnSymbol"+names[fname]+".enc");
+  if (fname>0) MergeFonts("../source/MnSymbol"+names[fname]+suffix+size+".pfb"); endif
+  fname++;
 endloop
 
-Select(120,127);
-ReplaceWithReference(2.0);
+# Clear pfb content, only keep the glyph names
+SelectAll();
+Clear();
 
-Select("arrow0","arrow7");
-ReplaceWithReference(2.0);
+# Load A, B, E (E contains arrowtips, useful for outline regularization)
+fname=0
+while (fname<=4)
+  Reencode("MnSymbol"+names[fname]);
+  ii=0;
+  while(ii<=255);  
+    Select(ii);
+    Import("../source/MnSymbol"+names[fname]+suffix+size+"."+ii+".eps");
+    ii++;
+  endloop
+  fname++;
+  if (fname==2) fname=fname+2;endif
+endloop
+
+# Doing a RemoveOverlap on some glpyhs of MnSymbolE takes ages otherwise
+Reencode("MnSymbolE");
+Select(204,208);
+RoundToInt();
+
+# Start with A+B+E
+Reencode("MnSymbolA");
 
 SelectAll();
-RemoveOverlap();
+CopyFgToBg();
 
-SelectSingletons("uni21CA","uni21C8","uni21C7");
-UnlinkReference();
-AddExtrema();
-RemoveOverlap();
-AddExtrema();
-Simplify();
+# ReplaceWithReference both regularized glyphs (good for subroutine generation) in A+B and makes RemoveOverlap fail less often
 
+# Force negated versions of uni21C9...swnearrows to reference the non-negated glyphs
+Select("uni21C9","swnearrows");
+ReplaceWithReference();
+# Next the normal arrows 
+Select("arrowright","arrowdownright");
+ReplaceWithReference();
 SelectAll();
-UnlinkReference();
-RemoveOverlap();
-AddExtrema();
-Simplify();
-Select(144,151);
-AddExtrema();
+# Everything except simple lines
+SelectFewer("leftrightline","nwseline");
+SelectFewer("leftrightline_uni0338","nwseline_uni0338");
+ReplaceWithReference();
+# Everything
+SelectAll();
+ReplaceWithReference();
+SelectAll();
 
-MergeFonts("../source/MnSymbolC"+size+".sfd");
-MergeFonts("../source/MnSymbolD"+size+".sfd");
-MergeFonts("../source/MnSymbolF"+size+".sfd");
-MergeFonts("../source/MnSymbolS"+size+".sfd");
+if (suffix=="-Bold" && size==6) 
+  SelectSingletons("uni219D","uni21AD","curvearrowupdown","curvearrowdownup");
+  AddExtrema();
+  Select("curvearrownesw");
+  Simplify();
+  SelectSingletons("uplsquigarrow_uni0338","squigarrowupdown_uni0338");
+  UnlinkReference();
+  AddExtrema();
+endif
+
+RemoveOverlap();
+Select("uni21C9","swnearrows");
+UnlinkReference();
+
+# correct double arrows
+if (suffix!="-Bold") 
+  if (size==7) Select("uni21C7");AddExtrema();endif
+  if (size==8 || size==9 || size==12) Select("uni21CA");AddExtrema();endif
+else
+  if (size==6) SelectSingletons("uni21C9","uni21C7","uni21CA");Simplify();RoundToInt();endif
+  if (size==9 || size==12) Select("uni21C7");AddExtrema();endif
+endif
+
+Select("uni21C9","swnearrows");
+RemoveOverlap();
+SelectAll();
+SelectFewer("uni21CC","nwseharpoons");
+SelectFewer("arrowrightoverleft","senwarrows");
+UnlinkReference();
+SelectAll();
+RemoveOverlap();
+ReplaceWithReference();
+SelectAll();
+AddExtrema();
+SelectFewer("uni20D7");
+Simplify();
+
+# Load the remaining eps
+fname=2
+while (fname<=5)
+  Reencode("MnSymbol"+names[fname]);
+  ii=0;
+  while(ii<=255);  
+    Select(ii);
+    Import("../source/MnSymbol"+names[fname]+suffix+size+"."+ii+".eps");
+    ii++;
+  endloop
+  Select(0,255);
+  CopyFgToBg();
+  fname++;
+  if (fname==4) fname++;endif
+endloop
 
 Print("D");
 Reencode("MnSymbolD");
-Select(0,255);CopyFgToBg();
-SelectSingletons("notequal","uni2241","uni2249");
-ReplaceWithReference(2.0);
-ii=119;
-while (ii>=0);
-  Select(ii);
-  ReplaceWithReference(2.0);
-  ii--;
-endloop;
-Select("uni223D");  # Sonderbehandlung für gespiegeltes 'similar'
-Simplify();RoundToInt();
+SelectSingletons("notequal","uni2241","uni2249","dotmath");
+ReplaceWithReference();
+Select(0,255);
+ReplaceWithReference();
+# special treatment of 'similar' glyphs
+SelectSingletons("similar","uni223D");  
+ReplaceWithReference(5.0);
+SelectSingletons("similar","uni223D");  
+Simplify();RoundToInt();AddExtrema();Simplify();
+Select(0,255);
+SelectFewer(0,119);
+SelectMoreSingletons("uni2256","uni2257","element","suchthat");
+UnlinkReference();
+RemoveOverlap();
+SelectSingletons("notequal","uni2241","uni2249","dotmath");
+ReplaceWithReference();
+Select(0,255);
+ReplaceWithReference();
 Select(0,255);
 AddExtrema();
 Simplify();
-RemoveOverlap();
-UnlinkReference();
-RemoveOverlap();
-AddExtrema();
-Simplify();
-ReplaceWithReference(2.0);
-if (size==8) Select("uni227F0338");RemoveOverlap();endif
+if (suffix!="-Bold")
+  if (size==8) Select("uni227F0338");RemoveOverlap();endif
+else
+  if (size==5) Select(0,255);UnlinkReference();Select(0,255);RemoveOverlap();ReplaceWithReference();endif
+endif
 
 Print("F");
 Reencode("MnSymbolF");
-Select(0,255);
-CopyFgToBg();
-SelectSingletons("dotmath");
-SelectMore("integral","uni222C.disp");
+Select("integral","uni222C.disp");
 ReplaceWithReference(8.0);
-ii=81;
-while (ii>=0)
-  Select(ii);
-  ReplaceWithReference(4.0);
-  ii--;
-endloop;
-Select(82,91);
+Select(0,255);
+ReplaceWithReference();
+Select(0,255);
 RemoveOverlap();
-ReplaceWithReference(2.0);
-Select(0,139);
-RemoveOverlap();
-AddExtrema();
-Simplify();
-SelectFewer(82,91);
 UnlinkReference();
 RemoveOverlap();
-ReplaceWithReference(2.0);
-Select(112,113);       #komisch, die ellipsis*.part sollten schon sauber sein?!
-RemoveOverlap();
+ReplaceWithReference();
+Select(0,255);
 AddExtrema();
 Simplify();
 
 Print("C");
 Reencode("MnSymbolC");
-if (size==5) Select("aleph");Import("../source/MnSymbolC5.175.eps",0,24);endif
-if (size==9) Select("asteriskmath");RoundToInt();endif
-Select(0,255);CopyFgToBg();
+if (suffix!="-Bold") 
+  if (size==5) Select("aleph");Import("../source/MnSymbolC5.175.eps",0,24);endif
+  if (size==6) Select("gradient");RoundToInt();endif
+  if (size==9) SelectSingletons("asteriskmath","gradient");RoundToInt();endif
+else
+  if (size==7) Select("uni2272","uni2A86");SelectMore("uni2274","uni2A8A");Simplify();endif
+  if (size==8) Select("gradient");RoundToInt();endif
+endif
+Select(0,255);
+SelectMore("arrow0","arrow7");
+SelectMoreSingletons("similar","uni223D");  
+ReplaceWithReference();
+Select(0,255);
 UnlinkReference();
 RemoveOverlap();
 AddExtrema();
 Simplify();
-Select("musicflatsign");
-RoundToInt();
-Simplify();
-Print("E");
-Reencode("MnSymbolE");
-Select(0,255);CopyFgToBg();
-RemoveOverlap();
-AddExtrema();
-Simplify();
-Print("S");
-Reencode("MnSymbolS");
-#if (size==7) Select("Z");AddExtrema();Simplify();endif
-#Select(0,255);CopyFgToBg();
-#RemoveOverlap();
-#AddExtrema();
-#Simplify();
-#RoundToInt();
-#RemoveOverlap();
-#Simplify();
-#SelectFewer("H");
-#Simplify(2,1.0);
-#RoundToInt();
-#RemoveOverlap();
-#AddExtrema();
-#Simplify();
-#RoundToInt();
-#AddExtrema();
 
 SelectAll();
-CanonicalStart();
-CanonicalContours();
 UnlinkReference();
-Select("equal");
-ReplaceWithReference(2.0);
 SelectAll();
-ReplaceWithReference(2.0);
-
-SelectSingletons(".notdef","grave");
-Clear();
-Select("arrow0","arrow7");
-DetachAndRemoveGlyphs();
-
-Save("MnSymbol"+size+".sfd");
-Open("MnSymbol"+size+".sfd");
+ReplaceWithReference();
 
 SelectAll();
 RoundToInt();
 AutoHint();
+ReplaceWithReference();
 
-ii=0;
-while (ii<=255)
-  Reencode("MnSymbolB");
-  Select(ii);
-  figure=GlyphInfo("name");
-  Reencode("MnSymbolA");
-  Select(ii);
-  AddATT("Substitution", "latn{dflt}", "ss01", -1, figure);
-  ii++;
-endloop
-
-  Reencode("MnSymbolD");
-ii=0;
-while (ii<=119)
-  Select(ii+120);
-  figure=GlyphInfo("name");
-  Select(ii);
-  AddATT("Substitution", "latn{dflt}", "ss01", -1, figure);
-  ii++;
-endloop
-
-SelectSingletons("plus","wedgedot","veedot","uni2A55","uni2A54","curlyand","curlyor","curlywedgedot","curlyveedot","doublecurlywedge","doublecurlyvee");
-SelectMoreSingletons("uni2A40","uni228D","capplus","uni228E","uni2293","uni2294","sqcapdot","sqcupdot","sqcapplus","sqcupplus","uni25EF","uni2296","uni29B6","uni2298","uni29B8","uni2295","uni2297","uni2299","uni229A","otriangle","uni229B","uni235F");
-foreach
-   figure=GlyphInfo("name");
-   AddATT("Substitution", "latn{dflt}", "ss02", -1, figure+".big");
-endloop
-
-SelectSingletons("plus.big","uni2A09","uni22C0","uni22C1","wedgedot.big","veedot.big","uni2A55.big","uni2A54.big","curlyand.big","curlyor.big","curlywedgedot.big","curlyveedot.big","doublecurlywedge.big","doublecurlyvee.big","uni22C2","uni22C3");
-SelectMoreSingletons("uni2A40.big","uni228D.big","capplus.big","uni228E.big","uni2293.big","uni2294.big","sqcapdot.big","sqcupdot.big","sqcapplus.big","sqcupplus.big","uni25EF.big","uni2296.big","uni29B6.big","uni2298.big","uni29B8.big","uni2295.big","uni2297.big","uni2299.big","uni229A.big","otriangle.big","uni229B.big");
-SelectMoreSingletons("uni235F.big","product","uni2210","summation","integral","uni222C","uni222D","uni2A0C","integral_ellipsis_integral","uni2A19");
-SelectMoreSingletons("uni2A1A","uni2A0F","uni222E","uni222F","uni2233","uni2232.alt1","uni2233.alt1","uni2232","uni2A0B","integral_ellipsis_integral.part","uni2A19.part","uni2A1A.part","uni2A0F.part","uni222E.part","uni222F.part","uni2233.part","uni2232.part.alt1","uni2233.part.alt1","uni2232.part","uni2A0B.part");
-foreach
-   figure=GlyphInfo("name");
-   AddATT("Substitution", "latn{dflt}", "ss03", -1, figure+".disp");
-endloop
-
-Reencode("MnSymbolF");
-ii=90;
-while (ii<=111)
-  Select(ii+22);
-  figure=GlyphInfo("name");
-  Select(ii);
-  AddATT("Substitution", "latn{dflt}", "ss04", -1, figure);
-  ii++;
-endloop
-
-SelectSingletons("uni22A4.alt","weierstrass.alt");
-foreach
-   figure=GlyphInfo("name");
-   AddATT("Substitution", "latn{dflt}", "ss05", -1, figure+".alt");
-endloop
-
-SelectSingletons("whiterightpointingtriangle","whiteuppointingtriangle","whiteleftpointingtriangle","whitedownpointingtriangle","largecircle","uni25FB","whitediamond","whitestar","uni2270.alt1","uni2271","uni2232","uni2233","uni2232.part","uni2233.part","uni2232.disp","uni2233.disp","uni2232.part.disp","uni2233.part.disp");
-foreach
-   figure=GlyphInfo("name");
-   AddATT("Substitution", "latn{dflt}", "ss05", -1, figure+".alt1");
-endloop
-
-Select("uni22660338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2268");
-Select("uni22670338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2269");
-Select("uni2A8B0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "lessneqqgtr");
-Select("uni2A8C0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "gtrneqqless");
-Select("uni22910338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubsetneq");
-Select("uni22920338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupsetneq");
-Select("sqsubseteqq0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubsetneqq");
-Select("sqsupseteqq0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupsetneqq");
-Select("uni2288");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni228A");
-Select("uni2289");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni228B");
-Select("uni2AC50338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ACB");
-Select("uni2AC60338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ACC");
-Select("uni227E0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "precnsim");
-Select("uni227F0338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "succnsim");
-Select("uni2AB70338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB9");
-Select("uni2AB80338");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2ABA");
-
-Select("uni2268");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22660338");
-Select("uni2269");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22670338");
-Select("lessneqqgtr");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8B0338");
-Select("gtrneqqless");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8C0338");
-Select("sqsubsetneq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22910338");
-Select("sqsupsetneq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni22920338");
-Select("sqsubsetneqq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsubseteqq0338");
-Select("sqsupsetneqq");AddATT("Substitution", "latn{dflt}", "ss05", -1, "sqsupseteqq0338");
-Select("uni228A");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2288");
-Select("uni228B");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2289");
-Select("uni2ACB");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AC50338");
-Select("uni2ACC");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AC60338");
-Select("precnsim");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni227E0338");
-Select("succnsim");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni227F0338");
-Select("uni2AB9");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB70338");
-Select("uni2ABA");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2AB80338");
-
-Select("uni2272");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2274");
-Select("uni2273");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2275");
-Select("uni2A85");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A89");
-Select("uni2A86");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni2A8A");
-Select("uni21DB");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni21DB0338");
-Select("uni21DA");AddATT("Substitution", "latn{dflt}", "ss05", -1, "uni21DA0338");
-
-SelectAll();
-DefaultATT("c2sc");
-Reencode("AdobeStandardEncoding");
-Save("MnSymbol"+size+".sfd");
-
-#Generate("MnSymbol"+size+".pfb");
-#Generate("MnSymbol"+size+".otf");
-size++;
-if (size==11) size++;endif
-endloop
+Save("MnSymbol-pre"+suffix+size+".sfd");
 

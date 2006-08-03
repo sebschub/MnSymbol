@@ -37,10 +37,11 @@
 /uni2136 /uni2137 /uni2138 /weierstrass /weierstrass.alt /uni2A3C /uni2A3D /uni231E 
 /uni231F /uni231C /uni231D /closedsucc /closedcurlywedge /closedprec /closedcurlyvee /uni2AA7 
 %C0
-/upslice /uni2AA6 /downslice /plus.part /equal.part /bumpup.part /bumpdown.part /.notdef  
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/upslice /uni2AA6 /downslice /lozenge /uni29EB /lozenge.alt1 /uni29EB.alt1 /lozenge.alt2 
+/blackrightpointingtriangle /blackuppointingtriangle /blackleftpointingtriangle /blackdownpointingtriangle 
+/blacksquare /uni2600 /uni2720 /.notdef
 %D0
-/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
+/.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef  
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 
 %E0
 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef 

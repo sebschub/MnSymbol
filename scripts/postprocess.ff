@@ -1,0 +1,55 @@
+#!/usr/local/bin/fontforge
+
+size=Strtol($argv[1]);
+suffix=$argv[2];
+names=["A", "B", "C", "D", "E", "F"];
+
+# Load encoding files and glpyh names from pfb
+fname=0;
+while (fname<=5)
+  LoadEncodingFile("../enc/MnSymbol"+names[fname]+".enc");
+  fname++;
+endloop
+
+Open("MnSymbol-pre"+suffix+size+".sfd");
+Save("MnSymbol"+suffix+size+".sfd");
+
+fname=0;
+while (fname<=5)
+  Open("../source/MnSymbol"+names[fname]+suffix+size+".pfb");
+  Reencode("MnSymbol"+names[fname]);
+  widths = Array(CharCnt());
+  ii=0;
+  SelectAll();
+  foreach
+    Select(ii);
+    widths[ii] = GlyphInfo("Width");
+    ii++;
+  endloop
+  Open("MnSymbol"+suffix+size+".sfd");
+  Reencode("MnSymbol"+names[fname]);
+  while(ii>0)
+    ii--;
+    Select(ii);
+    SetWidth(widths[ii]);
+  endloop
+  Save("MnSymbol"+suffix+size+".sfd");
+  fname++;
+endloop
+
+MergeFonts("MnSymbolS"+suffix+size+".sfd");
+
+SelectSingletons("grave");
+DetachAndRemoveGlyphs();
+Reencode("MnSymbolE");
+Select("arrow0","arrow7");
+DetachAndRemoveGlyphs();
+
+Reencode("AdobeStandardEncoding");
+Select("NameMe.255","NameMe.137");
+DetachAndRemoveGlyphs();
+Reencode("AdobeStandardEncoding");
+
+Save("MnSymbol"+suffix+size+".sfd");
+Generate("MnSymbol"+suffix+size+".pfb","",0x40000+0x200000);
+
