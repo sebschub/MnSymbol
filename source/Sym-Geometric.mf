@@ -1100,7 +1100,7 @@ beginsymbol(6u# + 2side_bearing#, 5/4asc_height#, 1/8asc_height#); "lightning";
 
   pickup rule_pen;
 
-  draw_arrowhead(z4, angle (z4l - z3l), 4/5arrow_spread);
+  draw arrowhead(z4, angle (z4l - z3l), 4/5arrow_spread);
 
   penlabels(1,2,2',3',3,4);
 endchar;
@@ -2027,7 +2027,7 @@ for negated = 0, 1:
 
       pickup rule_pen;
 
-      draw_arrowhead(head, arrow_dir, 14/10arrow_spread);
+      draw arrowhead(head, arrow_dir, 14/10arrow_spread);
 
       if negated = 1:
         stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 16/10arrow_spread)
@@ -2054,7 +2054,7 @@ for sign = -1, 1:
 
     draw z0 -- z1 -- z2;
 
-    draw_arrowhead(z0, 90 + sign * 90, arrow_spread);
+    draw arrowhead(z0, 90 + sign * 90, arrow_spread);
   endchar;
 endfor;
 
@@ -2073,7 +2073,7 @@ for sign = -1, 1:
 
     draw z0 -- z3{sign * right} .. {up}z5 .. {sign * left}z4 .. {down}z2 -- z1;
 
-    draw_arrowhead(z0, 90 + sign * 90, arrow_spread);
+    draw arrowhead(z0, 90 + sign * 90, arrow_spread);
   endchar;
 endfor;
 

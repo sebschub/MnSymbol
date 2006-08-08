@@ -93,6 +93,6 @@ beginsymbol(6u# + 2side_bearing#, asc_height#, 0); "vec";
   top y0 = top y1 = h - 5/4rule_thickness;
 
   draw z0 -- z1;
-  draw_arrowhead(z1, 0, 5/2rule_thickness);
+  draw arrowhead(z1, 0, 5/2rule_thickness);
 endchar;
 
