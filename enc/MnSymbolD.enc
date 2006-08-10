@@ -1,7 +1,7 @@
 /MnSymbolD [
 %00
 /equal /equivalence /similar /uni223D /approxequal /backapprox /uni224B /backtriplesim
-/uni2243 /backsimeq /uni2242 /backeqsim /congruent /uni224C /uni224A /backapproxeq
+/uni2243 /uni22CD /uni2242 /backeqsim /congruent /uni224C /uni224A /backapproxeq
 %10
 /uni224F /eqbump /uni224E /uni2250 /uni2A66 /uni2251 /uni2252 /uni2253
 /uni2323 /uni2322 /doublesmile /doublefrown /triplesmile /triplefrown /uni224D /frownsmile
@@ -24,7 +24,7 @@
 /uni2AB7 /uni2AB8 /uni22D6 /uni22D7 /leqdot /geqdot /uni2A7F /uni2A80
 /notequal /uni2262 /uni2241 /uni223D0338 /uni2249 /backapprox_uni0338 /uni224B0338 /backtriplesim_uni0338 /uni2244
 %80
-/backsimeq_uni0338 /uni22420338 /backeqsim_uni0338 /uni2247 /uni224C0338 /uni224A0338 /backapproxeq_uni0338 /uni224F0338
+/uni22CD0338 /uni22420338 /backeqsim_uni0338 /uni2247 /uni224C0338 /uni224A0338 /backapproxeq_uni0338 /uni224F0338
 /eqbump_uni0338 /uni224E0338 /uni22500338 /uni2A660338 /uni22510338 /uni22520338 /uni22530338 /uni23230338
 %90
 /uni23220338 /doublesmile_uni0338 /doublefrown_uni0338 /triplesmile_uni0338 /triplefrown_uni0338 /uni226D /frownsmile_uni0338 /smileeq_uni0338 
@@ -39,12 +39,12 @@
 /uni2279 /uni22DA0338 /uni22DB0338 /uni2A8B0338 /uni2A8C0338 /lesseqgtrslant_uni0338 /gtreqlessslant_uni0338 /uni226A0338
 /uni226B0338 /uni22D80338 /uni22D90338 /uni22EA /uni22EB /uni22EC /uni22ED /uni228F0338
 %D0
-/uni22900338 /uni22910338 /uni22920338 /sqsubseteqq_uni0338 /sqsupseteqq_uni0338 /Sqsubset_uni0338 /Sqsupset_uni0338 /notsubset 
+/uni22900338 /uni22E2 /uni22E3 /sqsubseteqq_uni0338 /sqsupseteqq_uni0338 /Sqsubset_uni0338 /Sqsupset_uni0338 /notsubset 
 /uni2285 /uni2288 /uni2289 /uni2AC50338 /uni2AC60338 /uni22D00338 /uni22D10338 /uni2280 
 %E0
-/uni2281 /uni2AAF0338 /uni2AB00338 /uni227C0338 /uni227D0338 /uni227E0338 /uni227F0338 /uni2AB70338
+/uni2281 /uni2AAF0338 /uni2AB00338 /uni22E0 /uni22E1 /uni227E0338 /uni227F0338 /uni2AB70338
 /uni2AB80338 /uni22D60338 /uni22D70338 /leqdot_uni0338 /geqdot_uni0338 /uni2A7F0338 /uni2A800338 /uni2268 
 %F0
-/uni2269 /lessneqqgtr /gtrneqqless /sqsubsetneq /sqsupsetneq /sqsubsetneqq /sqsupsetneqq /uni228A 
-/uni228B /uni2ACB /uni2ACC /precnsim /succnsim /uni2AB9 /uni2ABA
+/uni2269 /lessneqqgtr /gtrneqqless /uni22E4 /uni22E5 /sqsubsetneqq /sqsupsetneqq /uni228A 
+/uni228B /uni2ACB /uni2ACC /uni22E8 /uni22E9 /uni2AB9 /uni2ABA
 ] def

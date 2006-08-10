@@ -3,7 +3,7 @@
 /dotmath /hdotdot /ratio /udotdot /ddotdot /uni22EF /ellipsisvertical /uni22F0
 /uni22F1 /righttherefore /therefore /lefttherefore /because /diamonddots /proportion /fivedots 
 %10
-/minus /divides /divisionslash /uni2216 /plus /multiply /plusminus /minusplus 
+/minus /divides.alt /divisionslash /uni2216 /plus /multiply /plusminus /minusplus 
 /dotminus /dotmedvert /minusdot /medvertdot /divide /slashdiv /vertdiv /backslashdiv 
 %20
 /logicalnot /revlogicalnot /dtimes /uni22CA /utimes /uni22C9 /bowtie /uni29D6 
@@ -28,7 +28,7 @@
 /whitestar /blackstar /whitestar.alt1 /whitestar.alt2 /pentagram /largepentagram /uni22C6 /asteriskmath
 /hbipropto /neswbipropto /vbipropto /nwsebipropto /proportional /downpropto /rightpropto /uppropto 
 %90
-/hcrossing /neswcrossing /vcrossing /nwsecrossing /between /separated /bot /uni22A4.alt
+/hcrossing /neswcrossing /vcrossing /nwsecrossing /between /separated /bot /uni22BA
 /uni2240 /angle /uni2221 /uni2222 /minute /primereversed /product.small /uni2210.small
 %A0
 /checkmark /uni2607 /diamondsuitwhite /heartsuitwhite /spade /club /universal /existential 
