@@ -1,0 +1,95 @@
+; Adobe Latin Font Conversion Database
+;
+; Pattern	Description     Windows name id       Macintosh name id
+; --------  --------------- --------------------- -----------------
+; f=        Family          16 (pref. Family)      1 (Family)
+; s=        Subfamily       17 (pref. Subfamily)   2 (Subfamily)
+; c=        Windows comp.    1 (Family)            -
+; c=1,      Macintosh comp.  -                    18 (comp. Full)
+;
+; Style links specify the FontName of the corresponding font linked to the 
+; current font by the specified style. Style links are NOT used 
+; by AOC or makeotf.
+;
+; Pattern  Style Link
+; -------  ----------
+; b=       bold
+; i=       italic
+; t=       bold italic
+;
+; new OpenType and Pro font names
+;
+; Note: In Adobe Caslon Pro, Regular is style-linked with Semibold instead of Bold
+;
+
+[MnSymbol5]
+	f=MnSymbol
+	s=MnSymbol5
+	c=MnSymbol5
+
+[MnSymbol6]
+	f=MnSymbol
+	s=MnSymbol6
+	c=MnSymbol6
+
+[MnSymbol7]
+	f=MnSymbol
+	s=MnSymbol7
+	c=MnSymbol7
+
+[MnSymbol8]
+	f=MnSymbol
+	s=MnSymbol8
+	c=MnSymbol8
+
+[MnSymbol9]
+	f=MnSymbol
+	s=MnSymbol9
+	c=MnSymbol9
+
+[MnSymbol10]
+	f=MnSymbol
+        s=10
+        c=10
+        c=1,10
+
+[MnSymbol12]
+	f=MnSymbol
+	s=MnSymbol12
+	c=MnSymbol12
+
+[MnSymbol-Bold5]
+	f=MnSymbol
+	s=MnSymbol-Bold5
+	c=MnSymbol-Bold5
+
+[MnSymbol-Bold6]
+	f=MnSymbol
+	s=MnSymbol-Bold6
+	c=MnSymbol-Bold6
+
+[MnSymbol-Bold7]
+	f=MnSymbol
+	s=MnSymbol-Bold7
+	c=MnSymbol-Bold7
+
+[MnSymbol-Bold8]
+	f=MnSymbol
+	s=MnSymbol-Bold8
+	c=MnSymbol-Bold8
+
+[MnSymbol-Bold9]
+	f=MnSymbol
+	s=MnSymbol-Bold9
+	c=MnSymbol-Bold9
+
+[MnSymbol-Bold10]
+	f=MnSymbol
+	s=MnSymbol-Bold10
+	c=MnSymbol-Bold10
+
+[MnSymbol-Bold12]
+	f=MnSymbol
+	s=MnSymbol-Bold12
+	c=MnSymbol-Bold12
+
