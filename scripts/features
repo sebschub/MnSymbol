@@ -1,3 +1,14 @@
+table head {
+   FontRevision  1.001;
+} head;
+
+#feature size {
+#   parameters 100  # design size (decipoints)
+#                1  # subfamily identifier
+#               95  # range start (exclusive, decipoints)
+#              115; # range end (inclusive, decipoints)
+#} size;
+
 feature aalt {
      feature ss01;
      feature ss02;

@@ -14,24 +14,23 @@ endloop
 Open("MnSymbol-pre"+suffix+size+".sfd");
 Save("MnSymbol"+suffix+size+".sfd");
 
+widths=Array(256);
 fname=0;
 while (fname<=5)
   Open("../source/MnSymbol"+names[fname]+suffix+size+".pfb");
-  Reencode("MnSymbol"+names[fname]);
-  widths = Array(CharCnt());
   ii=0;
-  SelectAll();
-  foreach
+  while (ii<=255) 
     Select(ii);
     widths[ii] = GlyphInfo("Width");
     ii++;
   endloop
   Open("MnSymbol"+suffix+size+".sfd");
   Reencode("MnSymbol"+names[fname]);
-  while(ii>0)
-    ii--;
+  ii=0;
+  while(ii<=255)
     Select(ii);
     SetWidth(widths[ii]);
+    ii++;
   endloop
   Save("MnSymbol"+suffix+size+".sfd");
   fname++;
@@ -46,9 +45,15 @@ Select("arrow0","arrow7");
 DetachAndRemoveGlyphs();
 
 Reencode("AdobeStandardEncoding");
-Select("NameMe.255","NameMe.137");
+Select("NameMe.207","NameMe.255.2");
 DetachAndRemoveGlyphs();
 Reencode("AdobeStandardEncoding");
+
+SelectAll();
+RoundToInt();
+AddExtrema();
+Simplify(0,0.01);
+AutoHint();
 
 Save("MnSymbol"+suffix+size+".sfd");
 Generate("MnSymbol"+suffix+size+".pfb","",0x40000+0x200000);
