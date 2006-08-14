@@ -400,6 +400,11 @@ feature ss01 {
   substitute uni2A86 by uni2A8A ;
   substitute uni21DB by uni21DB0338 ;
   substitute uni21DA by uni21DA0338 ;
+  substitute parallel.short by notparallel.short ;
+  substitute uni2A95 by uni2A950338 ;
+  substitute uni2A96 by uni2A960338 ;
+  substitute uni22DE by uni22DE0338 ;
+  substitute uni22DF by uni22DF0338 ;
 } ss01 ;  
 
 feature ss02 {
@@ -569,4 +574,9 @@ feature ss05 {
   substitute uni22E9 by uni227F0338 ;
   substitute uni2AB9 by uni2AB70338 ;
   substitute uni2ABA by uni2AB80338 ;
+  substitute integral by integral.small ;
+  substitute product by product.small ;
+  substitute uni2224 by uni2224.short ;
+  substitute parallel by parallel.short ;
+  substitute notparallel by notparallel.short ;
 } ss05;
