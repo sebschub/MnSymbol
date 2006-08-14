@@ -711,7 +711,7 @@ endchar;
 def draw_root_top(expr scale, thick, vertical) =
   pickup pencircle scaled thick;
 
-  bot y0 = 0;
+  top y0 = h;
   x0 = w;
 
   bot y1 = -d;

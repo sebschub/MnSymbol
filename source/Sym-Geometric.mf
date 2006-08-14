@@ -1945,7 +1945,7 @@ beginoperator(med_op_size#, 1); "maltese";
 endchar;
 
 
-current_char := 235;
+current_char := 225;
 
 % Keep these consistent with the glyphs in Sym-Order.mf!
 
@@ -2008,6 +2008,63 @@ for negated = 0, 1:
       if negated = 1:
         stroke_through(centre, 9/3equal_spread + greater_spread);
       fi;
+    endchar;
+  endfor;
+
+  for sign = 1, -1:
+    beginorder(sign, order_width# + rule_thickness#,
+      greater_spread# + ifneg(1,3) * equal_spread# + rule_thickness#);
+      "slanted equal or less than";
+
+      pickup rule_pen;
+
+      z0 - z1 = greater_spread * dir 90;
+      z3 - z2 = equal_spread * dir 90;
+      z4 - z0 = equal_spread * dir 90;
+
+      1/2[z2, z3] = left_point;
+      1/2[z1, z4] = right_point;
+
+      draw z0 -- z2 -- z1;
+      draw z3 -- z4;
+
+      if negated = 1:
+        stroke_through(centre, 3equal_spread + greater_spread);
+      fi;
+    endchar;
+  endfor;
+
+  for sign = 1, -1:
+    beginorder(sign, order_width# + rule_thickness#,
+               ifneg(1,3) * equal_spread# + 2/3[equal_spread#, greater_spread#] + rule_thickness#);
+      "curly equal or curly less than";
+
+      pickup rule_pen;
+
+      t := 2/3[equal_spread, greater_spread];
+
+      z0 - z1 = equal_spread * dir 90;
+      z2 - z4 = 7/5equal_spread * dir 90;
+      z4 - z3 = t/2 * dir 90;
+      y1 = y3;
+      y4 = ypart centre + 1/2(t - equal_spread);
+      x0 = xpart left_point;
+      x2 = xpart right_point;
+
+      path p;
+
+      p = z0{z3 - z1} .. z2;
+
+      v := xpart (p intersectiontimes (z4 -- (z4 + h * dir (90 + sign * 20))));
+
+      draw prec(z1, z3, t);
+      draw subpath (0,v) of p;
+
+      if negated = 1:
+        stroke_through(centre, 3equal_spread + 2/3[equal_spread, greater_spread]);
+      fi;
+
+      labels(0,1,2,3,4);
     endchar;
   endfor;
 
@@ -2110,5 +2167,41 @@ beginarrow(0, 5/6, 7/4arrow_spread#);
   draw (z1   - 7/8arrow_spread * dir (arrow_dir + 90)) --
        (z1   + 7/8arrow_spread * dir (arrow_dir + 90));
 
+endchar;
+
+beginoperator(plus_size#, 1); "negated medium bar";
+  pickup rule_pen;
+
+  r := plus_size/2; % - 11/10rule_thickness;
+
+  draw (centre + r * dir 90) -- (centre + r * dir 270);
+
+  stroke_through_arrow(centre, 90, 2/3plus_size, 45);
+endchar;
+
+beginoperator(plus_size#, 1); "double bar";
+  pickup rule_pen;
+
+  r := plus_size/2; % - 11/10rule_thickness;
+
+  z1 - z0 = equal_spread * right;
+  1/2[z0,z1] = centre;
+
+  draw (z0 + r * up) -- (z0 + r * down);
+  draw (z1 + r * up) -- (z1 + r * down);
+endchar;
+
+beginoperator(plus_size#, 1); "negated double bar";
+  pickup rule_pen;
+
+  r := plus_size/2; % - 11/10rule_thickness;
+
+  z1 - z0 = equal_spread * right;
+  1/2[z0,z1] = centre;
+
+  draw (z0 + r * up) -- (z0 + r * down);
+  draw (z1 + r * up) -- (z1 + r * down);
+
+  stroke_through_arrow(centre, 90, plus_size, 40);
 endchar;
 

@@ -907,6 +907,9 @@
 % \showsymbol\maltese
 % \showsymbol\leftthreetimes
 % \showsymbol\rightthreetimes
+% \showsymbol\shortparallel
+% \showsymbol\nshortmid
+% \showsymbol\nshortparallel
 % \end{multicols}
 %
 % \subsection*{Relations}
@@ -1058,6 +1061,10 @@
 % \showsymbol\gtrsim
 % \showsymbol\lessapprox
 % \showsymbol\gtrapprox
+% \showsymbol\eqslantless
+% \showsymbol\eqslantgtr
+% \showsymbol\curlyeqprec
+% \showsymbol\curlyeqsucc
 % \showsymbol\nequal,
 %   \cs{\neq},
 %   \cs{\ne}
@@ -1216,6 +1223,10 @@
 % \showsymbol\gnsim
 % \showsymbol\lnapprox
 % \showsymbol\gnapprox
+% \showsymbol\neqslantless
+% \showsymbol\neqslantgtr
+% \showsymbol\ncurlyeqprec
+% \showsymbol\ncurlyeqsucc
 % \end{multicols}
 %
 % \subsection*{Operators}
@@ -1385,7 +1396,6 @@
 % \showover\wideparen
 % \showaccent\vec
 % \showsymbol\coloneq
-% \showsymbol\shortparallel
 % \showsymbol\dagger
 % \showsymbol\ddagger
 % \showsymbol\mathparagraph
@@ -1415,12 +1425,6 @@
 % The following symbols from Computer Modern or the AMS fonts are missing in MnSymbol.
 % \begin{multicols}{3}
 % \parindent=0pt
-% |\eqslantless|\par
-% |\eqslantgtr|\par
-% |\curlyeqprec|\par
-% |\curlyeqsucc|\par
-% |\nshortmid|\par
-% |\nshortparallel|\par
 % |\mho|\par
 % |\hbar|\par
 % |\Finv|\par
@@ -1491,7 +1495,6 @@
   \let\gneq\ngeq
   \let\precneqq\npreceq
   \let\succneqq\nsucceq
-  \DeclareRobustCommand\shortparallel{\mathrel{\shortmid\mkern-8mu\shortmid}}
   \DeclareRobustCommand\veebar{\mathbin{\underline{\vee}}}
   \DeclareRobustCommand\barwedge{\mathbin{\overline{\wedge}}}
   \DeclareRobustCommand\doublebarwedge{\mathbin{\overline{\overline{\wedge}}}}
@@ -1502,18 +1505,7 @@
 % MnSymbol lacks some symbols that are present in the Computer Modern or the AMS fonts.
 % In order to warn the user we undefine the corresponding commands.
 %
-% (a) Missing symbols.
-%
-%    \begin{macrocode}
-  \let\eqslantless\undefined
-  \let\eqslantgtr\undefined
-  \let\curlyeqprec\undefined
-  \let\curlyeqsucc\undefined
-  \let\nshortmid\undefined
-  \let\nshortparallel\undefined
-%    \end{macrocode}
-%
-% (b) Missing letters.
+% (a) Missing letters.
 %
 %    \begin{macrocode}
   \let\hbar\undefined
@@ -1531,7 +1523,7 @@
   \let\circledS\undefined
 %    \end{macrocode}
 %
-% (c) Unneeded partial symbols.
+% (b) Unneeded partial symbols.
 %
 %    \begin{macrocode}
   \let\mapstochar\undefined
@@ -2574,17 +2566,25 @@
 \Decl@Mn@Char\filledlargestar        {MnSyC}{\mathord}
   \Decl@Mn@Alias\bigstar             {MnSyC}{\mathord}
 \Decl@Mn@Char\maltese                {MnSyC}{\mathord}
-\Set@Mn@Sym{236}
+\Set@Mn@Sym{226}
 \Decl@Mn@Char\lesssim                {MnSyC}{\mathrel}
 \Decl@Mn@Char\gtrsim                 {MnSyC}{\mathrel}
 \Decl@Mn@Char\lessapprox             {MnSyC}{\mathrel}
 \Decl@Mn@Char\gtrapprox              {MnSyC}{\mathrel}
+\Decl@Mn@Char\eqslantless            {MnSyC}{\mathrel}
+\Decl@Mn@Char\eqslantgtr             {MnSyC}{\mathrel}
+\Decl@Mn@Char\curlyeqprec            {MnSyC}{\mathrel}
+\Decl@Mn@Char\curlyeqsucc            {MnSyC}{\mathrel}
 \Decl@Mn@Char\Rrightarrow            {MnSyC}{\mathrel}
 \Decl@Mn@Char\Lleftarrow             {MnSyC}{\mathrel}
 \Decl@Mn@Char\lnsim                  {MnSyC}{\mathrel}
 \Decl@Mn@Char\gnsim                  {MnSyC}{\mathrel}
 \Decl@Mn@Char\lnapprox               {MnSyC}{\mathrel}
 \Decl@Mn@Char\gnapprox               {MnSyC}{\mathrel}
+\Decl@Mn@Char\neqslantless           {MnSyC}{\mathrel}
+\Decl@Mn@Char\neqslantgtr            {MnSyC}{\mathrel}
+\Decl@Mn@Char\ncurlyeqprec           {MnSyC}{\mathrel}
+\Decl@Mn@Char\ncurlyeqsucc           {MnSyC}{\mathrel}
 \Decl@Mn@Char\nRrightarrow           {MnSyC}{\mathrel}
 \Decl@Mn@Char\nLleftarrow            {MnSyC}{\mathrel}
 \Decl@Mn@Char\Rsh                    {MnSyC}{\mathrel}
@@ -2594,6 +2594,9 @@
 \Decl@Mn@Char\leftthreetimes         {MnSyC}{\mathbin}
 \Decl@Mn@Char\rightthreetimes        {MnSyC}{\mathbin}
 \Decl@Mn@Char\Vvdash                 {MnSyC}{\mathrel}
+\Decl@Mn@Char\shortparallel          {MnSyC}{\mathrel}
+\Decl@Mn@Char\nshortmid              {MnSyC}{\mathrel}
+\Decl@Mn@Char\nshortparallel         {MnSyC}{\mathrel}
 %    \end{macrocode}
 %
 % MnSymbolD\?: Relations.
