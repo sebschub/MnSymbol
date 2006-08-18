@@ -1,13 +1,37 @@
-table head {
-   FontRevision  1.001;
-} head;
-
 #feature size {
 #   parameters 100  # design size (decipoints)
 #                1  # subfamily identifier
 #               95  # range start (exclusive, decipoints)
 #              115; # range end (inclusive, decipoints)
+#   sizemenuname "MnSymbol";
+#   sizemenuname 1 "MnSymbol";
 #} size;
+
+table head {
+   FontRevision  1.001;
+} head;
+
+table OS/2 {
+     FSType        0;
+     Panose        5 5 0 0 0 0 0 0 0 0;
+     UnicodeRange  0 1 6 27 30 31 33 34 35 41 42 43;
+     CodePageRange 1252;
+} OS/2;
+
+table name {
+  nameid 7 "public domain";
+  nameid 7 1 "public domain";
+  nameid 9 "Achim Blumensath";
+  nameid 9 1 "Achim Blumensath";
+  nameid 10 "Symbol font for Adobe MinionPro";
+  nameid 10 1 "Symbol font for Adobe MinionPro";
+  nameid 11 "http://developer.berlios.de/projects/minionpro/";
+  nameid 11 1 "http://developer.berlios.de/projects/minionpro/";
+  nameid 12 "http://www.mathematik.tu-darmstadt.de/~blumensath";
+  nameid 12 1 "http://www.mathematik.tu-darmstadt.de/~blumensath";
+  nameid 13 "public domain";
+  nameid 13 1 "public domain";
+} name;
 
 feature aalt {
      feature ss01;

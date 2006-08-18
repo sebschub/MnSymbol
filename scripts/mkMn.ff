@@ -6,9 +6,9 @@ names=["A", "B", "C", "D", "E", "F"];
 
 Open("../source/MnSymbol"+names[0]+suffix+size+".pfb");
 
-SetFontNames("MnSymbol"+size,"MnSymbol","MnSymbol"+size,"Regular","Design by Achim Blumensath, Conversion to pfb by Michael Zedler","1.001");
+SetFontNames("MnSymbol"+size,"MnSymbol","MnSymbol"+size,"Regular","Design by Achim Blumensath, Conversion to pfb by Michael Zedler. This font is in the public domain","1.001");
 if (suffix=="-Bold") 
-  SetFontNames("MnSymbol-Bold"+size,"MnSymbol","MnSymbol-Bold"+size,"Bold","Design by Achim Blumensath, Conversion to pfb by Michael Zedler","1.001");
+  SetFontNames("MnSymbol-Bold"+size,"MnSymbol","MnSymbol-Bold"+size,"Bold","Design by Achim Blumensath, Conversion to pfb by Michael Zedler. This font is in the public domain","1.001");
   ChangePrivateEntry("ForceBold","true");
 endif
 
@@ -133,7 +133,8 @@ SelectSingletons("similar","uni223D");
 Simplify();RoundToInt();AddExtrema();Simplify();
 Select(0,255);
 SelectFewer(0,119);
-SelectMoreSingletons("uni2256","uni2257","element","suchthat");
+SelectMoreSingletons("uni2256","element","suchthat");
+if (suffix=="-Bold") SelectMoreSingletons("uni2257");endif
 UnlinkReference();
 RemoveOverlap();
 SelectSingletons("notequal","uni2241","uni2249","dotmath");
@@ -148,7 +149,6 @@ if (suffix!="-Bold")
 else
   if (size==5) Select(0,255);UnlinkReference();Select(0,255);RemoveOverlap();ReplaceWithReference();endif
 endif
-
 Print("F");
 Reencode("MnSymbolF");
 Select("integral","uni222C.disp");
@@ -163,7 +163,6 @@ ReplaceWithReference();
 Select(0,255);
 AddExtrema();
 Simplify();
-
 Print("C");
 Reencode("MnSymbolC");
 if (suffix!="-Bold") 
@@ -179,7 +178,9 @@ SelectMore("arrow0","arrow7");
 SelectMoreSingletons("similar","uni223D");  
 ReplaceWithReference();
 Select(0,255);
+SelectFewer("uni2272","uni2A86");
 UnlinkReference();
+Select(0,255);
 RemoveOverlap();
 AddExtrema();
 Simplify();
