@@ -132,7 +132,7 @@ beginoperator(plus_size#, 1); "plus minus";
   r := plus_size/2; % - 11/10rule_thickness;
 
   draw (centre + r * dir  0) -- (centre + r * dir 180);
-  draw (centre + r * dir 90) -- (centre + r * dir 270);
+  draw (centre + r * dir 90) -- (centre + (r - 1/4rule_thickness) * dir 270);
 
   draw (centre + r * (dir 0 - dir 90)) -- (centre + r * (dir 180 - dir 90));
 endchar;
@@ -142,8 +142,8 @@ beginoperator(plus_size#, 1); "minus plus";
 
   r := plus_size/2; % - 11/10rule_thickness;
 
-  draw (centre + r * dir  0) -- (centre + r * dir 180);
-  draw (centre + r * dir 90) -- (centre + r * dir 270);
+  draw (centre + r * dir  0)                       -- (centre + r * dir 180);
+  draw (centre + (r - 1/4rule_thickness) * dir 90) -- (centre + r * dir 270);
 
   draw (centre + r * (dir 0 + dir 90)) -- (centre + r * (dir 180 + dir 90));
 endchar;
