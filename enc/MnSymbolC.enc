@@ -37,9 +37,9 @@
   /uni231F /uni231C /uni231D /closedsucc /closedcurlywedge /closedprec /closedcurlyvee /uni2AA7
 %C0
   /upslice /uni2AA6 /downslice /lozenge /uni29EB /lozenge.alt1 /uni29EB.alt1 /lozenge.alt2
-  /blackrightpointingtriangle /blackuppointingtriangle /blackleftpointingtriangle /blackdownpointingtriangle /uni220E /uni2600 /uni2720 /.notdef
+  /blackrightpointingtriangle /blackuppointingtriangle /blackleftpointingtriangle /blackdownpointingtriangle /uni220E /uni2600 /uni2721 /uni2721.alt 
 %D0
-  /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+  /uni2720 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
   /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
 %E0
   /.notdef /.notdef /uni2272 /uni2273 /uni2A85 /uni2A86 /uni2A95 /uni2A96 
