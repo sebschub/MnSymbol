@@ -1407,6 +1407,8 @@
 % \showsymbol\yen
 % \showsymbol\Re
 % \showsymbol\Im
+% \showsymbol\circledR
+% \showsymbol\circledS
 % \end{multicols}
 %
 % \paragraph{AMS symbols.}
@@ -1437,8 +1439,6 @@
 % |\Bbbk|\par
 % |\hslash|\par
 % |\backepsilon|\par
-% |\circledR|\par
-% |\circledS|\par
 % |\mapstochar|\par
 % |\lhook|\par
 % |\rhook|\par
@@ -1487,6 +1487,10 @@
   \DeclareRobustCommand{\mathdollar}{\Mn@Text@With@MathVersion{\textdollar}}
   \DeclareRobustCommand{\mathsterling}{\Mn@Text@With@MathVersion{\textsterling}}
   \DeclareRobustCommand{\yen}{\Mn@Text@With@MathVersion{\textyen}}
+  \DeclareRobustCommand{\circledR}{\Mn@Text@With@MathVersion{\textcircled{%
+                                     \check@mathfonts\fontsize\sf@size\z@\math@fontsfalse\selectfont R}}}
+  \DeclareRobustCommand{\circledS}{\Mn@Text@With@MathVersion{\textcircled{%
+                                     \check@mathfonts\fontsize\sf@size\z@\math@fontsfalse\selectfont S}}}
   \DeclareRobustCommand{\Re}{\mathfrak{R}}
   \DeclareRobustCommand{\Im}{\mathfrak{I}}
   \DeclareRobustCommand{\dotplus}{\dot{+}}
@@ -1521,8 +1525,6 @@
   \let\Game\undefined
   \let\Bbbk\undefined
   \let\hslash\undefined
-  \let\circledR\undefined
-  \let\circledS\undefined
 %    \end{macrocode}
 %
 % (b) Unneeded partial symbols.
