@@ -294,14 +294,16 @@
 % \showsymbol\curvearrowsenw
 % \showsymbol\leftrightline,
 %   \cs{\relbar}
-% \showsymbol\updownline
+% \showsymbol\updownline,
+%   \cs{\divides}
 % \showsymbol\neswline,
 %   \cs{\diagup}
 % \showsymbol\nwseline,
 %   \cs{\diagdown}
 % \showsymbol\Leftrightline,
 %   \cs{\Relbar}
-% \showsymbol\Updownline
+% \showsymbol\Updownline,
+%   \cs{\parallel}
 % \showsymbol\Neswline
 % \showsymbol\Nwseline
 % \showsymbol\rightvdash,
@@ -586,6 +588,7 @@
 % \showsymbol\ncurvearrowsenw
 % \showsymbol\nleftrightline
 % \showsymbol\nupdownline,
+%   \cs{\ndivides}
 %   \cs{\nmid}
 % \showsymbol\nneswline
 % \showsymbol\nnwseline
@@ -1376,7 +1379,6 @@
 % \showwidesymbol\bracemd
 % \showwidesymbol\bracemu
 % \showwidesymbol\bracemid
-% \showwidesymbol\divides
 % \showover\overbrace
 % \showover\underbrace
 % \showover\overgroup
@@ -1504,7 +1506,7 @@
   \DeclareRobustCommand\veebar{\mathbin{\underline{\vee}}}
   \DeclareRobustCommand\barwedge{\mathbin{\overline{\wedge}}}
   \DeclareRobustCommand\doublebarwedge{\mathbin{\overline{\overline{\wedge}}}}
-  \DeclareRobustCommand\centerdot{\mathbin{\Mn@Text@With@MathVersion{.}}}
+  \DeclareRobustCommand\centerdot{\mathbin{\rule{0.15em}{0.15em}}}
   \DeclareRobustCommand\divideontimes{\mathbin{\ooalign{$\div$\crcr$\times$}}}
 %    \end{macrocode}
 %
@@ -1963,6 +1965,7 @@
 \Decl@Mn@Char\leftrightline          {MnSyA}{\mathrel}
   \Decl@Mn@Alias\relbar              {MnSyA}{\mathrel}
 \Decl@Mn@Char\updownline             {MnSyA}{\mathrel}
+  \Decl@Mn@Alias\divides             {MnSyA}{\mathrel}
 \Decl@Mn@Char\neswline               {MnSyA}{\mathrel}
   \Decl@Mn@Alias\diagup              {MnSyA}{\mathrel}
 \Decl@Mn@Char\nwseline               {MnSyA}{\mathrel}
@@ -1970,6 +1973,7 @@
 \Decl@Mn@Char\Leftrightline          {MnSyA}{\mathrel}
   \Decl@Mn@Alias\Relbar              {MnSyA}{\mathrel}
 \Decl@Mn@Char\Updownline             {MnSyA}{\mathrel}
+  \Decl@Mn@Alias\parallel            {MnSyA}{\mathrel}
 \Decl@Mn@Char\Neswline               {MnSyA}{\mathrel}
 \Decl@Mn@Char\Nwseline               {MnSyA}{\mathrel}
 \Decl@Mn@Char\rightvdash             {MnSyA}{\mathrel}
@@ -2251,6 +2255,7 @@
 \Decl@Mn@Char\ncurvearrowsenw        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftrightline         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupdownline            {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndivides            {MnSyB}{\mathrel}
   \Decl@Mn@Alias\nmid                {MnSyB}{\mathrel}
 \Decl@Mn@Char\nneswline              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwseline              {MnSyB}{\mathrel}
@@ -3144,7 +3149,6 @@
 \Decl@Mn@Delim{\Vert}     {\mathord}{largesymbols}{'131}
   \let\|\Vert
 \Decl@Mn@Delim{\mVert}    {\mathrel}{largesymbols}{'131}
-  \let\parallel\mVert
 \Decl@Mn@Open {\lVert}              {largesymbols}{'131}
 \Decl@Mn@Close{\rVert}              {largesymbols}{'131}
 \Decl@Mn@Delim{\arrowvert}{\mathord}{largesymbols}{'122}
@@ -3180,7 +3184,6 @@
 % Support for expandable braces.
 %
 %    \begin{macrocode}
-\DeclareMathSymbol{\divides}      {\mathbin}{largesymbols}{'123}
 \DeclareMathSymbol{\downbrace}    {\mathord}{largesymbols}{'251}
 \DeclareMathSymbol{\downbraceg}   {\mathord}{largesymbols}{'252}
 \DeclareMathSymbol{\downbracegg}  {\mathord}{largesymbols}{'253}

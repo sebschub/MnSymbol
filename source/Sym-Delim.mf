@@ -764,13 +764,17 @@ beginsymbol((12 + 10) * u# + side_bearing#,
             delim_height# - sqrt (6/2) * rule_thickness#);
   "root -- top";
 
-  draw_root_top(6, sqrt (6/2) * rule_thickness, true);
+  thick := vround (sqrt (6/2) * rule_thickness# * hppp);
+
+  draw_root_top(6, thick, true);
 endchar;
 
 beginsymbol((12 + 10) * u# + side_bearing#, 0, 3 * delim_height#);
   "root -- bottom";
 
-  pickup pencircle scaled (sqrt (6/2) * rule_thickness);
+  thick := vround (sqrt (6/2) * rule_thickness# * hppp);
+
+  pickup pencircle scaled thick;
 
   x0 = x1 = 6/9w;
   bot y0 = d;
@@ -778,13 +782,15 @@ beginsymbol((12 + 10) * u# + side_bearing#, 0, 3 * delim_height#);
 
   draw 1/2[z0, z1] -- z1;
 
-  draw_root_bot(6, sqrt (6/2) * rule_thickness, true);
+  draw_root_bot(6, thick, true);
 endchar;
 
 beginsymbol((12 + 10) * u# + side_bearing#, vcentre(delim_height#));
   "root -- module";
 
-  pickup pencircle scaled (sqrt (6/2) * rule_thickness);
+  thick := vround (sqrt (6/2) * rule_thickness# * hppp);
+
+  pickup pencircle scaled thick;
 
   x0 = x1 = 6/9w;
   y0 = h;

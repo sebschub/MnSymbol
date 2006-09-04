@@ -251,79 +251,34 @@ for scale = 1, 1.4:
 endfor;
 charlist current_char - 1: current_char;
 
-for scale = 1, 1.4:
-  beginsquarebigop(scale, scale); "big circle minus";
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+for alpha = 0, 90, 45, 135:
+  for scale = 1, 1.4:
+    beginsquarebigop(scale, scale); "big circle minus";
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
-    r := op_height/2 - 11/10rule_thickness;
+      r := op_height/2 - 11/10 * (4/3rule_thickness * sqrt scale);
 
-    draw circle(centre, op_height/2);
-    draw (centre + r * left) -- (centre + r * right);
-  endchar;
+      draw circle(centre, op_height/2);
+      draw (centre - r * dir alpha) -- (centre + r * dir alpha);
+    endchar;
+  endfor;
+  charlist current_char - 1: current_char;
 endfor;
-charlist current_char - 1: current_char;
 
-for scale = 1, 1.4:
-  beginsquarebigop(scale, scale); "big circle bar";
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
+for alpha = 0, 45:
+  for scale = 1, 1.4:
+    beginsquarebigop(scale, scale); "big circle plus";
+      pickup pencircle scaled (4/3rule_thickness * sqrt scale);
 
-    r := op_height/2 - 11/10rule_thickness;
+      r := op_height/2 - 11/10 * (4/3rule_thickness * sqrt scale);
 
-    draw circle(centre, op_height/2);
-    draw (centre + r * up) -- (centre + r * down);
-  endchar;
+      draw circle(centre, op_height/2);
+      draw (centre - r * dir alpha)          -- (centre + r * dir alpha);
+      draw (centre - r * dir (alpha + 90))   -- (centre + r * dir (alpha + 90));
+    endchar;
+  endfor;
+  charlist current_char - 1: current_char;
 endfor;
-charlist current_char - 1: current_char;
-
-for scale = 1, 1.4:
-  beginsquarebigop(scale, scale); "big circle slash";
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
-
-    r := op_height/2 - 11/10rule_thickness;
-
-    draw circle(centre, op_height/2);
-    draw (centre + r * dir  45) -- (centre + r * dir 225);
-  endchar;
-endfor;
-charlist current_char - 1: current_char;
-
-for scale = 1, 1.4:
-  beginsquarebigop(scale, scale); "big circle backslash";
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
-
-    r := op_height/2 - 11/10rule_thickness;
-
-    draw circle(centre, op_height/2);
-    draw (centre + r * dir 135) -- (centre + r * dir 315);
-  endchar;
-endfor;
-charlist current_char - 1: current_char;
-
-for scale = 1, 1.4:
-  beginsquarebigop(scale, scale); "big circle plus";
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
-
-    r := op_height/2 - 11/10rule_thickness;
-
-    draw circle(centre, op_height/2);
-    draw (centre + r * left) -- (centre + r * right);
-    draw (centre + r * up)   -- (centre + r * down);
-  endchar;
-endfor;
-charlist current_char - 1: current_char;
-
-for scale = 1, 1.4:
-  beginsquarebigop(scale, scale); "big circle times";
-    pickup pencircle scaled (4/3rule_thickness * sqrt scale);
-
-    r := op_height/2 - 11/10rule_thickness;
-
-    draw circle(centre, op_height/2);
-    draw (centre + r * dir  45) -- (centre + r * dir 225);
-    draw (centre + r * dir 135) -- (centre + r * dir 315);
-  endchar;
-endfor;
-charlist current_char - 1: current_char;
 
 for scale = 1, 1.4:
   beginsquarebigop(scale, scale); "big circle dot";
