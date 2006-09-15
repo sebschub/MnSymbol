@@ -3,6 +3,18 @@ MinionPro.
 
 All files in this archive are in the public domain.
 
+NOTE: This version includes one bugfix that causes incompatibilities with
+previous versions. The symbols
+
+  \...harpoonup and \...harpoondown
+
+are now called
+
+  \...harpoonccw and \...harpooncw
+
+(This was needed for compatibility with amsfonts.sty.)
+
+
 To install the fonts:
 
 (1) Run
