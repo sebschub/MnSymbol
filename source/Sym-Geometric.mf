@@ -2085,7 +2085,7 @@ for negated = 0, 1:
   endfor;
 
   for alpha = 0, 180:
-    beginarrow(alpha, 6/5, ifneg(16/10, 14/10) * arrow_spread#); "triple arrow (" & decimal alpha & ")";
+    beginarrow(alpha, 6/5, ifneg(14/10, 21/10) * arrow_spread#); "triple arrow (" & decimal alpha & ")";
 
       z1 - z0 = z2 - z1 = z4 - z3 = z5 - z4 = 2/3equal_spread * dir (arrow_dir + 90);
 
@@ -2103,7 +2103,7 @@ for negated = 0, 1:
       draw arrowhead(head, arrow_dir, 14/10arrow_spread);
 
       if negated = 1:
-        stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 16/10arrow_spread)
+        stroke_through_arrow(1/2[foot, head - arrow_spread * dir arrow_dir], alpha, 21/10arrow_spread)
                             (70, 70, 110, 110, 70, 70, 110, 110);
       fi
     endchar;

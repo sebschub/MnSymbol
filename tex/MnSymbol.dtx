@@ -382,9 +382,11 @@
 %
 % \begin{multicols}{2}
 % \raggedright
-% \showsymbol\nrightarrow
+% \showsymbol\nrightarrow,
+%   \cs{\nto}
 % \showsymbol\nuparrow
-% \showsymbol\nleftarrow
+% \showsymbol\nleftarrow,
+%   \cs{\ngets}
 % \showsymbol\ndownarrow
 % \showsymbol\nnearrow
 % \showsymbol\nnwarrow
@@ -422,7 +424,8 @@
 % \showsymbol\nnwarrowtail
 % \showsymbol\nswarrowtail
 % \showsymbol\nsearrowtail
-% \showsymbol\nrightmapsto
+% \showsymbol\nrightmapsto,
+%   \cs{\nmapsto}
 % \showsymbol\nupmapsto
 % \showsymbol\nleftmapsto
 % \showsymbol\ndownmapsto
@@ -430,7 +433,8 @@
 % \showsymbol\nnwmapsto
 % \showsymbol\nswmapsto
 % \showsymbol\nsemapsto
-% \showsymbol\nlhookrightarrow
+% \showsymbol\nlhookrightarrow,
+%   \cs{\nhookrightarrow}
 % \showsymbol\nlhookuparrow
 % \showsymbol\nlhookleftarrow
 % \showsymbol\nlhookdownarrow
@@ -440,24 +444,34 @@
 % \showsymbol\nlhooksearrow
 % \showsymbol\nrhookrightarrow
 % \showsymbol\nrhookuparrow
-% \showsymbol\nrhookleftarrow
+% \showsymbol\nrhookleftarrow,
+%   \cs{\nhookleftarrow}
 % \showsymbol\nrhookdownarrow
 % \showsymbol\nrhooknearrow
 % \showsymbol\nrhooknwarrow
 % \showsymbol\nrhookswarrow
 % \showsymbol\nrhooksearrow
-% \showsymbol\nrightharpoonccw
-% \showsymbol\nupharpoonccw
-% \showsymbol\nleftharpoonccw
-% \showsymbol\ndownharpoonccw
+% \showsymbol\nrightharpoonccw,
+%   \cs{\nrightharpoonup}
+% \showsymbol\nupharpoonccw,
+%   \cs{\nupharpoonleft}
+% \showsymbol\nleftharpoonccw,
+%   \cs{\nleftharpoondown}
+% \showsymbol\ndownharpoonccw,
+%   \cs{\ndownharpoonright}
 % \showsymbol\nneharpoonccw
 % \showsymbol\nnwharpoonccw
 % \showsymbol\nswharpoonccw
 % \showsymbol\nseharpoonccw
-% \showsymbol\nrightharpooncw
-% \showsymbol\nupharpooncw
-% \showsymbol\nleftharpooncw
-% \showsymbol\ndownharpooncw
+% \showsymbol\nrightharpooncw,
+%   \cs{\nrightharpoondown}
+% \showsymbol\nupharpooncw,
+%   \cs{\nupharpoonright},
+%   \cs{\nrestriction}
+% \showsymbol\nleftharpooncw,
+%   \cs{\nleftharpoonup}
+% \showsymbol\ndownharpooncw,
+%   \cs{\ndownharpoonleft}
 % \showsymbol\nneharpooncw
 % \showsymbol\nnwharpooncw
 % \showsymbol\nswharpooncw
@@ -478,15 +492,19 @@
 % \showsymbol\ndownupharpoons
 % \showsymbol\nswneharpoons
 % \showsymbol\nnwseharpoons
-% \showsymbol\ndashedrightarrow
+% \showsymbol\ndashedrightarrow,
+%   \cs{\ndashrightarrow},
+%   \cs{\ndasharrow}
 % \showsymbol\ndasheduparrow
-% \showsymbol\ndashedleftarrow
+% \showsymbol\ndashedleftarrow,
+%   \cs{\ndashleftarrow}
 % \showsymbol\ndasheddownarrow
 % \showsymbol\ndashednearrow
 % \showsymbol\ndashednwarrow
 % \showsymbol\ndashedswarrow
 % \showsymbol\ndashedsearrow
-% \showsymbol\nrightspoon
+% \showsymbol\nrightspoon,
+%   \cs{\nmultimap}
 % \showsymbol\nupspoon
 % \showsymbol\nleftspoon
 % \showsymbol\ndownspoon
@@ -519,7 +537,8 @@
 % \showsymbol\nswfree
 % \showsymbol\nsefree
 % \showsymbol\nrightpitchfork
-% \showsymbol\nuppitchfork
+% \showsymbol\nuppitchfork,
+%   \cs{\npitchfork}
 % \showsymbol\nleftpitchfork
 % \showsymbol\ndownpitchfork
 % \showsymbol\nnepitchfork
@@ -542,7 +561,9 @@
 % \showsymbol\ndownuparrows
 % \showsymbol\nswnearrows
 % \showsymbol\nsenwarrows
-% \showsymbol\nrightlsquigarrow
+% \showsymbol\nrightlsquigarrow,
+%   \cs{\nleadsto},
+%   \cs{\nrightsquigarrow}
 % \showsymbol\nuplsquigarrow
 % \showsymbol\nleftlsquigarrow
 % \showsymbol\ndownlsquigarrow
@@ -558,7 +579,8 @@
 % \showsymbol\nnwrsquigarrow
 % \showsymbol\nswrsquigarrow
 % \showsymbol\nsersquigarrow
-% \showsymbol\nsquigarrowleftright
+% \showsymbol\nsquigarrowleftright,
+%   \cs{\nleftrightsquigarrow}
 % \showsymbol\nsquigarrowupdown
 % \showsymbol\nsquigarrowrightleft
 % \showsymbol\nsquigarrowdownup
@@ -566,7 +588,8 @@
 % \showsymbol\nsquigarrownwse
 % \showsymbol\nsquigarrowswne
 % \showsymbol\nsquigarrowsenw
-% \showsymbol\nlcurvearrowright
+% \showsymbol\nlcurvearrowright,
+%   \cs{\ncurvearrowright}
 % \showsymbol\nlcurvearrowup
 % \showsymbol\nlcurvearrowleft
 % \showsymbol\nlcurvearrowdown
@@ -576,7 +599,8 @@
 % \showsymbol\nlcurvearrowse
 % \showsymbol\nrcurvearrowright
 % \showsymbol\nrcurvearrowup
-% \showsymbol\nrcurvearrowleft
+% \showsymbol\nrcurvearrowleft,
+%   \cs{\ncurvearrowleft}
 % \showsymbol\nrcurvearrowdown
 % \showsymbol\nrcurvearrowne
 % \showsymbol\nrcurvearrownw
@@ -590,21 +614,27 @@
 % \showsymbol\ncurvearrownwse
 % \showsymbol\ncurvearrowswne
 % \showsymbol\ncurvearrowsenw
-% \showsymbol\nleftrightline
+% \showsymbol\nleftrightline,
+%   \cs{\nrelbar}
 % \showsymbol\nupdownline,
-%   \cs{\ndivides}
+%   \cs{\ndivides},
 %   \cs{\nmid}
-% \showsymbol\nneswline
-% \showsymbol\nnwseline
-% \showsymbol\nLeftrightline
+% \showsymbol\nneswline,
+%   \cs{\ndiagup}
+% \showsymbol\nnwseline,
+%   \cs{\ndiagdown}
+% \showsymbol\nLeftrightline,
+%   \cs{\nRelbar}
 % \showsymbol\nUpdownline,
 %   \cs{\nparallel}
 % \showsymbol\nNeswline
 % \showsymbol\nNwseline
 % \showsymbol\nrightvdash,
 %   \cs{\nvdash}
-% \showsymbol\nupvdash
-% \showsymbol\nleftvdash
+% \showsymbol\nupvdash,
+%   \cs{\nperp}
+% \showsymbol\nleftvdash,
+%   \cs{\ndashv}
 % \showsymbol\ndownvdash
 % \showsymbol\nnevdash
 % \showsymbol\nnwvdash
@@ -639,11 +669,13 @@
 % \showsymbol\nswModels
 % \showsymbol\nseModels
 % \showsymbol\nrcirclearrowright
-% \showsymbol\nrcirclearrowup
+% \showsymbol\nrcirclearrowup,
+%   \cs{\ncirclearrowleft}
 % \showsymbol\nrcirclearrowleft
 % \showsymbol\nrcirclearrowdown
 % \showsymbol\nlcirclearrowright
-% \showsymbol\nlcirclearrowup
+% \showsymbol\nlcirclearrowup,
+%   \cs{\ncirclearrowright}
 % \showsymbol\nlcirclearrowleft
 % \showsymbol\nlcirclearrowdown
 % \showsymbol\nRrightarrow
@@ -2055,8 +2087,10 @@
 %    \begin{macrocode}
 \Set@Mn@Sym{0}
 \Decl@Mn@Char\nrightarrow            {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nto                 {MnSyB}{\mathrel}
 \Decl@Mn@Char\nuparrow               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftarrow             {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ngets               {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownarrow             {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnearrow               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwarrow               {MnSyB}{\mathrel}
@@ -2095,6 +2129,7 @@
 \Decl@Mn@Char\nswarrowtail           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsearrowtail           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightmapsto           {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nmapsto             {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupmapsto              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftmapsto            {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownmapsto            {MnSyB}{\mathrel}
@@ -2103,6 +2138,7 @@
 \Decl@Mn@Char\nswmapsto              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsemapsto              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlhookrightarrow       {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nhookrightarrow     {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlhookuparrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlhookleftarrow        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlhookdownarrow        {MnSyB}{\mathrel}
@@ -2113,23 +2149,33 @@
 \Decl@Mn@Char\nrhookrightarrow       {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhookuparrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhookleftarrow        {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nhookleftarrow      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhookdownarrow        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhooknearrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhooknwarrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhookswarrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrhooksearrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightharpoonccw       {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nrightharpoonup     {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupharpoonccw          {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nupharpoonleft      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftharpoonccw        {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nleftharpoondown    {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownharpoonccw        {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndownharpoonright   {MnSyB}{\mathrel}
 \Decl@Mn@Char\nneharpoonccw          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwharpoonccw          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nswharpoonccw          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nseharpoonccw          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightharpooncw        {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nrightharpoondown   {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupharpooncw           {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nupharpoonright     {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nrestriction        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftharpooncw         {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nleftharpoonup      {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownharpooncw         {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndownharpoonleft    {MnSyB}{\mathrel}
 \Decl@Mn@Char\nneharpooncw           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwharpooncw           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nswharpooncw           {MnSyB}{\mathrel}
@@ -2151,14 +2197,18 @@
 \Decl@Mn@Char\nswneharpoons          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwseharpoons          {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndashedrightarrow      {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndashrightarrow     {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndasharrow          {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndasheduparrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndashedleftarrow       {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndashleftarrow      {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndasheddownarrow       {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndashednearrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndashednwarrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndashedswarrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndashedsearrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightspoon            {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nmultimap           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupspoon               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftspoon             {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownspoon             {MnSyB}{\mathrel}
@@ -2192,6 +2242,7 @@
 \Decl@Mn@Char\nsefree                {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightpitchfork        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nuppitchfork           {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\npitchfork          {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftpitchfork         {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownpitchfork         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnepitchfork           {MnSyB}{\mathrel}
@@ -2215,6 +2266,8 @@
 \Decl@Mn@Char\nswnearrows            {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsenwarrows            {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrightlsquigarrow      {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nleadsto            {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nrightsquigarrow    {MnSyB}{\mathrel}
 \Decl@Mn@Char\nuplsquigarrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftlsquigarrow       {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownlsquigarrow       {MnSyB}{\mathrel}
@@ -2231,6 +2284,7 @@
 \Decl@Mn@Char\nswrsquigarrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsersquigarrow         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsquigarrowleftright   {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nleftrightsquigarrow{MnSyB}{\mathrel}
 \Decl@Mn@Char\nsquigarrowupdown      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsquigarrowrightleft   {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsquigarrowdownup      {MnSyB}{\mathrel}
@@ -2239,6 +2293,7 @@
 \Decl@Mn@Char\nsquigarrowswne        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nsquigarrowsenw        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcurvearrowright      {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ncurvearrowright    {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcurvearrowup         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcurvearrowleft       {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcurvearrowdown       {MnSyB}{\mathrel}
@@ -2249,6 +2304,7 @@
 \Decl@Mn@Char\nrcurvearrowright      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcurvearrowup         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcurvearrowleft       {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ncurvearrowleft     {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcurvearrowdown       {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcurvearrowne         {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcurvearrownw         {MnSyB}{\mathrel}
@@ -2263,12 +2319,16 @@
 \Decl@Mn@Char\ncurvearrowswne        {MnSyB}{\mathrel}
 \Decl@Mn@Char\ncurvearrowsenw        {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftrightline         {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nrelbar             {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupdownline            {MnSyB}{\mathrel}
   \Decl@Mn@Alias\ndivides            {MnSyB}{\mathrel}
   \Decl@Mn@Alias\nmid                {MnSyB}{\mathrel}
 \Decl@Mn@Char\nneswline              {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndiagup             {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwseline              {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndiagdown           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nLeftrightline         {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nRelbar             {MnSyB}{\mathrel}
 \Decl@Mn@Char\nUpdownline            {MnSyB}{\mathrel}
   \Decl@Mn@Alias\nparallel           {MnSyB}{\mathrel}
 \Decl@Mn@Char\nNeswline              {MnSyB}{\mathrel}
@@ -2276,7 +2336,9 @@
 \Decl@Mn@Char\nrightvdash            {MnSyB}{\mathrel}
   \Decl@Mn@Alias\nvdash              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nupvdash               {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\nperp               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nleftvdash             {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ndashv              {MnSyB}{\mathrel}
 \Decl@Mn@Char\ndownvdash             {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnevdash               {MnSyB}{\mathrel}
 \Decl@Mn@Char\nnwvdash               {MnSyB}{\mathrel}
@@ -2312,10 +2374,12 @@
 \Decl@Mn@Char\nseModels              {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcirclearrowright     {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcirclearrowup        {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ncirclearrowleft    {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcirclearrowleft      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nrcirclearrowdown      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcirclearrowright     {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcirclearrowup        {MnSyB}{\mathrel}
+  \Decl@Mn@Alias\ncirclearrowright   {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcirclearrowleft      {MnSyB}{\mathrel}
 \Decl@Mn@Char\nlcirclearrowdown      {MnSyB}{\mathrel}
 %    \end{macrocode}
@@ -3217,12 +3281,12 @@
 \let\Uparrow\undefined
 \let\Downarrow\undefined
 \let\Updownarrow\undefined
-\DeclareMathDelimiter{\uparrow}    {\mathrel}{MnSyA}{'001}{largesymbols}{'322}
-\DeclareMathDelimiter{\downarrow}  {\mathrel}{MnSyA}{'003}{largesymbols}{'323}
-\DeclareMathDelimiter{\updownarrow}{\mathrel}{MnSyA}{'021}{largesymbols}{'324}
-\DeclareMathDelimiter{\Uparrow}    {\mathrel}{MnSyA}{'011}{largesymbols}{'325}
-\DeclareMathDelimiter{\Downarrow}  {\mathrel}{MnSyA}{'013}{largesymbols}{'326}
-\DeclareMathDelimiter{\Updownarrow}{\mathrel}{MnSyA}{'025}{largesymbols}{'327}
+\DeclareMathDelimiter{\uparrow}    {\mathrel}{MnSyA}{'001}{largesymbols}{'325}
+\DeclareMathDelimiter{\downarrow}  {\mathrel}{MnSyA}{'003}{largesymbols}{'326}
+\DeclareMathDelimiter{\updownarrow}{\mathrel}{MnSyA}{'021}{largesymbols}{'327}
+\DeclareMathDelimiter{\Uparrow}    {\mathrel}{MnSyA}{'011}{largesymbols}{'330}
+\DeclareMathDelimiter{\Downarrow}  {\mathrel}{MnSyA}{'013}{largesymbols}{'331}
+\DeclareMathDelimiter{\Updownarrow}{\mathrel}{MnSyA}{'025}{largesymbols}{'332}
 
 
 % \horiz@expandable{sym1}..{sym6}{style}{arg}
@@ -3335,6 +3399,9 @@
 \DeclareMathAccent{\widetilde}{\mathord}{largesymbols}{'307}
 \DeclareMathAccent{\wideparen}{\mathord}{largesymbols}{'314}
 \DeclareMathAccent{\vec}{\mathord}{largesymbols}{'321}
+\DeclareMathAccent{\middlebar}{\mathord}{largesymbols}{'322}
+\DeclareMathAccent{\middleslash}{\mathord}{largesymbols}{'323}
+\DeclareMathAccent{\strokethrough}{\mathord}{largesymbols}{'324}
 %    \end{macrocode}
 %
 % There is no |\not| symbol in MnSymbol since all symbols come with a stroked companion.

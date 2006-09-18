@@ -96,3 +96,35 @@ beginsymbol(6u# + 2side_bearing#, asc_height#, 0); "vec";
   draw arrowhead(z1, 0, 5/2rule_thickness);
 endchar;
 
+
+beginsymbol(5u# + 2side_bearing#, 1/3asc_height#, 0); "middle bar";
+
+  penpos0(7/5rule_thickness, 70);
+  penpos1(7/5rule_thickness, 70);
+
+  x0 = w - x1 = side_bearing;
+  y0 = y1 = h;
+
+  fill stroke z0e -- z1e;
+endchar;
+
+beginsymbol(5u# + 2side_bearing#, 1/3asc_height#, 0); "middle slash";
+
+  penpos0(3/2rule_thickness, 70);
+  penpos1(3/2rule_thickness, 70);
+
+  x0 = w - x1 = side_bearing;
+  1/2[y0,y1] = h;
+  y1 - y0 = 2rule_thickness;
+
+  fill stroke z0e -- z1e;
+endchar;
+
+beginsymbol(5u# + 2side_bearing#, 6/4asc_height#, 0); "stroke through";
+  pickup pencircle scaled rule_thickness;
+
+  z0 = (w/2,1/6asc_height);
+
+  draw (z0 - 3/4asc_height / cosd 20 * dir 70) -- (z0 + 3/4asc_height / cosd 20 * dir 70);
+endchar;
+

@@ -804,7 +804,7 @@ extensible current_char - 2: current_char - 2, 0, current_char - 1, current_char
 charlist root_char: root_char + 1: root_char + 2: root_char + 3: root_char + 4: current_char - 2;
 
 % reserve space for accents
-current_char := 209;
+current_char := 212;
 
 for arrow_dir = 90, 270:
   beginsymbol(8u# + 2side_bearing#, vcentre(delim_height#)); "arrow up/down";
