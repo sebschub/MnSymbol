@@ -40,10 +40,10 @@
   /blackrightpointingtriangle /blackuppointingtriangle /blackleftpointingtriangle /blackdownpointingtriangle /uni220E /uni2600 /uni2721 /uni2721.alt 
 %D0
   /uni2720 /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
-  /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+  /.notdef /.notdef /.notdef /.notdef /closedequal /equalclosed /equivclosed /uni2272 
 %E0
-  /.notdef /.notdef /uni2272 /uni2273 /uni2A85 /uni2A86 /uni2A95 /uni2A96 
-  /uni22DE /uni22DF /uni21DB /uni21DA /uni2274 /uni2275 /uni2A89 /uni2A8A 
+  /uni2273 /uni2A85 /uni2A86 /uni2A95 /uni2A96 /uni22DE /uni22DF /uni21DB 
+  /uni21DA /closedequal_uni0338 /equalclosed_uni0338 /equivclosed_uni0338 /uni2274 /uni2275 /uni2A89 /uni2A8A 
 %F0
   /uni2A950338 /uni2A960338 /uni22DE0338 /uni22DF0338 /uni21DB0338 /uni21DA0338 /uni21B1 /uni21B0 
   /uni21AC /uni21AB /uni22CB /uni22CC /uni22AA /uni2224.short /parallel.short /notparallel.short

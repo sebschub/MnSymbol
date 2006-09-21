@@ -39,10 +39,10 @@
   /rootbot /rootmod /circumflexcmb /circumflexcmb.alt1 /circumflexcmb.alt2 /circumflexcmb.alt3 /circumflexcmb.alt4 /tildecomb
   /tildecomb.alt1 /tildecomb.alt2 /tildecomb.alt3 /tildecomb.alt4 /wideparen1 /wideparen2 /wideparen3 /wideparen4
 %D0
-  /wideparen5 /uni20D7 /uparrow /downarrow /arrowmod /uparrowdbl /downarrowdbl /arrowmoddbl
-  /arrow0 /arrow1 /arrow2 /arrow3 /arrow4 /arrow5 /arrow6 /arrow7
+  /wideparen5 /uni20D7 /uni0335 /uni0337 /uni0338 /uparrow /downarrow /arrowmod 
+  /uparrowdbl /downarrowdbl /arrowmoddbl /arrow0 /arrow1 /arrow2 /arrow3 /arrow4 
 %E0
-  /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
+  /arrow5 /arrow6 /arrow7 /.notdef /.notdef /.notdef /.notdef /.notdef
   /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
 %F0
   /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef /.notdef
