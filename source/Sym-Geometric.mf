@@ -1961,7 +1961,7 @@ beginoperator(med_op_size#, 1); "maltese";
 endchar;
 
 
-current_char := 225;
+current_char := 219;
 
 % Keep these consistent with the glyphs in Sym-Order.mf!
 
@@ -1970,6 +1970,60 @@ for negated = 0, 1:
   vardef ifneg(text values) =
     select(negated)(values)
   enddef;
+
+  beginorder(1, order_width# + rule_thickness#, ifneg(2,4) * equal_spread# + rule_thickness#);
+    "closedequal";
+    pickup rule_pen;
+
+    z2 - z1 = z1 - z0 = equal_spread * dir 90;
+    z5 - z4 = z4 - z3 = equal_spread * dir 90;
+
+    1/2[z0, z2] = left_point;
+    1/2[z3, z5] = right_point;
+
+    draw z0 -- z3;
+    draw z1 -- z4 -- z5 -- z2 -- cycle;
+
+    if negated = 1:
+      stroke_through(centre, 4equal_spread);
+    fi;
+  endchar;
+
+  beginorder(1, order_width# + rule_thickness#, ifneg(2,4) * equal_spread# + rule_thickness#);
+    "equalclosed";
+    pickup rule_pen;
+
+    z2 - z1 = z1 - z0 = equal_spread * dir 90;
+    z5 - z4 = z4 - z3 = equal_spread * dir 90;
+
+    1/2[z0, z2] = left_point;
+    1/2[z3, z5] = right_point;
+
+    draw z0 -- z3 -- z4 -- z1 -- cycle;
+    draw z2 -- z5;
+
+    if negated = 1:
+      stroke_through(centre, 4equal_spread);
+    fi;
+  endchar;
+
+  beginorder(1, order_width# + rule_thickness#, ifneg(2,4) * equal_spread# + rule_thickness#);
+    "equivclosed";
+    pickup rule_pen;
+
+    z2 - z1 = z1 - z0 = equal_spread * dir 90;
+    z5 - z4 = z4 - z3 = equal_spread * dir 90;
+
+    1/2[z0, z2] = left_point;
+    1/2[z3, z5] = right_point;
+
+    draw z0 -- z3 -- z5 -- z2 -- cycle;
+    draw (z1 + 1/4rule_thickness * right) -- (z4 + 1/4rule_thickness * left);
+
+    if negated = 1:
+      stroke_through(centre, 4equal_spread);
+    fi;
+  endchar;
 
   for sign = 1, -1:
     beginorder(sign, order_width# + rule_thickness#,
