@@ -29,17 +29,29 @@ To install the fonts:
 
    .../texmf/tex/latex/MnSymbol/MnSymbol.sty
 
-(4) Copy the documentation (MnSymbol.ps, MnSymbol.pdf, README) into the directory
+(4) Copy the documentation (MnSymbol.ps, MnSymbol.pdf, README) into the
+directory
 
    .../texmf/doc/latex/MnSymbol/
 
-(5) If you also want to install the PostScript fonts (these are traced fonts
-of low quality) copy
+(5) To install the PostScript fonts (courtesy of Michael Zedler) copy
 
   o ps-fonts/MnSymbol.map into .../texmf/fonts/map/dvips/MnSymbol
   o ps-fonts/*.enc        into .../texmf/fonts/enc/dvips/MnSymbol
   o ps-fonts/*.pfb        into .../texmf/fonts/type1/public/MnSymbol
 
-(6) Regenerate the file database.
+(These fonts are not strictly necessary but recommended.)
+
+(6) Regenerate the file database:
+
+  $ mktexlsr
+  
+If you installed the PostScript fonts you also need to run updmap or
+updmap-sys to make them available:
+
+  $ updmap-sys --enable Map MnSymbol.map
+
+
+Happy TeXing,
 
 Achim Blumensath
