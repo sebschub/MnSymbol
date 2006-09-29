@@ -1,8 +1,8 @@
-\def\filedate{2006/09/21}
+\def\filedate{2006/09/28}
 \def\fileversion{v1.4}
 %\iffalse
 %<*dtx>
-\ProvidesFile{MnSymbol.dtx}[2006/09/21 v1.4 math symbol font]
+\ProvidesFile{MnSymbol.dtx}[2006/09/28 v1.4 math symbol font]
 %</dtx>
 %<*driver>
 \documentclass{ltxdoc}
@@ -58,7 +58,7 @@
 % \def\showlbrace#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 4em{$\Biggl#1\biggl#1\Bigl#1\bigl#1#1$\hfil}\cs{#1}}}
 % \def\showrbrace#1{\par\noindent\hangindent5em\hangafter1\hskip0pt{\hbox to 4em{$#1\bigr#1\Bigr#1\biggr#1\Biggr#1$\hfil}\cs{#1}}}
 % \def\showover#1{\par\noindent\hangindent3em\hangafter1\hskip0pt{\hbox to 2em{$#1{abc}$\hfil}\cs{#1}}}
-% \def\showaccent#1{\par\noindent\hangindent3em\hangafter1\hskip0pt{\hbox to 2em{$#1a$\hfil}\cs{#1}}}
+% \def\showaccent#1{\par\noindent\hangindent3em\hangafter1\hskip0pt{\hbox to 2em{$#1b$\hfil}\cs{#1}}}
 %
 % \subsection*{Arrows}
 %
@@ -376,6 +376,7 @@
 % \showsymbol\Lsh
 % \showsymbol\looparrowright
 % \showsymbol\looparrowleft
+% \showsymbol\Vvdash
 % \end{multicols}
 %
 % \subsection*{Negated arrows}
@@ -1340,7 +1341,7 @@
 % \showop\complement
 % \end{multicols}
 %
-% \subsection*{Braces}
+% \subsection*{Braces and accents}
 %
 % \begin{multicols}{2}
 % \raggedright
@@ -1432,8 +1433,6 @@
 % \showover\underlinesegment
 % \end{multicols}
 %
-% \subsection*{Miscellaneous symbols}
-%
 % \begin{multicols}{2}
 % \raggedright
 % \showaccent\sqrt
@@ -1442,6 +1441,17 @@
 % \showover\widetilde
 % \showover\wideparen
 % \showaccent\vec
+% \showaccent\middlebar
+% \showaccent\middleslash
+% \showaccent\strokethrough
+% \end{multicols}
+%
+% \subsection*{Faked symbols}
+%
+% The following symbols are taken from the text font or they are assembled
+% from several glyphs.
+% \begin{multicols}{2}
+% \raggedright
 % \showsymbol\coloneq
 % \showsymbol\dagger
 % \showsymbol\ddagger
@@ -1452,13 +1462,10 @@
 % \showsymbol\yen
 % \showsymbol\Re
 % \showsymbol\Im
+% \showsymbol\hbar
+% \showsymbol\hslash
 % \showsymbol\circledR
 % \showsymbol\circledS
-% \end{multicols}
-%
-% \paragraph{AMS symbols.}
-% These symbols are only defined for compatibility with the AMS fonts.
-% \begin{multicols}{2}
 % \showsymbol\dotplus
 % \showsymbol\thicksim
 % \showsymbol\thickapprox
@@ -1467,22 +1474,21 @@
 % \showsymbol\doublebarwedge
 % \showsymbol\centerdot
 % \showsymbol\divideontimes
-% \showsymbol\Vvdash
 % \end{multicols}
 %
 % \paragraph{Missing symbols.}
 % The following symbols from Computer Modern or the AMS fonts are missing in MnSymbol.
+% If available they should be taken from the text font. (For instance, the
+% \pkg{MinionPro} package defines most of them.)
 % \begin{multicols}{3}
 % \parindent=0pt
 % |\mho|\par
-% |\hbar|\par
 % |\Finv|\par
 % |\Game|\par
 % |\eth|\par
 % |\digamma|\par
 % |\varkappa|\par
 % |\Bbbk|\par
-% |\hslash|\par
 % |\backepsilon|\par
 % |\mapstochar|\par
 % |\lhook|\par
@@ -1494,7 +1500,7 @@
 % \figureversion{tabular}
 %    \begin{macrocode}
 %<*style>
-\ProvidesPackage{MnSymbol}[2006/09/21 v1.4 support for the MnSymbol font]
+\ProvidesPackage{MnSymbol}[2006/09/28 v1.4 support for the MnSymbol font]
 %    \end{macrocode}
 %
 % Options to select the calligraphic font.
@@ -1541,6 +1547,10 @@
   \DeclareRobustCommand{\dotplus}{\dot{+}}
   \DeclareRobustCommand{\thicksim}{\mathrel{\text{\boldmath$\m@th\sim$}}}
   \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
+  \let\hbar\undefined
+  \let\hslash\undefined
+  \DeclareRobustCommand{\hbar}{\middlebar h}
+  \DeclareRobustCommand{\hslash}{\middleslash h}
 
   \let\lneq\nleq
   \let\gneq\ngeq
@@ -1559,7 +1569,6 @@
 % (a) Missing letters.
 %
 %    \begin{macrocode}
-  \let\hbar\undefined
   \let\eth\undefined
   \let\digamma\undefined
   \let\varkappa\undefined
@@ -1569,7 +1578,6 @@
   \let\Finv\undefined
   \let\Game\undefined
   \let\Bbbk\undefined
-  \let\hslash\undefined
 %    \end{macrocode}
 %
 % (b) Unneeded partial symbols.
