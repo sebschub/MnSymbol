@@ -22,6 +22,9 @@ INSTALLATION
 
 To install the fonts:
 
+(0) If you have already a version of MnSymbol installed, delete the old
+TFM and PK files.
+
 (1) Run
 
   $ cd tex
