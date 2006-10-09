@@ -29,12 +29,10 @@
 % \end{quote}
 %
 % \paragraph{Interference with other packages.}
-% The \textsf{MnSymbol} package is incompatible with the \textsf{amssymb} and
-% \textsf{amsfonts} packages. It automatically loads the \textsf{amsmath}
-% package and (in some cases) the \textsf{textcomp} package. If you want to
-% pass options to these packages you can either put the corresponding
-% |\usepackage| command \emph{before} the |\usepackage{MnSymbol}| or you can
-% include the options in the |\documentclass| command.
+% The \textsf{MnSymbol} package is incompatible with the \textsf{amssymb} and \textsf{amsfonts}
+% packages. It automatically loads the \textsf{amsmath} and \textsf{textcomp} packages. If you
+% want to pass options to these packages you can either put the corresponding |\usepackage| command
+% before the |\usepackage{MnSymbol}| or you can include the options in the |\documentclass| command.
 %
 % \paragraph{Options.}
 % The \textsf{MnSymbol} package supports the following options\?:
@@ -1481,7 +1479,7 @@
 % \paragraph{Missing symbols.}
 % The following symbols from Computer Modern or the AMS fonts are missing in MnSymbol.
 % If available they should be taken from the text font. (For instance, the
-% \pkg{MinionPro} package defines most of them.)
+% \textsf{MinionPro} package defines most of them.)
 % \begin{multicols}{3}
 % \parindent=0pt
 % |\mho|\par
@@ -3361,13 +3359,16 @@
 
 \def\bracefill@#1#2#3#4#5{$\m@th#5#1\leaders\hbox{$#4$}\hfill#2\leaders\hbox{$#4$}\hfill#3$}
 
-\DeclareRobustCommand{\downbracefill}{\bracefill@\braceld\bracemd\bracerd\bracemid}
-\DeclareRobustCommand{\upbracefill}{\bracefill@\bracelu\bracemu\braceru\bracemid}
+\def\downbracefill@{\bracefill@\braceld\bracemd\bracerd\bracemid}
+\def\upbracefill@{\bracefill@\bracelu\bracemu\braceru\bracemid}
 \def\downgroupfill@{\bracefill@\braceld{}\bracerd\bracemid}
 \def\upgroupfill@{\bracefill@\bracelu{}\braceru\bracemid}
 \def\linesegmentfill@{\arrowfill@\leftfootline\relbar\rightfootline}
 \def\leftharpoonfill@{\arrowfill@\leftharpoondown\relbar\relbar}
 \def\rightharpoonfill@{\arrowfill@\relbar\relbar\rightharpoonup}
+
+\DeclareRobustCommand{\downbracefill}{\downbracefill@\textstyle}
+\DeclareRobustCommand{\upbracefill}{\upbracefill@\textstyle}
 
 \def\upbrace@expandable{%
   \horiz@expandable
@@ -3376,7 +3377,7 @@
     \upbracegg
     \upbraceggg
     \upbracegggg
-    \upbracefill}
+    \upbracefill@}
 \def\downbrace@expandable{%
   \horiz@expandable
     \downbrace
@@ -3384,7 +3385,7 @@
     \downbracegg
     \downbraceggg
     \downbracegggg
-    \downbracefill}
+    \downbracefill@}
 
 \DeclareRobustCommand{\overbrace}[1]{\mathop{\mathpalette{\overbrace@expandable\downbrace@expandable}{#1}}\limits}
 \DeclareRobustCommand{\underbrace}[1]{\mathop{\mathpalette{\underbrace@expandable\upbrace@expandable}{#1}}\limits}
