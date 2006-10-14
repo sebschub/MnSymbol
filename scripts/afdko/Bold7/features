@@ -1,0 +1,11 @@
+include(../features.all)
+
+feature size {
+   parameters  70  # design size (decipoints)
+                2  # subfamily identifier
+               65  # range start (exclusive, decipoints)
+               75; # range end (inclusive, decipoints)
+   sizemenuname "MnSymbol";
+   sizemenuname 1 "MnSymbol";
+} size;
+

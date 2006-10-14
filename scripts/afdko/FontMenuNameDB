@@ -24,92 +24,64 @@
 
 [MnSymbol5]
 	f=MnSymbol
-	s=5
-	c=5
-        c=1,5
-        b=Bold5
+	s=Regular 5
+        b=Bold 5
 
 [MnSymbol6]
 	f=MnSymbol
-	s=6
-	c=6
-        c=1,6
-        b=Bold6
+	s=Regular 6
+        b=Bold 6
 
 [MnSymbol7]
 	f=MnSymbol
-	s=7
-	c=7
-        c=1,7
-        b=Bold7
+	s=Regular 7
+        b=Bold 7
 
 [MnSymbol8]
 	f=MnSymbol
-	s=8
-	c=8
-        c=1,8
-        b=Bold8
+	s=Regular 8
+        b=Bold 8
 
 [MnSymbol9]
 	f=MnSymbol
-	s=9
-	c=9
-        c=1,9
-        b=Bold9
+	s=Regular 9
+        b=Bold 9
 
 [MnSymbol10]
 	f=MnSymbol
-        s=10
-        c=10
-        c=1,10
-        b=Bold10
+        s=Regular 10
+        b=Bold 10
 
 [MnSymbol12]
 	f=MnSymbol
-	s=12
-	c=12
-        c=1,12
-        b=Bold12
+	s=Regular 12
+        b=Bold 12
 
 [MnSymbol-Bold5]
 	f=MnSymbol
-	s=Bold5
-	c=Bold5
-        c=1,Bold5
+	s=Bold 5
 
 [MnSymbol-Bold6]
 	f=MnSymbol
-	s=Bold6
-	c=Bold6
-        c=1,Bold6
+	s=Bold 6
 
 [MnSymbol-Bold7]
 	f=MnSymbol
-	s=Bold7
-	c=Bold7
-        c=1,Bold7
+	s=Bold 7
 
 [MnSymbol-Bold8]
 	f=MnSymbol
-	s=Bold8
-	c=Bold8
-        c=1,Bold8
+	s=Bold 8
 
 [MnSymbol-Bold9]
 	f=MnSymbol
-	s=Bold9
-	c=Bold9
-        c=1,Bold9
+	s=Bold 9
 
 [MnSymbol-Bold10]
 	f=MnSymbol
-	s=Bold10
-	c=Bold10
-        c=1,Bold10
+	s=Bold 10
 
 [MnSymbol-Bold12]
 	f=MnSymbol
-	s=Bold12
-	c=Bold12
-        c=1,Bold12
+	s=Bold 12
 

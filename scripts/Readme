@@ -1,0 +1,38 @@
+Generating pfb using Metapost and FontForge
+-------------------------------------------
+
+1) apply 'patch_mf_sources' 
+2) run 'convert-fonts.sh'. This generates eps files for each glyph
+   in the 'source' directory
+3) install a recent version of FontForge.
+   run 
+     for i in "" "-Bold"
+     do 
+       for j in 5 6 7 8 9 10 12
+       do 
+         ./mkMn.ff $j $i 2>&1 | grep -v showpage
+         ./postprocess.ff $j $i
+       done
+     done
+   
+   This generates the sfd and pfb files in the scripts directory. If 
+   in the meantime some extra glyphs have been added to MnSymbol, 
+   make sure to adapt in 'postprocess.ff' the line
+     Select("NameMe.209","NameMe.255.1");
+     DetachAndRemoveGlyphs();
+   so that no 'NameMe' glyphs remain after postprocessing.
+   Then check each pfb that modified glyphs render correctly, in
+   particular with respect to open and intersecting paths.
+4) run
+     mkdir final
+     for i in *.pfb
+     do 
+       t1disasm $i | gawk -f packsubr.awk | t1asm -b > final/$i
+     done
+5) For generating an otf version using AFDKO 2.0, copy the final pfb 
+   into the according afdko subdirectories and in each run
+     makeotf -r -addn -f MnSymbol<size>.pfb
+   and for the bold fonts
+     makeotf -r -addn -b -f MnSymbol-Bold<size>.pfb
+
+

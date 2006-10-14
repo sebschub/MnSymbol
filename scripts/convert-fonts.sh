@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ..
-#patch -p1 < scripts/patch_mf_sources
+patch -p1 < scripts/patch_mf_sources
 cd source
 
 for i in A B C D E F

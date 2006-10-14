@@ -45,7 +45,7 @@ Select("arrow0","arrow7");
 DetachAndRemoveGlyphs();
 
 Reencode("AdobeStandardEncoding");
-Select("NameMe.207","NameMe.255.1");
+Select("NameMe.209","NameMe.255.1");
 DetachAndRemoveGlyphs();
 Reencode("AdobeStandardEncoding");
 
@@ -54,6 +54,11 @@ RoundToInt();
 AddExtrema();
 Simplify(0,0.01);
 AutoHint();
+SelectAll();
+UnlinkReference();
+SelectAll();
+ReplaceWithReference();
+SelectAll();
 
 Save("MnSymbol"+suffix+size+".sfd");
 Generate("MnSymbol"+suffix+size+".pfb","",0x40000+0x200000);

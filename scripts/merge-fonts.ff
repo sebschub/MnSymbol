@@ -1,5 +1,7 @@
 #!/usr/local/bin/fontforge
 
+# Script for generating traced pfb 
+
 i = 5;
 while (i<=12)
         Open("MnSymbolA"+i+".pfb");
