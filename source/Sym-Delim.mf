@@ -10,7 +10,9 @@ def draw_bracket(expr sign, thick, draw_top, draw_mid, draw_bot, draw_double) =
   penpos6(1/2thick, 0);
   penpos7(1/2thick, 0);
 
-  x3 - x2 = x5 - x4 = sign * (w - 2side_bearing - 2u + thick);
+  x3 - x2 = x5 - x4 = sign * (w - 2side_bearing); % - 2u + thick);
+
+  1/2[x2,x3] = w/2 + sign * 1/2u;
 
   if draw_top:
     y1 = h;
@@ -33,8 +35,6 @@ def draw_bracket(expr sign, thick, draw_top, draw_mid, draw_bot, draw_double) =
   y4r = y5r;
   z2l = z0l;
   z4r = z1l;
-
-  x2 = w/2 - sign * (w/2 - side_bearing - 3/2u + 1/2thick);
 
   if draw_mid:
     fill stroke z0e -- z1e;
