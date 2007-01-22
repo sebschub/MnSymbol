@@ -1549,7 +1549,10 @@
   \DeclareRobustCommand{\thickapprox}{\mathrel{\text{\boldmath$\m@th\approx$}}}
   \let\hbar\undefined
   \let\hslash\undefined
-  \DeclareRobustCommand{\hbar}{\middlebar h}
+  % Hack for backward compatibility with the MinionPro package:
+  % If the package is loaded then we do not need to define \hbar.
+  \@ifpackageloaded{MinionPro}{}{%
+    \DeclareRobustCommand{\hbar}{\middlebar h}}
   \DeclareRobustCommand{\hslash}{\middleslash h}
 
   \let\lneq\nleq
