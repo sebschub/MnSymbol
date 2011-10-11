@@ -1,0 +1,14 @@
+#!/usr/local/bin/fontforge
+
+weight=$argv[1];
+
+Open("MdSymbolA-" + weight + ".pfb");
+MergeFonts("MdSymbolB-" + weight + ".pfb");
+MergeFonts("MdSymbolC-" + weight + ".pfb");
+MergeFonts("MdSymbolD-" + weight + ".pfb");
+MergeFonts("MdSymbolE-" + weight + ".pfb");
+MergeFonts("MdSymbolF-" + weight + ".pfb");
+
+SetFontNames("MdSymbol-" + weight, "MdSymbol", "MdSymbol " + weight);
+
+Generate("MdSymbol-"+weight+".pfb", "", 0);
