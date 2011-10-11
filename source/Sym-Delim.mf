@@ -821,7 +821,7 @@ for arrow_dir = 90, 270:
     fi;
 
     draw foot -- head;
-    draw_arrowhead(head, arrow_dir, arrow_spread);
+    draw arrowhead(head, arrow_dir, arrow_spread);
   endchar;
 endfor;
 
@@ -857,15 +857,10 @@ for arrow_dir = 90, 270:
     1/2[z0,z1] = foot - 1/2rule_thickness * dir arrow_dir;
     1/2[z2,z3] = head;
 
-    draw z0 -- 1/2[z0,z2];
-    draw z1 -- 1/2[z1,z3];
+    draw z0 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2);
+    draw z1 -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
 
-    linecap:=butt;
-    draw 1/3[z0,z2] -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z0 -- z2);
-    draw 1/3[z1,z3] -- arrowhead_intersection(head, arrow_dir, 13/10arrow_spread, z1 -- z3);
-    linecap:=rounded;
-
-    draw_arrowhead(head, arrow_dir, 13/10arrow_spread);
+    draw arrowhead(head, arrow_dir, 13/10arrow_spread);
   endchar;
 endfor;
 
@@ -884,12 +879,4 @@ endchar;
 extensible current_char-2: current_char-2, 0, current_char,   current_char;
 extensible current_char-1: current_char,   0, current_char-1, current_char;
 extensible current_char:   current_char-2, 0, current_char-1, current_char;
-
-for alpha = 0, 90, 180, 270, 45, 135, 225, 315:
-  beginarrow(alpha, 1, arrow_spread#); "single arrow (" & decimal alpha & ")";
-    pickup rule_pen;
-    draw_arrowhead(head, arrow_dir, arrow_spread);
-
-  endchar;
-endfor;
 
