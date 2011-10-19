@@ -400,10 +400,16 @@ for sign = 1, -1:
   charlist current_char - 4: current_char - 3: current_char - 2: current_char - 1: current_char;
 endfor;
 
-def draw_paren(expr sign, thick) =
+def draw_paren(expr sign, thick, scale) =
+  % make middle part thicker; less thicker for larger scale factors;
+  % e.g. for scale=2 1/3 larger, for scale=6 not thicker, in between
+  % quadrat function; adjust the following when changing the lowest or
+  % the largest scale factor!
+  bigfac:=1+1/3*(1/16*((scale-6)**2));
+  
   penpos0(1/2thick,  90 - sign * 40);
   penpos1(1/2thick, -90 + sign * 40);
-  penpos2(4/3thick,  90 - sign * 90);
+  penpos2(bigfac*thick,  90 - sign * 90);
 
   x0 = x1 = x2 + sign * (w - 2side_bearing - thick);
 
@@ -422,7 +428,7 @@ rparen_char = current_char + 6;
 for sign = 1, -1:
   for scale = 2, 2.5, 3.3, 4.2, 5.1:
     beginsymbol(2/3*(scale + 5.5) * u# + 2side_bearing#, vcentre(scale * delim_height#)); "parenthesis";
-      draw_paren(sign, 9/20rule_thickness * sqrt (4*scale));
+      draw_paren(sign, 5/4rule_thickness * sqrt (scale/2), scale);
     endchar;
   endfor;
 endfor;
@@ -431,10 +437,11 @@ endfor;
 
 for sign = 1, -1:
   beginsymbol(2/3*(6 + 5.5) * u# + 2side_bearing#, vcentre(6/2 * delim_height#)); "parenthesis -- top";
-    thick := 9/20rule_thickness * sqrt 24;
-
+    thick := 5/4rule_thickness * sqrt (6/2);
+    bigfac:= 1;
+  
     penpos1(1/2thick, -90 + sign * 40);
-    penpos2(4/3thick, 90 - sign * 90);
+    penpos2(bigfac*thick, 90 - sign * 90);
 
     x1 = x2 + sign * (w - 2side_bearing - thick);
 
@@ -448,10 +455,11 @@ endfor;
 
 for sign = 1, -1:
   beginsymbol(2/3*(6 + 5.5) * u# + 2side_bearing#, vcentre(6/2 * delim_height#)); "parenthesis -- bot";
-    thick := 9/20rule_thickness * sqrt 24;
+    thick := 5/4rule_thickness * sqrt (6/2);
+    bigfac:= 1;  
 
     penpos0(1/2thick, 90 - sign * 40);
-    penpos2(4/3thick, 90 - sign * 90);
+    penpos2(bigfac*thick, 90 - sign * 90);
 
     x0 = x2 + sign * (w - 2side_bearing - thick);
 
@@ -465,11 +473,12 @@ endfor;
 
 for sign = 1, -1:
   beginsymbol(2/3*(6 + 5.5) * u# + 2side_bearing#, vcentre(delim_height#)); "parenthesis -- module";
-    thick := 9/20rule_thickness * sqrt 24;
+    thick := 5/4rule_thickness * sqrt (6/2);
+    bigfac:= 1;
 
     penpos1(1/2thick, 90 - sign * 40);
-    penpos2(4/3thick, 90 - sign * 90);
-    penpos3(4/3thick, 90 - sign * 90);
+    penpos2(bigfac*thick, 90 - sign * 90);
+    penpos3(bigfac*thick, 90 - sign * 90);
 
     x2 = x3 = x1 - sign * (w - 2side_bearing - thick);
 

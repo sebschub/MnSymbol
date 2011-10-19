@@ -1,0 +1,22 @@
+MnSymbol Modifications
+======================
+
+This repository is based on MnSymbol by Achim Blumensath, a
+mathematical symbol font for Adobe Minion Pro, and includes minor font
+modifications.
+
+If you have already installed the original MnSymbol, just replace or
+add the files:
+    o    pfb/*    in .../texmf/fonts/type1/public/MnSymbol/
+    o    source/* in .../texmf/fonts/source/public/mnsymbol/
+If you have not installed MnSymbol yet, follow doc/README.
+
+The Makefile and scripts are partly adapted from the FdSymbol project
+by Michael Ummels.  DO NOT USE THE MAKEFILE unless you know what you
+are doing.
+
+
+History
+=======
+
+1.002: Thinner parentheses
