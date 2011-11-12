@@ -331,19 +331,38 @@ def draw_angle(suffix $)(expr shift, sign, thick) =
   thicker := ((w - 2side_bearing - 2abs shift - thick)++(1/2(w+d)))/(1/2(w+d))*thick;
   thin := 7/8thicker;
 
-  pickup pencircle scaled (thin);
+%  pickup pencircle scaled (thin);
 
   x0$ = x1$ = x2$ + sign * (w - 2side_bearing - 2abs shift - thick);
 
   x3$ = x2$ + sign * 3/8thicker;
 
-  top y1$ =  h;
-  bot y0$ = -d;
+  y1$ =  h - 1/2thin;
+  y0$ = -d + 1/2thin;
   1/2[y0$,y1$] = y2$ = y3$;
   1/2[x0$,x2$] = w/2;
 
-  draw (z0$ + shift * right) -- (z2$ + shift * right) -- (z1$ + shift * right) -- (z3$ + shift * right) -- cycle;
-  labels(0$,1$,2$,3$);
+  z4$   = z2$ + sign*thin/2 * left;
+  z4'$  = z2$ + thin/2 * dir(angle(z1$-z2$)+sign*90);
+  z4''$ = z2$ + thin/2 * dir(angle(z2$-z0$)+sign*90);
+  z5$   = z3$ + sign*thin/2 * right;
+
+  z6$   = z0$ + thin/2 * dir(angle(z0$-1/2[z2$,z3$]));
+  z6'$  = z0$ + thin/2 * dir(angle(z0$-z3$)+sign*90);
+  z6''$ = z0$ + thin/2 * dir(angle(z2$-z0$)+sign*90);
+
+  z7$   = z1$ + thin/2 * dir(angle(z1$-1/2[z2$,z3$]));
+  z7'$  = z1$ + thin/2 * dir(angle(z1$-z3$)+sign*90);
+  z7''$ = z1$ + thin/2 * dir(angle(z2$-z1$)+sign*90);
+
+  fill (z5$ + shift * right) --
+    (z7''$ + shift * right){dir(angle(z7''$-z5$))} .. (z7$ + shift * right) .. {dir(angle(z4'$-z7'$))}(z7'$ + shift * right) --
+    (z4'$ + shift * right){dir(angle(z4'$-z7'$))} .. (z4$ + shift * right) .. {dir(angle(z6''$-z4''$))}(z4''$ + shift * right) --
+    (z6''$ + shift * right){dir(angle(z6''$-z4''$))} .. (z6$ + shift * right) .. {dir(angle(z5$-z6'$))}(z6'$ + shift * right) --
+    cycle;
+
+%  draw (z0$ + shift * right) -- (z2$ + shift * right) -- (z1$ + shift * right) -- (z3$ + shift * right) -- cycle;
+  labels(0$,1$,2$,3$, 4$, 4'$, 4''$, 5$, 6$, 6'$, 6''$, 7$, 7'$, 7''$);
 enddef;
 
 for sign = 1, -1:
@@ -365,9 +384,9 @@ for sign = 1, -1:
 
       x3 = x4 = (1/(2*scale))[x0a,x2a];
 
-      pickup pencircle scaled (12/25rule_thickness * sqrt(scale/2));
+      thin := 12/25rule_thickness * sqrt(scale/2);
 
-      draw z3 -- z4;
+      fill (z3 + 1/2thin*right) -- (z3 + 1/2thin*left) -- (z4 + 1/2thin*left) -- (z4 + 1/2thin*right) -- cycle;
     endchar;
   endfor;
   charlist current_char - 4: current_char - 3: current_char - 2: current_char - 1: current_char;
